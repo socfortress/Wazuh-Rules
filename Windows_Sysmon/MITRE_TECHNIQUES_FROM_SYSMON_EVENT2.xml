@@ -1,0 +1,13 @@
+<group name="windows,sysmon,">
+  <!-- Sysmon - Event 2: A process changed a file creation time by $(win.eventdata.image) -->
+  <rule id="101101" level="3">
+  <if_sid>61604</if_sid>
+  <field name="win.eventdata.RuleName">^technique_id=T1099,technique_name=Timestomp$</field>
+  <description>Sysmon - Event 2: A process changed a file creation time by $(win.eventdata.image)</description>
+  <mitre>
+  <id>T1099</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>sysmon_event2,</group>
+  </rule>
+</group>
