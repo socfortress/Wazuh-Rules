@@ -1,0 +1,24 @@
+<group name="windows,sysmon,">
+  <!-- Sysmon - Event 15: FileCreateStreamHash by $(win.eventdata.image) -->
+  <rule id="114101" level="3">
+  <if_sid>61617</if_sid>
+  <field name="win.eventdata.RuleName">^technique_id=T1089,technique_name=Drive-by Compromise$</field>
+  <description>Sysmon - Event 15: FileCreateStreamHash by $(win.eventdata.image)</description>
+  <mitre>
+  <id>T1089</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>sysmon_event_15,</group>
+  </rule>
+  <!-- Sysmon - Event 15: FileCreateStreamHash by $(win.eventdata.image) -->
+  <rule id="114102" level="3">
+  <if_sid>61617</if_sid>
+  <field name="win.eventdata.RuleName">^technique_id=T1059.001,technique_name=PowerShell$</field>
+  <description>Sysmon - Event 15: FileCreateStreamHash by $(win.eventdata.image)</description>
+  <mitre>
+  <id>T1059</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>sysmon_event_15,</group>
+  </rule>
+</group>
