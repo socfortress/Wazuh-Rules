@@ -1,4 +1,4 @@
-# Wazuh-Rules
+# SOCFortress Wazuh-Rules
 
 [![N|Solid](https://myservice.socfortress.co/public/img/grafana_icon.svg)](https://www.socfortress.co/)
 
