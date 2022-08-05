@@ -7,6 +7,8 @@
 
 ## Have Wazuh deployed and ingesting your logs but looking for some better detection rules? Look no further. The objective for this repo is to provide the Wazuh community with rulesets that are more accurate, descriptive, and enriched from various sources and integrations.
 
+# FEEL FREE TO MERGE REQUEST ANY RULES THAT YOU THINK THE COMMUNITY COULD BENEFIT FROM
+
 ## Categories of various tools that this repo containes rules for are below
 
 * Sysmon for Windows
@@ -14,6 +16,7 @@
 * Office365
 * Microsoft Defender
 * Sophos
+* MISP
 * Osquery
 * Yara
 * Suricata
