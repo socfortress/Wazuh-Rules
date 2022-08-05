@@ -1,0 +1,213 @@
+<group name="windows,sysmon,">
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106101" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1059.001,technique_name=PowerShell$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1059</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106102" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T0137.005,technique_name=Boot or Logon Initialization Scripts - Startup Items$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T0137</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106103" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1197,technique_name=BITS$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1197</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106104" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1055,technique_name=Process Injection$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1055</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106105" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1047,technique_name=Windows Scheduled Tasks$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1047</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106106" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1064,technique_name=Windows Scripting Host Component$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1064</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106107" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1170,technique_name=MSHTA with AMSI Bypass$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1170</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106108" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1137,technique_name=Office Application Startup$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1137</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106109" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1175,technique_name=Component Object Model and Distributed COM$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1175</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106110" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1047,technique_name=Windows Management Instrumentation$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1047</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106111" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1059.001,technique_name=PowerShell$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1059</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106112" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=1210,technique_name=Exploitation of Remote Services$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1210</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106113" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1112,technique_name=Modify Registry$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1112</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106114" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1003.004,technique_name=LSASS Memory$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1003</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106115" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1053,technique_name=Scheduled Task$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1053</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106116" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1218.010,technique_name=Regsvr32$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1218</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
+<rule id="106117" level="3">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1073,technique_name=DLL Side-Loading$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1073</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!-- Sysmon - Event 7: Anomalies -->
+<!-- Sysmon - Event 7: Unsigned Image loaded by $(win.eventdata.image) -->
+<rule id="106118" level="10">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.signed">^false$</field>
+<description>Sysmon - Event 7: Unsigned Image loaded by $(win.eventdata.image)</description>
+<group>sysmon_event7,sysmon_anomaly</group>
+<mitre>
+<id>T1547</id>
+</mitre>
+<options>no_full_log</options>
+</rule>
+<!-- Sysmon - Event 7: Unsigned Image Exception for Microsoft DLLs -->
+<rule id="106119" level="3">
+<if_sid>106118</if_sid>
+<field name="win.eventdata.company">^Microsoft Corporation$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<group>sysmon_event7</group>
+<mitre>
+<id>T1059</id>
+</mitre>
+<options>no_full_log</options>
+</rule>
+<!-- Rules 106600 - 106699: Correlation Rules -->
+</group>
