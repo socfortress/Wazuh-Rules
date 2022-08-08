@@ -1,0 +1,58 @@
+<group name="threat_intel,">
+ <rule id="100620" level="10">
+    <field name="integration">misp</field>
+    <description>MISPs</description>
+    <group>misp,</group>
+    <options>no_full_log</options>
+  </rule>
+<rule id="100621" level="5">
+    <if_sid>100620</if_sid>
+    <field name="misp.error">\.+</field>
+    <description>MISP - Error connecting to API</description>
+    <options>no_full_log</options>
+    <group>misp,misp_error,</group>
+  </rule>
+<rule id="100622" level="12">
+    <if_sid>100620</if_sid>
+    <field name="misp.category">\.+</field>
+    <description>MISP - IoC found in Threat Intel - Category: $(misp.category), Attribute: $(misp.value)</description>
+    <options>no_full_log</options>
+    <group>misp,misp_alert,</group>
+  </rule>
+ <rule id="100623" level="10">
+    <field name="integration">opencti</field>
+    <description>OpenCTI</description>
+    <group>opencti,</group>
+    <options>no_full_log</options>
+  </rule>
+<rule id="100624" level="5">
+    <if_sid>100623</if_sid>
+    <field name="opencti.error">\.+</field>
+    <description>OpenCTI - Error connecting to API</description>
+    <options>no_full_log</options>
+    <group>opencti,opencti_error,</group>
+  </rule>
+<rule id="100625" level="12">
+    <if_sid>100623</if_sid>
+    <field name="opencti.id">\.+</field>
+    <description>OpenCTI - IoC found in Threat Intel - $(opencti.observable_value)</description>
+    <options>no_full_log</options>
+    <group>opencti,opencti_alert,</group>
+  </rule>
+<rule id="100650" level="12">
+  <decoded_as>json</decoded_as>
+  <field name="sections">\.+</field>
+  <field name="type">\.+</field>
+  <description>AlienVault OTX -Indicator(s) Found</description>
+  <mitre>
+   <id>T1036</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>alienvault,otx_alert,</group>
+</rule>
+<rule id="100651" level="12">
+    <field name="abuseipdb.abuse_confidence_score" type="pcre2" negate="yes">^0$</field>
+    <description>IP with $(abuseipdb.abuse_confidence_score)% confidence of abuse was connected to.</description>
+    <group>abuseipdb,abuseipdb_alert,</group>
+  </rule>
+</group>
