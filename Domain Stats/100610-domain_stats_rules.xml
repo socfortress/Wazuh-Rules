@@ -1,0 +1,56 @@
+<group name="dnsstat,">
+ <rule id="100610" level="5">
+    <field name="integration">dnsstat</field>
+    <description>DNS Stats</description>
+    <options>no_full_log</options>
+    <group>dnsstat_alert,</group>
+  </rule>
+<rule id="100611" level="5">
+    <if_sid>100610</if_sid>
+    <field name="dnsstat.alerts">LOW-FREQ-SCORES|SUSPECT-FREQ-SCORE</field>
+    <description>DNS Stats - Low Frequency Score in Queried Domain</description>
+    <mitre>
+     <id>T1071</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>dnsstat_alert,</group>
+  </rule>
+
+<rule id="100612" level="5">
+    <if_sid>100610</if_sid>
+    <field name="dnsstat.alerts">YOUR-FIRST-CONTACT</field>
+    <description>DNS Stats - Domain Queried for the first time</description>
+    <mitre>
+     <id>T1071</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>dnsstat_alert,</group>
+  </rule>
+<rule id="100613" level="5">
+      <if_sid>100610</if_sid>
+      <field name="dnsstat.category">NEW</field>
+      <description>DNS Stats - DNS Query to Recently Created Domain</description>
+      <mitre>
+       <id>T1071</id>
+      </mitre>
+      <options>no_full_log</options>
+      <group>dnsstat_alert,</group>
+    </rule>
+<rule id="100614" level="5">
+    <if_sid>100610</if_sid>
+    <field name="dnsstat.error">\.+</field>
+    <description>DNS Stats - Error connecting to API</description>
+    <options>no_full_log</options>
+    <group>dnsstat_error,</group>
+  </rule>
+<rule id="100615" level="5">
+      <if_sid>100610</if_sid>
+      <field name="dnsstat.category">ERROR</field>
+      <description>DNS Stats - RDAP Error Querying Domain</description>
+      <mitre>
+       <id>T1071</id>
+      </mitre>
+      <options>no_full_log</options>
+      <group>dnsstat_error,</group>
+    </rule>
+</group>
