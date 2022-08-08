@@ -24,13 +24,7 @@ Edit agent configuration in Wazuh manager (shared/groups) (/var/ossec/etc/shared
 
 Content of “autoruns.ps1”:
 
-################################
-### Script to execute Sysinternals/Autoruns
-### Aurora Networks Managed Services
-### https://www.auroranetworks.net
-### info@auroranetworks.net
-################################
-##########
+```##########
 # Script execution triggered by Wazuh Manager, wodles-command
 # Output converted to JSON and appended to active-responses.log
 ##########
@@ -83,7 +77,7 @@ Foreach ($item in $autorunsArray) {
 #  <options>no_full_log</options>
 #  <group>windows_autoruns,</group>
 #</rule>
-#</group>
+#</group>```
 Wazuh Rules: /var/ossec/etc/rules/win_autoruns_rules.xml
 
 <group name="windows,">
