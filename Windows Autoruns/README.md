@@ -12,7 +12,7 @@
 
 Edit agent configuration in Wazuh manager (shared/groups) (/var/ossec/etc/shared/your_windows_agents_group/agent.conf)
 
-`<wodle name="command">
+'<wodle name="command">
   <disabled>no</disabled>
   <tag>autoruns</tag>
   <command>Powershell.exe -executionpolicy bypass -File "C:\Program Files\Sysinternals\autoruns.ps1"</command>
@@ -20,7 +20,7 @@ Edit agent configuration in Wazuh manager (shared/groups) (/var/ossec/etc/shared
   <ignore_output>yes</ignore_output>
   <run_on_start>yes</run_on_start>
   <timeout>0</timeout>
-</wodle>`
+</wodle>'
 
 Content of “autoruns.ps1”:
 
