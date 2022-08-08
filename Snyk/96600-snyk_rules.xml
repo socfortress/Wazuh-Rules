@@ -1,0 +1,19 @@
+<!--
+  -  SNYK Docker Image Scan Rules
+-->
+<group name="vulnerability-detector,snyk,">
+    <rule id="96600" level="10">
+        <decoded_as>json</decoded_as>
+        <field name="packageName">\.+</field>
+        <field name="severity">medium</field>
+        <description>Snyk: Alert - Vulnerable Packages - $(packageName)</description>
+        <options>no_full_log</options>
+    </rule>
+    <rule id="96601" level="12">
+        <decoded_as>json</decoded_as>
+        <field name="packageName">\.+</field>
+        <field name="severity">high</field>
+        <description>Snyk: Alert - Vulnerable Packages - $(packageName)</description>
+        <options>no_full_log</options>
+    </rule>
+</group>
