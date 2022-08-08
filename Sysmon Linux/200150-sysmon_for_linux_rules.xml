@@ -1,0 +1,141 @@
+<!--
+ - Sysmo For Linux rules
+ - Created by SOCFortress.
+ - https://www.socfortress.co
+ - info@socfortress.co.
+-->
+<group name="linux,sysmon,">
+    <rule id="200150" level="3">
+        <decoded_as>sysmon-linux</decoded_as>
+        <field name="system.eventId">\.+</field>
+        <description>Sysmon For Linux Event</description>
+        <mitre>
+         <id>T1204</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 1-->
+    <rule id="200151" level="3">
+        <if_sid>200150</if_sid>
+        <field name="system.eventId">^1$</field>
+        <description>Sysmon - Event 1: Process creation $(eventdata.image)</description>
+        <group>sysmon_event1</group>
+        <mitre>
+         <id>T1204</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 3-->
+    <rule id="200152" level="3">
+        <if_sid>200150</if_sid>
+        <field name="system.eventId">^3$</field>
+        <description>Sysmon - Event 3: Network connection by $(eventdata.image)</description>
+        <group>sysmon_event3</group>
+        <mitre>
+         <id>T1043</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 5-->
+    <rule id="200153" level="3">
+        <if_sid>200150</if_sid>
+        <field name="system.eventId">^5$</field>
+        <description>Sysmon - Event 5: Process terminated $(eventdata.image)</description>
+        <group>sysmon_event5</group>
+        <mitre>
+         <id>T1204</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 9-->
+    <rule id="200154" level="3">
+        <if_sid>200150</if_sid>
+        <field name="system.eventId">^9$</field>
+        <description>Sysmon - Event 9: Raw Access Read by $(eventdata.image)</description>
+        <group>sysmon_event9</group>
+        <mitre>
+         <id>T1204</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 11-->
+    <rule id="200155" level="3">
+        <if_sid>200150</if_sid>
+        <field name="system.eventId">^11$</field>
+        <description>Sysmon - Event 11: FileCreate by $(eventdata.image)</description>
+	      <group>sysmon_event_11</group>
+        <mitre>
+         <id>T1044</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 16-->
+    <rule id="200156" level="3">
+        <if_sid>200150</if_sid>
+        <field name="system.eventId">^16$</field>
+        <description>Sysmon - Event 16: Sysmon config state changed $(Event.EventData.Data.Configuration)</description>
+        <group>sysmon_event_16</group>
+        <mitre>
+         <id>T1562</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 23-->
+    <rule id="200157" level="3">
+        <if_sid>200150</if_sid>
+        <field name="system.eventId">^23$</field>
+        <description>Sysmon - Event 23: FileDelete (A file delete was detected) by $(eventdata.image)</description>
+        <group>sysmon_event_23</group>
+        <mitre>
+         <id>T1107</id>
+         <id>T1485</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--Overrides-->
+<!--EventID = 3. Discrad events if Image = /var/ossec/bin/wazuh-agentd or Image = /usr/sbin/zabbix_agentd-->
+    <rule id="200200" level="1">
+        <if_sid>200152</if_sid>
+        <field name="eventdata.image">wazuh-agentd$|zabbix_agentd$</field>
+        <description>Sysmon - Event 3: Network connection by $(eventdata.image)</description>
+        <group>sysmon_event3</group>
+        <mitre>
+         <id>T1107</id>
+         <id>T1485</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 11. Discrad events if Image = /var/ossec/bin/wazuh-agentd-->
+    <rule id="200201" level="1">
+        <if_sid>200155</if_sid>
+        <field name="eventdata.image">wazuh-agentd$</field>
+        <description>Sysmon - Event 11: FileCreate by $(eventdata.image)</description>
+        <group>sysmon_event_11</group>
+        <mitre>
+         <id>T1107</id>
+         <id>T1485</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+<!--EventID = 23. Discrad events if Image = /var/ossec/bin/wazuh-agentd-->
+    <rule id="200202" level="1">
+        <if_sid>200157</if_sid>
+        <field name="eventdata.image">wazuh-agentd$</field>
+        <description>Sysmon - Event 23: FileDelete (A file delete was detected) by $(eventdata.image)</description>
+        <group>sysmon_event_23</group>
+        <mitre>
+         <id>T1107</id>
+         <id>T1485</id>
+        </mitre>
+        <options>no_full_log</options>
+    </rule>
+
+<!-- Frequency rule to capture 2 sysmon event 3 alerts within of the same destination ip within 5 seconds -->
+<rule frequency="2" id="200203" level="1" timeframe="60">
+		<if_matched_sid>200152</if_matched_sid>
+		<same_field>eventdata.DestinationIp</same_field>
+		<description>Multiple Sysmon Level 3 alerts for same destination IP.</description>
+		<options>no_full_log</options>
+	</rule>
+
+</group>
