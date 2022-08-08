@@ -7,5 +7,7 @@
 ### [SOCFortress BLOG POST](https://socfortress.medium.com/office-365-mitre-enriched-events-using-wazuh-detection-rules-dc7e53181a8)
 
 <p align="center">
+  <a href="https://www.socfortress.co/">
 <img src="https://user-images.githubusercontent.com/95670863/183437012-6ed70011-b40d-4597-8678-e3d601b6cf4d.png" alt="logo_website (1)" width="400" height="400">
+  </a>
 </p>
