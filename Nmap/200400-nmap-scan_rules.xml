@@ -1,0 +1,9 @@
+<group name="linux,nmap,network_scan">
+    <rule id="200400" level="3">
+        <decoded_as>json</decoded_as>
+        <field name="nmap_host">\.+</field>
+        <field name="nmap_protocol">\.+</field>
+        <description>NMAP: Network Scan Host $(nmap_host)</description>
+        <options>no_full_log</options>
+    </rule>
+</group>
