@@ -1,0 +1,28 @@
+<group name="rule_exclusion,">
+<!-- Logon/Logoff Machine Accounts -->
+  <rule id="900001" level="1">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.targetUserName">\$$</field>
+    <description>Exclude Computer Account logons</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="900002" level="1">
+    <if_sid>60137</if_sid>
+    <field name="win.eventdata.targetUserName">\$$</field>
+    <description>Exclude Computer Account logouts</description>
+    <options>no_full_log</options>
+  </rule>
+<!-- Logon FREQ Rule -->
+  <rule id="900003" level="1" frequency="2" timeframe="5">
+   <if_matched_sid>60106</if_matched_sid>
+   <same_field>win.eventdata.targetUserName</same_field>
+   <description>Exclude same username login twice in 1 minute</description>
+  </rule>
+<!-- Exclude Audit Failure Events SeTcbPrivilege -->
+  <rule id="900004" level="1">
+    <if_sid>60107</if_sid>
+    <field name="win.eventdata.privilegeList">^SeTcbPrivilege$</field>
+    <description>Exclude Audit Failure Events SeTcbPrivilege</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
