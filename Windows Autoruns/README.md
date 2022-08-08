@@ -20,7 +20,8 @@ Edit agent configuration in Wazuh manager (shared/groups) (/var/ossec/etc/shared
   <ignore_output>yes</ignore_output>
   <run_on_start>yes</run_on_start>
   <timeout>0</timeout>
-</wodle>```
+</wodle>
+```
 
 Content of “autoruns.ps1”:
 
@@ -77,7 +78,8 @@ Foreach ($item in $autorunsArray) {
 #  <options>no_full_log</options>
 #  <group>windows_autoruns,</group>
 #</rule>
-#</group>```
+#</group>
+```
 Wazuh Rules: /var/ossec/etc/rules/win_autoruns_rules.xml
 
 <group name="windows,">
