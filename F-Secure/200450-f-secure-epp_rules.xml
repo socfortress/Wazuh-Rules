@@ -1,0 +1,44 @@
+<group name="windows,">
+  <rule id="200450" level="3">
+    <if_sid>60009</if_sid>
+    <field name="win.system.providerName">^F-Secure Ultralight SDK$</field>
+    <field name="win.system.eventID">^1$</field>
+    <options>no_full_log</options>
+    <group>fsecure,</group>
+    <description>F-Secure EPP - Notification</description>
+  </rule>
+  <rule id="200451" level="12">
+    <if_sid>60009</if_sid>
+    <field name="win.system.providerName">^F-Secure Ultralight SDK$</field>
+    <field name="win.system.eventID">^2$</field>
+    <options>no_full_log</options>
+    <group>fsecure,</group>
+    <description>F-Secure EPP - Virus/Malware Infection Detected</description>
+  </rule>
+  <rule id="200452" level="5">
+    <if_sid>60009</if_sid>
+    <field name="win.system.providerName">^F-Secure Ultralight SDK$</field>
+    <field name="win.system.eventID">^7$</field>
+    <options>no_full_log</options>
+    <group>fsecure,</group>
+    <description>F-Secure EPP - Network Interceptor</description>
+  </rule>
+  <rule id="200453" level="12">
+    <if_sid>60009</if_sid>
+    <field name="win.system.providerName">^F-Secure Ultralight SDK$</field>
+    <field name="win.system.eventID">^7$</field>
+    <field name="win.eventdata.rl">block_page$</field>
+    <options>no_full_log</options>
+    <group>fsecure,</group>
+    <description>F-Secure EPP - Network Interceptor, Web Access Blocked</description>
+  </rule>
+  <rule id="200454" level="12">
+    <if_sid>60009</if_sid>
+    <field name="win.system.providerName">^F-Secure Ultralight SDK$</field>
+    <field name="win.system.eventID">^6$</field>
+    <options>no_full_log</options>
+    <group>fsecure,</group>
+    <description>F-Secure EPP - Process/App Blocked</description>
+  </rule>
+
+</group>
