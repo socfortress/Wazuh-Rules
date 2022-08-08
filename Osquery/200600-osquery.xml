@@ -8,7 +8,7 @@
   </rule>
   <rule id="200601" level="1">
     <if_sid>200600</if_sid>
-    <field name="osquery.columns.name">telegraf|packetbeat|osqueryd|qemu-ga|wazuh-agentd|wazuh-logcollec|rsyslogd|wazuh-modules|wazuh-syscheckd|wazuh-execd</field>
+    <field name="osquery.columns.name">wazuh-agentd|wazuh-logcollec|rsyslogd|wazuh-modules|wazuh-syscheckd|wazuh-execd</field>
     <description>Ignore Packetbeat network connection.</description>
     <options>no_full_log</options>
     <group>osquery_exclude,</group>
