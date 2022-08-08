@@ -1,6 +1,6 @@
 # SOCFortress Wazuh-Rules
 
-[![N|Solid](https://myservice.socfortress.co/public/img/grafana_icon.svg|width=100px)](https://www.socfortress.co/)
+[![N|Solid](https://myservice.socfortress.co/public/img/grafana_icon.svg|width=100px)]
 
 [![N|Solid](https://myservice.socfortress.co/public/img/grafana_icon.svg)](https://www.socfortress.co/)
 
