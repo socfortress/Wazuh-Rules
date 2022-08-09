@@ -1,0 +1,66 @@
+<group name="windows,chainsaw,">
+ <rule id="200001" level="10">
+    <field name="timestamp">\.+</field>
+    <field name="detections">\.+</field>
+    <field name="Event ID">^1$</field>
+    <description>Chainsaw Forensics - Suspicious Process Creation</description>
+    <group>process_creation,</group>
+    <options>no_full_log</options>
+  </rule>
+ <rule id="200002" level="10">
+   <field name="timestamp">\.+</field>
+   <field name="detections">\.+</field>
+   <field name="Event ID">^3$</field>
+   <description>Chainsaw Forensics - Suspicious Network Connection</description>
+   <group>network_connection,</group>   
+   <options>no_full_log</options>
+ </rule>
+ <rule id="200003" level="10">
+   <field name="timestamp">\.+</field>
+   <field name="detections">\.+</field>
+   <field name="Event ID">^7$</field>
+   <description>Chainsaw Forensics - Suspicious Image Load</description>
+   <group>image_loaded,</group>   
+   <options>no_full_log</options>
+ </rule>
+ <rule id="200004" level="10">
+   <field name="timestamp">\.+</field>
+   <field name="detections">\.+</field>
+   <field name="Event ID">^11$</field>
+   <description>Chainsaw Forensics - Suspicious File Creation</description>
+   <group>file_creation,</group>   
+   <options>no_full_log</options>
+ </rule>
+ <rule id="200005" level="10">
+   <field name="timestamp">\.+</field>
+   <field name="detections">\.+</field>
+   <field name="Event ID">^13$</field>
+   <description>Chainsaw Forensics - Suspicious Registry Event</description>
+   <group>registry_event,</group>   
+   <options>no_full_log</options>
+ </rule>
+ <rule id="200006" level="10">
+  <field name="timestamp">\.+</field>
+  <field name="detections">\.+</field>
+  <field name="Event ID">^7045$</field>
+  <description>Chainsaw Forensics - Suspicious Service Installed</description>
+  <group>service_installed,</group>  
+  <options>no_full_log</options>
+ </rule>
+ <rule id="200007" level="10">
+  <field name="timestamp">\.+</field>
+  <field name="detections">\.+</field>
+  <field name="Event ID">^4688$</field>
+  <description>Chainsaw Forensics - Suspicious Command Line</description>
+  <group>command_line,</group>
+  <options>no_full_log</options>
+ </rule>
+ <rule id="200008" level="10">
+  <field name="timestamp">\.+</field>
+  <field name="detections">\.+</field>
+  <field name="Event ID">^4698$</field>
+  <description>Chainsaw Forensics - Suspicious Scheduled Task Created</description>
+  <group>scheduled_task,</group>  
+  <options>no_full_log</options>
+ </rule>
+</group>
