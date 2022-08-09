@@ -279,7 +279,7 @@ The folder “c:\Program Files” is used to store the chainsaw folder with the 
 
 Chainsaw powershell script execution:
 
-powershell.exe  -ExecutionPolicy Bypass -File "C:\Program Files\socfortress\chainsaw\chainsaw.ps1"
+powershell.exe  -ExecutionPolicy Bypass -File "C:\Program Files\Sysinternals\chainsaw\chainsaw.ps1"
 Chainsaw can also be regularly executed, triggered by a wodle command config on Wazuh manager.
 
 Based on Chainsaw categories mentioned earlier, we can now build Wazuh’s detection rules.
