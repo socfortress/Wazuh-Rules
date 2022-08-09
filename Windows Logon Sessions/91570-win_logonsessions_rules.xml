@@ -1,0 +1,13 @@
+<group name="windows,">
+<rule id="91570" level="3">
+  <decoded_as>json</decoded_as>
+  <field name="LogonSession">\.+</field>
+  <field name="UserName">\.+</field>
+  <description>Windows Logon Sessions - Snapshot</description>
+  <mitre>
+   <id>T1078</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>windows_logonsessions,</group>
+</rule>
+</group>
