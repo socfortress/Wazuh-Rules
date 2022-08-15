@@ -1,0 +1,37 @@
+<group name="trendmicro,">
+    <rule id="200800" level="3">
+        <decoded_as>json</decoded_as>
+        <field name="investigationStatus">\.+</field>
+        <description>TrendMicro Grouping</description>
+        <options>no_full_log</options>
+    </rule>
+    <rule id="200801" level="5">
+        <if_sid>200800</if_sid>
+        <field name="severity">low</field>
+        <description>TrendMicro Low - $(description)</description>
+        <options>no_full_log</options>
+        <group>low</group>
+    </rule>
+    <rule id="200802" level="8">
+        <if_sid>200800</if_sid>
+        <field name="severity">medium</field>
+        <description>TrendMicro Medium - $(description)</description>
+        <options>no_full_log</options>
+        <group>medium</group>
+    </rule>
+    <rule id="200803" level="12">
+        <if_sid>200800</if_sid>
+        <field name="severity">high</field>
+        <description>TrendMicro High - $(description)</description>
+        <options>no_full_log</options>
+        <group>high</group>
+    </rule>
+    <rule id="200804" level="14">
+        <if_sid>200800</if_sid>
+        <field name="severity">critical</field>
+        <description>TrendMicro Critical - $(description)</description>
+        <options>no_full_log</options>
+        <group>critical</group>
+    </rule>
+</group>
+
