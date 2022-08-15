@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timedelta
 #File to store the alerts
-output_file = '/tmp/trendmicro_alerts.log'
+output_file = '/tmp/trendmicro.json'
 #Function to append new lines to output file
 def append_new_line(text_to_append):
     """Append given text as a new line at the end of file"""
