@@ -1080,6 +1080,85 @@
     <options>no_full_log</options>
     <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
   </rule>
+  <!-- Sysmon Event 1 SMB Remote Command Ran -->
+  <rule id="100510" level="13">
+    <if_sid>100125</if_sid>
+    <field name="win.eventdata.commandLine">^cmd.exe /Q /c</field>
+    <description>Sysmon - Event 1: Suspicious Activity - Remote Command Line Invoked and Terminated.</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1059</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
+  </rule>
+  <rule id="100511" level="13">
+    <if_sid>100112</if_sid>
+    <field name="win.eventdata.parentCommandLine">^cmd.exe /Q /c</field>
+    <description>Sysmon - Event 1: Suspicious Activity - Command Line Invoked and Terminated.</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1059</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
+  </rule>
+  <rule id="100512" level="13">
+    <if_sid>100127</if_sid>
+    <field name="win.eventdata.parentCommandLine">^cmd.exe /Q /c powershell.exe</field>
+    <description>Sysmon - Event 1: Suspicious Activity - Powershell Command Line Invoked and Terminated.</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1059</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
+  </rule>
+  <rule id="100513" level="13">
+    <if_sid>100100</if_sid>
+    <field name="win.eventdata.commandLine">cmd.exe /Q /c</field>
+    <description>Sysmon - Event 1: Suspicious Activity - Remote Command Line Invoked and Terminated.</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1059</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
+  </rule>
+  <rule id="100514" level="13">
+    <if_sid>100100</if_sid>
+    <field name="win.eventdata.parentCommandLine">wmiprvse.exe -secured -Embedding$</field>
+    <description>Sysmon - Event 1: Suspicious Activity - WMI with -secured Flagged Invoked.</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1059</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
+  </rule>
+  <rule id="100515" level="13">
+    <if_sid>100100</if_sid>
+    <field name="win.eventdata.commandLine">^powershell.exe -exec bypass</field>
+    <description>Sysmon - Event 1: Suspicious Activity - Command with Powershell Exec Bypass detected.</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1059</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
+  </rule>
+  <rule id="100516" level="13">
+    <if_sid>100100</if_sid>
+    <field name="win.eventdata.parentImage">^C:\\\\Windows\\\\System32\\\\svchost.exe</field>
+    <field name="win.eventdata.image">^C:\\\\Windows\\\\System32\\\\winrshost.exe</field>
+    <description>Sysmon - Event 1: Suspicious Activity - WinRM Invoked by Svchost.</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1059</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
+  </rule>
   <!-- Rules 100600 - 100699: Correlation Rules -->
   <!-- Frequency rule to capture 3 sysmon event 1 Anomalies   -->
  
