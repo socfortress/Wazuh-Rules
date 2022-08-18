@@ -94,4 +94,15 @@
     </mitre>
     <group>logs_cleared,pci_dss_10.6.1,gpg13_10.1,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
   </rule>
+  <rule id="10010" level="12">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.logonType">^9$</field>
+    <field name="win.eventdata.logonProcessName">^seclogo$</field>
+    <field name="win.eventdata.authenticationPackageName">^Negotiate$</field>
+    <description>Potential User Login Via Pass the Hash Detected.</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>special_logon</group>
+  </rule>
 </group>
