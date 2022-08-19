@@ -49,7 +49,7 @@
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/socfortress/Wazuh-Rules/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/socfortress/Wazuh-Rules
 [forks-url]: https://github.com/socfortress/Wazuh-Rules/network/members
 [stars-shield]: https://img.shields.io/github/stars/socfortress/Wazuh-Rules
 [stars-url]: https://github.com/socfortress/Wazuh-Rules/stargazers
