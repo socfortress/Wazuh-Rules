@@ -125,10 +125,10 @@ _You can either manually download the .xml rule files onto your Wazuh Manager or
 > :warning: **USE AT OWN RISK**: If you already have custom rules built out, there is a good chance duplicate Rule IDs will exists. This will casue the Wazuh-Manager service to fail! Ensure there are no conflicting Rule IDs and your custom rules are backed up prior to running the wazuh_socfortress_rules.sh script!
 
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Become Root User
+2. Run the Script
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   curl -so ~/wazuh_socfortress_rules.sh https://raw.githubusercontent.com/socfortress/Wazuh-Rules/main/wazuh_socfortress_rules.sh && bash ~/wazuh_socfortress_rules.sh
    ```
 3. Install NPM packages
    ```sh
