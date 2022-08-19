@@ -22,7 +22,7 @@
   <h3 align="center">Advanced Wazuh Detection Rules</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Have Wazuh deployed and ingesting your logs but looking for some better detection rules? Look no further. The objective for this repo is to provide the Wazuh community with rulesets that are more accurate, descriptive, and enriched from various sources and integrations.
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
