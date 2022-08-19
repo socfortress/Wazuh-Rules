@@ -128,7 +128,7 @@ _You can either manually download the .xml rule files onto your Wazuh Manager or
    curl -so ~/wazuh_socfortress_rules.sh https://raw.githubusercontent.com/socfortress/Wazuh-Rules/main/wazuh_socfortress_rules.sh && bash ~/wazuh_socfortress_rules.sh
    ```
 
-![Alt Text](https://github.com/socfortress/Wazuh-Rules/blob/main/images/run%20install.gif)
+<center>![Alt Text](https://github.com/socfortress/Wazuh-Rules/blob/main/images/run%20install.gif)</center>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
