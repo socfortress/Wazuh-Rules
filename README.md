@@ -27,11 +27,11 @@
     <a href="https://www.socfortress.co/index.html"><strong>Worlds First Open Source Cloud SOC »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://documentation.wazuh.com/current/index.html">Wazuh Docs</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://www.socfortress.co/trial.html">FREE FOR LIFE TIER</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://socfortress.medium.com/">Our Blog</a>
   </p>
 </div>
 
