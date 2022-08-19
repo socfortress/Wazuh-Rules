@@ -1,7 +1,7 @@
 [<img src="images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
 # Advanced Wazuh Detection Rules [![Awesome](https://forthebadge.com/images/badges/open-source.svg)](https://github.com/socfortress/Wazuh-Rules)
-> Have Wazuh deployed and ingesting your logs but looking for some better detection rules? Look no further. The objective for this repo is to provide the Wazuh community with rulesets that are more accurate, descriptive, and enriched from various sources and integrations.
+> The SOCFortress Team has commited to contributing to the Open Source community. We hope you find these rulesets helpful and robust as you work to keep your networks secure :sweat_smile:
 
 
 [![Contributors][contributors-shield]][contributors-url]
