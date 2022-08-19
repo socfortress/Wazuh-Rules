@@ -154,7 +154,7 @@ Don't forget to give the project a star! Thanks again!
 
 SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+![](https://github.com/socfortress/Wazuh-Rules/blob/main/images/banner.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
