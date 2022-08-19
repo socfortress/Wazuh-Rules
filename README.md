@@ -47,7 +47,7 @@
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/socfortress/Wazuh-Rules
 [contributors-url]: https://github.com/socfortress/Wazuh-Rules/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/socfortress/Wazuh-Rules
 [forks-url]: https://github.com/socfortress/Wazuh-Rules/network/members
