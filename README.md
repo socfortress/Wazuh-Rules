@@ -17,7 +17,7 @@
 <div align="center">
   <a href="https://github.com/socfortress/Wazuh-Rules">
     <img src="images/logo_orange.svg" alt="Logo" width="100" height="100">
-    <img src="images/wazuh_logo.png" alt="Logo" width="150" height="150">
+    <img src="images/wazuh_logo.png" alt="Logo">
   </a>
 
   <h3 align="center">Advanced Wazuh Detection Rules</h3>
