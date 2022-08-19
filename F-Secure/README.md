@@ -7,7 +7,7 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
 
-## [Learn More](https://www.f-secure.com/no/business/solutions/elements-endpoint-protection/computer)
+## [![FSecure][fsecure-shield]][fsecure-url]
 
 * Block malicious files
 * Block Malicious URLs
@@ -28,3 +28,5 @@
 [license-url]: https://servicedesk.socfortress.co/help/2979687893
 [linkedin-shield]: https://img.shields.io/badge/Visit%20Us-www.socfortress.co-orange
 [linkedin-url]: https://www.socfortress.co/
+[fsecure-shield]: https://img.shields.io/badge/F-Secure-Check%20Them%20Out-blue
+[fsecure-url]: https://www.f-secure.com/no/business/solutions/elements-endpoint-protection/computer
