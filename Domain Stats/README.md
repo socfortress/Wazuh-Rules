@@ -121,9 +121,9 @@ Content of “custom-dnsstats.py”:
 
 ```
 #!/usr/bin/env python
-# Aurora Networks Managed Services
-# https://www.auroranetworks.net
-# info@auroranetworks.net.
+### SOCFortress
+### https://www.socfortress.co
+### info@socfortress.co
 #
 # This program is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public
