@@ -1,4 +1,4 @@
-[<img src="images/logo.png" align="right" width="100" height="100" />](https://www.socfortress.co/)
+[<img src="images/logo_orange.svg.png" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
 # Advanced Wazuh Detection Rules [![Awesome](https://forthebadge.com/images/badges/open-source.svg)](https://github.com/socfortress/Wazuh-Rules)
 > The SOCFortress Team has commited to contributing to the Open Source community. We hope you find these rulesets helpful and robust as you work to keep your networks secure :sweat_smile:
