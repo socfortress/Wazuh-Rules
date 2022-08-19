@@ -28,5 +28,5 @@
 [license-url]: https://servicedesk.socfortress.co/help/2979687893
 [linkedin-shield]: https://img.shields.io/badge/Visit%20Us-www.socfortress.co-orange
 [linkedin-url]: https://www.socfortress.co/
-[fsecure-shield]: https://img.shields.io/badge/F-Secure-Check%20Them%20Out-blue
+[fsecure-shield]: https://img.shields.io/badge/F--Secure-Check%20Them%20Out-blue
 [fsecure-url]: https://www.f-secure.com/no/business/solutions/elements-endpoint-protection/computer
