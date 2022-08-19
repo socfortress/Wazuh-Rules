@@ -1,13 +1,11 @@
 [<img src="../images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
 # Falco [![Awesome](https://img.shields.io/badge/SOCFortress-Worlds%20First%20Free%20Cloud%20SOC-orange)](https://www.socfortress.co/trial.html)
-> [What is Falco](https://falco.org/docs/)
+> [What is Falco](https://falco.org/docs/) Great for systems running Containers!
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
-
-## Great for systems running Containers!
 
 
 <!-- CONTACT -->
