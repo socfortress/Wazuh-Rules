@@ -130,14 +130,8 @@ _You can either manually download the .xml rule files onto your Wazuh Manager or
    ```sh
    curl -so ~/wazuh_socfortress_rules.sh https://raw.githubusercontent.com/socfortress/Wazuh-Rules/main/wazuh_socfortress_rules.sh && bash ~/wazuh_socfortress_rules.sh
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+
+![Alt Text](https://github.com/socfortress/Wazuh-Rules/blob/main/images/run%20install.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
