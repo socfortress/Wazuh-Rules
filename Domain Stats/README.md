@@ -21,7 +21,6 @@
 
 
 </div>
-[![OpenSecure Tutorial](https://img.youtube.com/vi/dFHfH_f47Ms/0.jpg)](https://www.youtube.com/watch?v=dFHfH_f47Ms "OpenSecure Tutorial")
 
 ## Intro
 
