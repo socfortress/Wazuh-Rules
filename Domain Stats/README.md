@@ -13,6 +13,14 @@
 * Domains that the security community has identified as new (**Pending ISC Integration)
 * Domains that SANS ISC issues warning for (**Pending ISC Integration)
 
+<div align="center">
+    <h2 align="center">Check Out OpenSecure's Tutorial</h3>
+    <a href="https://www.youtube.com/watch?v=dFHfH_f47Ms">
+    <img src="https://img.youtube.com/vi/dFHfH_f47Ms/0.jpg" alt="Video">
+  </a>
+
+
+</div>
 [![OpenSecure Tutorial](https://img.youtube.com/vi/dFHfH_f47Ms/0.jpg)](https://www.youtube.com/watch?v=dFHfH_f47Ms "OpenSecure Tutorial")
 
 ## Intro
