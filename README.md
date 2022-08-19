@@ -129,7 +129,7 @@ _You can either manually download the .xml rule files onto your Wazuh Manager or
    ```
 
 <center>![Alt Text](https://github.com/socfortress/Wazuh-Rules/blob/main/images/run%20install.gif)</center>
-
+<center>https://github.com/socfortress/Wazuh-Rules/blob/main/images/run%20install.gif</center>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
