@@ -13,9 +13,179 @@
 * Domains that the security community has identified as new (**Pending ISC Integration)
 * Domains that SANS ISC issues warning for (**Pending ISC Integration)
 
-### [Domain Stats Tutorial](https://github.com/juaromu/wazuh-domain-stats-alienvault)
+## Intro
 
-### [Domain Stats Github](https://github.com/MarkBaggett/domain_stats)
+Wazuh and Domain Stats Integration. New, first seen or suspicious domains checked against AlienVault OTX IoCs via Wazuh’s Active Response.
+
+Wazuh 4.2 improved substantially its active response capabilities, above and beyond what was initially included in OSSEC. Now, as part of the active response communication with the agents the full alert (JSON) that triggered the response can be passed to the agent, who in turn can extract fields and use them as parameters for command executions.
+
+
+## Domain Stats
+
+GitHub Repo [here](https://github.com/MarkBaggett/domain_stats)
+
+Created by Mark Baggett (SANS instructor).
+
+Uses RDAP by default (Registration Data Access Protocol).
+
+After install, it’ll allow you to download the “top1m” and store it in its internal database (SQLite DB used as a “cache”).
+
+Once installed, enables a listener for HTTP conns (port 5730 by default). Calling this API with a hostname/domain as parameter will return valuable information for threat hunting purposes.
+
+
+## AlienVault OTX
+
+AlienVault Open Threat Exchange (OTX). is a community-based threat intel.
+
+An API key can be obtained and allows a maximum of 10,000 requests per hour.
+
+A caveat for this OTX is that the API returns IoCs found in pulses created by ALL users. This normally generates a lot of false positives. The script configured in the agents includes a filter to retain only IoCs part of pulses created by the user “AlienVault”. This filter can be modified to match pulses created by any user(s) in the platform. It’s also important to highlight that when IoCs are present in several pulses, the API response can be considerably long; to that event the script also processes the JSON response and selects key pairs relevant to the IoC(s) reported. This means that the alert generated will include relevant information to further analyse the IoCs found but it won’t include the full JSON response from the OTX.
+
+
+## Workflow
+
+
+
+1. Sysmon Event IDs = 22 will trigger a custom integration in the manager.
+2. This integration (Python script) will call the DNS Stats API and it’ll evaluate its response:
+    1. “First time seen” domains / Low Frequency domains / New created domains will generate an alert.
+    2. This new alert will activate an active response script in the agent, who in turn, will make an API call to AlienVault’s OTX passing the queried hostname as parameter.
+3.  If IoCs are found for the specific domain, the agent will insert an alert in its active responses log.
+
+In this document, the Domain Stats packages are installed in the manager, but can be installed in any other server in your environment.
+
+Wazuh Custom integration (ossec.conf)
+
+
+```
+<integration>
+ <name>custom-dnsstats</name>
+ <group>sysmon_event_22</group>
+ <alert_format>json</alert_format>
+</integration>
+```
+
+
+Files (/var/ossec/integrations folder):
+
+
+```
+-rwxr-x--- 1 root ossec  1025 Oct 19 10:52 custom-dnsstats
+-rwxr-x--- 1 root ossec  2772 Oct 20 07:34 custom-dnsstats.py
+```
+
+
+Content of “custom-dnsstats”:
+
+
+```
+#!/bin/sh
+WPYTHON_BIN="framework/python/bin/python3"
+
+SCRIPT_PATH_NAME="$0"
+
+DIR_NAME="$(cd $(dirname ${SCRIPT_PATH_NAME}); pwd -P)"
+SCRIPT_NAME="$(basename ${SCRIPT_PATH_NAME})"
+
+case ${DIR_NAME} in
+    */active-response/bin | */wodles*)
+        if [ -z "${WAZUH_PATH}" ]; then
+            WAZUH_PATH="$(cd ${DIR_NAME}/../..; pwd)"
+        fi
+
+        PYTHON_SCRIPT="${DIR_NAME}/${SCRIPT_NAME}.py"
+    ;;
+    */bin)
+        if [ -z "${WAZUH_PATH}" ]; then
+            WAZUH_PATH="$(cd ${DIR_NAME}/..; pwd)"
+        fi
+
+        PYTHON_SCRIPT="${WAZUH_PATH}/framework/scripts/${SCRIPT_NAME}.py"
+    ;;
+     */integrations)
+        if [ -z "${WAZUH_PATH}" ]; then
+            WAZUH_PATH="$(cd ${DIR_NAME}/..; pwd)"
+        fi
+
+        PYTHON_SCRIPT="${DIR_NAME}/${SCRIPT_NAME}.py"
+    ;;
+esac
+
+
+${WAZUH_PATH}/${WPYTHON_BIN} ${PYTHON_SCRIPT} "$@"
+```
+
+
+Content of “custom-dnsstats.py”:
+
+
+```
+#!/usr/bin/env python
+# Aurora Networks Managed Services
+# https://www.auroranetworks.net
+# info@auroranetworks.net.
+#
+# This program is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License (version 2) as published by the FSF - Free Software
+# Foundation.
+import sys
+import os
+from socket import socket, AF_UNIX, SOCK_DGRAM
+from datetime import date, datetime, timedelta
+import time
+import requests
+from requests.exceptions import ConnectionError
+import json
+pwd = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+socket_addr = '{0}/queue/sockets/queue'.format(pwd)
+def send_event(msg, agent = None):
+    if not agent or agent["id"] == "000":
+        string = '1:dns_stats:{0}'.format(json.dumps(msg))
+    else:
+        string = '1:[{0}] ({1}) {2}->dns_stats:{3}'.format(agent["id"], agent["name"], agent["ip"] if "ip" in agent else "any", json.dumps(msg))
+    sock = socket(AF_UNIX, SOCK_DGRAM)
+    sock.connect(socket_addr)
+    sock.send(string.encode())
+    sock.close()
+false = False
+# Read configuration parameters
+alert_file = open(sys.argv[1])
+# Read the alert file
+alert = json.loads(alert_file.read())
+alert_file.close()
+# New Alert Output if DNS Stat Alert or Error calling the API
+alert_output = {}
+# DNS Stats Base URL
+dns_stats_base_url = 'http://127.0.0.1:5730/'
+# Extract Queried Hostname from Sysmon Event
+dns_query_name = alert["data"]["win"]["eventdata"]["queryName"]
+dns_stats_url = ''.join([dns_stats_base_url, dns_query_name])
+# DNS Stat API Call
+try:
+    dns_stats_response = requests.get(dns_stats_url)
+except ConnectionError:
+    alert_output["dnsstat"] = {}
+    alert_output["integration"] = "dnsstat"
+    alert_output["dnsstat"]["error"] = 'Connection Error to DNS Stats API'
+    send_event(alert_output, alert["agent"])
+else:
+    dns_stats_response = dns_stats_response.json()
+# Check if response includes alerts or New Domain
+    if (dns_stats_response["alerts"] and dns_stats_response["category"] != 'ERROR') or  dns_stats_response["category"] == 'NEW':
+# Generate Alert Output from DNS Stats Response
+        alert_output["dnsstat"] = {}
+        alert_output["integration"] = "dnsstat"
+        alert_output["dnsstat"]["query"] = dns_query_name
+        alert_output["dnsstat"]["alerts"] = dns_stats_response["alerts"]
+        alert_output["dnsstat"]["category"] = dns_stats_response["category"]
+        alert_output["dnsstat"]["freq_score"] = dns_stats_response["freq_score"]
+        alert_output["dnsstat"]["seen_by_isc"] = dns_stats_response["seen_by_isc"]
+        alert_output["dnsstat"]["seen_by_web"] = dns_stats_response["seen_by_web"]
+        alert_output["dnsstat"]["seen_by_you"] = dns_stats_response["seen_by_you"]
+        send_event(alert_output, alert["agent"])
+```
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
