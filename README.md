@@ -54,7 +54,6 @@
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -158,6 +157,14 @@ SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+Security is best when we work together! Huge thank you to those supporting and those future supporters!
+
+* [Wazuh Team](https://documentation.wazuh.com/current/index.html)
+* [OpenSecure](https://www.youtube.com/channel/UC4EUQtTxeC8wGrKRafI6pZg)
+* [Juan Romero](https://github.com/juaromu)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
