@@ -5,7 +5,29 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
 
-# SOCFortress Wazuh-Rules [![N|Solid](https://cdn-icons-png.flaticon.com/128/6939/6939131.png)](https://myservice.socfortress.co/) [![N|Solid](https://cdn-icons-png.flaticon.com/128/406/406217.png)](https://hunt.socfortress.co) [![N|Solid](https://cdn-icons-png.flaticon.com/128/4840/4840332.png)](https://servicedesk.socfortress.co/help/2979687893) 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/socfortress/Wazuh-Rules">
+    <img src="images/logo_orange.svg" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Advanced Wazuh Detection Rules</h3>
+
+  <p align="center">
+    An awesome README template to jumpstart your projects!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</div>
+
 
 <p align="center">
   <a href="https://www.socfortress.co/">
