@@ -300,6 +300,19 @@ switch -Exact ($switch_condition){
 #   <rules_group>dnsstat_alert</rules_group>
 #  </active-response>
 ```
+<!-- CONTACT -->
+## Need Help?
+
+SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
+
+<div align="center">
+  <h2 align="center">Let SOCFortress Professional Services Take Your Open Source SIEM to the Next Level</h3>
+  <a href="https://www.socfortress.co/contact_form.html">
+    <img src="../images/Email%20Banner.png" alt="Banner">
+  </a>
+
+
+</div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
