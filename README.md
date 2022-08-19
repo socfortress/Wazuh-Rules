@@ -154,11 +154,10 @@ Don't forget to give the project a star! Thanks again!
 SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
 
 <div align="center">
+  <h2 align="center">Let SOCFortress Take Your Open Source SIEM to the Next Level</h3>
   <a href="https://www.socfortress.co/contact_form.html">
     <img src="images/Email%20Banner.png" alt="Banner">
   </a>
-
-  <h2 align="center">Contact SOCFortress</h3>
 
 
 </div>
