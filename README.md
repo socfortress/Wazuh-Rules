@@ -152,7 +152,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-SOCFortress - [@your_twitter](https://twitter.com/your_username) - info@socfortress.co
+SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
