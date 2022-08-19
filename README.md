@@ -43,7 +43,7 @@
     <li>
       <a href="#about-this-repo">About This Repo</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#supported-rules-and-integrations">Supported Rules and Integrations</a></li>
       </ul>
     </li>
     <li>
@@ -74,6 +74,32 @@ Here's why:
 * Wazuh serves as a great EDR agent, however the default rulesets are rather laxed (in our opinion). We wanted to start building a strong repo of Wazuh rules for the community to implement themselves and expand upon as new threats arise.
 * Cybersecurity is hard enough, let's work together :smile:
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Supported Rules and Integrations
+
+Below are the current rules and integrations currently contained within this repo. Integrations, such as Office365, Sophos, etc. will have scripts provided within their respective folders for use. Feel free to build upon these scripts and contribute back :smile:
+
+* Sysmon for Windows
+* Sysmon for Linux
+* Office365
+* Microsoft Defender
+* Sophos
+* MISP
+* Osquery
+* Yara
+* Suricata
+* Packetbeat
+* Falco
+* Modsecurity
+* F-Secure
+* Domain Stats
+* Snyk
+* Autoruns
+* Sigcheck
+* Powershell
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
