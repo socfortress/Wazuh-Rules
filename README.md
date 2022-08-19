@@ -51,7 +51,7 @@
 [contributors-url]: https://github.com/socfortress/Wazuh-Rules/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/socfortress/Wazuh-Rules/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/socfortress/Wazuh-Rules
 [stars-url]: https://github.com/socfortress/Wazuh-Rules/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
