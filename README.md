@@ -3,8 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-![your-own-soc-free-for-life-tier](https://user-images.githubusercontent.com/95670863/185694337-a4260b17-9892-426f-827e-58611d3eef15.svg)
+[![your-own-soc-free-for-life-tier](https://user-images.githubusercontent.com/95670863/185694337-a4260b17-9892-426f-827e-58611d3eef15.svg)](https://www.socfortress.co/trial.html)
 
 # SOCFortress Wazuh-Rules [![N|Solid](https://cdn-icons-png.flaticon.com/128/6939/6939131.png)](https://myservice.socfortress.co/) [![N|Solid](https://cdn-icons-png.flaticon.com/128/406/406217.png)](https://hunt.socfortress.co) [![N|Solid](https://cdn-icons-png.flaticon.com/128/4840/4840332.png)](https://servicedesk.socfortress.co/help/2979687893) 
 
