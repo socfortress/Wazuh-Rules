@@ -82,24 +82,26 @@ Here's why:
 
 Below are the current rules and integrations currently contained within this repo. Integrations, such as Office365, Sophos, etc. will have scripts provided within their respective folders for use. Feel free to build upon these scripts and contribute back :smile:
 
-* [Sysmon for Windows](https://google.com)
-* Sysmon for Linux
-* Office365
-* Microsoft Defender
-* Sophos
-* MISP
-* Osquery
-* Yara
-* Suricata
-* Packetbeat
-* Falco
-* Modsecurity
-* F-Secure
-* Domain Stats
-* Snyk
-* Autoruns
-* Sigcheck
-* Powershell
+* [Sysmon for Windows](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows_Sysmon)
+* [Sysmon for Linux](https://github.com/socfortress/Wazuh-Rules/tree/main/Sysmon%20Linux)
+* [Office365](https://github.com/socfortress/Wazuh-Rules/tree/main/Office%20365)
+* [Microsoft Defender](https://github.com/socfortress/Wazuh-Rules/tree/main/Office%20Defender)
+* [Sophos](https://github.com/socfortress/Wazuh-Rules/tree/main/Sophos)
+* MISP - Work In Progress
+* [Osquery](https://github.com/socfortress/Wazuh-Rules/tree/main/Osquery)
+* [Yara](https://github.com/socfortress/Wazuh-Rules/tree/main/Yara)
+* [Suricata](https://github.com/socfortress/Wazuh-Rules/tree/main/Suricata)
+* [Packetbeat](https://github.com/socfortress/Wazuh-Rules/tree/main/Packetbeat)
+* [Falco](https://github.com/socfortress/Wazuh-Rules/tree/main/Falco)
+* [Modsecurity](https://github.com/socfortress/Wazuh-Rules/tree/main/Modsecurity)
+* [F-Secure](https://github.com/socfortress/Wazuh-Rules/tree/main/F-Secure)
+* [Domain Stats](https://github.com/socfortress/Wazuh-Rules/tree/main/Domain%20Stats)
+* [Snyk](https://github.com/socfortress/Wazuh-Rules/tree/main/Snyk)
+* [Autoruns](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows%20Autoruns)
+* [Sigcheck](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows%20Sysinternals%20Sigcheck)
+* [Powershell](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows%20Powershell)
+* Crowdstrike - WIP
+* Tessian - WIP
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
