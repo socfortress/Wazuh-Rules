@@ -105,8 +105,18 @@ Below are the current rules and integrations currently contained within this rep
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- GETTING STARTED -->
+## Getting Started
 
+Feel free to implement all of the rules that are contained within this repo, or pick and choose as you see fit. See our Installation section below for a bash script that can be ran on your Wazuh Manager to quickly put these rules to work!
 
+### Prerequisites
+
+Wazuh-Manager Version 4.x Required.
+
+[Wazuh Install Docs](https://documentation.wazuh.com/current/index.html)
+
+[Need Assitance? - Hire SOCFortress](https://www.socfortress.co/contact_form.html)
 
 ## Have Wazuh deployed and ingesting your logs but looking for some better detection rules? Look no further. The objective for this repo is to provide the Wazuh community with rulesets that are more accurate, descriptive, and enriched from various sources and integrations.
 
