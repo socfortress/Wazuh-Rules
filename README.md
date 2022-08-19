@@ -1,4 +1,4 @@
-<img src="icon_orange.svg" align="right" />
+<img src="images/logo_orange.svg" align="right" />
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
