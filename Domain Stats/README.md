@@ -1,4 +1,4 @@
-[<img src="images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
+[<img src="../images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
 # Domain Stats Integration [![Awesome](https://img.shields.io/badge/SOCFortress-Worlds%20First%20Free%20Cloud%20SOC-orange)](https://www.socfortress.co/trial.html)
 > Domain Stats is a log enhancment utility that is intended help you find threats in your environment. It will identify the following possible threats in your environment.
