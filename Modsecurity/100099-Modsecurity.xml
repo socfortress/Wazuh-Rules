@@ -1,0 +1,8 @@
+<group name="Modsecurity">
+<rule id="100099" level="12" frequency="5" timeframe="600">
+        <if_matched_sid>30411</if_matched_sid>
+        <same_srcip />
+        <description>Same IP Triggering Modsecurity Block 5 times within 10 minutes.</description>
+        <group>bruteforce,</group>
+    </rule>
+</group>
