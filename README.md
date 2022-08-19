@@ -118,6 +118,26 @@ Wazuh-Manager Version 4.x Required.
 
 [Need Assitance? - Hire SOCFortress](https://www.socfortress.co/contact_form.html)
 
+### Installation
+
+_You can either manually download the .xml rule files onto your Wazuh Manager or make use of our wazuh_socfortress_rules.sh script _
+> :warning: **If you are using mobile browser**: Be very careful here!
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Have Wazuh deployed and ingesting your logs but looking for some better detection rules? Look no further. The objective for this repo is to provide the Wazuh community with rulesets that are more accurate, descriptive, and enriched from various sources and integrations.
 
 # FEEL FREE TO MERGE REQUEST ANY RULES THAT YOU THINK THE COMMUNITY COULD BENEFIT FROM
