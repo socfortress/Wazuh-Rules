@@ -1,3 +1,5 @@
+<img src="icon_orange.svg" align="right" />
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
