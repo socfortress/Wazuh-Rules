@@ -1,4 +1,4 @@
-<img src="images/logo_orange.svg" align="right" width="100" height="100" />
+[<img src="images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
