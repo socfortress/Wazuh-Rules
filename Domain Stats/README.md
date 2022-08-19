@@ -13,6 +13,8 @@
 * Domains that the security community has identified as new (**Pending ISC Integration)
 * Domains that SANS ISC issues warning for (**Pending ISC Integration)
 
+[![OpenSecure Tutorial](https://img.youtube.com/vi/dFHfH_f47Ms/0.jpg)](https://www.youtube.com/watch?v=dFHfH_f47Ms "OpenSecure Tutorial")
+
 ## Intro
 
 Wazuh and Domain Stats Integration. New, first seen or suspicious domains checked against AlienVault OTX IoCs via Wazuh’s Active Response.
