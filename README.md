@@ -155,6 +155,17 @@ SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
 
 ![](https://github.com/socfortress/Wazuh-Rules/blob/main/images/Email%20Banner.png)
 
+<div align="center">
+  <a href="https://www.socfortress.co/contact_form.html">
+    <img src="images/logo_orange.svg" alt="Logo" width="100" height="100">
+    <img src="images/Email%20Banner.png" alt="Banner">
+  </a>
+
+  <h3 align="center">Contact SOCFortress</h3>
+
+
+</div>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
