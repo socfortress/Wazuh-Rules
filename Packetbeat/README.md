@@ -17,7 +17,7 @@
 
 ## [Install Packetbeat](https://www.elastic.co/guide/en/beats/packetbeat/current/packetbeat-installation-configuration.html)
 
-## Ensure packetbeat is outputing to a file on the local filesystem that the Wazuh Agent can collect and send to the manager.
+## Ensure packetbeat is outputing to a JSON file on the local filesystem that the Wazuh Agent can collect and send to the manager.
 
 <!-- CONTACT -->
 ## Need Help?
