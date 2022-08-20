@@ -9,6 +9,15 @@
 
 **WAZUH - MISP INTEGRATION FOR THREAT INTEL**
 
+<div align="center">
+    <h2 align="center">Check Out OpenSecure's Tutorial</h3>
+    <a href="https://www.youtube.com/watch?v=-qRMDxZpnWg">
+    <img src="https://img.youtube.com/vi/-qRMDxZpnWg/0.jpg" alt="Video">
+  </a>
+
+
+</div>
+
 ## Intro
 
 Wazuh manager integration with MISP for Threat Intel.
@@ -159,9 +168,9 @@ File “custom-misp.py”:
 
 ```
 #!/usr/bin/env python
-# Aurora Networks Managed Services
-# https://www.auroranetworks.net
-# info@auroranetworks.net.
+# SOCFortress
+# https://www.socfortress.co
+# info@socfortress.co
 #
 # This program is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public
