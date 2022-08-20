@@ -1,0 +1,7 @@
+<group name="threat_intel,">
+<rule id="100651" level="12">
+    <field name="abuseipdb.abuse_confidence_score" type="pcre2" negate="yes">^0$</field>
+    <description>IP with $(abuseipdb.abuse_confidence_score)% confidence of abuse was connected to.</description>
+    <group>abuseipdb,abuseipdb_alert,</group>
+  </rule>
+</group>
