@@ -1,7 +1,7 @@
 [<img src="../images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
 # Powershell Rules [![Awesome](https://img.shields.io/badge/SOCFortress-Worlds%20First%20Free%20Cloud%20SOC-orange)](https://www.socfortress.co/trial.html)
-> Capture malicious/suspicious Powershell activity. *MUST HAVE POWERSHELL LOGGING ENABLED**
+> Capture malicious/suspicious Powershell activity. *MUST HAVE POWERSHELL LOGGING ENABLED*
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
