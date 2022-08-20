@@ -7,6 +7,15 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
 
+<div align="center">
+    <h2 align="center">Check Out OpenSecure's Tutorial</h3>
+    <a href="https://www.youtube.com/watch?v=2LmmkvlhPrs">
+    <img src="https://img.youtube.com/vi/2LmmkvlhPrs/0.jpg" alt="Video">
+  </a>
+
+
+</div>
+
 ## [Tutorial](https://socfortress.medium.com/enriching-login-attempts-with-wazuh-and-abuseipdb-2fd98c34ce23)
 
 <!-- CONTACT -->
