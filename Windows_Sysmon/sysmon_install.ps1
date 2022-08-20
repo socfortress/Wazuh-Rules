@@ -1,13 +1,3 @@
-$wazuh_repo = 'packages.wazuh.com'
-$wazuh_major = '4.x'
-$wazuh_package = 'wazuh-agent-4.3.6-1.msi'
-$wazuh_downloadlink = 'https://packages.wazuh.com/4.x/windows/wazuh-agent-4.3.6-1.msi'
-$WAZUH_MANAGER="your_wazuh_manager"
-$WAZUH_REGISTRATION_SERVER="your_wazuh_manager"
-$WAZUH_MANAGER_PORT="1514"
-$WAZUH_PROTOCOL="TCP"
-$WAZUH_REGISTRATION_PASSWORD="your_registration_password"
-$WAZUH_AGENT_GROUP="your_agent_group"
 $sysinternals_repo = 'download.sysinternals.com'
 $sysinternals_downloadlink = 'https://download.sysinternals.com/files/SysinternalsSuite.zip'
 $sysinternals_folder = 'C:\Program Files\sysinternals'
@@ -62,54 +52,4 @@ if (Test-Path -Path $sysinternals_folder) {
   } else {
       Write-Output "Unable to connect to Sysinternals Repo"
   }
-}
-$serviceName = 'OssecSvc'
-If (Get-Service $serviceName -ErrorAction SilentlyContinue) {
-    write-host ('Wazuh Agent Is Already Installed')
-} else {
-    $OutPath = $env:TMP
-    $output = $wazuh_package
-
-    $installArgs = @(
-      "/i $OutPath\$output"
-      "/q"
-      "WAZUH_MANAGER=`"$WAZUH_MANAGER`""
-      "WAZUH_REGISTRATION_SERVER=`"$WAZUH_REGISTRATION_SERVER`""
-      "WAZUH_MANAGER_PORT=`"$WAZUH_MANAGER_PORT`""
-      "WAZUH_PROTOCOL=`"$WAZUH_PROTOCOL`""
-      "WAZUH_REGISTRATION_PASSWORD=`"$WAZUH_REGISTRATION_PASSWORD`""
-      "WAZUH_AGENT_GROUP=`"$WAZUH_AGENT_GROUP`""
-    )
-
-    $X = 0
-    do {
-      Write-Output "Waiting for network"
-      Start-Sleep -s 5
-      $X += 1
-    } until(($connectreult = Test-NetConnection $wazuh_repo -Port 443 | ? { $_.TcpTestSucceeded }) -or $X -eq 3)
-
-    if ($connectreult.TcpTestSucceeded -eq $true){
-      Try
-      {
-      Invoke-WebRequest -Uri $wazuh_downloadlink -OutFile $OutPath\$output
-      write-host ('Installing Wazuh Agent...')
-      Start-Process "msiexec.exe" -ArgumentList $installArgs -Wait
-      Start-Sleep -s 10
-
-      }
-      Catch
-      {
-          $ErrorMessage = $_.Exception.Message
-          $FailedItem = $_.Exception.ItemName
-          Write-Error -Message "$ErrorMessage $FailedItem"
-          exit 1
-      }
-      Finally
-      {
-          Remove-Item -Path $OutPath\$output
-      }
-
-    } else {
-        Write-Output "Unable to connect to Wazuh Repo"
-}
 }
