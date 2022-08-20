@@ -7,7 +7,7 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
 
-## [Sophos Central Siem Integration](https://github.com/sophos/Sophos-Central-SIEM-Integration)
+## [Sophos Central Siem Integration Repo](https://github.com/sophos/Sophos-Central-SIEM-Integration)
 
 ### Alerts will need to be ingested via a JSON format and written to a file that the Wazuh Manager is collecting for analysis.
 
