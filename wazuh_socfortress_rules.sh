@@ -147,7 +147,7 @@ cloneRules() {
 
     if [ ${sys_type} == "yum" ]; then
         logger -e "Veryfing that Wazuh-Manager software is installed....continued"
-        if [ -n "$(rpm -qa | grep wazuh) 2> /dev/null" ]; then
+        if [ -n "$(rpm -qa | grep wazuh-manager) 2> /dev/null" ]; then
         cd /tmp/
         mkdir wazuh_rules_backup
         logger -e "Backing up current rules into /tmp/wazuh_rules_backup/"
