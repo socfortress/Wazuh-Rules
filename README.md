@@ -84,7 +84,7 @@ Below are the current rules and integrations currently contained within this rep
 * [Office365](https://github.com/socfortress/Wazuh-Rules/tree/main/Office%20365)
 * [Microsoft Defender](https://github.com/socfortress/Wazuh-Rules/tree/main/Office%20Defender)
 * [Sophos](https://github.com/socfortress/Wazuh-Rules/tree/main/Sophos)
-* MISP - Work In Progress
+* [MISP](https://github.com/socfortress/Wazuh-Rules/tree/main/MISP)
 * [Osquery](https://github.com/socfortress/Wazuh-Rules/tree/main/Osquery)
 * [Yara](https://github.com/socfortress/Wazuh-Rules/tree/main/Yara)
 * [Suricata](https://github.com/socfortress/Wazuh-Rules/tree/main/Suricata)
@@ -97,7 +97,8 @@ Below are the current rules and integrations currently contained within this rep
 * [Autoruns](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows%20Autoruns)
 * [Sigcheck](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows%20Sysinternals%20Sigcheck)
 * [Powershell](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows%20Powershell)
-* Crowdstrike - WIP
+* [Crowdstrike](https://github.com/socfortress/Wazuh-Rules/tree/main/Crowdstrike)
+* [Alienvault](https://github.com/socfortress/Wazuh-Rules/tree/main/Domain%20Stats)
 * Tessian - WIP
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
