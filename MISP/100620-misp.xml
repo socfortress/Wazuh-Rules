@@ -1,0 +1,22 @@
+<group name="threat_intel,">
+ <rule id="100620" level="10">
+    <field name="integration">misp</field>
+    <description>MISPs</description>
+    <group>misp,</group>
+    <options>no_full_log</options>
+  </rule>
+<rule id="100621" level="5">
+    <if_sid>100620</if_sid>
+    <field name="misp.error">\.+</field>
+    <description>MISP - Error connecting to API</description>
+    <options>no_full_log</options>
+    <group>misp,misp_error,</group>
+  </rule>
+<rule id="100622" level="12">
+    <if_sid>100620</if_sid>
+    <field name="misp.category">\.+</field>
+    <description>MISP - IoC found in Threat Intel - Category: $(misp.category), Attribute: $(misp.value)</description>
+    <options>no_full_log</options>
+    <group>misp,misp_alert,</group>
+  </rule>
+</group>
