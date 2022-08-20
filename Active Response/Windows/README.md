@@ -22,7 +22,7 @@ SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
 <div align="center">
   <h2 align="center">Let SOCFortress Professional Services Take Your Open Source SIEM to the Next Level</h3>
   <a href="https://www.socfortress.co/contact_form.html">
-    <img src="../images/Email%20Banner.png" alt="Banner">
+    <img src="../../images/Email%20Banner.png" alt="Banner">
   </a>
 
 
