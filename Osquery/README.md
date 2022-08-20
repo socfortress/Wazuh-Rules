@@ -11,7 +11,7 @@
 ### [Install Osquery](https://osquery.io/)
 
 ### [Wazuh Integration with Osquery](https://documentation.wazuh.com/current/user-manual/capabilities/osquery.html)
-
+##
 <!-- CONTACT -->
 ## Need Help?
 
