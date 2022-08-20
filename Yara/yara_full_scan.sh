@@ -12,7 +12,7 @@ IFS=$(echo -en "\n\b")
 # Static active response parameters
 LOCAL=`dirname $0`
 #------------------------- Folders to scan. Modify array as required -------------------------#
-folders_to_scan=( "/home/" "/root/" )
+folders_to_scan=( "/home/" "/root/" "/opt/" )
 
 #------------------------- Files extensions to scan. Modify array as required -------------------------#
 file_extenstions_to_scan=( ".sh" ".bin" ".js" )
