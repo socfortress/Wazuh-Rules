@@ -1,4 +1,4 @@
-[<img src="../images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
+[<img src="../../images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
 # Windows Active Response [![Awesome](https://img.shields.io/badge/SOCFortress-Worlds%20First%20Free%20Cloud%20SOC-orange)](https://www.socfortress.co/trial.html)
 > Folder containing Active Response scripts to be ran on Windows Endpoints. Powershell7 required.
