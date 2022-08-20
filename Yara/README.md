@@ -10,6 +10,7 @@ _Must have YARA installed on your endpoints_
 [![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
 
 ## [YARA Github](https://github.com/virustotal/yara)
+Set your YARA scan to run at set intervals by incorporating a Cronjob to run the yara_scan.sh script.
 
 
 <!-- CONTACT -->
