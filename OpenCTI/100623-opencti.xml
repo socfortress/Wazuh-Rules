@@ -1,0 +1,22 @@
+<group name="threat_intel,">
+ <rule id="100623" level="10">
+    <field name="integration">opencti</field>
+    <description>OpenCTI</description>
+    <group>opencti,</group>
+    <options>no_full_log</options>
+  </rule>
+<rule id="100624" level="5">
+    <if_sid>100623</if_sid>
+    <field name="opencti.error">\.+</field>
+    <description>OpenCTI - Error connecting to API</description>
+    <options>no_full_log</options>
+    <group>opencti,opencti_error,</group>
+  </rule>
+<rule id="100625" level="12">
+    <if_sid>100623</if_sid>
+    <field name="opencti.id">\.+</field>
+    <description>OpenCTI - IoC found in Threat Intel - $(opencti.observable_value)</description>
+    <options>no_full_log</options>
+    <group>opencti,opencti_alert,</group>
+  </rule>
+</group>
