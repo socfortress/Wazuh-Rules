@@ -77,7 +77,7 @@ Here's why:
 
 ### Supported Rules and Integrations
 
-Below are the current rules and integrations currently contained within this repo. Integrations, such as Office365, Sophos, etc. will have scripts provided within their respective folders for use. Feel free to build upon these scripts and contribute back :smile:
+Below are the current rules and integrations currently contained within this repo. Integrations, such as Office365, Trend Micro, etc. will have scripts provided within their respective folders for use. Feel free to build upon these scripts and contribute back :smile:
 
 * [Sysmon for Windows](https://github.com/socfortress/Wazuh-Rules/tree/main/Windows_Sysmon)
 * [Sysmon for Linux](https://github.com/socfortress/Wazuh-Rules/tree/main/Sysmon%20Linux)
