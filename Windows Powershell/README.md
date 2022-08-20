@@ -1,12 +1,42 @@
-# Powershell Rules [![N|Solid](https://cdn-icons-png.flaticon.com/128/6939/6939131.png)](https://myservice.socfortress.co/explore?left=%7B%22datasource%22:%22WAZUH%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22query%22:%22_id:$get_alert_id.hits.hits.#._id%22,%22alias%22:%22%22,%22metrics%22:%5B%7B%22id%22:%221%22,%22type%22:%22logs%22,%22settings%22:%7B%22limit%22:%22500%22%7D%7D%5D,%22bucketAggs%22:%5B%5D,%22timeField%22:%22timestamp%22%7D%5D,%22range%22:%7B%22from%22:%22now-6h%22,%22to%22:%22now%22%7D%7D) [![N|Solid](https://cdn-icons-png.flaticon.com/128/406/406217.png)](https://hunt.socfortress.co) [![N|Solid](https://cdn-icons-png.flaticon.com/128/4840/4840332.png)](https://servicedesk.socfortress.co/help/2979687893)
---------------------------------------------------------------
-### Must have powershell logging enabled.
+[<img src="../images/logo_orange.svg" align="right" width="100" height="100" />](https://www.socfortress.co/)
 
-### [Enable Powershell Logging](https://docs.splunk.com/Documentation/UBA/5.1.0/GetDataIn/AddPowerShell#:~:text=Configure%20module%20logging%20for%20PowerShell,on%20Module%20Logging%20to%20enabled.)
-----------------------------------------------------------------------------------
+# Powershell Rules [![Awesome](https://img.shields.io/badge/SOCFortress-Worlds%20First%20Free%20Cloud%20SOC-orange)](https://www.socfortress.co/trial.html)
+> Capture malicious/suspicious Powershell activity. *MUST HAVE POWERSHELL LOGGING ENABLED**
 
-<p align="center">
-  <a href="https://www.socfortress.co/">
-<img src="https://user-images.githubusercontent.com/95670863/183437012-6ed70011-b40d-4597-8678-e3d601b6cf4d.png" alt="logo_website (1)" width="400" height="400">
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
+
+## [Enable Powershell Logging](https://docs.splunk.com/Documentation/UBA/5.1.0/GetDataIn/AddPowerShell#:~:text=Configure%20module%20logging%20for%20PowerShell,on%20Module%20Logging%20to%20enabled.)
+
+
+<!-- CONTACT -->
+## Need Help?
+
+SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
+
+<div align="center">
+  <h2 align="center">Let SOCFortress Professional Services Take Your Open Source SIEM to the Next Level</h3>
+  <a href="https://www.socfortress.co/contact_form.html">
+    <img src="../images/Email%20Banner.png" alt="Banner">
   </a>
-</p>
+
+
+</div>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/socfortress/Wazuh-Rules
+[contributors-url]: https://github.com/socfortress/Wazuh-Rules/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/socfortress/Wazuh-Rules
+[forks-url]: https://github.com/socfortress/Wazuh-Rules/network/members
+[stars-shield]: https://img.shields.io/github/stars/socfortress/Wazuh-Rules
+[stars-url]: https://github.com/socfortress/Wazuh-Rules/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/badge/Help%20Desk-Help%20Desk-blue
+[license-url]: https://servicedesk.socfortress.co/help/2979687893
+[linkedin-shield]: https://img.shields.io/badge/Visit%20Us-www.socfortress.co-orange
+[linkedin-url]: https://www.socfortress.co/
+[fsecure-shield]: https://img.shields.io/badge/F--Secure-Check%20Them%20Out-blue
+[fsecure-url]: https://www.f-secure.com/no/business/solutions/elements-endpoint-protection/computer
