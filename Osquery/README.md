@@ -11,10 +11,34 @@
 ### [Install Osquery](https://osquery.io/)
 
 ### [Wazuh Integration with Osquery](https://documentation.wazuh.com/current/user-manual/capabilities/osquery.html)
-----------------------------------------------------
 
-<p align="center">
-  <a href="https://www.socfortress.co/">
-<img src="https://user-images.githubusercontent.com/95670863/183437012-6ed70011-b40d-4597-8678-e3d601b6cf4d.png" alt="logo_website (1)" width="400" height="400">
+<!-- CONTACT -->
+## Need Help?
+
+SOCFortress - [![LinkedIn][linkedin-shield]][linkedin-url] - info@socfortress.co
+
+<div align="center">
+  <h2 align="center">Let SOCFortress Professional Services Take Your Open Source SIEM to the Next Level</h3>
+  <a href="https://www.socfortress.co/contact_form.html">
+    <img src="../images/Email%20Banner.png" alt="Banner">
   </a>
-</p>
+
+
+</div>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/socfortress/Wazuh-Rules
+[contributors-url]: https://github.com/socfortress/Wazuh-Rules/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/socfortress/Wazuh-Rules
+[forks-url]: https://github.com/socfortress/Wazuh-Rules/network/members
+[stars-shield]: https://img.shields.io/github/stars/socfortress/Wazuh-Rules
+[stars-url]: https://github.com/socfortress/Wazuh-Rules/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/badge/Help%20Desk-Help%20Desk-blue
+[license-url]: https://servicedesk.socfortress.co/help/2979687893
+[linkedin-shield]: https://img.shields.io/badge/Visit%20Us-www.socfortress.co-orange
+[linkedin-url]: https://www.socfortress.co/
+[fsecure-shield]: https://img.shields.io/badge/F--Secure-Check%20Them%20Out-blue
+[fsecure-url]: https://www.f-secure.com/no/business/solutions/elements-endpoint-protection/computer
