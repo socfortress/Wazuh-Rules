@@ -238,7 +238,7 @@ Observables or Indicators in OpenCTI enriched with labels providing context will
 
 
 
-![alt_text](image1.png "image_tooltip")
+![alt_text](https://github.com/juaromu/wazuh-opencti/blob/main/image1.png)
 
 
 
