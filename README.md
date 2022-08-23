@@ -2,7 +2,7 @@
 
 # Advanced Wazuh Detection Rules [![Awesome](https://img.shields.io/badge/SOCFortress-Worlds%20First%20Free%20Cloud%20SOC-orange)](https://www.socfortress.co/trial.html)
 > The SOCFortress Team has committed to contributing to the Open Source community. We hope you find these rulesets helpful and robust as you work to keep your networks secure.
-test
+
 
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
