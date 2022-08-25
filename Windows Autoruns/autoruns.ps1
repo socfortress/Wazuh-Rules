@@ -1,8 +1,8 @@
 ################################
 ### Script to execute Sysinternals/Autoruns
-### Aurora Networks Managed Services
-### https://www.auroranetworks.net
-### info@auroranetworks.net
+### SOCFortress
+### https://www.socfortress.co
+### info@socfortress.co
 ################################
 ##########
 # Script execution triggered by Wazuh Manager, wodles-command
