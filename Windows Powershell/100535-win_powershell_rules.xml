@@ -69,12 +69,13 @@
   </rule>
   <rule id="100542" level="1">
     <if_sid>100541</if_sid>
-    <field name="win.eventdata.scriptBlockText">prompt</field>
+    <field name="win.eventdata.scriptBlockText">prompt|PSMessageDetails|ErrorCategory_Message|OriginInfo</field>
     <description>Disregard Powershell prompt</description>
     <mitre>
       <id>T1087.002</id>>
     </mitre>
   </rule>
+  <!--https://bradleyjkemp.dev/sigmadoc/rules/windows/powershell/powershell_script/posh_ps_powerview_malicious_commandlets.yml/-->
   <rule id="100543" level="12">
     <if_sid>100541</if_sid>
     <list field="win.eventdata.scriptBlockText" lookup="match_key">etc/lists/malicious-powershell</list>
