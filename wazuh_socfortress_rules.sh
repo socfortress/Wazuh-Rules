@@ -135,7 +135,7 @@ healthCheck() {
     if [ -n "$(/var/ossec/bin/wazuh-control status | grep 'wazuh-logcollector not running...')" ]; then
         logger -e "Wazuh-Manager Service is not healthy. Please check /var/ossec/logs/ossec.log for details."
     else
-        logger -e "Wazuh-Manager Service is healthy. Thanks for checking us out :) Get started with our free for life tier here:https://www.socfortress.co/trial.html Happy Deffending!"
+        logger -e "Wazuh-Manager Service is healthy. Thanks for checking us out :) Get started with our free for life tier here:https://www.socfortress.co/trial.html Happy Defending!"
         rm -rf /tmp/Wazuh-Rules
     fi
 }
