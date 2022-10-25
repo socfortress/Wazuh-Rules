@@ -50,7 +50,7 @@ aadToken = jsonResponse["access_token"]
 
 
 #build get-alerts API
-filterTime = datetime.now() - timedelta(hours = 1)          #If you want to include alerts from longer then an hour, change here (days, weeks)
+filterTime = datetime.utcnow() - timedelta(hours = 1)          #If you want to include alerts from longer then an hour, change here (days, weeks)
 filterTime = filterTime.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 ## Get Alerts #########################################################
