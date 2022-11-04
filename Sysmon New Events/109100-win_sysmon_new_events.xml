@@ -23,7 +23,7 @@
     <group>sysmon_event_22,</group>
   </rule>
 
-  <rule id="10003" level="3">
+  <rule id="109103" level="3">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^19$</field>
     <description>Sysmon - Event 19:  WmiEvent (WmiEventFilter activity detected) by $(win.eventdata.image)</description>
@@ -33,7 +33,7 @@
     <group>sysmon_event_19,</group>
   </rule>
 
-  <rule id="10004" level="3">
+  <rule id="109104" level="3">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^20$</field>
     <description>Sysmon - Event 20:  WmiEvent (WmiEventConsumer activity detected) by $(win.eventdata.image)</description>
@@ -43,7 +43,7 @@
     <group>sysmon_event_20,</group>
   </rule>
 
-  <rule id="10005" level="3">
+  <rule id="109105" level="3">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^21$</field>
     <description>Sysmon - Event 21: WmiEvent (WmiEventConsumerToFilter activity detected) by $(win.eventdata.image)</description>
@@ -53,7 +53,7 @@
     <group>sysmon_event_21,</group>
   </rule>
 
-  <rule id="10006" level="3">
+  <rule id="109106" level="3">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^23$</field>
     <description>Sysmon - Event 23: FileDelete (A file delete was detected) by $(win.eventdata.image)</description>
@@ -64,7 +64,7 @@
     <group>sysmon_event_23,</group>
   </rule>
 
-  <rule id="10007" level="3">
+  <rule id="109107" level="3">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^24$</field>
     <description>Sysmon - Event 24: ClipboardChange (New content in the clipboard) by $(win.eventdata.image)</description>
@@ -74,7 +74,7 @@
     <group>sysmon_event_24,</group>
   </rule>
 
-  <rule id="10008" level="3">
+  <rule id="109108" level="3">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^25$</field>
     <description>Sysmon - Event 25: ProcessTampering (Process image change) by $(win.eventdata.image)</description>
@@ -84,7 +84,7 @@
     <group>sysmon_event_25,</group>
   </rule>
   
-  <rule id="10009" level="12">
+  <rule id="109109" level="12">
     <if_sid>63103</if_sid>
     <field name="win.system.channel">Security</field>
     <description>Windows Security log was cleared.</description>
@@ -94,7 +94,8 @@
     </mitre>
     <group>logs_cleared,pci_dss_10.6.1,gpg13_10.1,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
   </rule>
-  <rule id="10010" level="12">
+  
+  <rule id="109110" level="12">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.logonType">^9$</field>
     <field name="win.eventdata.logonProcessName">^seclogo$</field>
@@ -105,4 +106,13 @@
     </mitre>
     <group>special_logon</group>
   </rule>
+  
+  <rule id="109111" level="3">
+    <if_sid>61600</if_sid>
+    <field name="win.system.eventID">^6$</field>
+    <description>Sysmon - Event 6: Driver Loaded by $(win.eventdata.image)</description>
+    <group>sysmon_event_6,</group>
+    <options>no_full_log</options>
+  </rule>
+  
 </group>
