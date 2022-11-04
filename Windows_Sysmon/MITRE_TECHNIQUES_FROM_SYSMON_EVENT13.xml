@@ -461,4 +461,11 @@
 <options>no_full_log</options>
 <group>sysmon_event_13,</group>
 </rule>
+<!-- Sysmon - Event 13: RegistryEvent by $(win.eventdata.image) -->
+<rule id="112143" level="3">
+<if_sid>61615</if_sid>
+<description>Sysmon - Event 13: RegistryEvent by $(win.eventdata.image)</description>
+<options>no_full_log</options>
+<group>sysmon_event_13,</group>
+</rule>
 </group>
