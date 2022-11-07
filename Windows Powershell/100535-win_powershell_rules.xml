@@ -2,7 +2,7 @@
 <group name="windows,">
   <rule id="100535" level="1">
     <if_sid>60009</if_sid>
-    <field name="win.system.providerName">^Microsoft-Windows-PowerShell$</field>
+    <field name="win.system.providerName">^PowerShell$</field>
     <mitre>
       <id>T1086</id>
     </mitre>
@@ -66,16 +66,16 @@
     <mitre>
       <id>T1087.002</id>>
     </mitre>
+    <options>no_full_log</options>
   </rule>
   <rule id="100542" level="1">
     <if_sid>100541</if_sid>
-    <field name="win.eventdata.scriptBlockText">prompt|PSMessageDetails|ErrorCategory_Message|OriginInfo</field>
-    <description>Disregard Powershell prompt</description>
+    <field name="win.system.eventID">^4105$|^4106$</field>
+    <description>Disregard Powershell Text</description>
     <mitre>
       <id>T1087.002</id>>
     </mitre>
   </rule>
-  <!--https://bradleyjkemp.dev/sigmadoc/rules/windows/powershell/powershell_script/posh_ps_powerview_malicious_commandlets.yml/-->
   <rule id="100543" level="12">
     <if_sid>100541</if_sid>
     <list field="win.eventdata.scriptBlockText" lookup="match_key">etc/lists/malicious-powershell</list>
@@ -83,5 +83,32 @@
     <mitre>
       <id>T1087.002</id>>
     </mitre>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="100544" level="1">
+    <if_sid>100541</if_sid>
+    <field name="win.eventdata.scriptBlockText">PSMessageDetails|ErrorCategory_Message|OriginInfo</field>
+    <description>Disregard Powershell Prompt Text</description>
+    <mitre>
+      <id>T1087.002</id>>
+    </mitre>
+  </rule>
+  <rule id="100545" level="1">
+    <if_sid>100541</if_sid>
+    <field name="win.eventdata.scriptBlockText">^prompt$</field>
+    <description>Disregard Powershell Prompt Text</description>
+    <mitre>
+      <id>T1087.002</id>>
+    </mitre>
+  </rule>
+  <rule id="100550" level="3">
+    <if_sid>100535</if_sid>
+    <field name="win.system.eventID">^400$</field>
+    <mitre>
+      <id>T1086</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>windows_powershell,</group>
+    <description>Powershell Information EventLog</description>
   </rule>
 </group>
