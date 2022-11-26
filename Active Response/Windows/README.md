@@ -11,6 +11,7 @@
 ## Roadmap
 - [x] Create local firewall rule to block outbound connections to a malicious IP
 - [x] DNS sinkhole a malicious domain (route to localhost 127.0.0.1)
+- [x] Disable local user account
 - [ ] Kill a malicious process
 - [ ] Feel free to bring ideas :smile:
 

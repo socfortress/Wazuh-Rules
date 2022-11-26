@@ -450,4 +450,22 @@
 <options>no_full_log</options>
 <group>sysmon_event_13,</group>
 </rule>
+<!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
+<rule id="112142" level="3">
+<if_sid>61615</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1112,technique_name=Modify Registry$</field>
+<description>Sysmon - Event 13: RegistryEvent (Value Modified) by $(win.eventdata.image)</description>
+<mitre>
+<id>T1112</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event_13,</group>
+</rule>
+<!-- Sysmon - Event 13: RegistryEvent by $(win.eventdata.image) -->
+<rule id="112143" level="3">
+<if_sid>61615</if_sid>
+<description>Sysmon - Event 13: RegistryEvent by $(win.eventdata.image)</description>
+<options>no_full_log</options>
+<group>sysmon_event_13,</group>
+</rule>
 </group>

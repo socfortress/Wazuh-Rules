@@ -101,6 +101,7 @@ if __name__ == "__main__":
     parser.add_argument('--tenantId', metavar='tenantId', type=str, required = True, help='Application tenant ID.')
     parser.add_argument('--clientId', metavar='clientId', type=str, required = True, help='Application client ID.')
     parser.add_argument('--clientSecret', metavar='clientSecret', type=str, required = True, help='Client secret.')
+    parser.add_argument('--label', metavar='clientLabel', type=str, required = False, help='A tag to differentiate multiple office365 wodles.')
     parser.add_argument('--debug', action='store_true', required = False, help='Enable debug mode logging.')
     args = parser.parse_args()
 
@@ -143,6 +144,7 @@ if __name__ == "__main__":
                     for event in data:
                         office_365_event = {}
                         office_365_event['office_365'] = event
+                        office_365_event['label'] = args.label
                         send_event(json.dumps(office_365_event))
 
     except Exception as e:

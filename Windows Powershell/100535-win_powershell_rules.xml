@@ -2,7 +2,7 @@
 <group name="windows,">
   <rule id="100535" level="1">
     <if_sid>60009</if_sid>
-    <field name="win.system.providerName">^Microsoft-Windows-PowerShell$</field>
+    <field name="win.system.providerName">^PowerShell$</field>
     <mitre>
       <id>T1086</id>
     </mitre>
@@ -58,5 +58,57 @@
       </mitre>
       <options>no_full_log</options>
       <group>pci_dss_10.6.1,gpg13_4.12,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
+  </rule>
+  <rule id="100541" level="3">
+    <if_sid>91802</if_sid>
+    <field name="win.system.severityValue">VERBOSE</field>
+    <description>Powershell script $(win.eventdata.scriptBlockText) Executed</description>
+    <mitre>
+      <id>T1087.002</id>>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="100542" level="1">
+    <if_sid>100541</if_sid>
+    <field name="win.system.eventID">^4105$|^4106$</field>
+    <description>Disregard Powershell Text</description>
+    <mitre>
+      <id>T1087.002</id>>
+    </mitre>
+  </rule>
+  <rule id="100543" level="12">
+    <if_sid>100541</if_sid>
+    <list field="win.eventdata.scriptBlockText" lookup="match_key">etc/lists/malicious-powershell</list>
+    <description>Malicious Powershell Command $(win.eventdata.scriptBlockText) Executed</description>
+    <mitre>
+      <id>T1087.002</id>>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="100544" level="1">
+    <if_sid>100541</if_sid>
+    <field name="win.eventdata.scriptBlockText">PSMessageDetails|ErrorCategory_Message|OriginInfo</field>
+    <description>Disregard Powershell Prompt Text</description>
+    <mitre>
+      <id>T1087.002</id>>
+    </mitre>
+  </rule>
+  <rule id="100545" level="1">
+    <if_sid>100541</if_sid>
+    <field name="win.eventdata.scriptBlockText">^prompt$</field>
+    <description>Disregard Powershell Prompt Text</description>
+    <mitre>
+      <id>T1087.002</id>>
+    </mitre>
+  </rule>
+  <rule id="100550" level="3">
+    <if_sid>100535</if_sid>
+    <field name="win.system.eventID">^400$</field>
+    <mitre>
+      <id>T1086</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>windows_powershell,</group>
+    <description>Powershell Information EventLog</description>
   </rule>
 </group>
