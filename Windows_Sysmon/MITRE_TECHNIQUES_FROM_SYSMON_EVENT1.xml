@@ -1159,6 +1159,15 @@
     <options>no_full_log</options>
     <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
   </rule>
+ <!-- Lockbit 3.0 RansomWare -->
+  <rule id="100520" level="15">
+    <if_sid>100100</if_sid>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)-k LocalServiceNetworkRestricted -pass</field>
+    <description>Lockbit 3.0 Ransomware Launched.</description>
+    <mitre>
+      <id>T1134</id>
+    </mitre>
+  </rule>
   <!-- Rules 100600 - 100699: Correlation Rules -->
   <!-- Frequency rule to capture 3 sysmon event 1 Anomalies   -->
  
