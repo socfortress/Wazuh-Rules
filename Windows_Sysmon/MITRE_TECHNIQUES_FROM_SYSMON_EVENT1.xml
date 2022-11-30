@@ -1167,6 +1167,8 @@
     <mitre>
       <id>T1134</id>
     </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event1,windows_sysmon_event1,</group>
   </rule>
   <!-- Rules 100600 - 100699: Correlation Rules -->
   <!-- Frequency rule to capture 3 sysmon event 1 Anomalies   -->
