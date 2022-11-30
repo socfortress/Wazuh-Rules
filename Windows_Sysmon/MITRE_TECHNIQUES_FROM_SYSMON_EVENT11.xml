@@ -120,4 +120,13 @@
 <options>no_full_log</options>
 <group>sysmon_event_11,</group>
 </rule>
+<!-- Lockbit 3.0 Ransomware -->
+<rule id="110118" level="12">
+<if_group>sysmon_event_11</if_group>
+<field name="win.eventdata.targetFilename" type="pcre2">(?i)\\\\users</field>
+<field name="win.eventdata.targetFilename" type="pcre2">(?i)\.+readme\.txt</field>
+<description>The file $(win.eventdata.targetFilename) has been created. Possible ransomware activity.</description>
+<options>no_full_log</options>
+<group>sysmon_event_11,</group>
+</rule>
 </group>
