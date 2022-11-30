@@ -439,5 +439,55 @@
 <options>no_full_log</options>
 <group>sysmon_event_12,</group>
 </rule>
+  <!-- Lockbit 3.0 -->
+<rule id="111141" level="10">
+    <if_group>sysmon_event_12</if_group>
+    <field name="win.eventdata.targetObject" type="pcre2" >HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\vmicvss</field>
+    <field name="win.eventdata.eventType" type="pcre2" >^DeleteKey$</field>
+    <field name="win.eventdata.user" type="pcre2" >NT AUTHORITY\\\\SYSTEM</field>
+    <description>Hyper-V volume shadow copy requestor service $(win.eventdata.user) has been deleted on $(win.system.computer). Possible ransomware activity.</description>   
+    <mitre>
+      <id>T1490</id>
+     </mitre>
+    <options>no_full_log</options>
+<group>sysmon_event_12,</group>
+  </rule>
+  
+  <rule id="111142" level="10">
+    <if_group>sysmon_event_12</if_group>
+    <field name="win.eventdata.targetObject" type="pcre2" >HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\VSS</field>
+    <field name="win.eventdata.eventType" type="pcre2" >^DeleteKey$</field>
+    <field name="win.eventdata.user" type="pcre2" >NT AUTHORITY\\\\SYSTEM</field>
+    <description>Volume shadow copy service $(win.eventdata.user) has been deleted on $(win.system.computer). Possible ransomware activity.</description>
+    <mitre>
+      <id>T1490</id>
+    </mitre>
+    <options>no_full_log</options>
+<group>sysmon_event_12,</group>
+  </rule>
+  <rule id="111143" level="10">
+    <if_group>sysmon_event_12</if_group>
+    <field name="win.eventdata.targetObject" type="pcre2" >HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\WinDefend</field>
+    <field name="win.eventdata.eventType" type="pcre2" >^DeleteKey$</field>
+    <field name="win.eventdata.user" type="pcre2" >NT AUTHORITY\\\\SYSTEM</field>
+    <description>Windows defender service $(win.eventdata.user) has been deleted on $(win.system.computer). Possible Ransomware Activity.</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+<group>sysmon_event_12,</group>
+  </rule>
+  
+  <rule id="111144" level="10" ignore="10">
+    <if_group>sysmon_event_12</if_group>
+    <field name="win.eventdata.targetObject" type="pcre2" >HKLM\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels</field>
+    <field name="win.eventdata.eventType" type="pcre2" >^CreateKey$</field>
+    <description>Multiple Registry Keys created in Event Viewer on $(win.system.computer). Possible Ransomware Activity.</description>
+    <mitre>
+      <id>T1070.001</id>
+    </mitre>
+    <options>no_full_log</options>
+<group>sysmon_event_12,</group>
+  </rule>
 <!-- Sysmon - Event 12: Exceptions -->
 </group>
