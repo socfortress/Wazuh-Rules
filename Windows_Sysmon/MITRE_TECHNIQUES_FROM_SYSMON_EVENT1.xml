@@ -1028,18 +1028,13 @@
     <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
   </rule>
   <!-- MS RCE "Follina" Detection Rules -->
-  <!-- regsvr32 Spawned by MS-OFFICE Processes-->
-  <rule id="100506" level="13">
-    <if_sid>100160</if_sid>
-    <field name="win.eventdata.parentImage">winword.exe$|excel.exe$|powerpnt.exe$</field>
-    <description>Sysmon - Event 1: Process $(win.eventdata.description) - MS RCE Follina Detection.</description>
+  <rule id="100506" level="12">
+    <if_sid>100105</if_sid>
+    <field name="win.eventdata.parentImage">winword\.exe$|excel\.exe$|powerpnt\.exe$|outlook\.exe$|msaccess\.exe$|lync\.exe$|mspub\.exe$|onenote\.exe$</field>
+    <description>Possible Follina (CVE-2022-30190) exploitation attempt detected. New process created by a Microsoft Office application.</description>
     <mitre>
-      <id>T1204</id>
-      <id>T1047</id>
-      <id>T1218</id>
+      <id>T1203</id>
     </mitre>
-    <options>no_full_log</options>
-    <group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
   </rule>
   <!-- rundll32 Spawned by MS-OFFICE Processes-->
   <rule id="100507" level="13">
@@ -1169,6 +1164,16 @@
     </mitre>
     <options>no_full_log</options>
     <group>sysmon_event1,windows_sysmon_event1,</group>
+  </rule>
+ <!-- Folina Exploit Detected -->
+ <rule id="100521" level="15">
+    <if_sid>100506</if_sid>
+    <field name="win.eventdata.originalFileName" type="pcre2">^msdt\.exe$</field>
+    <field name="win.eventdata.commandLine" type="pcre2">ms-msdt:(/|-)id.*(PCWDiagnostic|IT_RebrowseForFile|IT_LaunchMethod|SelectProgram)</field>
+    <description>Follina (CVE-2022-30190) exploitation attempt detected. MSDT executed with known Follina exploitation pattern.</description>
+    <mitre>
+      <id>T1203</id>
+    </mitre>
   </rule>
   <!-- Rules 100600 - 100699: Correlation Rules -->
   <!-- Frequency rule to capture 3 sysmon event 1 Anomalies   -->
