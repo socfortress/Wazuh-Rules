@@ -8,7 +8,7 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![your-own-soc-free-for-life-tier](https://img.shields.io/badge/Get%20Started-FREE%20FOR%20LIFE%20TIER-orange)](https://www.socfortress.co/trial.html)
 
-## [Auditd Rules]()
+## [Auditd Rules](https://github.com/socfortress/Wazuh-Rules/blob/main/Auditd/auditd.conf)
 Use the provided auditd rules to get started.
 
 
