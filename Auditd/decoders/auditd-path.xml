@@ -1,0 +1,20 @@
+<decoder name="auditd-path">
+  <prematch>^type=PATH</prematch>
+</decoder>
+
+<!--
+type=PATH msg=audit(1672316980.514:138523): item=0 name="/usr/bin/grep" inode=2398 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0OUID="root" OGID="root"
+-->
+
+<decoder name="auditd-path">
+  <parent>auditd-path</parent>
+  <!--<prematch offset="after_parent">^SYSCALL </prematch>-->
+  <regex offset="after_parent">msg=audit\(\d\d\d\d\d\d\d\d\d\d.\d\d\d:(\d+)\): item=\S+ name="(\.*)" inode=(\S+) dev=\S+ mode=(\S+) ouid=\S+ ogid=\S+ rdev=\S+ nametype=(\S+) </regex>
+  <order>audit.id,audit.directory.name, audit.directory.inode, audit.directory.mode,audit.directory.nametype</order>
+</decoder>
+
+<decoder name="auditd-path">
+  <parent>auditd-path</parent>
+  <regex offset="after_regex">type=PATH msg=audit\(\S+\): item=\S+ name="(\.*)" inode=(\S+) dev=\S+ mode=(\S+) ouid=\S+ ogid=\S+ |type=PATH msg=audit\(\S+\): item=\S+ name=\((null)\) inode=(\S+) dev=\S+ mode=(\S+) ouid=\S+ ogid=\S+ </regex>
+  <order>audit.file.name, audit.file.inode, audit.file.mode</order>
+</decoder>
