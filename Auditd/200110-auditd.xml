@@ -1,0 +1,719 @@
+<group name="audit,">
+  <!-- SYSCALL -->
+  <rule id="200110" level="3">
+    <decoded_as>auditd-syscall</decoded_as>
+    <description>Audit: SYSCALL Messages grouped.</description>
+    <group>syscall,</group>
+  </rule>
+  <!-- EXECVE -->
+  <rule id="200111" level="3">
+    <decoded_as>auditd-execve</decoded_as>
+    <description>Audit: EXECVE Messages grouped.</description>
+    <group>execve,</group>
+  </rule>
+  <!-- PATH -->
+  <rule id="200112" level="3">
+    <decoded_as>auditd-path</decoded_as>
+    <description>Audit: PATH Messages grouped.</description>
+    <group>path,</group>
+  </rule>
+  <!-- CONFIG_CHANGE -->
+  <rule id="200113" level="3">
+    <decoded_as>auditd-config_change</decoded_as>
+    <description>Detect changes in auditd configuration files.</description>
+    <group>config_change,</group>
+  </rule>
+  <!-- USER_AND_CRED -->
+  <rule id="200114" level="3">
+    <decoded_as>auditd-user_and_cred</decoded_as>
+    <description>Audit: USER_AND_CRED Messages grouped.</description>
+    <group>user_and_cred,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_alter_bash_profile.yml -->
+  <rule id="200120" level="12">
+  <if_sid>200112</if_sid>
+  <list field="audit.directory.name" lookup="address_match_key">etc/lists/bash_profile</list>
+  <description>Detects change of user environment. Adversaries can insert code into these files to gain persistence each time a user logs in or opens a new shell.</description>
+  <mitre>
+    <id>T1546</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+
+  <rule id="200121" level="12">
+  <if_sid>200112</if_sid>
+  <field name="audit.directory.name">.bashrc$|.bash_profile$|.profile$</field>
+  <description>Detects change of user environment. Adversaries can insert code into these files to gain persistence each time a user logs in or opens a new shell.</description>
+  <mitre>
+    <id>T1546</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_audio_capture.yml -->
+  <rule id="200122" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">arecord</field>
+  <field name="audit.execve.a1">-vv</field>
+  <field name="audit.execve.a2">-fdat</field>
+  <description>Detects attempts to record audio with arecord utility.</description>
+  <mitre>
+    <id>T1123</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_binary_padding.yml -->
+  <rule id="200123" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">truncate</field>
+  <field name="audit.execve.a1">-s</field>
+  <description>Adversaries may use binary padding to add junk data and change the on-disk representation of malware. This rule detect using dd and truncate to add a junk data to file.</description>
+  <mitre>
+    <id>T1027</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200124" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">dd</field>
+  <field name="audit.execve.a1">if=</field>
+  <description>Adversaries may use binary padding to add junk data and change the on-disk representation of malware. This rule detect using dd and truncate to add a junk data to file.</description>
+  <mitre>
+    <id>T1027</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_bpfdoor_file_accessed.yml -->
+  <rule id="200125" level="12">
+  <if_sid>200112</if_sid>
+  <field name="audit.directory.name">/var/run/haldrund.pid|/var/run/xinetd.lock|/var/run/kdevrund.pid</field>
+  <description>Detects BPFDoor .lock and .pid files access in temporary file storage facility.</description>
+  <mitre>
+    <id>T1059</id>
+    <id>T1106</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_bpfdoor_port_redirect.yml -->
+  <rule id="200126" level="1">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">iptables$</field>
+  <field name="audit.execve.a1">-t</field>
+  <field name="audit.execve.a2">nat</field>
+  <description>All TCP traffic on particular port from attacker is routed to different port. ex. '/sbin/iptables -t nat -D PREROUTING -p tcp -s 192.168.1.1 --dport 22 -j REDIRECT --to-ports 42392'.</description>
+  <mitre>
+    <id>T1562</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200127" level="12">
+  <if_sid>200126</if_sid>
+  <match>--to-ports 42|--to-ports 43</match>
+  <description>All TCP traffic on particular port from attacker is routed to different port. ex. '/sbin/iptables -t nat -D PREROUTING -p tcp -s 192.168.1.1 --dport 22 -j REDIRECT --to-ports 42392'.</description>
+  <mitre>
+    <id>T1562</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_capabilities_discovery.yml -->
+  <rule id="200128" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">getcap</field>
+  <field name="audit.execve.a1">-r</field>
+  <field name="audit.execve.a2">/</field>
+  <description>Detects attempts to discover the files with setuid/setgid capability on them. That would allow adversary to escalate their privileges.</description>
+  <mitre>
+    <id>T1123</id>
+    <id>T1548</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_change_file_time_attr.yml -->
+  <rule id="200129" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">touch</field>
+  <field name="audit.execve.a1">-t|-acmr|-d|-r</field>
+  <description>Detect file time attribute change to hide new or changes to existing files.</description>
+  <mitre>
+    <id>T1070</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_chattr_immutable_removal.yml -->
+  <rule id="200130" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">chattr</field>
+  <field name="audit.execve.a1">-i</field>
+  <description>Detects removing immutable file attribute.</description>
+  <mitre>
+    <id>T1222</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_clipboard_collection.yml -->
+  <rule id="200131" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">xclip</field>
+  <field name="audit.execve.a1">-selection|-sel</field>
+  <field name="audit.execve.a2">- clipboard|- clip</field>
+  <field name="audit.execve.a3">-o</field>
+  <description>Detects attempts to collect data stored in the clipboard from users with the usage of xclip tool.</description>
+  <mitre>
+    <id>T1115</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_coinminer.yml -->
+  <rule id="200132" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a1">^--cpu-priority</field>
+  <description>Detects command line parameter very often used with coin miners.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200133" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a2">^--cpu-priority</field>
+  <description>Detects command line parameter very often used with coin miners.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200134" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a3">^--cpu-priority</field>
+  <description>Detects command line parameter very often used with coin miners.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200135" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a4">^--cpu-priority</field>
+  <description>Detects command line parameter very often used with coin miners.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200136" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a5">^--cpu-priority</field>
+  <description>Detects command line parameter very often used with coin miners.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200137" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a6">^--cpu-priority</field>
+  <description>Detects command line parameter very often used with coin miners.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200138" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a7">^--cpu-priority</field>
+  <description>Detects command line parameter very often used with coin miners.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_cve_2021_3156_sudo_buffer_overflow.yml -->
+  <rule id="200139" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">sudoedit$</field>
+  <field name="audit.execve.a1">-s</field>
+  <field name="audit.execve.a2">-s</field>
+  <field name="audit.execve.a3">-s</field>
+  <field name="audit.execve.a4">-s</field>
+  <description>Detects exploitation attempt of vulnerability described in CVE-2021-3156.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200140" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">sudoedit$</field>
+  <field name="audit.execve.a1">^\\$</field>
+  <field name="audit.execve.a2">^\\$</field>
+  <field name="audit.execve.a3">^\\$</field>
+  <field name="audit.execve.a4">^\\$</field>
+  <description>Detects exploitation attempt of vulnerability described in CVE-2021-3156.</description>
+  <mitre>
+    <id>T1068</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_data_compressed.yml -->
+  <rule id="200141" level="10">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">zip</field>
+  <description>An adversary may compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.</description>
+  <mitre>
+    <id>T1560</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200142" level="10">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">gzip</field>
+  <field name="audit.execve.a1">-f</field>
+  <description>An adversary may compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.</description>
+  <mitre>
+    <id>T1560</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200143" level="10">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">tar</field>
+  <field name="audit.execve.a1">-c</field>
+  <description>An adversary may compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.</description>
+  <mitre>
+    <id>T1560</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_data_exfil_wget.yml -->
+  <rule id="200144" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">wget</field>
+  <field name="audit.execve.a1">^--post-file=</field>
+  <description>Detects attempts to post the file with the usage of wget utility. The adversary can bypass the permission restriction with the misconfigured sudo permission for wget utility which could allow them to read files like /etc/shadow.</description>
+  <mitre>
+    <id>T1048</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_dd_delete_file.yml -->
+  <rule id="200145" level="12">
+  <if_sid>200124</if_sid>
+  <field name="audit.execve.a0">dd</field>
+  <field name="audit.execve.a1">if=/dev/null|if=/dev/zero</field>
+  <description>Detects overwriting (effectively wiping/deleting) of a file.</description>
+  <mitre>
+    <id>T1485</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_debugfs_usage.yml -->
+  <rule id="200146" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">debugfs</field>
+  <description>Detects access to a raw disk on a host to evade detection by security products.</description>
+  <mitre>
+    <id>T1006</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_disable_system_firewall.yml -->
+  <rule id="200147" level="12">
+  <if_sid>200114</if_sid>
+  <field name="audit.unit">firewalld|iptables|ufw</field>
+  <description>Detects disabling of system firewalls which could be used by adversaries to bypass controls that limit usage of the network.</description>
+  <mitre>
+    <id>T1562</id>
+  </mitre>
+  <group>user_and_cred,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_file_or_folder_permissions.yml -->
+  <rule id="200148" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">chmod|chown</field>
+  <description>Detects file and folder permission changes.</description>
+  <mitre>
+    <id>T1222</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_find_cred_in_files.yml -->
+  <rule id="200149" level="1">
+  <if_sid>200111</if_sid>
+  <match>grep</match>
+  <description>Detecting attempts to extract passwords with grep.</description>
+  <mitre>
+    <id>T1552</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200158" level="12">
+  <if_sid>200149</if_sid>
+  <match>password</match>
+  <description>Detecting attempts to extract passwords with grep.</description>
+  <mitre>
+    <id>T1552</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_hidden_files_directories.yml -->
+  <rule id="200159" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">mkdir|touch|vim|nano|vi</field>
+  <field name="audit.execve.a1">/.|^.</field>
+  <description>Detects adversary creating hidden file or directory, by detecting directories or files with . as the first character.</description>
+  <mitre>
+    <id>T1564</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200160" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">mkdir|touch|vim|nano|vi</field>
+  <field name="audit.execve.a2">/.|^.</field>
+  <description>Detects adversary creating hidden file or directory, by detecting directories or files with . as the first character.</description>
+  <mitre>
+    <id>T1564</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_hidden_zip_files_steganography.yml -->
+  <rule id="200161" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">cat</field>
+  <field name="audit.execve.a1">.jpg$|.png$</field>
+  <field name="audit.execve.a2">.zip$</field>
+  <description>Detects appending of zip file to image.</description>
+  <mitre>
+    <id>T1027</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_ld_so_preload_mod.yml -->
+  <rule id="200162" level="12">
+  <if_sid>200112</if_sid>
+  <field name="audit.directory.name">/etc/ld.so.preload</field>
+  <description>Identifies modification of ld.so.preload for shared object injection. This technique is used by attackers to load arbitrary code into processes.</description>
+  <mitre>
+    <id>T1574</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_load_module_insmod.yml -->
+  <rule id="200163" level="12">
+  <if_sid>200110</if_sid>
+  <field name="audit.command">insmod</field>
+  <field name="audit.exe">/usr/bin/kmod</field>
+  <description>Detects loading of kernel modules with insmod command.</description>
+  <mitre>
+    <id>T1547</id>
+  </mitre>
+  <group>syscall,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_logging_config_change.yml -->
+  <rule id="200164" level="12">
+  <if_sid>200112</if_sid>
+  <field name="audit.directory.name">/etc/syslog.conf|/etc/rsyslog.conf|/etc/syslog-ng/syslog-ng.conf</field>
+  <description>Detect changes of syslog daemons configuration files.</description>
+  <mitre>
+    <id>T1562</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_masquerading_crond.yml -->
+  <rule id="200165" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">cp</field>
+  <field name="audit.execve.a1">-i</field>
+  <field name="audit.execve.a2">/bin/sh</field>
+  <field name="audit.execve.a3">/crond$</field>
+  <description>Masquerading as Linux Crond Process.</description>
+  <mitre>
+    <id>T1036</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_network_service_scanning.yml -->
+  <rule id="200166" level="12">
+  <if_sid>200110</if_sid>
+  <field name="audit.exe">/telnet$|/nmap$|/netcat$|/nc$</field>
+  <description>Detects enumeration of local or remote network services.</description>
+  <mitre>
+    <id>T1046</id>
+  </mitre>
+  <group>syscall,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_network_sniffing.yml -->
+  <rule id="200167" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">tcpdump|tshark</field>
+  <field name="audit.execve.a1">-c</field>
+  <field name="audit.execve.a3">-i</field>
+  <description>Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection.</description>
+  <mitre>
+    <id>T1040</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_password_policy_discovery.yml -->
+  <rule id="200168" level="12">
+  <if_sid>200112</if_sid>
+  <field name="audit.directory.name">/etc/pam.d/common-password|/etc/security/pwquality.conf|/etc/pam.d/system-auth|/etc/login.defs</field>
+  <description>Detects password policy discovery commands.</description>
+  <mitre>
+    <id>T1201</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+  
+  <rule id="200169" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">chage|passwd</field>
+  <field name="audit.execve.a1">--list|-l|-S|--status</field>
+  <field name="audit.execve.a3">-i</field>
+  <description>Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection.</description>
+  <mitre>
+    <id>T1201</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_pers_systemd_reload.yml -->
+  <rule id="200170" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">systemctl</field>
+  <field name="audit.execve.a1">daemon-reload|start</field>
+  <description>Detects a reload or a start of a service.</description>
+  <mitre>
+    <id>T1543</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_screencapture_import.yml -->
+  <rule id="200171" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">import</field>
+  <field name="audit.execve.a1">-window</field>
+  <field name="audit.execve.a2">root</field>
+  <field name="audit.execve.a3">.png$|.jpg$|.jpeg$</field>
+  <description>Detects adversary creating screen capture of a desktop with Import Tool.</description>
+  <mitre>
+    <id>T1113</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200172" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">import</field>
+  <field name="audit.execve.a1">.png$|.jpg$|.jpeg$</field>
+  <description>Detects adversary creating screen capture of a desktop with Import Tool.</description>
+  <mitre>
+    <id>T1113</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_screencaputre_xwd.yml -->
+  <rule id="200173" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">xwd</field>
+  <field name="audit.execve.a1">-root</field>
+  <field name="audit.execve.a2">-out</field>
+  <field name="audit.execve.a3">.xwd$</field>
+  <description>Detects adversary creating screen capture of a full with xwd.</description>
+  <mitre>
+    <id>T1113</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <rule id="200174" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">xwd</field>
+  <field name="audit.execve.a1">-out</field>
+  <field name="audit.execve.a2">.xwd$</field>
+  <description>Detects adversary creating screen capture of a full with xwd.</description>
+  <mitre>
+    <id>T1113</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_split_file_into_pieces.yml -->
+  <rule id="200175" level="12">
+  <if_sid>200110</if_sid>
+  <field name="audit.command">split</field>
+  <description>Detection use of the command "split" to split files into parts and possible transfer.</description>
+  <mitre>
+    <id>T1030</id>
+  </mitre>
+  <group>syscall,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_steghide_embed_steganography.yml -->
+  <rule id="200176" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">steghide</field>
+  <field name="audit.execve.a1">embed</field>
+  <field name="audit.execve.a2">-cf|-ef</field>
+  <field name="audit.execve.a4">-cf|-ef</field>
+  <description>Detects embeding of files with usage of steghide binary, the adversaries may use this technique to prevent the detection of hidden information.</description>
+  <mitre>
+    <id>T1027</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_steghide_extract_steganography.yml -->
+  <rule id="200177" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">steghide</field>
+  <field name="audit.execve.a1">extract</field>
+  <field name="audit.execve.a2">-sf</field>
+  <field name="audit.execve.a3">.jpg$|.png$</field>
+  <description>Detects extraction of files with usage of steghide binary, the adversaries may use this technique to prevent the detection of hidden information.</description>
+  <mitre>
+    <id>T1027</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_c2_commands.yml -->
+  <rule id="200178" level="12">
+  <if_sid>200110</if_sid>
+  <field name="audit.key">susp_activity</field>
+  <description>Detects suspicious activities as declared by Florian Roth in its 'Best Practice Auditd Configuration'. This includes the detection of the following commands; wget, curl, base64, nc, netcat, ncat, ssh, socat, wireshark, rawshark, rdesktop, nmap.</description>
+  <group>syscall,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_cmds.yml -->
+  <rule id="200179" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">chmod|cp</field>
+  <field name="audit.execve.a1">777|u\ps|/bin/ksh|/bin/sh</field>
+  <description>Detects relevant commands often related to malware or hacking activity.</description>
+  <mitre>
+    <id>T1059</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_exe_folders.yml -->
+  <rule id="200180" level="12">
+  <if_sid>200110</if_sid>
+  <field name="audit.exe">^/tmp/|^/var/www/|^/home/\.*/public_html/|^/usr/local/apache2/|^/usr/local/httpd/|^/var/apache/|^/srv/www/|^/home/httpd/html/|^/srv/http/|^/usr/share/nginx/html/|^/var/lib/pgsql/data/|^/usr/local/mysql/data/|^/var/lib/mysql/|^/var/vsftpd/|^/etc/bind/|^/var/named/</field>
+  <description>Detects program executions in suspicious non-program folders related to malware or hacking activity.</description>
+  <mitre>
+    <id>T1587</id>
+    <id>T1584</id>
+  </mitre>
+  <group>syscall,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_histfile_operations.yml -->
+  <rule id="200181" level="12">
+  <if_sid>200111</if_sid>
+  <match>.bash_history|.zsh_history|.zhistory|.history|.sh_history|fish_history</match>
+  <description>Detects commandline operations on shell history files.</description>
+  <mitre>
+    <id>T1552</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_system_info_discovery.yml -->
+  <rule id="200182" level="12">
+  <if_sid>200112</if_sid>
+  <field name="audit.directory.name">/etc/lsb-release|/etc/redhat-release|/etc/issue|/sys/class/dmi/id/bios_version|/sys/class/dmi/id/product_name|/sys/class/dmi/id/chassis_vendor|/proc/scsi/scsi|/proc/ide/hd0/model|/proc/version</field>
+  <description>Detects System Information Discovery commands.</description>
+  <mitre>
+    <id>T1082</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+  
+  <rule id="200183" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">uname|uptime</field>
+  <description>Detects System Information Discovery commands.</description>
+  <mitre>
+    <id>T1082</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_systemd_service_creation.yml -->
+  <rule id="200184" level="10">
+  <if_sid>200112</if_sid>
+  <field name="audit.directory.nametype">CREATE</field>
+  <field name="audit.directory.name">^/usr/lib/systemd/system/|^/etc/systemd/system/|/.config/systemd/user/</field>
+  <description>Detects a creation of systemd services which could be used by adversaries to execute malicious code.</description>
+  <mitre>
+    <id>T1543</id>
+  </mitre>
+  <group>path,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_unzip_hidden_zip_files_steganography.yml -->
+  <rule id="200185" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">unzip</field>
+  <field name="audit.execve.a1">.jpg$|.png$</field>
+  <description>Detects extracting of zip file from image file.</description>
+  <mitre>
+    <id>T1027</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+  
+  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_user_discovery.yml -->
+  <rule id="200186" level="12">
+  <if_sid>200111</if_sid>
+  <field name="audit.execve.a0">users|w|who</field>
+  <description>Adversaries may use the information from System Owner/User Discovery during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.</description>
+  <mitre>
+    <id>T1033</id>
+  </mitre>
+  <group>execve,</group>
+  </rule>
+</group>
