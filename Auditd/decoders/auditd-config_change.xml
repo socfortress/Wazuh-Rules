@@ -1,0 +1,38 @@
+<decoder name="auditd-config_change">
+  <prematch>^type=CONFIG_CHANGE</prematch>
+</decoder>
+
+<!--
+type=CONFIG_CHANGE msg=audit(1672265894.539:138315): auid=4294967295 ses=4294967295 subj=unconfined op=add_rule key="T1497_Virtualization_Sandbox_Evasion_System_Checks" list=4 res=1AUID="unset"
+-->
+
+<decoder name="auditd-config_change">
+  <parent>auditd-config_change</parent>
+  <!--<prematch offset="after_parent">^SYSCALL </prematch>-->
+  <regex offset="after_parent">msg=audit\(\d\d\d\d\d\d\d\d\d\d.\d\d\d:(\d+)\): </regex>
+  <order>audit.id</order>
+</decoder>
+
+<decoder name="auditd-config_change">
+  <parent>auditd-config_change</parent>
+  <regex>auid=(\S+) ses=(\S+) subj=(\S+) op=(\S+) </regex>
+  <order>audit.auid,audit.session,audit.subj,audit.op</order>
+</decoder>
+
+<decoder name="auditd-config_change">
+  <parent>auditd-config_change</parent>
+  <regex>key=\((\S+)\)|key="(\S+)"|key=(\S+) </regex>
+  <order>audit.key</order>
+</decoder>
+
+<decoder name="auditd-config_change">
+  <parent>auditd-config_change</parent>
+  <regex>list=(\S+)</regex>
+  <order>audit.list</order>
+</decoder>
+
+<decoder name="auditd-config_change">
+  <parent>auditd-config_change</parent>
+  <regex>res=(\S+)</regex>
+  <order>audit.res</order>
+</decoder>
