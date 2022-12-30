@@ -31,9 +31,9 @@
         <options>no_full_log</options>
         <group>http</group>
     </rule>
-<!-- TEMP RULE FOR WINDOWS PACKETBEAT ICMP -->
+<!-- EXCLUDE PACKETBEAT ICMP -->
 
-    <rule id="200303" level="3">
+    <rule id="200303" level="1">
         <decoded_as>json</decoded_as>
         <field name="network.transport">icmp</field>
         <mitre>
