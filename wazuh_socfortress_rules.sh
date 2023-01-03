@@ -157,6 +157,7 @@ cloneRules() {
         find . -name '*xml' -exec mv {} /var/ossec/etc/rules/ \;
         find /var/ossec/etc/rules/ -name 'decoder-linux-sysmon.xml' -exec mv {} /var/ossec/etc/decoders/ \;
         find /var/ossec/etc/rules/ -name 'yara_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+        find /var/ossec/etc/rules/ -name 'auditd_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
         /var/ossec/bin/wazuh-control info 2>&1 | tee /tmp/version.txt
         if [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.2)" ]; then
         logger "Wazuh Manager is on version 4.2"
