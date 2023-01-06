@@ -35,3 +35,9 @@
     <description>Sophos Alert - Good Health</description>
   </rule>
 </group>
+<group name="sophos,sophos_inventory">
+  <rule id="200706" level="5">
+    <field name="assignedProducts">\.+</field>
+    <description>Sophos Alert - Inventory</description>
+  </rule>
+</group>
