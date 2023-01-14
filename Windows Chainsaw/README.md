@@ -298,7 +298,7 @@ The below would invoke Chainsaw to run once every 24 hours:
 ```
 <wodle name="command">
 		<disabled>no</disabled>
-		<tag>windows_inventory</tag>
+		<tag>windows_chainsaw</tag>
 		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files\socfortress\chainsaw.ps1"</command>
 		<interval>24h</interval>
 		<ignore_output>yes</ignore_output>
