@@ -294,6 +294,19 @@ Chainsaw can also be regularly executed, triggered by a wodle command config on 
 ```
 Based on Chainsaw categories mentioned earlier, we can now build Wazuh’s detection rules.
 
+The below would invoke Chainsaw to run once every 24 hours:
+```
+<wodle name="command">
+		<disabled>no</disabled>
+		<tag>windows_inventory</tag>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files\socfortress\chainsaw.ps1"</command>
+		<interval>24h</interval>
+		<ignore_output>yes</ignore_output>
+		<run_on_start>yes</run_on_start>
+		<timeout>0</timeout>
+	</wodle>
+  ```
+
 <!-- CONTACT -->
 ## Need Help?
 
