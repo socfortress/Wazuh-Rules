@@ -285,13 +285,13 @@ While looping thru, a flow control (sleep timer) will prevent filling up the age
 Detection rules in the Wazuh Manager will generate alerts accordingly.
 NOTE: There’s an issue in Chainsaw’s CSV file generation where columns with “\r” cause a break in that line/row and get splitted in 2 different lines.
 
-The folder “c:\Program Files” is used to store the chainsaw folder with the executable and all the sigma rules. Change folder location and settings in the powershell script as per your requirement.
+The folder `c:\Program Files` is used to store the chainsaw folder with the executable and all the sigma rules. Change folder location and settings in the powershell script as per your requirement.
 
 Chainsaw powershell script execution:
-
+```
 powershell.exe  -ExecutionPolicy Bypass -File "C:\Program Files\Sysinternals\chainsaw\chainsaw.ps1"
 Chainsaw can also be regularly executed, triggered by a wodle command config on Wazuh manager.
-
+```
 Based on Chainsaw categories mentioned earlier, we can now build Wazuh’s detection rules.
 
 <!-- CONTACT -->
