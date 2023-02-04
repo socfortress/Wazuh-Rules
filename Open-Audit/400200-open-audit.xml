@@ -1,0 +1,152 @@
+<group name="open-audit,">
+<rule id="400201" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.sys.script_version">\.+</field>
+    <description>Open-Audit System</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400202" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.windows.item.build_number">\.+</field>
+    <description>Open-Audit Windows</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400203" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.policy.item.type">\.+</field>
+    <description>Open-Audit Policy</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400204" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.bios.item.description">\.+</field>
+    <description>Open-Audit BIOS</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400205" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.scsi.item.model">\.+</field>
+    <description>Open-Audit SCSI</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400206" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.scsi.item.model">\.+</field>
+    <description>Open-Audit SCSI</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400207" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.processor.item.physical_count">\.+</field>
+    <description>Open-Audit Processor</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400208" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.memory.item.bank">\.+</field>
+    <description>Open-Audit Memory</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400209" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.optical.item.description">\.+</field>
+    <description>Open-Audit Optical</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400210" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.video.item.model">\.+</field>
+    <description>Open-Audit Video</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400211" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.disk.item.caption">\.+</field>
+    <description>Open-Audit Disk</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400212" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.partition.item.hard_drive_index">\.+</field>
+    <description>Open-Audit Partition</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400213" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.network.item.mac">\.+</field>
+    <description>Open-Audit Network</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400214" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.ip.item.mac">\.+</field>
+    <description>Open-Audit IP</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400215" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.usb.item.name">\.+</field>
+    <description>Open-Audit USB</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400216" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.task.item.name">\.+</field>
+    <description>Open-Audit Task</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400217" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.variable.item.program.environment.name">\.+</field>
+    <description>Open-Audit Variable</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400218" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.log.item.name">\.+</field>
+    <description>Open-Audit Log</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400219" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.user.item.name">\.+</field>
+    <description>Open-Audit User</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400220" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.user_group.item.name">\.+</field>
+    <description>Open-Audit User Group</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400221" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.software.item.name">\.+</field>
+    <description>Open-Audit Software</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400222" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.service.item.description">\.+</field>
+    <description>Open-Audit Service</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="400223" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.software_key.item.name">\.+</field>
+    <description>Open-Audit Software Key</description>
+    <options>no_full_log</options>
+    </rule>
+    <rule id="400224" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.netstat.item.protocol">\.+</field>
+    <description>Open-Audit Netstat</description>
+    <options>no_full_log</options>
+    </rule>
+    <rule id="400225" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="system.route.item.destination">\.+</field>
+    <description>Open-Audit Route</description>
+    <options>no_full_log</options>
+    </rule>
+</group>
