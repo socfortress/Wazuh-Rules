@@ -554,7 +554,7 @@
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_exe_folders.yml -->
-  <rule id="200282" level="12">
+  <rule id="200282" level="10">
   <if_sid>200223</if_sid>
   <field name="columns.path">^/tmp/|^/var/www/|^/home/\.*/public_html/|^/usr/local/apache2/|^/usr/local/httpd/|^/var/apache/|^/srv/www/|^/home/httpd/html/|^/srv/http/|^/usr/share/nginx/html/|^/var/lib/pgsql/data/|^/usr/local/mysql/data/|^/var/lib/mysql/|^/var/vsftpd/|^/etc/bind/|^/var/named/</field>
   <description>Detects program executions in suspicious non-program folders related to malware or hacking activity.</description>
