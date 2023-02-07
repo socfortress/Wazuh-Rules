@@ -417,7 +417,7 @@
   <group>bpf_process_events,</group>
   </rule>
   
-  <rule id="200272" level="12">
+  <rule id="200272" level="10">
   <if_sid>200223</if_sid>
   <field name="columns.cmdline">chage|passwd</field>
   <field name="columns.cmdline">--list|-l|-S|--status</field>
