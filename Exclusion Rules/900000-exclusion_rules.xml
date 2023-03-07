@@ -25,4 +25,11 @@
     <description>Exclude Audit Failure Events SeTcbPrivilege</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Detects a reload or a start of a service. -->
+  <rule id="900005" level="1">
+    <if_sid>200273</if_sid>
+    <field name="columns.cwd">ossec$</field>
+    <description>Exclude ossec</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
