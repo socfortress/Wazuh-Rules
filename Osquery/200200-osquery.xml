@@ -431,7 +431,7 @@
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_pers_systemd_reload.yml -->
-  <rule id="200273" level="12">
+  <rule id="200273" level="9">
   <if_sid>200223</if_sid>
   <field name="columns.cmdline">systemctl</field>
   <field name="columns.cmdline">daemon-reload|start</field>
