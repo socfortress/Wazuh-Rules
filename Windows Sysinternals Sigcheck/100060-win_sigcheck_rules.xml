@@ -1,5 +1,5 @@
 <group name="windows,">
-<rule id="91560" level="10">
+<rule id="100060" level="10">
   <decoded_as>json</decoded_as>
   <field name="Path">\.+</field>
   <field name="Verified">\.+</field>
@@ -10,8 +10,8 @@
   <options>no_full_log</options>
   <group>windows_sigcheck,</group>
 </rule>
-<rule id="91561" level="12">
-  <if_sid>91560</if_sid>
+<rule id="100061" level="12">
+  <if_sid>100060</if_sid>
   <field name="VTdetection">^\d\d\|</field>
   <description>Windows Sigcheck - VirusTotal Hit Above 10 Matches</description>
   <mitre>
