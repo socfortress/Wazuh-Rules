@@ -279,7 +279,7 @@
   <group>bpf_process_events,</group>
   </rule>
   
-  <rule id="200261" level="12">
+  <rule id="200261" level="9">
   <if_sid>200260</if_sid>
   <field name="columns.cmdline">password</field>
   <description>Detecting attempts to extract passwords with grep.</description>
