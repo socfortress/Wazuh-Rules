@@ -1,5 +1,5 @@
 <group name="windows,">
-<rule id="91570" level="3">
+<rule id="100070" level="3">
   <decoded_as>json</decoded_as>
   <field name="LogonSession">\.+</field>
   <field name="UserName">\.+</field>
