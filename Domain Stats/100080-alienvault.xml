@@ -1,5 +1,5 @@
 <group name="alienvault,">
-<rule id="91580" level="12">
+<rule id="100080" level="12">
   <decoded_as>json</decoded_as>
   <field name="sections">\.+</field>
   <field name="type">\.+</field>
