@@ -1,5 +1,5 @@
 <group name="windows,">
-<rule id="91550" level="10">
+<rule id="100050" level="10">
   <decoded_as>json</decoded_as>
   <field name="Entry">\.+</field>
   <field name="EntryLocation">\.+</field>
@@ -10,8 +10,8 @@
   <options>no_full_log</options>
   <group>windows_autoruns,</group>
 </rule>
-<rule id="91551" level="10">
-  <if_sid>91550</if_sid>
+<rule id="100051" level="10">
+  <if_sid>100050</if_sid>
   <field name="VTdetection">Unknown</field>
   <description>Windows Autoruns - VirusTotal Unknown Signature</description>
   <mitre>
@@ -20,8 +20,8 @@
   <options>no_full_log</options>
   <group>windows_autoruns,</group>
 </rule>
-<rule id="91552" level="12">
-  <if_sid>91550</if_sid>
+<rule id="100052" level="12">
+  <if_sid>100050</if_sid>
   <field name="VTdetection">^\d\d\|</field>
   <description>Windows Autoruns - VirusTotal Hit Above 10 Matches</description>
   <mitre>
