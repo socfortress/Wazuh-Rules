@@ -51,90 +51,103 @@
     <description>Exclude Git</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900009" level="1">
+ <rule id="900009" level="1">
     <if_group>windows</if_group>
     <field name="event.TargetImage">^C:\\Program Files\\socfortress</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-<rule id="900010" level="1">
+ <rule id="900010" level="1">
     <if_group>windows</if_group>
     <field name="event.CommandLine">^C:\\Program Files\\socfortress|\\ossec-agent\\active-response\\bin\\chainsaw.ps1</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900011" level="1">
+ <rule id="900011" level="1">
     <if_group>chainsaw</if_group>
     <field name="event.SourceImage">^C:\\Windows\\Explorer.EXE$</field>    
     <field name="event.TargetImage">^C:\\Windows\\system32\\taskmgr.exe$|^C:\\Windows\\system32\\MusNotifyIcon.exe$</field> 
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900012" level="1">
+ <rule id="900012" level="1">
     <if_group>windows</if_group>
     <field name="win.eventdata.image">vc_redist.x64.exe$|sysinternals\\\\sigcheck64.exe$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900013" level="1">
+ <rule id="900013" level="1">
     <if_group>chainsaw</if_group>
     <field name="event.SourceImage">Git-2.39.2-64-bit.tmp$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900014" level="1">
+ <rule id="900014" level="1">
     <if_group>chainsaw</if_group>
     <field name="event.SourceImage">^C:\\Program Files\\Git</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900015" level="1">
+ <rule id="900015" level="1">
     <if_group>chainsaw</if_group>
     <field name="name">^Sysmon Blocked Executable$|^Windows Defender Threat Detected$|^Win Defender Restored Quarantine File$|^Uninstall Sysinternals Sysmon$|^External Remote SMB Logon from Public IP$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900016" level="1">
+ <rule id="900016" level="1">
     <if_group>windows</if_group>
     <field name="win.eventdata.path">\\\\ossec-agent\\\\active-response\\\\bin\\\\chainsaw.ps1$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900017" level="1">
+ <rule id="900017" level="1">
     <if_group>windows</if_group>
     <field name="win.eventdata.originalFileName">^mscorlib.dll$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900018" level="1">
+ <rule id="900018" level="1">
     <if_group>sysmon_event_12</if_group>
-    <field name="win.eventdata.targetObject">^HKLM\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates$|^HKU\\\\.DEFAULT\\\\Software\\\\Microsoft\\\\SystemCertificates\\\\Root\\\\Certificates$|^HKLM\\\\SOFTWARE\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$|^HKLM\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$|^HKU\\\\.DEFAULT\\\\Software\\\\Policies\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$</field>    
+    <field name="win.eventdata.targetObject">^HKLM\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates$|^HKU\\\\.DEFAULT\\\\Software\\\\Microsoft\\\\SystemCertificates\\\\Root\\\\Certificates$|^HKLM\\\\SOFTWARE\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$|^HKLM\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$|^HKU\\\\.DEFAULT\\\\Software\\\\Policies\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$|^HKU\\\\.DEFAULT\\\\Software\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$|^HKLM\\\\SOFTWARE\\\\Microsoft\\\\EnterpriseCertificates\\\\Root\\\\Certificates$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900019" level="1">
+ <rule id="900019" level="1">
     <if_group>sysmon_event1</if_group>
     <field name="win.eventdata.image">^C:\\\\Program Files\\\\socfortress\\\\chainsaw\\\\chainsaw.exe$|^C:\\\\Program Files\\\\Git</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-   <rule id="900020" level="1">
+ <rule id="900020" level="1">
     <if_group>chainsaw</if_group>
     <field name="event.CommandLine">Windows\\system32\\silcollector.cmd configure$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900021" level="1">
+ <rule id="900021" level="1">
     <if_group>sysmon_event1</if_group>
     <field name="win.eventdata.currentDirectory">^C:\\\\Program Files\\\\socfortress\\\\chainsaw\\\\sigma</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-  <rule id="900022" level="1">
+ <rule id="900022" level="1">
     <if_group>sysmon_event7</if_group>
     <field name="win.eventdata.signature">^Microsoft Windows$</field>    
     <field name="win.eventdata.signatureStatus">^Valid$</field>  
     <field name="win.eventdata.signed">^true$</field>  
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
+ <rule id="900023" level="1">
+    <if_group>sysmon_event_11</if_group>
+    <field name="win.eventdata.image">socfortress\\\\chainsaw\\\\chainsaw.exe$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
+ <rule id="900024" level="1">
+    <if_group>sysmon_event_11</if_group>
+    <field name="win.eventdata.image">^C:\\\\Windows\\\\system32\\\\svchost.exe$</field>    
+    <field name="win.eventdata.targetFilename">^C:\\\\Windows\\\\SoftwareDistribution\\\\Download</field> 
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
