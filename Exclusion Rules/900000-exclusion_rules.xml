@@ -112,4 +112,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900019" level="1">
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.image">^C:\\\\Program Files\\\\socfortress\\\\chainsaw\\\\chainsaw.exe$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
