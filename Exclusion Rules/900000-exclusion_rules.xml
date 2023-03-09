@@ -63,4 +63,11 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900011" level="1">
+    <if_group>chainsaw</if_group>
+    <field name="event.SourceImage">^C:\\Windows\\Explorer.EXE$</field>    
+    <field name="event.TargetImage">^C:\\Windows\\system32\\taskmgr.exe$</field> 
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
