@@ -118,4 +118,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+   <rule id="900020" level="1">
+    <if_group>chainsaw</if_group>
+    <field name="event.CommandLine">Windows\\system32\\silcollector.cmd configure$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
