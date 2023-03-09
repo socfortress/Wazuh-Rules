@@ -164,4 +164,11 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
   </rule>
+  <rule id="900027" level="1">
+    <if_group>sysmon_event_11</if_group>
+    <field name="win.eventdata.image">^C:\\\\Program Files \(x86\)\\\\ossec-agent\\\\wazuh-agent.exe$</field>    
+    <field name="win.eventdata.targetFilename">^C:\\\\Windows\\\\Temp</field> 
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
