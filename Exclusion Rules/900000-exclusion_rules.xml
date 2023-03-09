@@ -70,4 +70,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900012" level="1">
+    <if_group>windows</if_group>
+    <field name="win.eventdata_image">vc_redist.x64.exe$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
