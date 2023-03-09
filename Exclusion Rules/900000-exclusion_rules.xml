@@ -151,4 +151,11 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+ <rule id="900025" level="1">
+    <if_group>sysmon_event_11</if_group>
+    <field name="win.eventdata.image">^C:\\\\Windows\\\\SysWOW64\\\WindowsPowerShell\\\\v1.0\\\\Powershell.exe$</field>    
+    <field name="win.eventdata.targetFilename">^C:\\\\Windows\\\\Temp\\\\__PSScriptPolicyTest</field> 
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
