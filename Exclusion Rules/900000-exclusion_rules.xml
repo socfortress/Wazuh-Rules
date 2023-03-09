@@ -108,7 +108,7 @@
  </rule>
   <rule id="900018" level="1">
     <if_group>sysmon_event_12</if_group>
-    <field name="win.eventdata.targetObject">^HKLM\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates$|^HKU\\\\.DEFAULT\\\\Software\\\\Microsoft\\\\SystemCertificates\\\\Root\\\\Certificates$</field>    
+    <field name="win.eventdata.targetObject">^HKLM\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates$|^HKU\\\\.DEFAULT\\\\Software\\\\Microsoft\\\\SystemCertificates\\\\Root\\\\Certificates$|^HKLM\\\\SOFTWARE\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
