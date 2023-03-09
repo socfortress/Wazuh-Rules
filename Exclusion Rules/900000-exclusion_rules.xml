@@ -158,4 +158,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900026" level="1">
+    <if_sid>100541</if_sid>
+    <field name="win.eventdata.scriptBlockText">^\$global:?$</field>
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
