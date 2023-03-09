@@ -1,0 +1,29 @@
+<group name="windows,chainsaw,">
+ <rule id="200050" level="3">
+    <field name="group">^Sigma$</field>
+    <description>Chainsaw Forensics - Sigma Scan</description>
+    <group>sigma,</group>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200051" level="12">
+    <if_sid>200050</if_sid>
+    <field name="level">high</field>
+    <description>$(name)</description>
+    <group>sigma,</group>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200052" level="1">
+    <if_sid>200051</if_sid>
+    <field name="logsource.category">^driver_load$</field>
+    <description>Exclude high driver loads due to FPs</description>
+    <group>sigma,</group>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200053" level="14">
+    <if_sid>200050</if_sid>
+    <field name="level">critical</field>
+    <description>$(name)</description>
+    <group>sigma,</group>
+    <options>no_full_log</options>
+  </rule>
+ </group>
