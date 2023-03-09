@@ -76,4 +76,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900013" level="1">
+    <if_group>chainsaw</if_group>
+    <field name="event.SourceImage">Git-2.39.2-64-bit.tmp$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
