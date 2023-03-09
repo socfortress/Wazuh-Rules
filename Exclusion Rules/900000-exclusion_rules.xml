@@ -130,4 +130,12 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900022" level="1">
+    <if_group>sysmon_event7</if_group>
+    <field name="win.eventdata.signature">^Microsoft Windows$</field>    
+    <field name="win.eventdata.signatureStatus">^Valid$</field>  
+    <field name="win.eventdata.signed">^true$</field>  
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
