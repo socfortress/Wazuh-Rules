@@ -171,4 +171,11 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <!-- Exclude Kickstart -->
+  <rule id="900028" level="1">
+    <if_sid>200281</if_sid>
+    <field name="columns.cmdline" type="pcre2">netstat\s+-an\s+\|\s+grep\s+"\^tcp"\s+\|\s+grep\s+"\[\^0-9\]</field>
+    <description>Exclude Wazuh Netstart for Listening Ports</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
