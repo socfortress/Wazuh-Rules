@@ -82,4 +82,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900014" level="1">
+    <if_group>chainsaw</if_group>
+    <field name="event.SourceImage">^C:\\Program Files\\Git</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
