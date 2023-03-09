@@ -406,7 +406,7 @@
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_password_policy_discovery.yml -->
-  <rule id="200271" level="12">
+  <rule id="200271" level="8">
   <if_sid>200223</if_sid>
   <field name="columns.cmdline">/etc/pam.d/common-password|/etc/security/pwquality.conf|/etc/pam.d/system-auth|/etc/login.defs</field>
   <description>Detects password policy discovery commands.</description>
