@@ -302,7 +302,7 @@
   <group>bpf_process_events,</group>
   </rule>
   
-  <rule id="200263" level="12">
+  <rule id="200263" level="8">
   <if_sid>200262</if_sid>
   <field name="columns.cmdline">/.|^.</field>
   <description>Detects adversary creating hidden file or directory, by detecting directories or files with . as the first character.</description>
