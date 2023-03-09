@@ -51,4 +51,10 @@
     <description>Exclude Git</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900009" level="1">
+    <if_group>windows</if_group>
+    <field name="event.TargetImage">^C:\\Program Files\\socfortress</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
