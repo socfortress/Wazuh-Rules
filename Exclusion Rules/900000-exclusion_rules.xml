@@ -94,4 +94,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900016" level="1">
+    <if_group>windows</if_group>
+    <field name="win.eventdata.path">\\\\ossec-agent\\\\active-response\\\\bin\\\\chainsaw.ps1$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
