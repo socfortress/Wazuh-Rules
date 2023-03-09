@@ -26,7 +26,7 @@
     <group>sigma,</group>
     <options>no_full_log</options>
   </rule>
- <rule id="200054" level="3">
+ <rule id="200054" level="1">
     <if_sid>200050</if_sid>
     <field name="message">^Sigma rules were updated successfully.$</field>
     <description>$(message)</description>
