@@ -57,9 +57,9 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
-   <rule id="900010" level="1">
+<rule id="900010" level="1">
     <if_group>windows</if_group>
-    <field name="event.CommandLine">^C:\\Program Files\\socfortress</field>    
+    <field name="event.CommandLine">^C:\\Program Files\\socfortress|\\ossec-agent\\active-response\\bin\\chainsaw.ps1</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
