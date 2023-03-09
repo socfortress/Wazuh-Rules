@@ -499,9 +499,9 @@
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_split_file_into_pieces.yml -->
-  <rule id="200278" level="12">
+  <rule id="200278" level="9">
   <if_sid>200223</if_sid>
-  <field name="columns.cmdline">split</field>
+  <field name="columns.cmdline" type="pcre2">split(?=\s)</field>
   <description>Detection use of the command "split" to split files into parts and possible transfer.</description>
   <options>no_full_log</options>
   <mitre>
