@@ -541,7 +541,7 @@
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_cmds.yml -->
-  <rule id="200281" level="12">
+  <rule id="200281" level="10">
   <if_sid>200223</if_sid>
   <field name="columns.cmdline">chmod|cp</field>
   <field name="columns.cmdline">777|u\ps|/bin/ksh|/bin/sh</field>
