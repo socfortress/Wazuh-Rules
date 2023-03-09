@@ -106,4 +106,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900018" level="1">
+    <if_group>sysmon_event_12</if_group>
+    <field name="win.eventdata.targetObject">^HKLM\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
