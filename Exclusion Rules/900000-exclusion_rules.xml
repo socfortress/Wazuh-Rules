@@ -90,7 +90,7 @@
  </rule>
   <rule id="900015" level="1">
     <if_group>chainsaw</if_group>
-    <field name="name">^Sysmon Blocked Executable$|^Windows Defender Threat Detected$|^Win Defender Restored Quarantine File$</field>    
+    <field name="name">^Sysmon Blocked Executable$|^Windows Defender Threat Detected$|^Win Defender Restored Quarantine File$|^Uninstall Sysinternals Sysmon$</field>    
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
