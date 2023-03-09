@@ -32,4 +32,23 @@
     <description>Exclude ossec</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Git for Sigma rule pull -->
+  <rule id="900006" level="1">
+    <if_sid>109103</if_sid>
+    <field name="win.eventdata.sourceImage">Git-2.39.2-64-bit.tmp$</field>
+    <description>Exclude Git</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="900007" level="1">
+    <if_group>sysmon_event_17</if_group>
+    <field name="win.eventdata.image">^C:\\\\Program Files\\\\Git</field>    
+    <description>Exclude Git</description>
+    <options>no_full_log</options>
+ </rule>
+ <rule id="900008" level="1">
+    <if_group>sysmon_event_10</if_group>
+    <field name="win.eventdata.sourceImage">^C:\\\\Program Files\\\\Git</field>    
+    <description>Exclude Git</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
