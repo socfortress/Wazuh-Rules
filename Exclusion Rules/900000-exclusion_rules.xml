@@ -100,4 +100,10 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
+  <rule id="900017" level="1">
+    <if_group>windows</if_group>
+    <field name="win.eventdata.originalFileName">^mscorlib.dll$</field>    
+    <description>Exclude Socfortress</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
