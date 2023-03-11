@@ -178,4 +178,12 @@
     <description>Exclude Wazuh Netstart for Listening Ports</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude mscorsvw.exe and System.Management.Automation.dll -->
+  <rule id="900029" level="1">
+    <if_group>sysmon_eid7_detections</if_group>
+    <field name="win.eventdata.image">mscorsvw.exe$</field>
+    <field name="win.eventdata.imageLoaded">System.Management.Automation.dll$</field>
+    <description>Exclude Common DLL Loading</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
