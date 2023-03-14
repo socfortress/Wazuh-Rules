@@ -186,4 +186,10 @@
     <description>Exclude Common DLL Loading</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Sev for Executable file dropped in folder commonly used by malware. Triggers many FPs due to user's browsers -->
+  <rule id="900030" level="8">
+    <if_sid>92204</if_sid>
+    <description>Executable file dropped in folder commonly used by malware.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
