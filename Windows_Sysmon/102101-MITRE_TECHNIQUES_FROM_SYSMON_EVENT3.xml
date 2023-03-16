@@ -438,5 +438,13 @@
 		<options>no_full_log</options>
 	</rule>
 <!-- Sysmon Event 3: Sysmon Anomalies -->
+<!-- Abnormal Destination Port Detected -->
+<rule id="102503" level="10">
+  <if_group>sysmon_event3</if_group>
+  <list field="win.eventdata.destinationPort" lookup="not_address_match_key">etc/lists/common-ports</list>
+  <description>Sysmon - Event 3: Network connection to Uncommon Port by $(win.eventdata.image)</description>
+  <options>no_full_log</options>
+  <group>sysmon_event3,</group>
+</rule>
 <!-- Rules 102600 - 102699: Correlation Rules -->
 </group>
