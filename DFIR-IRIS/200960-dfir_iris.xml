@@ -1,0 +1,7 @@
+<group name="dfir_iris,">
+ <rule id="200960" level="3">
+    <location>dfir_iris</location>
+    <description>DFIR IRIS Case Collection</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
