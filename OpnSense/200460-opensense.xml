@@ -1,0 +1,21 @@
+<group name="nginx,web,">
+    <rule id="200460" level="0" noalert="1">
+        <decoded_as>naxsi-opnsense-parent</decoded_as>
+        <description>OPNsense NAXSI events grouped.</description>
+    </rule>
+    <rule id="200461" level="6">
+        <if_sid>200460</if_sid>
+        <field name="mode">drop|block</field>
+        <description>OPNsense NAXSI - event blocked by WAF</description>
+        <mitre>
+            <id>T1083</id>
+        </mitre>
+        <group>naxsi,attack,gpg13_10.1,</group>
+    </rule>
+    <rule id="200462" level="10">
+        <if_sid>200460</if_sid>
+        <field name="mode">learning</field>
+        <description>OPNsense NAXSI - event passed by WAF in $(mode) mode</description>
+        <group>naxsi,attack,</group>
+    </rule>
+</group>
