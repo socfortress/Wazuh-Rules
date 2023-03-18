@@ -1,0 +1,55 @@
+<!-- NAXSI OPNsense: Cloudfence (c)2023 - 
+https://cloudfence.com.br / Julio Camargo -->
+
+
+<!-- NAXSI OPNsense 
+Cloudfence-WAF: 2023/03/16 09:46:51 [error] 72753#110979: *453734 NAXSI_FMT: ip=200.1.2.3&server=200.10.020.3&uri=/%C0&vers=1.3&total_processed=170236&total_blocked=17328&config=drop&zone0=URL&id0=20&var_name0=, client: 200.1.2.3, server: cloudfence.eu, request: "POST /%C0 HTTP/1.1", host: "200.10.20.30" -->
+
+<decoder name="naxsi-opnsense-parent">
+    <prematch>^Cloudfence-WAF</prematch>
+</decoder>
+
+<decoder name="naxsi-opnsense-child">
+    <parent>naxsi-opnsense-parent</parent>
+    <prematch>NAXSI_FMT</prematch>
+    <regex offset="after_prematch">ip=(\S+)\pserver=(\S+)\puri=(\S+)\pvers=(\S+)\ptotal_processed=(\d+)\ptotal_blocked=(\d+)\pconfig=(\w+)\p</regex>
+    <order>srcip,server,uri,naxsi_version,processed_requests,blocked_requests,mode</order>
+</decoder>
+<!--
+Cloudfence-WAF: 2023/03/16 11:36:12 [error] 72753#110979: *454250 NAXSI_FMT: ip=200.1.2.3&server=fw.cloudfence.eu&uri=/api/ids/settings/set&vers=1.3&total_processed=22531&total_blocked=722&config=learning&cscore0=$policy3dc4de357fc54ccfa0ffd272b08420b7&score0=6&cscore1=$policy323ed56953ea44a695002c72b0a8cd15&score1=8&zone0=BODY&id0=1206&var_name0=homenet&zone1=BODY&id1=1015&var_name1=homenet, client: 200.1.2.3, server: fw.cloudfence.eu, request: "POST /api/ids/settings/set HTTP/2.0", host: "fw.cloudfence.eu", referrer: "https://fw.cloudfence.eu/ui/ids"
+-->
+<decoder name="naxsi-opnsense-child">
+    <parent>naxsi-opnsense-parent</parent>
+    <regex>cscore\d=(\d+)\p</regex>
+    <order>score_tag</order>
+</decoder>
+
+<decoder name="naxsi-opnsense-child">
+    <parent>naxsi-opnsense-parent</parent>
+    <regex>score\d=(\d+)\p</regex>
+    <order>score</order>
+</decoder>
+
+<decoder name="naxsi-opnsense-child">
+    <parent>naxsi-opnsense-parent</parent>
+    <regex>zone\d=(\S+)\p</regex>
+    <order>zone</order>
+</decoder>
+
+<decoder name="naxsi-opnsense-child">
+    <parent>naxsi-opnsense-parent</parent>
+    <regex>id\d=(\d+)\p</regex>
+    <order>rule_id</order>
+</decoder>
+
+<decoder name="naxsi-opnsense-child">
+    <parent>naxsi-opnsense-parent</parent>
+    <regex>request: "(\.+)"</regex>
+    <order>request</order>
+</decoder>
+
+<decoder name="naxsi-opnsense-child">
+    <parent>naxsi-opnsense-parent</parent>
+    <regex>referrer: "(\.+)"</regex>
+    <order>referrer</order>
+</decoder>
