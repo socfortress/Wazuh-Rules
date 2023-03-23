@@ -7,10 +7,6 @@ https://github.com/wazuh/wazuh/pull/7031
 
 ## Adding Maltrail rules and decoders
 
-```0510-maltrail_decoders.xml``` should be placed to ```/var/ossec/etc/decoders/``` folder of Wazuh Open Source Security Platform.
-
-```0705-maltrail_rules.xml``` should be placed to ```/var/ossec/etc/rules/``` folder of Wazuh Open Source Security Platform.
-
 Ref: https://documentation.wazuh.com/current/user-manual/ruleset/custom.html
 
 **NOTE**: IDs ```0510``` and ```0705``` are the original ones from https://github.com/wazuh/wazuh/pull/7031 .
