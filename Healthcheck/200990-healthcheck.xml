@@ -1,0 +1,25 @@
+<group name="socfortress_healthcheck,">
+ <rule id="200990" level="3">
+    <location>socfortress_healthcheck</location>
+    <description>SOCFortress Healthcheck</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200991" level="3">
+    <if_sid>200990</if_sid>
+    <field name="current_status">^healthy$</field>
+    <description>SOCFortress Healthcheck is Healthy</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200992" level="12">
+    <if_sid>200990</if_sid>
+    <field name="current_status">^unhealthy$</field>
+    <description>SOCFortress Healthcheck - $(check) is in Unhealthy state.</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200993" level="12">
+    <if_sid>200990</if_sid>
+    <field name="current_status">^failure$</field>
+    <description>SOCFortress Healthcheck Failed</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
