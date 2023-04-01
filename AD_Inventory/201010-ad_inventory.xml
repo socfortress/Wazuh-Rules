@@ -1,0 +1,7 @@
+<group name="ad_inventory,">
+ <rule id="201010" level="3">
+    <field name="collection">ad_inventory</field>
+    <description>AD Inventroy Results</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
