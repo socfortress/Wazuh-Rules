@@ -1175,6 +1175,13 @@
       <id>T1203</id>
     </mitre>
   </rule>
+ <!-- Potential Malicious Powershel -->
+<rule id="100522" level="12">
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)(Invoke-DllInjection|Invoke-WmiCommand|Get-GPPPassword|Get-Keystrokes|Get-VaultCredential|Invoke-CredentialInjection|Invoke-Mimikatz|Invoke-NinjaCopy|Invoke-TokenManipulation|Out-Minidump|VolumeShadowCopyTools|Invoke-ReflectivePEInjection|Get-TimedScreenshot|Invoke-UserHunter|Find-GPOLocation|Invoke-ACLScanner|Invoke-DowngradeAccount|Get-ServiceUnquoted|Get-ServiceFilePermission|Get-ServicePermission|Invoke-ServiceAbuse|Install-ServiceBinary|Get-RegAutoLogon|Get-VulnAutoRun|Get-VulnSchTask|Get-UnattendedInstallFile|Get-WebConfig|Get-ApplicationHost|Get-RegAlwaysInstallElevated|Get-Unconstrained|Add-RegBackdoor|Add-ScrnSaveBackdoor|Gupt-Backdoor|Invoke-ADSBackdoor|Enabled-DuplicateToken|Invoke-PsUaCme|Remove-Update|Check-VM|Get-LSASecret|Get-PassHashes|Show-TargetScreen|Port-Scan|Invoke-PoshRatHttp|Invoke-PowerShellTCP|Invoke-PowerShellWMI|Add-Exfiltration|Add-Persistence|Do-Exfiltration|Start-CaptureServer|Invoke-ShellCode|Get-ChromeDump|Get-ClipboardContents|Get-FoxDump|Get-IndexedItem|Get-Screenshot|Invoke-Inveigh|Invoke-NetRipper|Invoke-EgressCheck|Invoke-PostExfil|Invoke-PSInject|Invoke-RunAs|MailRaider|New-HoneyHash|Set-MacAttribute|Invoke-DCSync|Invoke-PowerDump|Exploit-Jboss|Invoke-ThunderStruck|Invoke-VoiceTroll|Set-Wallpaper|Invoke-InveighRelay|Invoke-PsExec|Invoke-SSHCommand|Get-SecurityPackages|Install-SSP|Invoke-BackdoorLNK|PowerBreach|Get-SiteListPassword|Get-System|Invoke-BypassUAC|Invoke-Tater|Invoke-WScriptBypassUAC|PowerUp|PowerView|Get-RickAstley|Find-Fruit|HTTP-Login|Find-TrustedDocuments|Invoke-Paranoia|Invoke-WinEnum|Invoke-ARPScan|Invoke-PortScan|Invoke-ReverseDNSLookup|Invoke-SMBScanner|Invoke-Mimikittenz)</field>
+    <description>Potential Malicious Powershell</description>
+    <options>no_full_log</options>
+ </rule>
   <!-- Rules 100600 - 100699: Correlation Rules -->
   <!-- Frequency rule to capture 3 sysmon event 1 Anomalies   -->
  
