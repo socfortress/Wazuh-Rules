@@ -22,4 +22,25 @@
     <description>SOCFortress Healthcheck Failed</description>
     <options>no_full_log</options>
   </rule>
+ <rule id="200994" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="cluster.name">\.+</field>
+    <field name="level">^INFO$</field>
+    <description>Wazuh-Indexer Cluster Logs - Level: INFO</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200995" level="11">
+    <decoded_as>json</decoded_as>
+    <field name="cluster.name">\.+</field>
+    <field name="level">^WARN$</field>
+    <description>Wazuh-Indexer Cluster Logs - Level: WARN</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200996" level="12">
+    <decoded_as>json</decoded_as>
+    <field name="cluster.name">\.+</field>
+    <field name="level">^ERROR$</field>
+    <description>Wazuh-Indexer Cluster Logs - Level: ERROR</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
