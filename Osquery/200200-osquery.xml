@@ -567,7 +567,7 @@
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_histfile_operations.yml -->
-  <rule id="200283" level="12">
+  <rule id="200283" level="10">
   <if_sid>200223</if_sid>
   <field name="columns.cmdline">.bash_history|.zsh_history|.zhistory|.history|.sh_history|fish_history</field>
   <description>Detects commandline operations on shell history files.</description>
