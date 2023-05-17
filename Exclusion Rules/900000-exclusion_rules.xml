@@ -192,4 +192,11 @@
     <description>Executable file dropped in folder commonly used by malware.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Socfortress Ansible Automation -->
+  <rule id="900031" level="1">
+    <if_sid>200259</if_sid>
+    <field name="columns.cmdline" type="pcre2">^\/bin\/sh -c 'chmod u\+x \/home\/socfortress\/.ansible\/tmp</field>
+    <description>Exclude Socfortress Ansible Automation</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
