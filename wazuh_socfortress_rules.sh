@@ -83,8 +83,14 @@ restartService() {
             logger "Wazuh Manager is on version 4.2"
             chown ossec:ossec /var/ossec/etc/rules/*
             chmod 660 /var/ossec/etc/rules/*
+            elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
+            logger -e "Wazuh Manager is on version 4.4.2"
+            chown wazuh:wazuh /var/ossec/etc/rules/*
+            chmod 660 /var/ossec/etc/rules/*
+            systemctl restart wazuh-manager
+            rm -rf /tmp/Wazuh-Rules
             else
-            logger -e "Wazuh Manager is on version 4.3"
+            logger -e "Wazuh Manager is on version 4.3 or above"
             chown wazuh:wazuh /var/ossec/etc/rules/*
             chmod 660 /var/ossec/etc/rules/*
             systemctl restart wazuh-manager
@@ -105,8 +111,14 @@ restartService() {
             logger "Wazuh Manager is on version 4.2"
             chown ossec:ossec /var/ossec/etc/rules/*
             chmod 660 /var/ossec/etc/rules/*
+            elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
+            logger -e "Wazuh Manager is on version 4.4.2"
+            chown wazuh:wazuh /var/ossec/etc/rules/*
+            chmod 660 /var/ossec/etc/rules/*
+            systemctl restart wazuh-manager
+            rm -rf /tmp/Wazuh-Rules
             else
-            logger -e "Wazuh Manager is on version 4.3"
+            logger -e "Wazuh Manager is on version 4.3 or above"
             chown wazuh:wazuh /var/ossec/etc/rules/*
             chmod 660 /var/ossec/etc/rules/*
             service wazuh-manager restart
@@ -165,6 +177,12 @@ cloneRules() {
         logger "Wazuh Manager is on version 4.2"
         chown ossec:ossec /var/ossec/etc/rules/*
         chmod 660 /var/ossec/etc/rules/*
+        elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
+        logger -e "Wazuh Manager is on version 4.4.2"
+        chown wazuh:wazuh /var/ossec/etc/rules/*
+        chmod 660 /var/ossec/etc/rules/*
+        systemctl restart wazuh-manager
+        rm -rf /tmp/Wazuh-Rules
         else
         logger -e "Wazuh Manager is on version 4.3"
         chown wazuh:wazuh /var/ossec/etc/rules/*
@@ -193,6 +211,12 @@ cloneRules() {
         logger "Wazuh Manager is on version 4.2"
         chown ossec:ossec /var/ossec/etc/rules/*
         chmod 660 /var/ossec/etc/rules/*
+        elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
+        logger -e "Wazuh Manager is on version 4.4.2"
+        chown wazuh:wazuh /var/ossec/etc/rules/*
+        chmod 660 /var/ossec/etc/rules/*
+        systemctl restart wazuh-manager
+        rm -rf /tmp/Wazuh-Rules
         else
         logger -e "Wazuh Manager is on version 4.3"
         chown wazuh:wazuh /var/ossec/etc/rules/*
@@ -210,6 +234,12 @@ cloneRules() {
         logger "Wazuh Manager is on version 4.2"
         chown ossec:ossec /var/ossec/etc/rules/*
         chmod 660 /var/ossec/etc/rules/*
+        elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
+        logger -e "Wazuh Manager is on version 4.4.2"
+        chown wazuh:wazuh /var/ossec/etc/rules/*
+        chmod 660 /var/ossec/etc/rules/*
+        systemctl restart wazuh-manager
+        rm -rf /tmp/Wazuh-Rules
         else
         logger -e "Wazuh Manager is on version 4.3"
         chown wazuh:wazuh /var/ossec/etc/rules/*
