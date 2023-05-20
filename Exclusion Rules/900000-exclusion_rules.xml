@@ -213,4 +213,11 @@
     <description>Lower OneDrive Process Injection Severity</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude OneDrive Process Injection SIGMA rules -->
+  <rule id="900034" level="1">
+    <if_sid>200051</if_sid>
+    <field name="event.SourceImage" type="pcre2">\\Microsoft\\OneDrive\\OneDriveStandaloneUpdater.exe$</field>
+    <description>Lower OneDrive Process Injection Severity - SIGMA</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
