@@ -199,4 +199,11 @@
     <description>Exclude Socfortress Ansible Automation</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Socfortress Git Download -->
+  <rule id="900032" level="1">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">\\\\Git-2.39.2-64-bit.tmp$</field>
+    <description>Exclude Socfortress Git Process for SIGMA rule download</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
