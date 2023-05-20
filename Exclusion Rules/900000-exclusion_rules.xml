@@ -206,4 +206,11 @@
     <description>Exclude Socfortress Git Process for SIGMA rule download</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude OneDrive Process Injection -->
+  <rule id="900033" level="3">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">\\\\Microsoft\\\\OneDrive\\\\OneDriveStandaloneUpdater.exe$</field>
+    <description>Lower OneDrive Process Injection Severity</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
