@@ -7,7 +7,7 @@ clear
 
 ## Check if system is based on yum or apt-get
 while true; do
-    read -p "Do you wish to configure Wazuh with the SOCFortress ruleset? WARNING - This script will replace all of your current custom Wazuh Rules. Please proceed with caution and it is recommended to manually back up your rules.....continue?" yn
+    read -p "Do you wish to configure Wazuh with the SOCFortress ruleset? WARNING - This script will replace all of your current custom Wazuh Rules. Please proceed with caution and it is recommended to manually back up your rules... continue? " yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit;;
@@ -26,11 +26,8 @@ elif [ -n "$(command -v apt-get)" ]; then
     sep="="
 fi
 
-
-
 ## Prints information
 logger() {
-
     now=$(date +'%m/%d/%Y %H:%M:%S')
     case $1 in 
         "-e")
@@ -46,90 +43,61 @@ logger() {
             message="$1"
             ;;
     esac
-    echo $now $mtype $message
+    echo "$now $mtype $message"
 }
 
 
 ## Check if Git exists
 if ! command -v git &> /dev/null
 then
-    logger -e "git package could not be found. Please install with yum/apt install git."
+    logger -e "git package could not be found. Please install with yum/apt-get install git."
     exit
-    else 
+else 
     logger -e "git package found. Continuing..."
 fi
 
 
 checkArch() {
-
     arch=$(uname -m)
 
-    if [ ${arch} != "x86_64" ]; then
-        logger -e "Uncompatible system. This script must be run on a 64-bit system."
-        exit 1;
+    if [ "$arch" != "x86_64" ]; then
+        logger -e "Incompatible system. This script must be run on a 64-bit system."
+        exit 1
     fi
-    
 }
 
 restartService() {
-
-    if [ -n "$(ps -e | egrep ^\ *1\ .*systemd$)" ]; then
+    if [ -n "$(ps -e | egrep '^\s*1\s.*systemd$')" ]; then
         eval "systemctl restart $1.service ${debug}"
-        if [  "$?" != 0  ]; then
+        if [ "$?" != 0 ]; then
             logger -e "${1^} could not be restarted. Please check /var/ossec/logs/ossec.log for details."
-            logger -e "An error has occured. Attempting to restore backed up rules" 
+            logger -e "An error has occurred. Attempting to restore backed up rules" 
             \cp -r /tmp/wazuh_rules_backup/* /var/ossec/etc/rules/
-            if [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.2)" ]; then
-            logger "Wazuh Manager is on version 4.2"
-            chown ossec:ossec /var/ossec/etc/rules/*
-            chmod 660 /var/ossec/etc/rules/*
-            elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
-            logger -e "Wazuh Manager is on version 4.4.2"
             chown wazuh:wazuh /var/ossec/etc/rules/*
             chmod 660 /var/ossec/etc/rules/*
             systemctl restart wazuh-manager
             rm -rf /tmp/Wazuh-Rules
-            else
-            logger -e "Wazuh Manager is on version 4.3 or above"
-            chown wazuh:wazuh /var/ossec/etc/rules/*
-            chmod 660 /var/ossec/etc/rules/*
-            systemctl restart wazuh-manager
-            rm -rf /tmp/Wazuh-Rules
-            fi
         else
             sleep 1
         fi  
-    elif [ -n "$(ps -e | egrep ^\ *1\ .*init$)" ]; then
+    elif [ -n "$(ps -e | egrep '^\s*1\s.*init$')" ]; then
         eval "chkconfig $1 on ${debug}"
         eval "service $1 restart ${debug}"
         eval "/etc/init.d/$1 start ${debug}"
-        if [  "$?" != 0  ]; then
+        if [ "$?" != 0 ]; then
             logger -e "${1^} could not be restarted. Please check /var/ossec/logs/ossec.log for details."
-            logger -e "An error has occured. Attempting to restore backed up rules" 
+            logger -e "An error has occurred. Attempting to restore backed up rules" 
             \cp -r /tmp/wazuh_rules_backup/* /var/ossec/etc/rules/
-            if [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.2)" ]; then
-            logger "Wazuh Manager is on version 4.2"
-            chown ossec:ossec /var/ossec/etc/rules/*
-            chmod 660 /var/ossec/etc/rules/*
-            elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
-            logger -e "Wazuh Manager is on version 4.4.2"
             chown wazuh:wazuh /var/ossec/etc/rules/*
             chmod 660 /var/ossec/etc/rules/*
             systemctl restart wazuh-manager
             rm -rf /tmp/Wazuh-Rules
-            else
-            logger -e "Wazuh Manager is on version 4.3 or above"
-            chown wazuh:wazuh /var/ossec/etc/rules/*
-            chmod 660 /var/ossec/etc/rules/*
-            service wazuh-manager restart
-            rm -rf /tmp/Wazuh-Rules
-            fi
         else
             sleep 1
         fi     
-    elif [ -x /etc/rc.d/init.d/$1 ] ; then
+    elif [ -x "/etc/rc.d/init.d/$1" ]; then
         eval "/etc/rc.d/init.d/$1 start ${debug}"
-        if [  "$?" != 0  ]; then
+        if [ "$?" != 0 ]; then
             logger -e "${1^} could not be restarted. Please check /var/ossec/logs/ossec.log for details."
         else
             logger "${1^} restarted"
@@ -137,116 +105,83 @@ restartService() {
     else
         logger -e "${1^} could not restart. No service found on the system."
     fi
-
 }
 
 healthCheck() {
+    cd /var/ossec || exit 1  # Set the current working directory to /var/ossec
     logger "Performing a health check"
     eval "service wazuh-manager restart ${debug}"
     sleep 20
     if [ -n "$(/var/ossec/bin/wazuh-control status | grep 'wazuh-logcollector not running...')" ]; then
         logger -e "Wazuh-Manager Service is not healthy. Please check /var/ossec/logs/ossec.log for details."
     else
-        logger -e "Wazuh-Manager Service is healthy. Thanks for checking us out :) Get started with our free for life tier here:https://www.socfortress.co/trial.html Happy Defending!"
+        logger -e "Wazuh-Manager Service is healthy. Thanks for checking us out :) Get started with our free-for-life tier here: https://www.socfortress.co/trial.html Happy Defending!"
         rm -rf /tmp/Wazuh-Rules
     fi
 }
-
 
 ## Install the required packages for the installation
 cloneRules() {
     logger "Beginning the Install"
 
-    if [ ${sys_type} == "yum" ]; then
-        logger -e "Veryfing that Wazuh-Manager software is installed....continued"
-        if [ -n "$(rpm -qa | grep wazuh-manager) 2> /dev/null" ]; then
-        cd /tmp/
-        mkdir wazuh_rules_backup
-        logger -e "Backing up current rules into /tmp/wazuh_rules_backup/"
-        \cp -r /var/ossec/etc/rules/* /tmp/wazuh_rules_backup/
-        git clone https://github.com/socfortress/Wazuh-Rules.git
-        cd /tmp/Wazuh-Rules
-        find . -name '*xml' -exec mv {} /var/ossec/etc/rules/ \;
-        find /var/ossec/etc/rules/ -name 'decoder-linux-sysmon.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'yara_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'auditd_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'naxsi-opnsense_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'maltrail_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        /var/ossec/bin/wazuh-control info 2>&1 | tee /tmp/version.txt
-        if [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.2)" ]; then
-        logger "Wazuh Manager is on version 4.2"
-        chown ossec:ossec /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
-        logger -e "Wazuh Manager is on version 4.4.2"
-        chown wazuh:wazuh /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        systemctl restart wazuh-manager
-        rm -rf /tmp/Wazuh-Rules
-        else
-        logger -e "Wazuh Manager is on version 4.3"
-        chown wazuh:wazuh /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        fi
+    if [ "$sys_type" == "yum" ]; then
+        logger -e "Verifying that Wazuh-Manager software is installed... continued"
+        if rpm -qa | grep -q wazuh-manager; then
+            mkdir /tmp/wazuh_rules_backup
+            logger -e "Backing up current rules into /tmp/wazuh_rules_backup/"
+            \cp -r /var/ossec/etc/rules/* /tmp/wazuh_rules_backup/
+            git clone https://github.com/socfortress/Wazuh-Rules.git /tmp/Wazuh-Rules
+            cd /tmp/Wazuh-Rules || exit 1
+            find . -name '*xml' -exec mv {} /var/ossec/etc/rules/ \;
+            find /var/ossec/etc/rules/ -name 'decoder-linux-sysmon.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'yara_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'auditd_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'naxsi-opnsense_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'maltrail_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            /var/ossec/bin/wazuh-control info 2>&1 | tee /tmp/version.txt
+            chown wazuh:wazuh /var/ossec/etc/rules/*
+            chmod 660 /var/ossec/etc/rules/*
+            systemctl restart wazuh-manager
+            cd /var/ossec || exit 1
+            rm -rf /tmp/Wazuh-Rules
         else 
-        logger -e "Wazuh-Manager software could not be found or is not installed"
+            logger -e "Wazuh-Manager software could not be found or is not installed"
         fi
-    elif [ ${sys_type} == "apt-get" ]; then
-        logger -e "Veryfing that Wazuh-Manager software is installed....continued"
-        if [ -n "$(apt list --installed | grep wazuh-manager) 2> /dev/null" ]; then
-        cd /tmp/
-        mkdir wazuh_rules_backup
-        logger -e "Backing up current rules into /tmp/wazuh_rules_backup/"
-        \cp -r /var/ossec/etc/rules/* /tmp/wazuh_rules_backup/
-        git clone https://github.com/socfortress/Wazuh-Rules.git
-        cd /tmp/Wazuh-Rules
-        find . -name '*xml' -exec mv {} /var/ossec/etc/rules/ \;
-        find /var/ossec/etc/rules/ -name 'decoder-linux-sysmon.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'yara_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'auditd_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'naxsi-opnsense_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        find /var/ossec/etc/rules/ -name 'maltrail_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
-        /var/ossec/bin/wazuh-control info 2>&1 | tee /tmp/version.txt
-        if [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.2)" ]; then
-        logger "Wazuh Manager is on version 4.2"
-        chown ossec:ossec /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
-        logger -e "Wazuh Manager is on version 4.4.2"
-        chown wazuh:wazuh /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        systemctl restart wazuh-manager
-        rm -rf /tmp/Wazuh-Rules
-        else
-        logger -e "Wazuh Manager is on version 4.3"
-        chown wazuh:wazuh /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        fi
+    elif [ "$sys_type" == "apt-get" ]; then
+        logger -e "Verifying that Wazuh-Manager software is installed... continued"
+        if apt list --installed | grep -q wazuh-manager; then
+            mkdir /tmp/wazuh_rules_backup
+            logger -e "Backing up current rules into /tmp/wazuh_rules_backup/"
+            \cp -r /var/ossec/etc/rules/* /tmp/wazuh_rules_backup/
+            git clone https://github.com/socfortress/Wazuh-Rules.git /tmp/Wazuh-Rules
+            cd /tmp/Wazuh-Rules || exit 1
+            find . -name '*xml' -exec mv {} /var/ossec/etc/rules/ \;
+            find /var/ossec/etc/rules/ -name 'decoder-linux-sysmon.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'yara_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'auditd_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'naxsi-opnsense_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            find /var/ossec/etc/rules/ -name 'maltrail_decoders.xml' -exec mv {} /var/ossec/etc/decoders/ \;
+            /var/ossec/bin/wazuh-control info 2>&1 | tee /tmp/version.txt
+            chown wazuh:wazuh /var/ossec/etc/rules/*
+            chmod 660 /var/ossec/etc/rules/*
+            systemctl restart wazuh-manager
+            cd /var/ossec || exit 1
+            rm -rf /tmp/Wazuh-Rules
         else 
-        logger -e "Wazuh-Manager software could not be found or is not installed"
+            logger -e "Wazuh-Manager software could not be found or is not installed"
         fi
-            else logger "Continuing"
-        fi
-    if [  "$?" != 0  ]; then
-        logger -e "An error has occured. Attempting to restore backed up rules" 
+    else
+        logger "Continuing"
+    fi
+
+    if [ "$?" != 0 ]; then
+        logger -e "An error has occurred. Attempting to restore backed up rules" 
         \cp -r /tmp/wazuh_rules_backup/* /var/ossec/etc/rules/
-        if [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.2)" ]; then
-        logger "Wazuh Manager is on version 4.2"
-        chown ossec:ossec /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        elif [ -n "$(cat /tmp/version.txt 2> /dev/null | grep 4.4.2)" ]; then
-        logger -e "Wazuh Manager is on version 4.4.2"
         chown wazuh:wazuh /var/ossec/etc/rules/*
         chmod 660 /var/ossec/etc/rules/*
         systemctl restart wazuh-manager
+        cd /var/ossec || exit 1
         rm -rf /tmp/Wazuh-Rules
-        else
-        logger -e "Wazuh Manager is on version 4.3"
-        chown wazuh:wazuh /var/ossec/etc/rules/*
-        chmod 660 /var/ossec/etc/rules/*
-        rm -rf /tmp/Wazuh-Rules
-        exit 1;
-        fi
     else
         logger -e "Rules downloaded, attempting to restart the Wazuh-Manager service" 
         restartService "wazuh-manager"
@@ -254,18 +189,15 @@ cloneRules() {
     fi     
 }
 
-
 main() {
-
     if [ "$EUID" -ne 0 ]; then
         logger -e "This script must be run as root."
-        exit 1;
+        exit 1
     fi   
 
     checkArch
     cloneRules
     healthCheck
-
 }
 
 main "$@"
