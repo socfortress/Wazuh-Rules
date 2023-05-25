@@ -33,7 +33,7 @@
     <group>sigma,</group>
     <options>no_full_log</options>
   </rule>
-  <rule id="200055" level="13">
+  <rule id="200055" level="10">
     <if_sid>200050</if_sid>
     <field name="message">^Failed to update Sigma rules.$</field>
     <description>$(message)</description>
