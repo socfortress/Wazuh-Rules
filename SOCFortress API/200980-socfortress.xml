@@ -34,4 +34,9 @@
     <description>Rate Quota Limit Exceeded</description>
     <options>no_full_log</options>
   </rule>
+  <rule id="200986" level="3">
+    <field name="integration">custom-socfortress-knowledgebase</field>
+    <description>SOCFortress KnowledgeBase</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
