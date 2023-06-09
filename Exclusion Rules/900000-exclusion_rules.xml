@@ -220,4 +220,11 @@
     <description>Lower OneDrive Process Injection Severity - SIGMA</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower VsCode Process Injection -->
+  <rule id="900035" level="3">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\Code.exe$</field>
+    <description>Lower VsCode Process Injection alert </description>
+    <options>no_full_log</options>
+  </rule>
 </group>
