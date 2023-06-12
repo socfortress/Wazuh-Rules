@@ -227,4 +227,25 @@
     <description>Lower VsCode Process Injection alert </description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Figma process -->
+  <rule id="900036" level="1">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)C:\\\\Users\\\\.*\\\\AppData\\\\Local\\\\Figma\\\\app-\d+\.\d+\.\d+\\\\Figma\.exe$</field>
+    <description>Exclude Figma Process </description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude OneDrive process -->
+  <rule id="900037" level="1">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)C:\\\\Users\\\\.*\\\\AppData\\\\Local\\\\Microsoft\\\\OneDrive\\\\OneDrive\.exe$</field>
+    <description>Exclude OneDrive Process </description>
+    <options>no_full_log</options>
+    </rule>
+    <!-- Exclude Grammarly process -->
+  <rule id="900038" level="1">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)C:\\\\Users\\\\.*\\\\AppData\\\\Local\\\\Grammarly\\\\DesktopIntegrations\\\\Grammarly\.Desktop\.exe$</field>
+    <description>Exclude OneDrive Process </description>
+    <options>no_full_log</options>
+  </rule>
 </group>
