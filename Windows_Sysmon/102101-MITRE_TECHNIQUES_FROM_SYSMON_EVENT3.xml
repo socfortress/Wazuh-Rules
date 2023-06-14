@@ -178,7 +178,7 @@
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102117" level="3">
-<if_sid>61605</if_sid>
+<if_sid>61605,92101,92102</if_sid>
 <field name="win.eventdata.RuleName">^technique_id=T1059.001,technique_name=PowerShell$</field>
 <description>Sysmon - Event 3: Network connection by $(win.eventdata.image)</description>
 <mitre>
