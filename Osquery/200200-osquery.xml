@@ -270,8 +270,8 @@
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_find_cred_in_files.yml -->
   <rule id="200260" level="1">
   <if_sid>200223</if_sid>
-  <field name="columns.cmdline">grep</field>
-  <description>Detecting attempts to extract passwords with grep.</description>
+  <field name="columns.cmdline">grep|cut|cat</field>
+  <description>Detecting attempts to extract passwords.</description>
   <options>no_full_log</options>
   <mitre>
     <id>T1552</id>
