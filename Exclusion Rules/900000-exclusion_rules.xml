@@ -248,4 +248,12 @@
     <description>Exclude OneDrive Process </description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude SOCFortress Chainsaw -->
+  <rule id="900039" level="1">
+    <if_sid>200053</if_sid>
+    <field name="name" type="pcre2">^Malicious PowerShell Commandlets - PoshModule$</field>
+    <field name="event.ContextInfo" type="pcre2">Script Name = C:\\Program Files \(x86\)\\ossec-agent\\active-response\\bin\\chainsaw\.ps1</field>
+    <description>Exclude SOCFortress Chainsaw - SIGMA</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
