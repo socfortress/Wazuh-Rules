@@ -189,7 +189,7 @@
 <!-- Sysmon - Event 7: Anomalies -->
 <!-- Sysmon - Event 7: Unsigned Image loaded by $(win.eventdata.image) -->
 <rule id="106118" level="10">
-<if_sid>61609</if_sid>
+<if_sid>61609,106117</if_sid>
 <field name="win.eventdata.signed">^false$</field>
 <description>Sysmon - Event 7: Unsigned Image loaded by $(win.eventdata.image)</description>
 <group>sysmon_event7,sysmon_anomaly</group>
