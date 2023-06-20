@@ -264,7 +264,7 @@
     <options>no_full_log</options>
   </rule>
   <!-- Exclude MicroSoft Teams C:\\Users\\*\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe -->
-  <rule id="900049" level="1">
+  <rule id="900041" level="1">
     <if_sid>92910,106117</if_sid>
     <field name="win.eventdata.sourceImage" type="pcre2">(?i)C:\\\\Users\\\\.*\\\\AppData\\\\Local\\\\Microsoft\\\\Teams\\\\current\\\\Teams.exe$</field>
     <description>Exclude Microsoft Teams</description>
