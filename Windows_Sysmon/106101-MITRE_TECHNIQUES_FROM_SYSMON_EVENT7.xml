@@ -209,5 +209,16 @@
 </mitre>
 <options>no_full_log</options>
 </rule>
+<!-- Sysmon - Event 7: Signed Image loaded by $(win.eventdata.image) -->
+<rule id="106120" level="3">
+<if_sid>106117</if_sid>
+<field name="win.eventdata.signed">^true$</field>
+<description>Sysmon - Event 7: Signed Image loaded by $(win.eventdata.image)</description>
+<group>sysmon_event7,sysmon_anomaly</group>
+<mitre>
+<id>T1547</id>
+</mitre>
+<options>no_full_log</options>
+</rule>
 <!-- Rules 106600 - 106699: Correlation Rules -->
 </group>
