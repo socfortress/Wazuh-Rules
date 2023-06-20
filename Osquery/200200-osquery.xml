@@ -22,10 +22,10 @@
   </rule>
   <rule id="200223" level="3">
     <decoded_as>json</decoded_as>
-    <field name="name">bpf_process_events</field>
+    <field name="name">bpf_process_events|es_process_events</field>
     <description>osquery: $(columns.path) process started.</description>
     <options>no_full_log</options>
-    <group>bpf_process_events,</group>
+    <group>process_events,</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_alter_bash_profile.yml -->
