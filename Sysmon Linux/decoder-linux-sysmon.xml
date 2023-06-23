@@ -7,7 +7,7 @@
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
   <regex offset="after_parent">\pEventID\p(\d+)\p/EventID\p</regex>
-  <order>system.eventId</order>
+  <order>system.eventID</order>
 </decoder>
 
 <!-- keywords -->
