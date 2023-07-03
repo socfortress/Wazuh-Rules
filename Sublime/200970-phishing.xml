@@ -1,6 +1,6 @@
 <group name="phishing,">
  <rule id="200970" level="12">
-    <field name="integration">sublime</field>
+    <location>sublime</location>
     <description>Phishing Detected</description>
     <options>no_full_log</options>
   </rule>
