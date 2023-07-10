@@ -1,0 +1,7 @@
+<group name="wazuh_inventory,">
+ <rule id="200900" level="3">
+    <location>wazuh_inventory</location>
+    <description>Wazuh Inventory Collection</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
