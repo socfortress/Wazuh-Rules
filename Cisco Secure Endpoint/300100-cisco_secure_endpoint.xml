@@ -1,0 +1,9 @@
+<group name="windows,">
+  <rule id="300100" level="3">
+    <if_sid>60009</if_sid>
+    <field name="win.system.providerName">^CiscoSecureEndpoint$</field>
+    <options>no_full_log</options>
+    <group>cisco_secure_endpoint,</group>
+    <description>Cisco Secure Endpoint - Notification</description>
+  </rule>
+</group>
