@@ -285,4 +285,11 @@
     <description>Exclude SOCFortress create_remote_thread SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude SOCFortress SIGMA Chainsaw Execution -->
+  <rule id="900044" level="1">
+    <if_sid>200051</if_sid>
+    <field name="event.ContextInfo" type="pcre2">(?i)Powershell\.exe -executionpolicy bypass -File C:\\Program Files \(x86\)\\ossec-agent\\active-response\\bin\\chainsaw\.ps1</field>
+    <description>Exclude SOCFortress SIGMA Rules Download Detection</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
