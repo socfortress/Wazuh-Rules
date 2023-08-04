@@ -278,7 +278,7 @@
     <options>no_full_log</options>
   </rule>
  <!-- Exclude Powershell create_remote_thread SIGMA Alert -->
-  <rule id="900043" level="1">
+  <rule id="900043" level="8">
     <if_sid>200051</if_sid>
     <field name="logsource.category" type="pcre2">(?i)^create_remote_thread$</field>
     <field name="event.SourceImage" type="pcre2">(?i)^C:\\Windows\\System32\\WindowsPowerShell\\V1.0\\powershell\.exe$</field>
