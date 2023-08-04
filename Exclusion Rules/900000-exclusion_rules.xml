@@ -288,8 +288,9 @@
   <!-- Exclude SOCFortress SIGMA Chainsaw Execution -->
   <rule id="900044" level="1">
     <if_sid>200051</if_sid>
+    <field name="logsource.category" type="pcre2">(?i)^ps_module$</field>
     <field name="event.ContextInfo" type="pcre2">(?i)Powershell\.exe -executionpolicy bypass -File C:\\Program Files \(x86\)\\ossec-agent\\active-response\\bin\\chainsaw\.ps1</field>
-    <description>Exclude SOCFortress SIGMA Rules Download Detection</description>
+    <description>Exclude SOCFortress SIGMA Chainsaw Execution</description>
     <options>no_full_log</options>
   </rule>
 </group>
