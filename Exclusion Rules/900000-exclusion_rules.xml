@@ -277,12 +277,13 @@
     <description>Exclude SOCFortress SIGMA Rules Download Detection</description>
     <options>no_full_log</options>
   </rule>
-  <!-- Exclude SOCFortress create_remote_thread SIGMA Alert -->
+ <!-- Exclude Powershell create_remote_thread SIGMA Alert -->
   <rule id="900043" level="1">
     <if_sid>200051</if_sid>
     <field name="logsource.category" type="pcre2">(?i)^create_remote_thread$</field>
-    <field name="system.Provider.attributes.Guid" type="pcre2">(?i)^5770385F-C22A-43E0-BF4C-06F5698FFBD9$</field>
-    <description>Exclude SOCFortress create_remote_thread SIGMA Alert</description>
+    <field name="event.SourceImage" type="pcre2">(?i)^C:\\Windows\\System32\\WindowsPowerShell\\V1.0\\powershell\.exe$</field>
+    <field name="event.TargetImage" type="pcre2">(?i)^C:\\Windows\\System32\\spoolsv\.exe$</field>
+    <description>Exclude Powershell create_remote_thread SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
   <!-- Exclude SOCFortress SIGMA Chainsaw Execution -->
