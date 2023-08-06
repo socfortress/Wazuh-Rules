@@ -311,4 +311,12 @@
     <description>Exclude ShellExperienceHost EXE codeintegrity-operational SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Microsoft-Windows-PushNotification-Platform/Operational channel from codeintegrity-operational SIGMA Alert -->
+  <rule id="900047" level="1">
+    <if_sid>200051</if_sid>
+    <field name="logsource.service" type="pcre2">(?i)^codeintegrity-operational$</field>
+    <field name="system.Channel" type="pcre2">(?i)^Microsoft-Windows-PushNotification-Platform/Operational$</field>
+    <description>Exclude Microsoft-Windows-PushNotification-Platform/Operational channel from codeintegrity-operationa SIGMA Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
