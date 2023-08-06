@@ -303,4 +303,12 @@
     <description>Exclude SOCFortress EDR create_remote_thread SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude ShellExperienceHost.exe which is a Windows component responsible for the windowed display feature of universal Windows applications SIGMA Alert -->
+  <rule id="900046" level="1">
+    <if_sid>200051</if_sid>
+    <field name="logsource.service" type="pcre2">(?i)^codeintegrity-operational$</field>
+    <field name="event.ProcessName" type="pcre2">(?i)^C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost\.exe$</field>
+    <description>Exclude ShellExperienceHost EXE codeintegrity-operational SIGMA Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
