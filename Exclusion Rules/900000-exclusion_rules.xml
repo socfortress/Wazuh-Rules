@@ -336,4 +336,13 @@
     <description>Exclude Microsoft-Windows-UniversalTelemetryClient channel from Sysmon Blocked File Shredding SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude OpenAudit Scanning -->
+  <rule id="900049" level="1">
+    <if_sid>200051</if_sid>
+    <field name="event.ParentCommandLine" type="pcre2">(?i)^cscript  \/\/nologo "C:\\Program Files \(x86\)\\ossec-agent\\active-response\\bin\\open_audit\.vbs"$</field>
+    <field name="event.ParentImage" type="pcre2">(?i)^C:\\Windows\\SysWOW64\\cscript.exe$</field>
+    <field name="event.CommandLine" type="pcre2">(?i)^schtasks.exe \/query \/v \/fo csv$</field>
+    <description>Exclude OpenAudit Scanning SIGMA Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
