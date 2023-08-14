@@ -322,7 +322,9 @@
   <!-- Exclude OpenAudit Scanning -->
   <rule id="900048" level="1">
     <if_sid>200051</if_sid>
-    <field name="event.Hashes" type="pcre2">(?i)^SHA1=D9127654E13FD43FCDDB4FC95CB5E6593BBF5050,MD5=6FB9D6A070365F03954569C1CA9A9C23,SHA256=02771D364902B233AE60604A3A9770B6E50C0A30BE68CA1B4BB416492EAB0D76,IMPHASH=EE559EFEAB91B5B2C2E8E2DA64B693E5$</field>
+    <field name="event.ParentCommandLine" type="pcre2">(?i)^"C:\\Windows\\System32\\cscript\.exe" \/\/nologo "C:\\Program Files \(x86\)\\ossec-agent\\active-response\\bin\\open_audit\.vbs"$</field>
+    <field name="event.ParentImage" type="pcre2">(?i)^C:\\Windows\\System32\\cscript.exe$</field>
+    <field name="event.CommandLine" type="pcre2">(?i)^schtasks.exe \/query \/v \/fo csv$</field>
     <description>Exclude OpenAudit Scanning SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
