@@ -326,4 +326,12 @@
     <description>Exclude OpenAudit Scanning SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Microsoft-Windows-UniversalTelemetryClient channel from Sysmon Blocked File Shredding SIGMA Alert -->
+  <rule id="900049" level="1">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^Sysmon Blocked File Shredding$</field>
+    <field name="path" type="pcre2">(?i)^C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-UniversalTelemetryClient%4Operational\.evtx$</field>
+    <description>Exclude Microsoft-Windows-UniversalTelemetryClient channel from Sysmon Blocked File Shredding SIGMA Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
