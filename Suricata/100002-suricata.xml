@@ -1,6 +1,6 @@
 <!-- Suricata Rules -->
 <group name="suricata,netflow">
-        <rule id="100002" level="1">
+        <rule id="100002" level="3">
                 <if_sid>86600</if_sid>
                 <options>no_full_log</options>
                 <description>Suricata Traffic - $(event_type).</description>
@@ -31,21 +31,21 @@
         </rule>
 </group>
 <group name="suricata,suricata_http">
-        <rule id="100006" level="1">
+        <rule id="100006" level="3">
                 <if_sid>86602</if_sid>
                 <options>no_full_log</options>
                 <description>Suricata HTTP Traffic.</description>
         </rule>
 </group>
 <group name="suricata,suricata_dns">
-        <rule id="100007" level="1">
+        <rule id="100007" level="3">
                 <if_sid>86603</if_sid>
                 <options>no_full_log</options>
                 <description>Suricata DNS Traffic.</description>
         </rule>
 </group>
 <group name="suricata,suricata_tls">
-        <rule id="100008" level="1">
+        <rule id="100008" level="3">
                 <if_sid>86604</if_sid>
                 <options>no_full_log</options>
                 <description>Suricata TLS Traffic.</description>
