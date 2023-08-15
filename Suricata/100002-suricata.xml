@@ -51,3 +51,10 @@
                 <description>Suricata TLS Traffic.</description>
         </rule>
 </group>
+<group name="suricata,active_response,">
+ <rule id="100009" level="3">
+    <location>wazuh_suricata</location>
+    <description>Wazuh Suricata Blocked IP</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
