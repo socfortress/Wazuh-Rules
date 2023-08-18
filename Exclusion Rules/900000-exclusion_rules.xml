@@ -354,4 +354,10 @@
     <description>Exclude AutoRuns SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Agent Flooded Level. -->
+  <rule id="900051" level="10">
+    <if_sid>204</if_sid>
+    <description>Agent event queue is flooded. Check the agent configuration.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
