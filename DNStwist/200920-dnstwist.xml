@@ -9,7 +9,7 @@
 <group name="dnstwist,">
  <rule id="200921" level="3">
     <location>dnstwist_phishing</location>
-    <description>DNStwist Registered Domains</description>
+    <description>DNStwist Potential Phishing Spotted</description>
     <options>no_full_log</options>
     <group>phishing,</group>
   </rule>
