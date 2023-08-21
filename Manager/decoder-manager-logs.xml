@@ -1,0 +1,8 @@
+<decoder name="wazuh-authd">
+  <prematch>wazuh-authd:</prematch>
+</decoder>
+<decoder name="wazuh-authd-duplicate">
+  <parent>wazuh-authd</parent>
+  <regex>WARNING: Duplicate name '(\S+)', rejecting enrollment\. Agent '(\d+)' key already exists on the manager\.</regex>
+  <order>duplicate_name, agent_id</order>
+</decoder>
