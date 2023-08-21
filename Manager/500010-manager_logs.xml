@@ -1,0 +1,8 @@
+<group name="manager_logs,">
+<rule id="500010" level="3">
+  <match>Duplicate name</match>
+  <description>Wazuh Auth Duplicate Agent</description>
+  <options>no_full_log</options>
+  <group>wazuh-authd,</group>
+</rule>
+</group>
