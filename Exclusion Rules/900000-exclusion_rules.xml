@@ -360,4 +360,10 @@
     <description>Agent event queue is flooded. Check the agent configuration.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Agent file limit set for this agent is 100000 Level. -->
+  <rule id="900053" level="7">
+    <if_sid>233</if_sid>
+    <description>The file limit set for this agent is 100000. Now, 100000 files are being monitored and no more files will be monitored. Change this setting in centralized configuration or locally on the agent.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
