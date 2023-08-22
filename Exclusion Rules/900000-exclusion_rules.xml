@@ -366,4 +366,14 @@
     <description>The file limit set for this agent is 100000. Now, 100000 files are being monitored and no more files will be monitored. Change this setting in centralized configuration or locally on the agent.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude LogonSessions Scanning -->
+  <rule id="900054" level="1">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^Remote Thread Creation In Uncommon Target Image$</field>
+    <field name="event.TargetImage" type="pcre2">(?i)^C:\\Windows\\System32\\spoolsv\.exe$</field>
+    <field name="event.SourceUser" type="pcre2">(?i)^NT AUTHORITY\\SYSTEM$</field>
+    <field name="event.SourceImage" type="pcre2">(?i)^C:\\Program Files\\socfortress\\sysinternals\\logonsessions64.exe$</field>
+    <description>Exclude OpenAudit Scanning SIGMA Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
