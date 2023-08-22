@@ -337,16 +337,16 @@
     <options>no_full_log</options>
   </rule>
   <!-- Exclude OpenAudit Scanning -->
-  <rule id="900049" level="1">
+  <rule id="900050" level="1">
     <if_sid>200051</if_sid>
-    <field name="event.ParentCommandLine" type="pcre2">(?i)^cscript  \/\/nologo "C:\\Program Files \(x86\)\\ossec-agent\\active-response\\bin\\open_audit\.vbs"$</field>
-    <field name="event.ParentImage" type="pcre2">(?i)^C:\\Windows\\SysWOW64\\cscript.exe$</field>
+    <field name="event.ParentImage" type="pcre2">(?i)^C:\\Windows\\SysWOW64\\cscript\.exe$</field>
+    <field name="event.ParentCommandLine" type="pcre2">(?i)^cscript\s+\/\/Nologo\s+"C:\\Program\sFiles\s\(x86\)\\ossec-agent\\active-response\\bin\\open_audit\.vbs"$</field>
     <field name="event.CommandLine" type="pcre2">(?i)^schtasks.exe \/query \/v \/fo csv$</field>
     <description>Exclude OpenAudit Scanning SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
   <!-- Exclude AutoRuns SIGMA Alert -->
-  <rule id="900050" level="1">
+  <rule id="900051" level="1">
     <if_sid>200051</if_sid>
     <field name="name" type="pcre2">(?i)^Suspicious Elevated System Shell$</field>
     <field name="event.CurrentDirectory" type="pcre2">(?i)^C:\\Program Files \(x86\)\\ossec-agent</field>
@@ -355,7 +355,7 @@
     <options>no_full_log</options>
   </rule>
   <!-- Lower Agent Flooded Level. -->
-  <rule id="900051" level="10">
+  <rule id="900052" level="10">
     <if_sid>204</if_sid>
     <description>Agent event queue is flooded. Check the agent configuration.</description>
     <options>no_full_log</options>
