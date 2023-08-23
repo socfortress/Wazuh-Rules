@@ -72,7 +72,7 @@ for alert in jsonResponse["value"]:
         send_event(json.dumps(office_defender_event))
 
 ## Get Domain Alerts ##############################################################
-url = "https://api.securitycenter.microsoft.us/api/domains/stratuscyber.com/alerts"
+url = "https://api.securitycenter.microsoft.us/api/domains/*yourdomain*/alerts"
 headers = {
     'Content-Type' : 'application/json',
     'Accept' : 'application/json',
