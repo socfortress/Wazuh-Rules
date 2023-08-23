@@ -1,6 +1,6 @@
-<group name="office_defender,">
+<group name="microsoft_defender,">
   <rule id="109000" level="3">
-    <location>office_defender</location>
+    <location>microsoft_defender</location>
     <description>$(office_defender.id) $(office_defender.title).</description>
     <options>no_full_log</options>
   </rule>
