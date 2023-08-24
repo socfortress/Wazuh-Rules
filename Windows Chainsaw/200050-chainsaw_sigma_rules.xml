@@ -26,21 +26,21 @@
     <group>sigma,</group>
     <options>no_full_log</options>
   </rule>
- <rule id="200054" level="1">
+ <rule id="200054" level="3">
     <if_sid>200050</if_sid>
-    <field name="message">^Sigma rules were updated successfully.$</field>
+    <field name="result">^success$</field>
     <description>$(message)</description>
     <group>sigma,</group>
     <options>no_full_log</options>
   </rule>
   <rule id="200055" level="10">
     <if_sid>200050</if_sid>
-    <field name="message">^Failed to update Sigma rules.$</field>
+    <field name="result">^failure$</field>
     <description>$(message)</description>
     <group>sigma,</group>
     <options>no_full_log</options>
   </rule>
- <!-- Noisy and Poorly Written SIGMA Rule | Skipping over System User https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_regsvr32_network_activity.yml | Regsvr32 Network Activity https://github.com/SigmaHQ/sigma/blob/653d9b87f23d6086b9ddd47a576f062d0f2759d3/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml#L4-->
+  <!-- Noisy and Poorly Written SIGMA Rule | Skipping over System User https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_regsvr32_network_activity.yml | Regsvr32 Network Activity https://github.com/SigmaHQ/sigma/blob/653d9b87f23d6086b9ddd47a576f062d0f2759d3/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml#L4-->
   <rule id="200056" level="1">
     <if_sid>200051</if_sid>
     <field name="name">^Regsvr32 Network Activity - DNS$|^Regsvr32 Network Activity$</field>
