@@ -400,4 +400,12 @@
     <description>Exclude Chainsaw Running Sigma Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Chainsaw Running Sigma Alert -->
+  <rule id="900059" level="1">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^SMB Create Remote File Admin Share$</field>
+    <field name="event.RelativeTargetName" type="pcre2">(?i)^Program Files\\SOCFortress\\chainsaw\\sigma\\sigma-master\\rules\\windows</field>
+    <description>Exclude Chainsaw Running Sigma Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
