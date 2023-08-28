@@ -387,7 +387,7 @@
   <rule id="900057" level="1">
     <if_sid>200051</if_sid>
     <field name="name" type="pcre2">(?i)^Powerup Write Hijack DLL$</field>
-    <field name="event.TargetFilename" type="pcre2">(?i)^C:\\Windows\\Temp\\chainsaw_batch\.bat$</field>
+    <field name="event.TargetFilename" type="pcre2">(?i)^C:\\Windows\\Temp\\chainsaw_batch\.bat$|^C:\\TEMP\\chainsaw_batch\.bat$</field>
     <description>Exclude Chainsaw Running Sigma Alert</description>
     <options>no_full_log</options>
   </rule>
