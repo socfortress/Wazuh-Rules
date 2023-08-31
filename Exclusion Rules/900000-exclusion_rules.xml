@@ -408,4 +408,12 @@
     <description>Exclude Chainsaw Running Sigma Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude LogonSessions Running Sigma Alert -->
+  <rule id="900060" level="1">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^Process Explorer Driver Creation By Non-Sysinternals Binary$</field>
+    <field name="event.Image" type="pcre2">(?i)^C:\\Program Files\\socfortress\\sysinternals\\logonsessions64\.exe$</field>
+    <description>Exclude LogonSessions Running Sigma Aler</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
