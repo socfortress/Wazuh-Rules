@@ -1,7 +1,7 @@
 <group name="windows,chainsaw,">
  <rule id="200050" level="3">
     <field name="group">^Sigma$</field>
-    <description>Chainsaw Forensics - Sigma Scan</description>
+    <description>Chainsaw Forensics - $(step) - $(status)</description>
     <group>sigma,</group>
     <options>no_full_log</options>
   </rule>
