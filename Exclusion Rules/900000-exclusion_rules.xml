@@ -425,4 +425,13 @@
     <description>Exclude Chainsaw from Sysmon Event 1</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude svchost.exe Process from WMI SIGMA Alert -->
+  <rule id="900062" level="1">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^WMI Persistence - Script Event Consumer File Write$</field>
+    <field name="event.ParentImage" type="pcre2">(?i)^C:\\WINDOWS\\system32\\svchost\.exe$</field>
+    <field name="event.CommandLine" type="pcre2">(?i)^C:\WINDOWS\system32\wbem\scrcons.exe</field>
+    <description>Exclude svchost.exe Process from WMI SIGMA Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
