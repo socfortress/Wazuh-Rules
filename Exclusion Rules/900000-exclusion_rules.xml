@@ -434,4 +434,12 @@
     <description>Exclude svchost.exe Process from WMI SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude SOCFortress SIGMA Chainsaw Execution -->
+  <rule id="900063" level="1">
+    <if_sid>200051</if_sid>
+    <field name="event.CurrentDirectory" type="pcre2">(?i)^C:\\Program Files \(x86\)\\ossec-agent</field>
+    <field name="event.ParentCommandLine" type="pcre2">(?i)^Powershell.exe -executionpolicy bypass -File "C:\\Program Files \(x86\)\\ossec-agent\\active-response\\bin\\chainsaw\.ps1"$</field>
+    <description>Exclude SOCFortress SIGMA Chainsaw Execution</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
