@@ -442,4 +442,11 @@
     <description>Exclude SOCFortress SIGMA Chainsaw Execution</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Chainsaw Batch File -->
+  <rule id="900064" level="1">
+    <if_sid>92032</if_sid>
+    <field name="win.eventdata.parentCommandLine" type="pcre2">(?i)^\\"C:\\\\Windows\\\\system32\\\\cmd\.exe\\" \/c \\"C:\\\\Windows\\\\TEMP\\\\chainsaw_batch\.bat &amp;&amp; set CHAINSAW_KILLED\\"$</field>
+    <description>Exclude LogonSessions Running Sigma Alert</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
