@@ -1,0 +1,7 @@
+<group name="windows,sysmon,">
+ <rule id="200070" level="3">
+    <field name="group">^SysmonConfigReload</field>
+    <description>Sysmon Rules Reloaded</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
