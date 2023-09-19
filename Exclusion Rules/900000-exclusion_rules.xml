@@ -457,4 +457,11 @@
     <description>Exclude LogonSessions Running Sigma Aler</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Windows Defender using Invoke-Command -->
+  <rule id="900066" level="1">
+    <if_sid>91822</if_sid>
+    <field name="win.eventdata.path" type="pcre2">(?i)^C:\\\\ProgramData\\\\Microsoft\\\\Windows Defender Advanced Threat Protection\\\\DataCollection</field>
+    <description>Exclude Windows Defender using Invoke-Command</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
