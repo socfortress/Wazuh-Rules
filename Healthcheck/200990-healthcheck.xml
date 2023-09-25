@@ -13,7 +13,7 @@
   <rule id="200992" level="12">
     <if_sid>200990</if_sid>
     <field name="current_status">^unhealthy$</field>
-    <description>SOCFortress Healthcheck - $(check) is in Unhealthy state.</description>
+    <description>SOCFortress Healthcheck Unhealthy state - $(message).</description>
     <options>no_full_log</options>
   </rule>
   <rule id="200993" level="12">
