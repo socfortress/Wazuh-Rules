@@ -464,4 +464,13 @@
     <description>Exclude Windows Defender using Invoke-Command</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude OneDrive Sigma -->
+  <rule id="900067" level="1">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^Remote Thread Creation In Uncommon Target Image$</field>
+    <field name="event.TargetImage" type="pcre2">(?i)^C:\\windows\\Explorer\.EXE$</field>
+    <field name="event.SourceImage" type="pcre2">(?i)AppData\\Local\\Microsoft\\OneDrive\\OneDrive\.exe$</field>
+    <description>Exclude OneDrive Sigma</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
