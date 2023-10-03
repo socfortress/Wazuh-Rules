@@ -370,7 +370,7 @@
   <rule id="900054" level="1">
     <if_sid>200051</if_sid>
     <field name="name" type="pcre2">(?i)^Remote Thread Creation In Uncommon Target Image$</field>
-    <field name="event.TargetImage" type="pcre2">(?i)^C:\\Windows\\System32\\spoolsv\.exe$</field>
+    <field name="event.TargetImage" type="pcre2">(?i)^C:\\Windows\\System32\\spoolsv\.exe$|^C:\\windows\\Explorer\.EXE$</field>
     <field name="event.SourceUser" type="pcre2">(?i)^NT AUTHORITY\\SYSTEM$</field>
     <field name="event.SourceImage" type="pcre2">(?i)^C:\\Program Files\\socfortress\\sysinternals\\logonsessions64.exe$</field>
     <description>Exclude OpenAudit Scanning SIGMA Alert</description>
