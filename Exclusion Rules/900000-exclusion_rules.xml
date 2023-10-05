@@ -493,4 +493,11 @@
     <description>Application Compatibility Database launched</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Remote Thread Creation In Uncommon Target Image Sigma due to too many FPs -->
+  <rule id="900081" level="8">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^Remote Thread Creation In Uncommon Target Image$</field>
+    <description>Remote Thread Creation In Uncommon Target Image</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
