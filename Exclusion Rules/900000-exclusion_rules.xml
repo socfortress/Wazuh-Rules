@@ -487,4 +487,10 @@
     <description>CodeIntegrity - Blocked Image/Driver Load For Policy Violation</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Application Compatibility Database launched due to too many Hits -->
+  <rule id="900080" level="8">
+    <if_sid>92058</if_sid>
+    <description>Application Compatibility Database launched</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
