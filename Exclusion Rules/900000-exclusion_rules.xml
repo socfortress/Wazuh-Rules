@@ -488,16 +488,24 @@
     <options>no_full_log</options>
   </rule>
   <!-- Lower Application Compatibility Database launched due to too many Hits -->
-  <rule id="900080" level="8">
+  <rule id="900070" level="8">
     <if_sid>92058</if_sid>
     <description>Application Compatibility Database launched</description>
     <options>no_full_log</options>
   </rule>
   <!-- Lower Remote Thread Creation In Uncommon Target Image Sigma due to too many FPs -->
-  <rule id="900081" level="8">
+  <rule id="900071" level="8">
     <if_sid>200051</if_sid>
     <field name="name" type="pcre2">(?i)^Remote Thread Creation In Uncommon Target Image$</field>
     <description>Remote Thread Creation In Uncommon Target Image</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude TEAMS network connection SIGMA Alert -->
+  <rule id="900072" level="1">
+    <if_sid>200051</if_sid>
+    <field name="name" type="pcre2">(?i)^Suspicious Program Location with Network Connections$</field>
+    <field name="event.Image" type="pcre2">(?i)AppData\\Local\\Microsoft\\Teams\\current\\Teams\.exe$</field>
+    <description>Exclude TEAMS network connection SIGMA Alert</description>
     <options>no_full_log</options>
   </rule>
 </group>
