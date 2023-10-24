@@ -1,0 +1,9 @@
+<group name="duo,">
+ <rule id="200930" level="3">
+    <if_sid>100002</if_sid>
+    <location>duo_auth_logs</location>
+    <description>DUO Authentication Logs</description>
+    <options>no_full_log</options>
+    <group>auth,</group>
+  </rule>
+</group>
