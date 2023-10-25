@@ -1,0 +1,13 @@
+<group name="sap_siem,">
+ <rule id="200500" level="3">
+    <field name="integration">sap_siem</field>
+    <description>SAP SIEM Integration</description>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200501" level="8">
+    <if_sid>200500</if_sid>
+    <field name="errCode">403120|403042</field>
+    <description>SAP SIEM: $(errDetails)</description>
+    <options>no_full_log</options>
+  </rule>
+</group>
