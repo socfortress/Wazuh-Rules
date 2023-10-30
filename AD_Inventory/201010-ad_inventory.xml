@@ -4,4 +4,9 @@
     <description>AD Inventory Results</description>
     <options>no_full_log</options>
   </rule>
+ <rule id="201011" level="3">
+    <field name="integration">ad_inventory</field>
+    <description>AD Inventory Integration Results</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
