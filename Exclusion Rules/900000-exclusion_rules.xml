@@ -516,4 +516,11 @@
     <description>MITRE T1187 is only regarding LNK files created on external resources allowing local  profile specific sources.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Windows Defender DNS Queries -->
+  <rule id="900074" level="1">
+    <if_sid>121101</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)C:\\\\Program Files\\\\Windows Defender Advanced Threat Protection</field>
+    <description>Exceptions rule created for Exclude Windows Defender DNS Queries.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
