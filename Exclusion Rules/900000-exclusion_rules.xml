@@ -523,4 +523,11 @@
     <description>Exceptions rule created for Exclude Windows Defender DNS Queries.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Windows Defender SIGMA Rules -->
+  <rule id="900075" level="1">
+    <if_sid>62123</if_sid>
+    <field name="win.eventdata.path" type="pcre2">(?i)^file:_C:\\\\Program Files \(x86\)\\\\ossec-agent\\\\shared</field>
+    <description>Exceptions rule created for Windows Defender SIGMA Rules.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
