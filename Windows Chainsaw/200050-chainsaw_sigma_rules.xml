@@ -5,7 +5,7 @@
     <group>sigma,</group>
     <options>no_full_log</options>
   </rule>
-  <rule id="200051" level="12">
+  <rule id="200051" level="10">
     <if_sid>200050</if_sid>
     <field name="level">high</field>
     <description>$(name)</description>
