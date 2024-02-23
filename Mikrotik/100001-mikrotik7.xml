@@ -10,6 +10,12 @@
   <order>username, srcip, access_method</order>
 </decoder>
 
+<decoder name="wireguard">
+  <prematch>wireguard user (\S+) logged (\S+) from (\S+)</prematch>
+  <regex type="pcre2">wireguard user (\S+) logged (\S+) from (\S+)</regex>
+  <order>username, action, srcip</order>
+</decoder>
+
 <decoder name="ovpn">
   <prematch>(\S+) logged (\S+), (\S+) from (\S+)</prematch>
   <regex type="pcre2">(\S+) logged (\S+), (\S+) from (\S+)</regex>
