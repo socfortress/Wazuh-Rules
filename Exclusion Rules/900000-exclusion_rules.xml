@@ -511,7 +511,7 @@
     <!-- Exclude Office Creating Local LNK files NEW -->
   <rule id="900073" level="1">
     <if_sid>92214</if_sid>
-    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\OUTLOOK\.EXE$|(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\EXCEL\.EXE$|(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD\.EXE$|(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD\.EXE$|(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft Office\\\\Office16\\\\WINWORD\.EXE$</field>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\OUTLOOK\.EXE$|(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\EXCEL\.EXE$|(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD\.EXE$|(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD\.EXE$|(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft Office\\\\Office16\\\\WINWORD\.EXE$|(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft Office\\\\root\\\\Office16\\\\EXCEL\.EXE$</field>
     <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Users\\\\\w+\\\\AppData\\\\Roaming\\\\Microsoft\\\\Office\\\\Recent\\\\.+\.LNK$|(?i)^C:\\\\Users\\\\\w+\\\\AppData\\\\Roaming\\\\Microsoft\\\\Internet Explorer\\\\Quick Launch\\\\.+\.LNK$|(?i)^C:\\\\Users\\\\\w+\\\\AppData\\\\Roaming\\\\Microsoft\\\\Word\.lnk$|(?i)^C:\\\\Users\\\\\w+\\\\AppData\\\\Roaming\\\\Microsoft\\\\Excel\\\\.+\.lnk$</field>
     <description>MITRE T1187 is only regarding LNK files created on external resources allowing local  profile specific sources.</description>
     <options>no_full_log</options>
