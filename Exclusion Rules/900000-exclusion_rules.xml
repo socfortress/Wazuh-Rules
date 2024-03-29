@@ -536,4 +536,39 @@
     <description>Detects file and folder permission changes.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude NINJA RMM -->
+  <rule id="900077" level="1">
+    <if_sid>92920</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\[A-Za-z0-9]+.*\\\\NinjaRMMAgent\.exe$</field>
+    <description>Exceptions NINJA RMM.</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude NINJA RMM -->
+  <rule id="900078" level="1">
+    <if_sid>109102</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\[A-Za-z0-9]+.*\\\\NinjaRMMAgent\.exe$</field>
+    <description>Exceptions NINJA RMM.</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude HPAnalytics Proc -->
+  <rule id="900079" level="1">
+    <if_sid>92920</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\DriverStore\\\\FileRepository\\\\[^\\\\]+\\\\x64\\\\Provider Data Sources\\\\ProcInfo\\\\ProcInfo\.exe$</field>
+    <description>Exceptions HPAnalytics Proc.</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude NINJA Agent -->
+  <rule id="900080" level="1">
+    <if_sid>109102</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\[A-Za-z0-9]+.*\\\\njvmagent.exe$|(?i)^C:\\\\Program Files\\\\Huntress\\\\Rio\\\\Rio\.exe$</field>
+    <description>Exceptions NINJA RMM.</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude NINJA RMM -->
+  <rule id="900081" level="1">
+    <if_sid>110109</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\[A-Za-z0-9]+.*\\\\NinjaRMMAgent\.exe$</field>
+    <description>Exceptions NINJA RMM.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
