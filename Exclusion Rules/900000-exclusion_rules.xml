@@ -579,4 +579,11 @@
     <description>Exceptions Windows Admin Center.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude OneDrive Process Injection -->
+  <rule id="900083" level="3">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">\\\\Microsoft\\\\OneDrive\\\\Update\\\\OneDriveSetup\.exe$</field>
+    <description>Exclude OneDrive Setup</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
