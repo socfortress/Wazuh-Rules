@@ -586,4 +586,11 @@
     <description>Exclude OneDrive Setup</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude VMWARE Tools Process Injection -->
+  <rule id="900084" level="1">
+    <if_sid>92400</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Program Files\\\\VMware\\\\VMware Tools\\\\vmtoolsd.exe$</field>
+    <description>Exceptions rule created for VMWARE Tools.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
