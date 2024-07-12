@@ -593,4 +593,11 @@
     <description>Exceptions rule created for VMWARE Tools.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Chrome.exe Privileged Execution Causing High Amount of Noise -->
+  <rule id="900085" level="1">
+    <if_sid>60107</if_sid>
+    <field name="win.eventdata.processName" type="pcre2">(?i)^C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome\.exe$</field>
+    <description>Exclude Chrome.exe Privileged Execution Causing High Amount of Noise</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
