@@ -1,0 +1,15 @@
+<group name="socfortress,">
+<!-- ETW Tampering https://blog.palantir.com/tampering-with-windows-event-tracing-background-offense-and-defense-4be7ac62ac63 -->
+  <rule id="700100" level="13">
+    <if_sid>100541</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)^Remove-EtwTraceProvider|^Set-EtwTraceProvider|^logman update</field>
+    <description>ETW Tampering Technique was ran.</description>
+    <group>powershell,etw_tampering,</group>
+  </rule>
+  <rule id="700101" level="13">
+    <if_sid>100127</if_sid>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)^Remove-EtwTraceProvider|^Set-EtwTraceProvider|^logman update</field>
+    <description>ETW Tampering Technique was ran.</description>
+    <group>command_line,etw_tampering,</group>
+  </rule>
+ </group>
