@@ -976,7 +976,7 @@
     <if_sid>100100</if_sid>
     <field name="win.eventdata.image">powershell.exe$|pwsh.exe$</field>
     <field name="win.eventdata.commandLine">ExecutionPolicy Bypass</field>
-    <field name="win.eventdata.parentImage" negate="yes">cmd.exe$|explorer.exe$|wazuh-agent.exe$|^C:\\\\Program Files\\\\Windows Defender Advanced Threat Protection\\\\SenseIR.exe$</field>
+    <field name="win.eventdata.parentImage" negate="yes">cmd.exe$|explorer.exe$|wazuh-agent.exe$|^C:\\\\Program Files\\\\Windows Defender Advanced Threat Protection\\\\SenseIR.exe$|\\\\Windows\\\\CCM\\\\CcmExec.exe$</field>
     <description>Sysmon - Event 1: PowerShell Execution Policy Bypass detected.</description>
     <mitre>
       <id>T1548</id>
