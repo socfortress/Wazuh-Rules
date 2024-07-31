@@ -1,7 +1,7 @@
 <group name="windows,sysmon,">
 <!-- Sysmon - Event 22: DNS Request by $(win.eventdata.image) -->
 <rule id="121101" level="3">
-<if_sid>61644</if_sid>
+<if_sid>61650</if_sid>
 <description>Sysmon - Event 22: DNS Request by $(win.eventdata.image)</description>
 <mitre>
 <id>T1071</id>
