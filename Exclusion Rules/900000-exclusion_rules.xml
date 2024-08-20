@@ -600,4 +600,10 @@
     <description>Exclude Chrome.exe Privileged Execution Causing High Amount of Noise</description>
     <options>no_full_log</options>
   </rule>
+  <rule id="900086" level="1">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)>^C:\\\\Program Files \(x86\)\\\\ossec-agent\\\\wazuh-agent.exe$</field>    
+    <description>Exclude Wazuh Agent Process Injection</description>
+    <options>no_full_log</options>
+ </rule>
 </group>
