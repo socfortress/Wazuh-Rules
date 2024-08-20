@@ -1,0 +1,8 @@
+<group name="windows,sysmon,">
+<rule id="121201" level="3">
+<if_sid>61608</if_sid>
+<description>Driver loaded: $(win.eventdata.imageLoaded)</description>
+<options>no_full_log</options>
+<group>sysmon_event_6,</group>
+</rule>
+</group>
