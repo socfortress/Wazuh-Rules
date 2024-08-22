@@ -15,10 +15,13 @@
     <group>sysmon_event_18,</group>
   </rule>
 
-  <rule id="61644" level="1" overwrite="yes">
+  <rule id="61644" level="3" overwrite="yes">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^22$</field>
     <description>Sysmon - Event 22: DNS Request by $(win.eventdata.image)</description>
+    <mitre>
+    <id>T1071</id>
+    </mitre>
     <options>no_full_log</options>
     <group>sysmon_event_22,</group>
   </rule>
