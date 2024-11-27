@@ -625,4 +625,15 @@
   </mitre>
   <group>bpf_process_events,</group>
   </rule>
+
+  <rule id="200288" level="12">
+  <if_sid>200223</if_sid>
+  <field name="columns.cmdline">^curl -F</field>
+  <description>Detects a curl process start on linux, which indicates a file pushed to a remote server.</description>
+  <options>no_full_log</options>
+  <mitre>
+    <id>T1048</id>
+  </mitre>
+  <group>bpf_process_events,</group>
+  </rule>
 </group>
