@@ -606,4 +606,11 @@
     <description>Exclude Wazuh Agent Process Injection</description>
     <options>no_full_log</options>
  </rule>
+  <!-- Exclude Shuffle Orborus -->
+  <rule id="900087" level="1">
+    <if_sid>200221</if_sid>
+    <field name="columns.path" type="pcre2">(?i)^\/orborus$</field>
+    <description>Exclude Shuffle Orborus</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
