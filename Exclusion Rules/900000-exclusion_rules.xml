@@ -636,4 +636,9 @@
     <description>Executable file dropped in folder commonly used by malware.</description>
     <options>no_full_log</options>
   </rule>
+  <rule id="900091" level="10">
+    <if_sid>92211</if_sid>
+    <description>Suspicious executable file creation by rundll32: $(win.eventdata.targetFilename)</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
