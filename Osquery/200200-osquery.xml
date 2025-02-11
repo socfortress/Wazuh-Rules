@@ -579,7 +579,7 @@
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_system_info_discovery.yml -->
-  <rule id="200284" level="12">
+  <rule id="200284" level="10">
   <if_sid>200223</if_sid>
   <field name="columns.cmdline">/etc/lsb-release|/etc/redhat-release|/etc/issue|/sys/class/dmi/id/bios_version|/sys/class/dmi/id/product_name|/sys/class/dmi/id/chassis_vendor|/proc/scsi/scsi|/proc/ide/hd0/model|/proc/version</field>
   <description>Detects System Information Discovery commands.</description>
