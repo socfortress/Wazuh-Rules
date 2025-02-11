@@ -629,10 +629,10 @@
     <description>Exceptions AD Sync.</description>
     <options>no_full_log</options>
   </rule>
-  <!-- Lower cleanmgr -->
+  <!-- Lower system things -->
   <rule id="900090" level="3">
     <if_sid>92213</if_sid>
-    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\cleanmgr\.exe$</field>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\cleanmgr\.exe$|(?i)^C:\\\\Windows\\\\system32\\\\taskhostw\.exe$|(?i)^C:\\\\Windows\\\\System32\\\\sdiagnhost\.exe$</field>
     <description>Executable file dropped in folder commonly used by malware.</description>
     <options>no_full_log</options>
   </rule>
