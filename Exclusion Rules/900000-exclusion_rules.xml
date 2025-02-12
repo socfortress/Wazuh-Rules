@@ -672,4 +672,11 @@
     <description>Exclude Failed attempt for privileged Operation.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude ProcessAccess -->
+  <rule id="900096" level="1">
+    <if_sid>109102</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Program Files\\\\ThreatLocker\\\\ThreatLockerService\.exe$|(?i)^C:\\\\Program Files \(x86\)\\\\N-able Technologies\\\\Windows Agent\\\\bin\\\\agent\.exe$|(?i)C:\\\\Program Files \(x86\)\\\\ossec-agent\\\\wazuh-agent\.exe$|(?i)^C:\\\\Program Files \(x86\)\\\\Prism Microsystems\\\\EventTracker\\\\Agent\\\\etagent\.exe$</field>
+    <description>Exclude common Process Access</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
