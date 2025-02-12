@@ -665,4 +665,11 @@
     <description>Exclude OSQUERY PROCESS EVENTS COMMON.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Failed attempt for privileged Operation within common apps -->
+  <rule id="900095" level="1">
+    <if_sid>60107</if_sid>
+    <field name="win.eventdata.processName" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\\d+\.\d+\.\d+\.\d+\\\\msedgewebview2\.exe$|(?i)^C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome\.exe$|(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge\.exe$|(?i)^C:\\\\Program Files\\\\Common Files\\\\Adobe\\\\Adobe Desktop Common\\\\HEX\\\\Creative Cloud UI Helper\.exe$|(?i)^C:\\\\Program Files\\\\Microsoft OneDrive\\\\OneDrive\.exe$|(?i)^C:\\\\Program Files \(x86\)\\\\Logitech\\\\LogiTune\\\\LogiTune\.exe$|(?i)C:\\\\Windows\\\\System32\\\\RuntimeBroker\.exe$|(?i)C:\\\\Program Files\\\\Adobe\\\\Adobe Creative Cloud\\\\ACC\\\\Creative Cloud\.exe$|(?i)C:\\\\Program Files\\\\Intuit\\\\QuickBooks 2024\\\\CefSharp\.BrowserSubprocess\.exe</field>
+    <description>Exclude Failed attempt for privileged Operation.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
