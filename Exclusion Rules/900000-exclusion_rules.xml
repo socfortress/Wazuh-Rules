@@ -679,4 +679,10 @@
     <description>Exclude common Process Access</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Printer Spool DLL Alert -->
+  <rule id="900097" level="10">
+    <if_sid>92206</if_sid>
+    <description>DLL file created by printer spool service, possible malware binary drop from PrintNightmare exploit</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
