@@ -649,4 +649,20 @@
     <description>Exclude Windows Common Process Creation for Chainsaw.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude OSQUERY PROCESS EVENTS COMMON -->
+  <rule id="900093" level="1">
+    <if_sid>200223</if_sid>
+    <field name="columns.path" type="pcre2">(?i)\/usr\/bin\/rm$</field>
+    <field name="columns.cmdline" type="pcre2">(?i)rm -rf \/var\/ossec\/var|(?i)rm -f \/var\/ossec\/var</field>
+    <description>Exclude OSQUERY PROCESS EVENTS COMMON.</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude OSQUERY PROCESS EVENTS COMMON -->
+  <rule id="900094" level="1">
+    <if_sid>200223</if_sid>
+    <field name="columns.path" type="pcre2">(?i)\/usr\/bin\/expr$</field>
+    <field name="columns.cwd" type="pcre2">(?i)\/var\/ossec\/bin$</field>
+    <description>Exclude OSQUERY PROCESS EVENTS COMMON.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
