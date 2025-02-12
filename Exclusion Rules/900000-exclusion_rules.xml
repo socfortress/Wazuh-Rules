@@ -641,4 +641,12 @@
     <description>Suspicious executable file creation by rundll32: $(win.eventdata.targetFilename)</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Windows Common Process Creation for Chainsaw -->
+  <rule id="900092" level="1">
+    <if_sid>67027</if_sid>
+    <field name="win.eventdata.parentProcessName" type="pcre2">(?i)C:\\\\Windows\\\\System32\\\\cmd\.exe$</field>
+    <field name="win.eventdata.newProcessName" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\findstr\.exe$|(?i)^C:\\\\Windows\\\\System32\\\\timeout\.exe$|(?i)^C:\\\\Windows\\\\System32\\\\tasklist\.exe$|(?i)^C:\\\\Program Files\\\\\w+\\\\chainsaw\\\\chainsaw\.exe$</field>
+    <description>Exclude Windows Common Process Creation for Chainsaw.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
