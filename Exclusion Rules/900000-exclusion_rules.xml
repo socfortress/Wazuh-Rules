@@ -685,4 +685,19 @@
     <description>DLL file created by printer spool service, possible malware binary drop from PrintNightmare exploit</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Windows Common Process Creation for Ninja RMM -->
+  <rule id="900098" level="1">
+    <if_sid>67027</if_sid>
+    <field name="win.eventdata.parentProcessName" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\[\w\d\.-]+\\\\NinjaRMMAgent\.exe$</field>
+    <field name="win.eventdata.newProcessName" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\sc\.exe$|(?i)^C:\\\\Program Files\\\\SentinelOne\\\\Sentinel Agent \d+\.\d+\.\d+\.\d+\\\\SentinelCtl\.exe$|(?i)^C:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$|(?i)^C:\\\\Windows\\\\SysWOW64\\\\cmd\.exe$</field>
+    <description>Exclude Windows Common Process Creation for NinjaRMM.</description>
+    <options>no_full_log</options>
+  </rule>  
+  <!-- Exclude Windows Common Process Creation for LTSVC -->
+  <rule id="900099" level="1">
+    <if_sid>67027</if_sid>
+    <field name="win.eventdata.parentProcessName" type="pcre2">(?i)^C:\\\\Windows\\\\LTSvc\\\\LTSVC\.exe$</field>
+    <description>Exclude Windows Common Process Creation for LTSVC.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
