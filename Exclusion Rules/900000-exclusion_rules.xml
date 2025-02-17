@@ -734,4 +734,13 @@
     <description>Exclude Registry Value Set Events for common.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Suspicious File Compression -->
+  <rule id="900104" level="10">
+    <if_sid>92212</if_sid>
+    <options>no_full_log</options>
+    <description>Suspicious file compression activity by powershell: $(win.eventdata.targetFilename)</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+  </rule>
 </group>
