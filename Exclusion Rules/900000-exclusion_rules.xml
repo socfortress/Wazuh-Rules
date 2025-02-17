@@ -725,4 +725,13 @@
     <description>Exclude Common Powershell Image Loading.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Registry Value Set Events for common -->
+  <rule id="900103" level="1">
+    <if_sid>112122</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\services\.exe$</field>
+    <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\MainIC\\\\ErrorControl$|(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\WatchdogIC\\\\ErrorControl$|(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\DispatcherIC\\\\ErrorControl$|(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\MainIC\\\\Type$|(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\WatchdogIC\\\\Type$|(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\DispatcherIC\\\\Type$</field>
+    <field name="win.eventdata.user" type="pcre2">(?i)^NT AUTHORITY\\\\SYSTEM$</field>
+    <description>Exclude Registry Value Set Events for common.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
