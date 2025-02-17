@@ -700,4 +700,29 @@
     <description>Exclude Windows Common Process Creation for LTSVC.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Huntress Agent -->
+  <rule id="900100" level="1">
+    <if_sid>92920</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Program Files\\\\Huntress\\\\Rio\\\\Rio\.exe$</field>
+    <field name="win.eventdata.sourceUser" type="pcre2">(?i)^NT AUTHORITY\\\\SYSTEM$</field>
+    <description>Exceptions Huntres Agent.</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude SVCHOST trying to profile another process -->
+  <rule id="900101" level="1">
+    <if_sid>60107</if_sid>
+    <field name="win.eventdata.processName" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
+    <field name="win.eventdata.privilegeList" type="pcre2">(?i)^SeProfileSingleProcessPrivilege$</field>
+    <description>Exceptions SVCHOST trying to profile another process.</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude Common Powershell Image Loading -->
+  <rule id="900102" level="1">
+    <if_sid>106104</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$</field>
+    <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework64\\\\v\d+\.\d+\.\d+\\\\clr\.dll$|(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework64\\\\v\d+\.\d+\.\d+\\\\mscoreei\.dll$|(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework64\\\\v\d+\.\d+\.\d+\\\\clrjit\.dll$|(?i)^C:\\\\Windows\\\\assembly\\\\NativeImages_v\d+\.\d+\.\d+_\d+\\\\System\.Mana[a-zA-Z0-9#]+\\\\[a-fA-F0-9]+\\\\System\.Management\.Automation\.ni\.dll$</field>
+    <field name="win.eventdata.user" type="pcre2">(?i)^NT AUTHORITY\\\\SYSTEM$</field>
+    <description>Exclude Common Powershell Image Loading.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
