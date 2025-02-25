@@ -743,4 +743,12 @@
       <id>T1105</id>
     </mitre>
   </rule>
+  <!-- Exclude WerFault Process Access -->
+  <rule id="900105" level="1">
+    <if_sid>109101</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\WerFault\.exe$|(?i)^C:\\\\Windows\\\\system32\\\\WerFault\.exe$|(?i)^C:\\\\Program Files \(x86\)\\\\Dell\\\\UpdateService\\\\ServiceShell\.exe$</field>
+    <field name="win.eventdata.user" type="pcre2">(?i)^NT AUTHORITY\\\\SYSTEM$</field>
+    <description>Exclude WerFault Process Access.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
