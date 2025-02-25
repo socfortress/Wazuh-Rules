@@ -751,4 +751,12 @@
     <description>Exclude WerFault Process Access.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude WerFault Process Access -->
+  <rule id="900106" level="1">
+    <if_sid>109102</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\WerFault\.exe$|(?i)^C:\\\\Windows\\\\system32\\\\WerFault\.exe$|(?i)^C:\\\\Program Files \(x86\)\\\\Dell\\\\UpdateService\\\\ServiceShell\.exe$|(?i)^C:\\\\Program Files\\\\printix\.net\\\\Printix Client\\\\PrintixService\.exe$</field>
+    <field name="win.eventdata.user" type="pcre2">(?i)^NT AUTHORITY\\\\SYSTEM$</field>
+    <description>Exclude WerFault Process Access.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
