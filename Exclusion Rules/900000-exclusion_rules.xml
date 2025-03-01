@@ -765,4 +765,10 @@
     <options>no_full_log</options>
     <description>Binary loaded PowerShell automation library - Possible unmanaged Powershell execution by suspicious process</description>
   </rule>
+  <!-- Lower Print Spooler to Warning (Too many hits) -->
+  <rule id="900108" level="10">
+    <if_sid>92206</if_sid>
+    <options>no_full_log</options>
+    <description>DLL file created by printer spool service, possible malware binary drop from PrintNightmare exploit</description>
+  </rule>
 </group>
