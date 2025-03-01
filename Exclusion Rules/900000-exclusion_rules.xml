@@ -759,4 +759,10 @@
     <description>Exclude WerFault Process Access.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Lower Binary loaded Powershell Automation to Warning (Too many false hits) -->
+  <rule id="900107" level="10">
+    <if_sid>92151</if_sid>
+    <options>no_full_log</options>
+    <description>Binary loaded PowerShell automation library - Possible unmanaged Powershell execution by suspicious process</description>
+  </rule>
 </group>
