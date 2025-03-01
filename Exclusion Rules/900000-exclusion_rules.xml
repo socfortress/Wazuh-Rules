@@ -792,4 +792,12 @@
     <options>no_full_log</options>
     <description>Exclude powershell acreating temporary file created by PowerShell to test script execution policies.</description>
   </rule>
+  <!-- Exclude Prefetch file creation is normal behavior whenever a process executes by svchost.exe -->
+  <rule id="900112" level="1">
+    <if_sid>110109</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\svchost\.exe$</field>
+    <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch</field>
+    <options>no_full_log</options>
+    <description>Exclude Prefetch file creation is normal behavior whenever a process executes by svchost.exe.</description>
+  </rule>
 </group>
