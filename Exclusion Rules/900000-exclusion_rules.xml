@@ -778,4 +778,10 @@
     <options>no_full_log</options>
     <description>Sysmon - Event 1: Process $(win.eventdata.description) - MS RCE Follina Detection.</description>
   </rule>
+  <!-- Lower Follina due to heavy use of macros-->
+  <rule id="900110" level="10">
+    <if_sid>100506</if_sid>
+    <options>no_full_log</options>
+    <description>Possible Follina (CVE-2022-30190) exploitation attempt detected. New process created by a Microsoft Office application.</description>
+  </rule>
 </group>
