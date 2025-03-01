@@ -771,4 +771,11 @@
     <options>no_full_log</options>
     <description>DLL file created by printer spool service, possible malware binary drop from PrintNightmare exploit</description>
   </rule>
+  <!-- Lower Microsoft AI for WINWORD and powerpoint-->
+  <rule id="900109" level="10">
+    <if_sid>100508</if_sid>
+    <field name="win.eventdata.parentImage" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD\.EXE$|(?i)^C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\POWERPNT\.EXE$|(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD\.EXE$</field>
+    <options>no_full_log</options>
+    <description>Sysmon - Event 1: Process $(win.eventdata.description) - MS RCE Follina Detection.</description>
+  </rule>
 </group>
