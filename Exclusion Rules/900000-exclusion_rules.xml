@@ -784,4 +784,12 @@
     <options>no_full_log</options>
     <description>Possible Follina (CVE-2022-30190) exploitation attempt detected. New process created by a Microsoft Office application.</description>
   </rule>
+  <!-- Exclude powershell acreating temporary file created by PowerShell to test script execution policies -->
+  <rule id="900111" level="1">
+    <if_sid>110109</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell\.exe$</field>
+    <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Temp\\\\__PSScriptPolicyTest</field>
+    <options>no_full_log</options>
+    <description>Exclude powershell acreating temporary file created by PowerShell to test script execution policies.</description>
+  </rule>
 </group>
