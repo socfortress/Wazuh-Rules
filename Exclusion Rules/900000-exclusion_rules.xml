@@ -800,4 +800,13 @@
     <options>no_full_log</options>
     <description>Exclude Prefetch file creation is normal behavior whenever a process executes by svchost.exe.</description>
   </rule>
+  <!-- Lower Office Process creating LNK files to warning -->
+  <rule id="900113" level="10">
+    <if_sid>92214</if_sid>
+    <options>no_full_log</options>
+    <description>Suspicious file created by Microsoft Office process: $(win.eventdata.image) created $(win.eventdata.targetFilename)</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+  </rule>
 </group>
