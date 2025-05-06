@@ -1,0 +1,23 @@
+<group name="tetragon,">
+  <rule id="700000" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="process_exec.process.exec_id">\.*</field>
+    <options>no_full_log</options>
+	<group>process_exec,</group>
+	<description>Process execution detected.</description>
+  </rule>
+  <rule id="700001" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="process_exit.process.exec_id">\.*</field>
+    <options>no_full_log</options>
+	<group>process_exit,</group>
+	<description>Process exit detected.</description>
+  </rule>
+  <rule id="700002" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="process_kprobe.process.exec_id">\.*</field>
+    <options>no_full_log</options>
+	<group>process_kprobe,</group>
+	<description>Kernel probe detected.</description>
+  </rule>
+</group>
