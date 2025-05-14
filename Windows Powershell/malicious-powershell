@@ -95,7 +95,7 @@ Get-WMIRegCachedRDPConnection:
 Get-RegistryMountedDrive:
 Get-WMIRegMountedDrive:
 Get-NetProcess:
-Get-WMIProcess
+Get-WMIProcess:
 Find-InterestingFile:
 Invoke-UserHunter:
 Find-DomainUserLocation:
