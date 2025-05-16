@@ -809,4 +809,12 @@
       <id>T1027</id>
     </mitre>
   </rule>
+  <!-- Powershell System Management Automation -->
+  <rule id="900114" level="1">
+    <if_sid>106119</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe$</field>
+    <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\Windows\\\\assembly\\\\NativeImages_v4\.0\.30319_64\\\\System\.Manaa[a-f0-9]+#\\\\[a-f0-9]{32}\\\\System\.Management\.Automation\.ni\.dll$</field>
+    <description>Powershell System Management Automation.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
