@@ -817,4 +817,12 @@
     <description>Powershell System Management Automation.</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Defender LSASS -->
+  <rule id="900115" level="5">
+    <if_sid>92900</if_sid>
+    <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\lsass\.exe$</field>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\ProgramData\\\\Microsoft\\\\Windows Defender\\\\Platform\\\\[A-Za-z0-9.-]+\\\\MsMpEng\.exe$</field>
+    <description>Lower Defender Platform LSASS.</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
