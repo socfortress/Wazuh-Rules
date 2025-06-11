@@ -825,4 +825,14 @@
     <description>Lower Defender Platform LSASS.</description>
     <options>no_full_log</options>
   </rule>
+  <rule id="900116" level="10">
+    <if_sid>92156</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)(winword|excel|powerpnt)\.EXE</field>
+    <field name="win.eventdata.originalFileName" type="pcre2">(?i)VBEUI.DLL</field>
+    <options>no_full_log</options>
+    <description>Office application loaded vbeui.dll module. May be used to execute scripting code</description>
+    <mitre>
+      <id>T1059.005</id>
+    </mitre>
+  </rule>
 </group>
