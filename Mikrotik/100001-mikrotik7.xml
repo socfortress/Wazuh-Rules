@@ -1,0 +1,89 @@
+<decoder name="user_login">
+  <prematch>user (\S+) logged (\S+) from (\S+) via (\S+)</prematch>
+  <regex type="pcre2">user (\S+) logged (\S+) from (\S+) via (\S+)</regex>
+  <order>username, action, srcip, access_method</order>
+</decoder>
+
+<decoder name="user_login_failure">
+  <prematch>login failure for user (\S+) from (\S+) via (\S+)</prematch>
+  <regex type="pcre2">login failure for user (\S+) from (\S+) via (\S+)</regex>
+  <order>username, srcip, access_method</order>
+</decoder>
+
+<decoder name="wireguard">
+  <prematch>wireguard user (\S+) logged (\S+) from (\S+)</prematch>
+  <regex type="pcre2">wireguard user (\S+) logged (\S+) from (\S+)</regex>
+  <order>username, action, srcip</order>
+</decoder>
+
+<decoder name="ovpn">
+  <prematch>(\S+) logged (\S+), (\S+) from (\S+)</prematch>
+  <regex type="pcre2">(\S+) logged (\S+), (\S+) from (\S+)</regex>
+  <order>username, action, localip, srcip</order>
+</decoder>
+
+<decoder name="filter_rule_change">
+  <prematch type="pcre2">filter rule (changed|removed|added) by</prematch>
+  <regex type="pcre2">filter rule (changed|removed|added) by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>action, username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="raw_rule_change">
+  <prematch type="pcre2">raw rule (changed|removed|added) by</prematch>
+  <regex type="pcre2">raw rule (changed|removed|added) by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>action, username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="user_change">
+  <prematch type="pcre2">user (\S+) (added|password changed|removed) by</prematch>
+  <regex type="pcre2">user (\S+) (added|password changed|removed) by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>action, newuser, username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik_log">
+  <prematch type="pcre2">(\S+) (\S+) (\S+) by</prematch>
+  <regex type="pcre2">(\S+) (\S+) (\S+) by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>type, target, action, username, srcip, rule_details</order>
+</decoder>
+
+<group name="mikrotik">
+  <rule id="100001" level="10">
+    <decoded_as>mikrotik_log</decoded_as>
+    <description>Mikrotik log: $(type) $(target) $(action) by $(username) from $(srcip): $(rule_details)</description>
+  </rule>
+  
+  <rule id="100002" level="12">
+    <decoded_as>user_login</decoded_as>
+    <description>Mikrotik log: User $(username) logged $(action) from $(srcip) via $(access_method)</description>
+  </rule>
+  
+  <rule id="100003" level="11">
+    <decoded_as>user_login_failure</decoded_as>
+    <description>Mikrotik log: Login failure for user $(username) from $(srcip) via $(access_method)</description>
+  </rule>
+
+  <rule id="100004" level="10">
+    <decoded_as>wireguard</decoded_as>
+    <description>Mikrotik log: Wireguard user $(username) logged $(action) from $(srcip)</description>
+  </rule>
+
+  <rule id="100005" level="10">
+    <decoded_as>ovpn</decoded_as>
+    <description>Mikrotik log: $(action) logged, $(localip) from $(srcip)</description>
+  </rule>
+
+  <rule id="100006" level="12">
+    <decoded_as>filter_rule_change</decoded_as>
+    <description>Mikrotik log: Filter rule $(action) by $(username) from $(srcip): $(rule_details)</description>
+  </rule>
+
+  <rule id="100007" level="12">
+    <decoded_as>raw_rule_change</decoded_as>
+    <description>Mikrotik log: Raw rule $(action) by $(username) from $(srcip): $(rule_details)</description>
+  </rule>
+
+  <rule id="100008" level="12">
+    <decoded_as>user_change</decoded_as>
+    <description>Mikrotik log: User $(newuser) $(action) by $(username) from $(srcip): $(rule_details)</description>
+  </rule>
+</group>
