@@ -838,8 +838,8 @@
   <!-- Exclude Graylog Java Process for Tetragon -->
   <rule id="900117" level="1">
     <if_sid>700002</if_sid>
-    <field name="process.kprobe.process.binary" type="pcre2">^\/usr\/share\/graylog-server\/jvm\/bin\/java$</field>
-    <description>Exclude ossec</description>
+    <field name="process_kprobe.process.binary" type="pcre2">^\/usr\/share\/graylog\-server\/jvm\/bin\/java$</field>
+    <description>Exclude Graylog Java</description>
     <options>no_full_log</options>
   </rule>
   <!-- Exclude Ossec Process -->
