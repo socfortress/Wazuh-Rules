@@ -835,10 +835,17 @@
       <id>T1059.005</id>
     </mitre>
   </rule>
-  <!-- Exclude Ossec Process For Tetragon -->
+  <!-- Exclude Graylog Java Process for Tetragon -->
   <rule id="900117" level="1">
+    <if_sid>700002</if_sid>
+    <field name="process.kprobe.process.binary" type="pcre2">^\/usr\/share\/graylog-server\/jvm\/bin\/java$</field>
+    <description>Exclude ossec</description>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Exclude Ossec Process -->
+  <rule id="900118" level="1">
     <if_group>tetragon</if_group>
-    <field name="process.exec.process.cwd">^/var/ossec$</field>
+    <field name="process.exec.process.cwd" type="pcre2">^\/var\/ossec$</field>
     <description>Exclude ossec</description>
     <options>no_full_log</options>
   </rule>
