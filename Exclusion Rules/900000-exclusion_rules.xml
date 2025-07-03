@@ -835,4 +835,11 @@
       <id>T1059.005</id>
     </mitre>
   </rule>
+  <!-- Exclude Ossec Process For Tetragon -->
+  <rule id="900117" level="1">
+    <if_group>tetragon</if_group>
+    <field name="process.exec.process.cwd">^/var/ossec$</field>
+    <description>Exclude ossec</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
