@@ -189,6 +189,6 @@ Security is best when we work together! Huge thank you to those supporting and t
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
 [license-shield]: https://img.shields.io/badge/Help%20Desk-Help%20Desk-blue
-[license-url]: https://servicedesk.socfortress.co/help/2979687893
+[license-url]: https://socfortress.supportbench.net
 [linkedin-shield]: https://img.shields.io/badge/Visit%20Us-www.socfortress.co-orange
 [linkedin-url]: https://www.socfortress.co/
