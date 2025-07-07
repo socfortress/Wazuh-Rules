@@ -220,5 +220,126 @@
 </mitre>
 <options>no_full_log</options>
 </rule>
+<!--  -->
+<rule id="106121" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1546,technique_name=Suspicious DLL Load by MSTSC or RDP$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1546</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106122" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1555.004,technique_name=vaultcli.dll Loaded$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1555.004</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106123" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1071,technique_name=Telnet C2 DLL Load$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1071</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106124" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1547.008,technique_name=Suspicious DLL Loaded into LSASS$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1547.008</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106125" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1574.001,technique_name=Loaded amsi.dll from non-standard path$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1574.001</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106126" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1505.004,technique_name=DLL Load in IIS$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1505.004</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106127" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1574.001,technique_name=Loaded amsi.dll from non-standard path$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1574.001</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106128" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1574.001,technique_name=Loaded WinAppXRT.dll from System32$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1574.001</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106129" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1574.001,technique_name=Loaded ualapi.dll from System32$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1574.001</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106130" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1574.001,technique_name=Loaded KeyScramblerIE.dll from Temp$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1574.001</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
+<!--  -->
+<rule id="106131" level="12">
+<if_sid>61609</if_sid>
+<field name="win.eventdata.RuleName">^technique_id=T1027.007,technique_name=Suspicious DLL Load for API Resolution$</field>
+<description>Sysmon - Event 7: Image loaded by $(win.eventdata.image)</description>
+<mitre>
+<id>T1027.007</id>
+</mitre>
+<options>no_full_log</options>
+<group>sysmon_event7,</group>
+</rule>
 <!-- Rules 106600 - 106699: Correlation Rules -->
 </group>
