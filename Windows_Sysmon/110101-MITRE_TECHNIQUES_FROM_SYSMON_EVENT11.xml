@@ -129,4 +129,64 @@
 <options>no_full_log</options>
 <group>sysmon_event_11,</group>
 </rule>
+
+
+
+<!--added rule-->
+<rule id="110119" level="12">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)wpbbin\.exe</field>
+  <description>MITRE ATTaCK T1542.001 Pre-OS Boot: System Firmware - wpbbin.exe file created in System32. Possible firmware persistence attempt.</description>
+  <group>sysmon_event_11,</group>
+  <mitre>
+    <id>T1542.001</id>
+  </mitre>
+</rule>
+
+
+<!--added rule-->
+
+<rule id="110120" level="12">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)Comms.*Unistore.*data.*copy</field>
+  <description>Possible mailbox data manipulation detected (T1070.008 - Email Collection: Mailbox Manipulation)</description>
+  <group>sysmon_event_11,</group>
+  <mitre>
+    <id>T1070.008</id>
+  </mitre>
+</rule>
+
+
+<rule id="110121" level="12">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)powershell\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)Microsoft\.PowerShell_profile\.ps1|profile\.ps1</field>
+  <description>T1546.013 - PowerShell Profile modified: Potential persistence mechanism detected (Event Triggered Execution)</description>
+  <group>sysmon_event_11,</group>
+  <mitre>
+    <id>T1546.013</id>
+  </mitre>
+</rule>
+
+<rule id="110122" level="12">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)\\\\Microsoft\\\\Outlook\\\\VbaProject\.OTM$</field>
+  <description>T1137 - Outlook VbaProject.OTM Persistence File Created (Target: $(win.eventdata.targetFilename))</description>
+  <mitre>
+    <id>T1137</id>  
+  </mitre>
+  <group>sysmon_event_11,</group>
+</rule>
+
+
+<rule id="110123" level="12">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)C:\\\\Windows\\\\System32\\\\spool\\\\prtprocs\\\\x64\\\\[^\\\\]+\.dll</field>
+  <description>T1547.012 - DLL Dropped in Print Processors Directory (TargetFilename: $(win.eventdata.targetFilename))</description>
+  <mitre>
+    <id>T1547.012</id>
+  </mitre>
+  <group>sysmon_event_11,</group>
+</rule>
+
 </group>
