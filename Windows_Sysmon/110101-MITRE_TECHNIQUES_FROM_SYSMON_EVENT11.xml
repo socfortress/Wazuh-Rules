@@ -121,7 +121,7 @@
 <group>sysmon_event_11,</group>
 </rule>
 <!-- Lockbit 3.0 Ransomware -->
-<rule id="110118" level="12">
+<rule id="110118" level="10">
 <if_group>sysmon_event_11</if_group>
 <field name="win.eventdata.targetFilename" type="pcre2">(?i)\\\\users</field>
 <field name="win.eventdata.targetFilename" type="pcre2">(?i)\.+readme\.txt</field>
@@ -133,7 +133,7 @@
 
 
 <!--added rule-->
-<rule id="110119" level="12">
+<rule id="110119" level="10">
   <if_group>sysmon_event_11</if_group>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)wpbbin\.exe</field>
   <description>MITRE ATTaCK T1542.001 Pre-OS Boot: System Firmware - wpbbin.exe file created in System32. Possible firmware persistence attempt.</description>
@@ -146,7 +146,7 @@
 
 <!--added rule-->
 
-<rule id="110120" level="12">
+<rule id="110120" level="10">
   <if_group>sysmon_event_11</if_group>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)Comms.*Unistore.*data.*copy</field>
   <description>Possible mailbox data manipulation detected (T1070.008 - Email Collection: Mailbox Manipulation)</description>
@@ -157,7 +157,7 @@
 </rule>
 
 
-<rule id="110121" level="12">
+<rule id="110121" level="10">
   <if_group>sysmon_event_11</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)powershell\.exe$</field>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)Microsoft\.PowerShell_profile\.ps1|profile\.ps1</field>
@@ -168,7 +168,7 @@
   </mitre>
 </rule>
 
-<rule id="110122" level="12">
+<rule id="110122" level="10">
   <if_group>sysmon_event_11</if_group>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)\\\\Microsoft\\\\Outlook\\\\VbaProject\.OTM$</field>
   <description>T1137 - Outlook VbaProject.OTM Persistence File Created (Target: $(win.eventdata.targetFilename))</description>
@@ -179,7 +179,7 @@
 </rule>
 
 
-<rule id="110123" level="12">
+<rule id="110123" level="10">
   <if_group>sysmon_event_11</if_group>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)C:\\\\Windows\\\\System32\\\\spool\\\\prtprocs\\\\x64\\\\[^\\\\]+\.dll</field>
   <description>T1547.012 - DLL Dropped in Print Processors Directory (TargetFilename: $(win.eventdata.targetFilename))</description>
