@@ -488,14 +488,14 @@
     <options>no_full_log</options>
 <group>sysmon_event_12,</group>
   </rule>
-<rule id="111145" level="12">
+<rule id="111145" level="10">
   <field name="win.eventdata.targetObject" type="pcre2">(?i)\\\\Explorer\\\\FileExts</field>
   <description>Change Default File Association via \Explorer\FileExts (T1546.001)</description>
   <mitre>
     <id>T1546.001</id>
   </mitre>
 </rule>
-<rule id="111146" level="12">
+<rule id="111146" level="10">
   <if_group>sysmon_event_12</if_group>
   <field name="win.eventdata.targetObject" type="pcre2">(?i)HKLM\\\\SOFTWARE\\\\WOW6432Node\\\\Google\\\\Chrome\\\\Extensions\\\\[a-z0-9]+</field>
   <field name="win.eventdata.eventType" type="pcre2">(?i)^CreateKey$</field>
@@ -507,7 +507,7 @@
 <group>sysmon_event_12,</group>
 </rule>
 <!-- Sysmon - Event 12: RegistryEvent (Object create and delete) by $(win.eventdata.image) -->
-<rule id="111147" level="12">
+<rule id="111147" level="10">
   <if_sid>61614</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546,technique_name=Registry Key Creation \(Persistence\)$</field>
   <description>Sysmon - Event 12: RegistryEvent (Object create and delete) by $(win.eventdata.image)</description>
@@ -518,7 +518,7 @@
   <group>sysmon_event_12,</group>
 </rule>
 
-<rule id="111148" level="12">
+<rule id="111148" level="10">
   <if_sid>61614</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1036.004,technique_name=Service Registry Key Creation$</field>
   <description>Sysmon - Event 12: RegistryEvent (Object create and delete) by $(win.eventdata.image)</description>
