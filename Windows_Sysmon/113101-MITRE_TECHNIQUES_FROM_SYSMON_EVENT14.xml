@@ -440,7 +440,7 @@
   <group>sysmon_event_14,</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
-<rule id="113141" level="12">
+<rule id="113141" level="10">
   <if_sid>61616</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1113,technique_name=Recall Enabled via Registry Delete$</field>
   <description>Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image)</description>
