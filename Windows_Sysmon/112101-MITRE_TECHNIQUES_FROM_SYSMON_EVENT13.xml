@@ -469,21 +469,21 @@
 <group>sysmon_event_13,</group>
 </rule>
 <!--T1548.002 added amine-->
-<rule id="112144" level="12">
+<rule id="112144" level="10">
   <field name="win.eventdata.TargetObject" type="pcre2">(?i)mscfile\\\\shell\\\\open\\\\command</field>
   <description>T1548.002: Bypass UAC via mscfile EventViewer hijack</description>
   <mitre>
     <id>T1548.002</id>
   </mitre>
 </rule>
-<rule id="112145" level="12">
+<rule id="112145" level="10">
   <field name="win.eventdata.TargetObject">mscfile</field>
   <description>T1548.002: Bypass UAC via mscfile EventViewer hijack (test rule)</description>
   <mitre>
     <id>T1548.002</id>
   </mitre>
 </rule>
-<rule id="112146" level="12">
+<rule id="112146" level="10">
   <field name="win.eventdata.TargetObject" type="pcre2">(?i)HKLM\\System\\CurrentControlSet\\Control\\Lsa\\Notification Packages</field>
   <description>T1556.002 - Password Filter DLL Registration detected: Modification of LSA Notification Packages registry key.</description>
   <mitre>
@@ -491,7 +491,7 @@
   </mitre>
   <group>credential_access, registry, windows, sysmon</group>
 </rule>
-<rule id="112147" level="12">
+<rule id="112147" level="10">
   <field name="win.eventdata.TargetObject" type="pcre2">(?i)HKLM\\\\System\\\\CurrentControlSet\\\\Control\\\\Lsa\\\\Authentication Packages</field>
   <description>T1556.002 - Password Filter DLL Registration detected: Modification of LSA Authentication Packages registry key.</description>
   <mitre>
@@ -499,7 +499,7 @@
   </mitre>
   <group>credential_access, registry, windows, sysmon</group>
 </rule>
-  <rule id="112148" level="12">
+  <rule id="112148" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\SOFTWARE\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Winlogon\\\\SpecialAccounts\\\\Userlist\\\\[^\\]+$</field>
     <description>Suspicious registry modification detected: Hiding user accounts via Userlist key (T1564.002 - Hidden Users)</description>
@@ -509,7 +509,7 @@
     <options>no_full_log</options>
     <group>sysmon_event_13,</group>
   </rule>
-<rule id="112149" level="12">
+<rule id="112149" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\System\\\\Audit\\\\ProcessCreationIncludeCmdLine_Enabled$</field>
   <field name="win.eventdata.details" type="pcre2">(?i)DWORD\s*\(0x0+\)</field>
@@ -520,7 +520,7 @@
   <options>no_full_log</options>
   <group>sysmon_event_13,</group>
 </rule>
-<rule id="112150" level="12">
+<rule id="112150" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.targetObject" type="pcre2">(?i)HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\[^\\\\]+\\\\ImagePath</field>
   <field name="win.eventdata.details" type="pcre2">(?i)C:\\\\Program Files\\\\[^"]+</field>
@@ -531,7 +531,7 @@
   <options>no_full_log</options>
   <group>sysmon_event_13,</group>
 </rule>
-<rule id="112151" level="12">
+<rule id="112151" level="10">
   <if_sid>61615</if_sid> 
   <field name="win.eventdata.targetObject" type="pcre2">(?i)HKLM\\\\SOFTWARE\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Windows\\\\(AppInit_DLLs|RequireSignedAppInit_DLLs)</field>
   <description>T1546.010 - Event Triggered Execution: AppInit DLLs Registry Modification</description>
@@ -541,7 +541,7 @@
   <options>no_full_log</options>
   <group>sysmon_event_13,</group>
 </rule>
-<rule id="112152" level="12">
+<rule id="112152" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.eventType" type="pcre2">(?i)^SetValue$</field>
   <field name="win.eventdata.targetObject" type="pcre2">(?i)HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Services\\\\[^\\\\]+\\\\ImagePath</field>
@@ -552,7 +552,7 @@
   </mitre>
   <group>sysmon_event_13</group>
 </rule>
-<rule id="112153" level="12">
+<rule id="112153" level="10">
   <if_sid>61615</if_sid> 
   <field name="win.eventdata.targetObject" type="pcre2">(?i)Software\\\\Microsoft\\\\Terminal Server Client\\\\Default\\\\Addins</field>
   <field name="win.eventdata.details" type="pcre2">(?i)\.dll</field>
@@ -562,7 +562,7 @@
   </mitre>
   <group>sysmon_event_13</group>
 </rule>
-  <rule id="112154" level="12">
+  <rule id="112154" level="10">
     <if_sid>61615</if_sid> 
     <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\SOFTWARE\\\\Microsoft\\\\Active Setup\\\\Installed Components\\\\.*\\\\StubPath$</field>
     <description>T1547.014 - Active Setup StubPath persistence detected (Registry modification under Installed Components)</description>
@@ -570,7 +570,7 @@
       <id>T1547.014</id>
     </mitre>
   </rule>
-  <rule id="112155" level="12">
+  <rule id="112155" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject" type="pcre2">(?i)HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Services\\\\[^\\\\]+\\\\(ImagePath|ServiceDll|Type|Start)</field>
     <description>T1543.003 - Windows Service Configuration Modification via Registry (ImagePath, ServiceDll, Type, Start)</description>
@@ -578,7 +578,7 @@
       <id>T1543.003</id>
     </mitre>
   </rule>
-<rule id="112156" level="12">
+<rule id="112156" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.eventType" type="pcre2">(?i)^SetValue$</field>
   <field name="win.eventdata.targetObject" type="pcre2">(?i)Software\\\\Microsoft\\\\Office\\\\.*\\\\Outlook\\\\Security\\\\Level</field>
@@ -588,7 +588,7 @@
     <id>T1137</id>
   </mitre>
 </rule>
-<rule id="112157" level="12">
+<rule id="112157" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.targetObject" type="pcre2">(?i)HKLM\\\\System\\\\CurrentControlSet\\\\Control\\\\Print\\\\Environments\\\\Windows x64\\\\Print Processors\\\\[^\\\\]+\\\\Driver</field>
   <description>T1547.012 - Print Processor Registry Key Persistence (TargetObject: $(win.eventdata.targetObject))</description>
@@ -597,7 +597,7 @@
   </mitre>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
-<rule id="112158" level="12">
+<rule id="112158" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546,technique_name=Registry Value Set \(Persistence Mechanisms\)$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -608,7 +608,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112159" level="12">
+<rule id="112159" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1036.004,technique_name=Masqueraded Service Description Written$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -619,7 +619,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112160" level="12">
+<rule id="112160" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1090.001,technique_name=PortProxy Registry Modification$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -630,7 +630,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112161" level="12">
+<rule id="112161" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1547.008,technique_name=LSASS Persistence Cleanup$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -641,7 +641,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112162" level="12">
+<rule id="112162" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1547.002,technique_name=Add Custom Authentication Package DLL$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -652,7 +652,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112163" level="12">
+<rule id="112163" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546.001,technique_name=Set AutodialDLL$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -663,7 +663,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112164" level="12">
+<rule id="112164" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546.002,technique_name=AutoRun Command Processor$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -674,7 +674,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112165" level="12">
+<rule id="112165" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546.005,technique_name=WER Debugger$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -685,7 +685,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112166" level="12">
+<rule id="112166" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546.006,technique_name=MSTSC ClxDllPath$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -696,7 +696,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112167" level="12">
+<rule id="112167" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546.007,technique_name=Terminal Server AddIns$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
@@ -707,7 +707,7 @@
   <group>sysmon_event_13,</group>
 </rule>
 
-<rule id="112168" level="12">
+<rule id="112168" level="10">
   <if_sid>61615</if_sid>
   <field name="win.eventdata.RuleName">^technique_id=T1546.009,technique_name=Word STARTUP-PATH$</field>
   <description>Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image)</description>
