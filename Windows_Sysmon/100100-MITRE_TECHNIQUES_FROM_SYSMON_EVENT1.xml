@@ -929,7 +929,7 @@
 		<options>no_full_log</options>
 		<group>sysmon_event1,windows_sysmon_event1,sysmon_anomaly</group>
 	</rule>
-	<rule id="100506" level="12">
+	<rule id="100506" level="10">
 		<if_sid>100105</if_sid>
 		<field name="win.eventdata.parentImage">winword\.exe$|excel\.exe$|powerpnt\.exe$|outlook\.exe$|msaccess\.exe$|lync\.exe$|mspub\.exe$|onenote\.exe$</field>
 		<description>Possible Follina (CVE-2022-30190) exploitation attempt detected. New process created by a Microsoft Office application.</description>
@@ -1070,7 +1070,7 @@
 			<id>T1203</id>
 		</mitre>
 	</rule>
-	<rule id="100522" level="12">
+	<rule id="100522" level="10">
 		<if_group>sysmon_event1</if_group>
 		<field name="win.eventdata.commandLine" type="pcre2">(?i)(Invoke-DllInjection|Invoke-WmiCommand|Get-GPPPassword|Get-Keystrokes|Get-VaultCredential|Invoke-CredentialInjection|Invoke-Mimikatz|Invoke-NinjaCopy|Invoke-TokenManipulation|Out-Minidump|VolumeShadowCopyTools|Invoke-ReflectivePEInjection|Get-TimedScreenshot|Invoke-UserHunter|Find-GPOLocation|Invoke-ACLScanner|Invoke-DowngradeAccount|Get-ServiceUnquoted|Get-ServiceFilePermission|Get-ServicePermission|Invoke-ServiceAbuse|Install-ServiceBinary|Get-RegAutoLogon|Get-VulnAutoRun|Get-VulnSchTask|Get-UnattendedInstallFile|Get-WebConfig|Get-ApplicationHost|Get-RegAlwaysInstallElevated|Get-Unconstrained|Add-RegBackdoor|Add-ScrnSaveBackdoor|Gupt-Backdoor|Invoke-ADSBackdoor|Enabled-DuplicateToken|Invoke-PsUaCme|Remove-Update|Check-VM|Get-LSASecret|Get-PassHashes|Show-TargetScreen|Port-Scan|Invoke-PoshRatHttp|Invoke-PowerShellTCP|Invoke-PowerShellWMI|Add-Exfiltration|Add-Persistence|Do-Exfiltration|Start-CaptureServer|Invoke-ShellCode|Get-ChromeDump|Get-ClipboardContents|Get-FoxDump|Get-IndexedItem|Get-Screenshot|Invoke-Inveigh|Invoke-NetRipper|Invoke-EgressCheck|Invoke-PostExfil|Invoke-PSInject|Invoke-RunAs|MailRaider|New-HoneyHash|Set-MacAttribute|Invoke-DCSync|Invoke-PowerDump|Exploit-Jboss|Invoke-ThunderStruck|Invoke-VoiceTroll|Set-Wallpaper|Invoke-InveighRelay|Invoke-PsExec|Invoke-SSHCommand|Get-SecurityPackages|Install-SSP|Invoke-BackdoorLNK|PowerBreach|Get-SiteListPassword|Get-System|Invoke-BypassUAC|Invoke-Tater|Invoke-WScriptBypassUAC|PowerUp|PowerView|Get-RickAstley|Find-Fruit|HTTP-Login|Find-TrustedDocuments|Invoke-Paranoia|Invoke-WinEnum|Invoke-ARPScan|Invoke-PortScan|Invoke-ReverseDNSLookup|Invoke-SMBScanner|Invoke-Mimikittenz)</field>
 		<description>Potential Malicious Powershell</description>
@@ -1847,7 +1847,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100593" level="12">
+	<rule id="100593" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1127,technique_name=Trusted Developer Utilities Proxy Execution$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1858,7 +1858,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100594" level="12">
+	<rule id="100594" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1569.002,technique_name=Service Execution$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1869,7 +1869,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100595" level="12">
+	<rule id="100595" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1096,technique_name=NTFS File Attributes$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1880,7 +1880,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100596" level="12">
+	<rule id="100596" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1105,technique_name=Ingress Tool Transfer$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1891,7 +1891,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100597" level="12">
+	<rule id="100597" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1218.003,technique_name=CMSTP$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1902,7 +1902,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100598" level="12">
+	<rule id="100598" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1137,technique_name=Office Application Startup$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1913,7 +1913,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100599" level="12">
+	<rule id="100599" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1218.009,technique_name=Regsvcs/Regasm$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1924,7 +1924,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100600" level="12">
+	<rule id="100600" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1007,technique_name=System Service Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1935,7 +1935,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100601" level="12">
+	<rule id="100601" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1089,technique_name=Disabling Security Tools$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1946,7 +1946,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100602" level="12">
+	<rule id="100602" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1005,technique_name=Data from Local System$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1957,7 +1957,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100603" level="12">
+	<rule id="100603" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1098,technique_name=Account Manipulation$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1968,7 +1968,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100604" level="12">
+	<rule id="100604" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1012,technique_name=Query Registry$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1979,7 +1979,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100605" level="12">
+	<rule id="100605" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1036,technique_name=Process Evasion$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1990,7 +1990,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100606" level="12">
+	<rule id="100606" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1036,technique_name=Masquerading$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2001,7 +2001,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100607" level="12">
+	<rule id="100607" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1218.002,technique_name=Control Panel Items$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2012,7 +2012,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100608" level="12">
+	<rule id="100608" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1021.006,technique_name=Windows Remote Management$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2023,7 +2023,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100609" level="12">
+	<rule id="100609" level="10">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1202,technique_name=Remote File Copy$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
