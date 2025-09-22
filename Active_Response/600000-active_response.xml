@@ -6,9 +6,15 @@
     <group>socfortress,</group>
     <options>no_full_log</options>
   </rule>
+  <rule id="600001" level="13">
+    <decoded_as>json</decoded_as>
+    <field name="copilot_action">true</field>
+    <description>Copilot-ACTION: Automation Event</description>
+    <options>no_full_log</options>
+  </rule>
 </group>
 <group name="sysmon_config,">
- <rule id="600001" level="3">
+ <rule id="600002" level="3">
     <decoded_as>json</decoded_as>
     <field name="group">^SysmonConfigReload$</field>
     <description>Sysmon config $(step).</description>
