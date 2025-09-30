@@ -64,7 +64,7 @@
     <field name="win.system.severityValue">VERBOSE</field>
     <description>Powershell script $(win.eventdata.scriptBlockText) Executed</description>
     <mitre>
-      <id>T1087.002</id>>
+      <id>T1087.002</id>
     </mitre>
     <options>no_full_log</options>
   </rule>
@@ -73,7 +73,7 @@
     <field name="win.system.eventID">^4105$|^4106$</field>
     <description>Disregard Powershell Text</description>
     <mitre>
-      <id>T1087.002</id>>
+      <id>T1087.002</id>
     </mitre>
   </rule>
   <rule id="100543" level="12">
@@ -81,7 +81,7 @@
     <list field="win.eventdata.scriptBlockText" lookup="match_key">etc/lists/malicious-powershell</list>
     <description>Malicious Powershell Command $(win.eventdata.scriptBlockText) Executed</description>
     <mitre>
-      <id>T1087.002</id>>
+      <id>T1087.002</id>
     </mitre>
     <options>no_full_log</options>
   </rule>
@@ -90,7 +90,7 @@
     <field name="win.eventdata.scriptBlockText">PSMessageDetails|ErrorCategory_Message|OriginInfo</field>
     <description>Disregard Powershell Prompt Text</description>
     <mitre>
-      <id>T1087.002</id>>
+      <id>T1087.002</id>
     </mitre>
   </rule>
   <rule id="100545" level="1">
@@ -98,7 +98,7 @@
     <field name="win.eventdata.scriptBlockText">^prompt$</field>
     <description>Disregard Powershell Prompt Text</description>
     <mitre>
-      <id>T1087.002</id>>
+      <id>T1087.002</id>
     </mitre>
   </rule>
   <rule id="100550" level="3">
