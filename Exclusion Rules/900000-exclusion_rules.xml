@@ -873,4 +873,11 @@
     <options>no_full_log</options>
     <description>Exclude sdbinst.exe -m -bgt.</description>
   </rule>
+  <!-- Exclude .NET -->
+  <rule id="900122" level="1">
+    <if_sid>92151</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework64\\\\v\d+(?:\.\d+)*\\\\mscorsvw\.exe$</field>
+    <options>no_full_log</options>
+    <description>Exclude .NET.</description>
+  </rule>
 </group>
