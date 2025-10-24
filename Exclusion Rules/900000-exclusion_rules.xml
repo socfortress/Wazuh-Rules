@@ -849,4 +849,28 @@
     <description>Exclude ossec</description>
     <options>no_full_log</options>
   </rule>
+  <!-- Exclude Wazuh Agent Explorer Process Injection -->
+  <rule id="900119" level="1">
+    <if_sid>92910</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\ossec-agent\\\\wazuh-agent\.exe$</field>
+    <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\Explorer\.EXE$</field>
+    <options>no_full_log</options>
+    <description>Exclude Wazuh Agent Process Injection.</description>
+  </rule>
+  <!-- Exclude Palo Alto Global Protect -->
+  <rule id="900120" level="1">
+    <if_sid>92151</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Palo Alto Networks\\\\GlobalProtect</field>
+    <options>no_full_log</options>
+    <description>Exclude Palo Alto Global Protect.</description>
+  </rule>
+  <!-- Exclude sdbinst.exe -m -bgt -->
+  <rule id="900121" level="1">
+    <if_sid>92058</if_sid>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\sdbinst\.exe -m -bg$</field>
+    <field name="win.eventdata.parentCommandLine" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\svchost\.exe -k LocalSystemNetworkRestricted -p -s PcaSvc$</field>
+    <field name="win.eventdata.parentImage" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
+    <options>no_full_log</options>
+    <description>Exclude sdbinst.exe -m -bgt.</description>
+  </rule>
 </group>
