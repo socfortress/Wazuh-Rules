@@ -880,4 +880,287 @@
     <options>no_full_log</options>
     <description>Exclude .NET.</description>
   </rule>
+  <rule id="900123" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\SDSDefs\\\\\d{8}\.\d{3}\\\\Eraser64\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading SDSDefs\Eraser64.dll (high-volume).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900124" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\SDSDefs\\\\\d{8}\.\d{3}\\\\sds_engine_x64\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading SDSDefs\sds_engine_x64.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900125" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\EDRDefs\\\\\d{8}\.\d{3}\\\\EDRJob\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading EDRDefs\EDRJob.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900126" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\IPSDefs\\\\\d{8}\.\d{3}\\\\IPSEng64\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading IPSDefs\IPSEng64.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900127" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\BASHDefs\\\\\d{8}\.\d{3}\\\\bbRGen64\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading BASHDefs\bbRGen64.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900128" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading Sysfer\sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900129" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\AsrDefs\\\\\d{8}\.\d{3}\\\\(AppDiscovery|AsrLoader|AppHardening)\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading AsrDefs (AppDiscovery/AsrLoader/AppHardening).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900130" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\PCHDefs\\\\\d{8}\.\d{3}\\\\(PchCmp|csdkPCH)\.dll$</field>
+  <description>Exclude SEP: ccSvcHst.exe loading PCHDefs (PchCmp/csdkPCH).</description>
+  <options>no_full_log</options>
+</rule>
+
+
+
+
+
+<!-- Sysmon Event ID 7 — exclude events where imageLoaded == sysfer.dll AND image == listed process -->
+<rule id="900131" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\backgroundTaskHost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when backgroundTaskHost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900132" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\dllhost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when dllhost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900133" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when conhost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900134" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when svchost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900135" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft OneDrive\\\\[^\\\\]+\\\\FileCoAuth\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when FileCoAuth.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900136" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\pacjsworker\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when pacjsworker.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900137" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\ExpressConnect\\\\ExpressConnect\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when ExpressConnect.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900138" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\RuntimeBroker\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when RuntimeBroker.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900139" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Google\\\\GoogleUpdater\\\\.*\\\\updater\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when Google Updater loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900140" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\Edge\\\\Application\\\\.*\\\\msedge\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when msedge.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900141" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\taskhostw\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when taskhostw.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900142" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when WmiPrvSE.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900143" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\cmd\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when cmd.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900144" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1\.0\\\\Powershell\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when PowerShell loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900145" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\cometouspro\\\\chainsaw\\\\chainsaw\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when chainsaw.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+
+
+<!-- Sysmon Event ID 10 — safe exclusions where svchost.exe opens benign targets -->
+<rule id="900146" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\DllHost\.exe$</field>
+  <description>Exclude Sysmon 10 noise: svchost.exe → DllHost.exe (benign COM host inspections).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900147" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\pacjsworker\.exe$</field>
+  <description>Exclude Sysmon 10 noise: svchost.exe → pacjsworker.exe (PAC/JS worker checks).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900148" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\BackgroundTaskHost\.exe$|(?i)^C:\\\\WINDOWS\\\\system32\\\\backgroundTaskHost\.exe$</field>
+  <description>Exclude Sysmon 10 noise: svchost.exe → BackgroundTaskHost.exe (scheduled/background task inspections).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900149" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft OneDrive\\\\[^\\\\]+\\\\FileCoAuth\.exe$</field>
+  <description>Exclude Sysmon 10 noise: svchost.exe → OneDrive FileCoAuth.exe (co-authoring checks).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900150" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\RuntimeBroker\.exe$|(?i)^C:\\\\WINDOWS\\\\system32\\\\RuntimeBroker\.exe$</field>
+  <description>Exclude Sysmon 10 noise: svchost.exe → RuntimeBroker.exe (app runtime checks).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900151" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\taskhostw\.exe$</field>
+  <description>Exclude Sysmon 10 noise: svchost.exe → taskhostw.exe (task host inspections).</description>
+  <options>no_full_log</options>
+</rule>
+
+
+
+
+<!-- Sysmon Event ID 13 — safe exclusions for SEP registry writes -->
+<rule id="900152" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\14\.3\.9280\.6000\.105\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\eeCtrl\\\\Started\\\\\(Default\)$</field>
+  <description>Exclude Sysmon 13 noise: SEP ccSvcHst.exe writing eeCtrl Started default key.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900153" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\14\.3\.9280\.6000\.105\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\eeCtrl\\\\Parameters\\\\DefsPathExpansion\\\\SOFTWARE\\\\Symantec\\\\Symantec Endpoint Protection\\\\\{[0-9A-F\-]{36}\}$</field>
+  <description>Exclude Sysmon 13 noise: SEP ccSvcHst.exe writing DefsPathExpansion key.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900154" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\14\.3\.9280\.6000\.105\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\eeCtrl\\\\Parameters\\\\LastUsedDefs$</field>
+  <description>Exclude Sysmon 13 noise: SEP ccSvcHst.exe writing LastUsedDefs key.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900155" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\14\.3\.9280\.6000\.105\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\SepTempInstall\\\\\{[0-9A-F\-]{36}\}\\\\CurrentPosition$</field>
+  <description>Exclude Sysmon 13 noise: SEP ccSvcHst.exe writing SepTempInstall CurrentPosition key.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900156" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\14\.3\.9280\.6000\.105\\\\Bin64\\\\ccSvcHst\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\SymIRON\\\\Parameters\\\\Database\\\\Engines$|(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\SymIRON\\\\Parameters\\\\Database\\\\Providers$</field>
+  <description>Exclude Sysmon 13 noise: SEP ccSvcHst.exe writing SymIRON database keys.</description>
+  <options>no_full_log</options>
+</rule>
 </group>
