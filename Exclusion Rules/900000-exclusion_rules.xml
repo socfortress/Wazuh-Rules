@@ -1163,4 +1163,586 @@
   <description>Exclude Sysmon 13 noise: SEP ccSvcHst.exe writing SymIRON database keys.</description>
   <options>no_full_log</options>
 </rule>
+  <!--SOCFORTRESS EXCLUSION RULES 2025-12-04-->
+
+<rule id="900157" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\dllhost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when dllhost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900158" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when conhost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900159" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\backgroundTaskHost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when backgroundTaskHost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900160" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when svchost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900161" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\pacjsworker\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when pacjsworker.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900162" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\RuntimeBroker\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when RuntimeBroker.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900163" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft OneDrive\\\\[^\\\\]+\\\\FileCoAuth\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when OneDrive FileCoAuth.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900164" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\ExpressConnect\\\\ExpressConnect\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when ExpressConnect.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900165" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\Edge\\\\Application\\\\.*\\\\msedge\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when msedge.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900166" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Google\\\\GoogleUpdater\\\\[\d\.]+\\\\updater\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when Google Updater loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900167" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\taskhostw\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when taskhostw.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900168" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when WmiPrvSE.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900169" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\SearchProtocolHost\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when SearchProtocolHost.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900170" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\cmd\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when cmd.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900171" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when chrome.exe loads SEP sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900172" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\auditpol\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when auditpol.exe (SysWOW64) loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900173" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AGMService\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when AGMService.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900174" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\net1\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when net1.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900175" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\net\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when net.exe (SysWOW64) loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900176" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^\\\\\\\\kronos\\\\logo\$\\\\Heritage\.scr$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when UNC launcher \\kronos\logo$\\Heritage.scr loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900177" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\EdgeUpdate\\\\MicrosoftEdgeUpdate\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when MicrosoftEdgeUpdate.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900178" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when SysWOW64 PowerShell loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900179" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AGSService\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when AGSService.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900180" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework\\\\v4\.0\.30319\\\\mscorsvw\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when mscorsvw.exe (NGen service) loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900181" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Adobe\\\\Acrobat 2017\\\\Acrobat\\\\AcroCEF\\\\AcroCEF\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when AcroCEF.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900182" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\ARM\\\\1\.0\\\\AdobeARM\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when AdobeARM.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900183" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Adobe\\\\Acrobat 2017\\\\Acrobat\\\\Acrobat\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when Acrobat.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900184" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework\\\\v4\.0\.30319\\\\ngen\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when ngen.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900185" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AdobeGCClient\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when AdobeGCClient.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900186" level="1">
+  <if_group>sysmon_event_7</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\Adobe Genuine Launcher\.exe$</field>
+  <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
+  <description>Exclude EventID 7 when Adobe Genuine Launcher.exe loads SEP x86 sysfer.dll.</description>
+  <options>no_full_log</options>
+</rule>
+
+<!-- Sysmon Event ID 11 — safe exclusions where svchost.exe writes/creates common prefetch & AppReadiness files -->
+<rule id="900187" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\DLLHOST\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching DLLHOST prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900188" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\BACKGROUNDTASKHOST\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching BACKGROUNDTASKHOST prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900189" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\RUNTIMEBROKER\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching RUNTIMEBROKER prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900190" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\SEARCHPROTOCOLHOST\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching SEARCHPROTOCOLHOST prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900191" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\TASKHOSTW\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching TASKHOSTW prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900192" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\CONHOST\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching CONHOST prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900193" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\SVCHOST\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching SVCHOST prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900194" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\WMIPRVSE\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching WMIPRVSE prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900195" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\SPPSVC\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching SPPSVC prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900196" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\Prefetch\\\\PACJSWORKER\.EXE-[^\\]+\.pf$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching PACJSWORKER prefetch files.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900197" level="1">
+  <if_group>sysmon_event_11</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\Windows\\\\AppReadiness\\\\S-1-5-18$</field>
+  <description>Exclude Sysmon 11: svchost.exe touching AppReadiness\\S-1-5-18 (high-volume benign activity).</description>
+  <options>no_full_log</options>
+</rule>
+  
+<!-- Sysmon Event ID 10 — safe exclusions where SourceImage == "System" and TargetImage is benign high-volume -->
+<rule id="900198" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\ADCR_Agent\\\\adcrsvc\.exe$</field>
+  <description>Exclude Sysmon 10: System -> ADCR_Agent (benign agent start/update activity).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900199" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\Edge\\\\Application\\\\.*\\\\msedge\.exe$</field>
+  <description>Exclude Sysmon 10: System -> msedge.exe (browser/service orchestration).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900200" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AGMService\.exe$</field>
+  <description>Exclude Sysmon 10: System -> AGMService.exe (Adobe GC client service activity).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900201" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\LTSvc\\\\LTSVC\.exe$</field>
+  <description>Exclude Sysmon 10: System -> LTSVC.exe (platform/telemetry service activity).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900202" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Google\\\\GoogleUpdater\\\\[\d\.]+\\\\updater\.exe$</field>
+  <description>Exclude Sysmon 10: System -> GoogleUpdater updater.exe (benign updater activity).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900203" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\pacjsworker\.exe$</field>
+  <description>Exclude Sysmon 10: System -> pacjsworker.exe (PAC/JS worker activity).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900204" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\find\.exe$</field>
+  <description>Exclude Sysmon 10: System -> find.exe (benign file searching operations).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900205" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\RuntimeBroker\.exe$</field>
+  <description>Exclude Sysmon 10: System -> RuntimeBroker.exe (runtime/service housekeeping).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900206" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\taskhostw\.exe$</field>
+  <description>Exclude Sysmon 10: System -> taskhostw.exe (task host activity).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900207" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft OneDrive\\\\[^\\\\]+\\\\FileCoAuth\.exe$</field>
+  <description>Exclude Sysmon 10: System -> OneDrive FileCoAuth.exe (co-authoring service checks).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900208" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\SysWOW64\\\\auditpol\.exe$</field>
+  <description>Exclude Sysmon 10: System -> auditpol.exe (audit policy churn from system tasks).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900209" level="1">
+  <if_group>sysmon_event_10</if_group>
+  <field name="win.eventdata.sourceImage" type="pcre2">(?i)^System$</field>
+  <field name="win.eventdata.targetImage" type="pcre2">(?i)^C:\\\\WINDOWS\\\\System32\\\\spoolsv\.exe$</field>
+  <description>Exclude Sysmon 10: System -> spoolsv.exe (print spooler housekeeping) — OPTIONAL: included but review if you prefer to keep monitored.</description>
+  <options>no_full_log</options>
+</rule>
+
+<!-- Sysmon Event ID 22 — exclude high-volume PDQ Inventory DNS/Query noise -->
+<rule id="900210" level="1">
+  <if_group>sysmon_event_22</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Admin Arsenal\\\\PDQ Inventory\\\\PDQInventoryService\.exe$</field>
+  <description>Exclude Sysmon 22 noise from PDQInventoryService.exe (inventory agent DNS/lookup noise).</description>
+  <options>no_full_log</options>
+</rule>
+  
+<!-- Sysmon Event ID 13 — exclude high-volume svchost writes to NlaSvc\Parameters\Internet\ManualProxies\(Default) -->
+<rule id="900211" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\NlaSvc\\\\Parameters\\\\Internet\\\\ManualProxies\\\\\(Default\)$</field>
+  <description>Exclude Sysmon 13 noise: svchost.exe updating NlaSvc\Parameters\Internet\ManualProxies\(Default).</description>
+  <options>no_full_log</options>
+</rule>
+ 
+<!-- Sysmon Event ID 13 — exclude benign writes to BAM State user-settings for conhost.exe -->
+<rule id="900212" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\conhost\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: conhost.exe updates to BAM State UserSettings (system account).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900213" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\SysWOW64\\\\auditpol\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: auditpol (SysWOW64) updating BAM conhost entry.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900214" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\SysWOW64\\\\net\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: net.exe (SysWOW64) updating BAM conhost entry.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900215" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>**SKIPPED**: PowerShell (SysWOW64) — left monitored (no exclusion) per your preference.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900216" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1\.0\\\\Powershell\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>**SKIPPED**: PowerShell (System32) — left monitored (no exclusion) per your preference.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900217" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\SysWOW64\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Duplicate SysWOW64 PowerShell entry present in your data — no exclusion applied (kept monitored).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900218" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\System32\\\\sdbinst\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: sdbinst.exe updating BAM conhost entry (driver/app-install related).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900219" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\System32\\\\dsregcmd\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: dsregcmd.exe updating BAM conhost entry (device registration operations).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900220" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\schtasks\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: schtasks.exe updates that touch BAM conhost entry.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900221" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\dmclient\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: dmclient.exe (device management) updating BAM conhost entry.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900222" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AGSService\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Exclude Sysmon 13: Adobe AGSService updating BAM conhost entry.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900223" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\cmd\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>**SKIPPED**: cmd.exe — left monitored (no exclusion) per your preference to keep command interpreters visible.</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900224" level="1">
+  <if_group>sysmon_event_13</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\conhost\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\bam\\\\State\\\\UserSettings\\\\S-1-5-18.*HarddiskVolume3\\\\Windows\\\\System32\\\\conhost\.exe$</field>
+  <description>Duplicate conhost rule for thoroughness (some entries show different capitalization) — excluded.</description>
+  <options>no_full_log</options>
+</rule>
+
+ <!-- Sysmon Event ID 12 — exclude benign high-volume Epoch key writes -->
+<rule id="900225" level="1">
+  <if_group>sysmon_event_12</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\dashost\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\SharedAccess\\\\Epoch$</field>
+  <description>Exclude Sysmon 12: dashost.exe updating SharedAccess\Epoch (benign Windows service).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900226" level="1">
+  <if_group>sysmon_event_12</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\dashost\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\SharedAccess\\\\Epoch$</field>
+  <description>Exclude Sysmon 12: dashost.exe updating SharedAccess\Epoch (alternate capitalization).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900227" level="1">
+  <if_group>sysmon_event_12</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\WINDOWS\\\\system32\\\\SecurityHealthService\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\SharedAccess\\\\Epoch$</field>
+  <description>Exclude Sysmon 12: SecurityHealthService.exe updating SharedAccess\Epoch (benign Windows Health Service activity).</description>
+  <options>no_full_log</options>
+</rule>
+
+<rule id="900228" level="1">
+  <if_group>sysmon_event_12</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\system32\\\\SecurityHealthService\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)^HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\SharedAccess\\\\Epoch$</field>
+  <description>Exclude Sysmon 12: SecurityHealthService.exe updating SharedAccess\Epoch (alternate capitalization).</description>
+  <options>no_full_log</options>
+</rule>
 </group>
