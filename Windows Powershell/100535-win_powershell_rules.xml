@@ -1,5 +1,5 @@
-<var name="MS_FREQ">8</var>
 <group name="windows,">
+  <var name="MS_FREQ">8</var>
   <rule id="100535" level="1">
     <if_sid>60009</if_sid>
     <field name="win.system.providerName">^PowerShell$</field>

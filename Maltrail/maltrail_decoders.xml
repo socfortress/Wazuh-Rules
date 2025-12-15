@@ -19,6 +19,6 @@
 
 <decoder name="CEF">
       <parent>CEF</parent>
-      <regex>(\w+)\|(\w+)\|(\w+)\|(\.+)\|(\d+-\d+-\d+)\|(\.+)\|(\d+)\|src=(\d+.\d+.\d+.\d+) spt=(\.+) dst=(\d+.\d+.\d+.\d+) dpt=(\.+) trail=(\.+) ref=(\.+)</regex>
+      <regex>(\w+)\|(\w+)\|(\w+)\|(.+)\|(\d+-\d+-\d+)\|(.+)\|(\d+)\|src=(\d+.\d+.\d+.\d+) spt=(.+) dst=(\d+.\d+.\d+.\d+) dpt=(.+) trail=(.+) ref=(.+)</regex>
       <order>code, application, type, version, date, category, severity, srcip, srcport, dstip, dstport, trail, ref</order>
 </decoder>

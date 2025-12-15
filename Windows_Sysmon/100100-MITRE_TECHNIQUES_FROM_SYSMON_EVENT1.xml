@@ -1209,7 +1209,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100535" level="3">
+	<rule id="101273" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1016,technique_name=System Network Configuration Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1220,7 +1220,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100536" level="3">
+	<rule id="101274" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1057,technique_name=Process Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1231,7 +1231,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100537" level="3">
+	<rule id="101275" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1049,technique_name=System Network Connections Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1242,7 +1242,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100538" level="3">
+	<rule id="101276" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1018,technique_name=Remote System Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1253,7 +1253,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100539" level="3">
+	<rule id="101277" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1083,technique_name=File and Directory Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1264,7 +1264,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100540" level="3">
+	<rule id="101278" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1134,technique_name=Access Token Manipulation$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1275,7 +1275,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100541" level="3">
+	<rule id="101279" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1112,technique_name=Modify Registry$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1286,7 +1286,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100542" level="3">
+	<rule id="101280" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1063,technique_name=Security Software Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1297,7 +1297,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100543" level="3">
+	<rule id="101281" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1087,technique_name=Account Discovery$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1308,7 +1308,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100544" level="3">
+	<rule id="101282" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1070,technique_name=Indicator Removal on Host$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1319,7 +1319,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100545" level="3">
+	<rule id="101283" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1053,technique_name=Scheduled Task$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1330,7 +1330,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100546" level="3">
+	<rule id="101284" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1117,technique_name=Regsvr32$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1341,7 +1341,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100547" level="3">
+	<rule id="101285" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1047,technique_name=Windows Management Instrumentation$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1352,7 +1352,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100548" level="3">
+	<rule id="101286" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1202,technique_name=Indirect Command Execution$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1363,7 +1363,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100549" level="3">
+	<rule id="101287" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1059,technique_name=Command-Line Interface$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -1374,7 +1374,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!-- Sysmon - Event 1: Process creation $(win.eventdata.description) -->
-	<rule id="100550" level="3">
+	<rule id="101288" level="3">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1086,technique_name=PowerShell$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2034,7 +2034,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100610" level="13">
+	<rule id="101289" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1505.002,technique_name=Exchange Transport Agent Installation$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2045,7 +2045,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100611" level="13">
+	<rule id="101290" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1090.003,technique_name=Tor Proxy Usage$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2056,7 +2056,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100612" level="13">
+	<rule id="101291" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1090.003,technique_name=Psiphon Proxy$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2067,7 +2067,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100613" level="13">
+	<rule id="101292" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1560,technique_name=PowerShell Compress-Archive$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2078,7 +2078,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100614" level="13">
+	<rule id="101293" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1110.002,technique_name=Hashcat Password Cracking$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2089,7 +2089,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100615" level="13">
+	<rule id="101294" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1539,technique_name=Steal Web Session Cookie$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2144,7 +2144,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100620" level="13">
+	<rule id="101295" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1025,technique_name=PowerShell Search Removable Media$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2155,7 +2155,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100621" level="13">
+	<rule id="101296" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1074.001,technique_name=PowerShell Compress-Archive$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
@@ -2166,7 +2166,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	<!--  -->
-	<rule id="100622" level="13">
+	<rule id="101297" level="13">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.RuleName">^technique_id=T1074.001,technique_name=PowerShell Download .bat to Temp$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>

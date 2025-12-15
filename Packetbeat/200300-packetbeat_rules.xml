@@ -44,10 +44,8 @@
         <group>icmp</group>
     </rule>
 
-</group>
-
-<!-- Rule to exclude noisy logs -->
-<group name="linux,packetbeat,exclude,">
+    <!-- Rule to exclude noisy logs -->
+    <group name="exclude,">
     <rule id="200310" level="1" frequency="2" timeframe="900">
         <if_matched_sid>200300</if_matched_sid>
         <same_field>dns.question.name</same_field>
@@ -78,4 +76,5 @@
         <options>no_full_log</options>
         <group>http</group>
     </rule>
+    </group>
 </group>

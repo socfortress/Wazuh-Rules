@@ -13,7 +13,7 @@
 <!-- keywords -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pKeywords\p(\.+)\p/Keywords\p</regex>
+  <regex offset="after_parent">\pKeywords\p(.+)\p/Keywords\p</regex>
   <order>system.keywords</order>
 </decoder>
 
@@ -27,7 +27,7 @@
 <!-- channel -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pChannel\p(\.+)\p/Channel\p</regex>
+  <regex offset="after_parent">\pChannel\p(.+)\p/Channel\p</regex>
   <order>system.channel</order>
 </decoder>
 
@@ -69,7 +69,7 @@
 <!-- computer -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pComputer\p(\.+)\p/Computer\p</regex>
+  <regex offset="after_parent">\pComputer\p(.+)\p/Computer\p</regex>
   <order>system.computer</order>
 </decoder>
 
@@ -91,56 +91,56 @@
 <!-- originalFileName -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="OriginalFileName"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="OriginalFileName"\p(.+)\p/Data\p</regex>
   <order>eventdata.originalFileName</order>
 </decoder>
 
 <!-- image -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Image"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Image"\p(.+)\p/Data\p</regex>
   <order>eventdata.image</order>
 </decoder>
 
 <!-- product -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Product"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Product"\p(.+)\p/Data\p</regex>
   <order>eventdata.product</order>
 </decoder>
 
 <!-- parentProcessGuid -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="ParentProcessGuid"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="ParentProcessGuid"\p(.+)\p/Data\p</regex>
   <order>eventdata.parentProcessGuid</order>
 </decoder>
 
 <!-- description -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Description"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Description"\p(.+)\p/Data\p</regex>
   <order>eventdata.description</order>
 </decoder>
 
 <!-- logonGuid -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="LogonGuid"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="LogonGuid"\p(.+)\p/Data\p</regex>
   <order>eventdata.logonGuid</order>
 </decoder>
 
 <!-- parentCommandLine -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="ParentCommandLine"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="ParentCommandLine"\p(.+)\p/Data\p</regex>
   <order>eventdata.parentCommandLine</order>
 </decoder>
 
 <!-- processGuid -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="ProcessGuid"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="ProcessGuid"\p(.+)\p/Data\p</regex>
   <order>eventdata.processGuid</order>
 </decoder>
 
@@ -168,7 +168,7 @@
 <!-- currentDirectory -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="CurrentDirectory"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="CurrentDirectory"\p(.+)\p/Data\p</regex>
   <order>eventdata.currentDirectory</order>
 </decoder>
 
@@ -182,70 +182,70 @@
 <!-- hashes -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Hashes"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Hashes"\p(.+)\p/Data\p</regex>
   <order>eventdata.hashes</order>
 </decoder>
 
 <!-- parentImage -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="ParentImage"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="ParentImage"\p(.+)\p/Data\p</regex>
   <order>eventdata.parentImage</order>
 </decoder>
 
 <!-- ruleName -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="RuleName"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="RuleName"\p(.+)\p/Data\p</regex>
   <order>eventdata.ruleName</order>
 </decoder>
 
 <!-- company -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Company"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Company"\p(.+)\p/Data\p</regex>
   <order>eventdata.company</order>
 </decoder>
 
 <!-- commandLine -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="CommandLine"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="CommandLine"\p(.+)\p/Data\p</regex>
   <order>eventdata.commandLine</order>
 </decoder>
 
 <!-- integrityLevel -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="IntegrityLevel"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="IntegrityLevel"\p(.+)\p/Data\p</regex>
   <order>eventdata.integrityLevel</order>
 </decoder>
 
 <!-- fileVersion -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="FileVersion"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="FileVersion"\p(.+)\p/Data\p</regex>
   <order>eventdata.fileVersion</order>
 </decoder>
 
 <!-- user -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="User"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="User"\p(.+)\p/Data\p</regex>
   <order>eventdata.user</order>
 </decoder>
 
 <!-- terminalSessionId -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="TerminalSessionId"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="TerminalSessionId"\p(.+)\p/Data\p</regex>
   <order>eventdata.terminalSessionId</order>
 </decoder>
 
 <!-- parentUser -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="ParentUser"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="ParentUser"\p(.+)\p/Data\p</regex>
   <order>eventdata.parentUser</order>
 </decoder>
 
@@ -254,84 +254,84 @@
 <!-- protocol -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Protocol"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Protocol"\p(.+)\p/Data\p</regex>
   <order>eventdata.protocol</order>
 </decoder>
 
 <!-- initiated -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Initiated"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Initiated"\p(.+)\p/Data\p</regex>
   <order>eventdata.initiated</order>
 </decoder>
 
 <!-- sourceIsIpv6 -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="SourceIsIpv6"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="SourceIsIpv6"\p(.+)\p/Data\p</regex>
   <order>eventdata.sourceIsIpv6</order>
 </decoder>
 
 <!-- sourceIp -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="SourceIp"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="SourceIp"\p(.+)\p/Data\p</regex>
   <order>eventdata.sourceIp</order>
 </decoder>
 
 <!-- sourceHostname -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="SourceHostname"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="SourceHostname"\p(.+)\p/Data\p</regex>
   <order>eventdata.sourceHostname</order>
 </decoder>
 
 <!-- sourcePort -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="SourcePort"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="SourcePort"\p(.+)\p/Data\p</regex>
   <order>eventdata.sourcePort</order>
 </decoder>
 
 <!-- sourcePortName -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="SourcePortName"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="SourcePortName"\p(.+)\p/Data\p</regex>
   <order>eventdata.sourcePortName</order>
 </decoder>
 
 <!-- destinationIsIpv6 -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="DestinationIsIpv6"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="DestinationIsIpv6"\p(.+)\p/Data\p</regex>
   <order>eventdata.destinationIsIpv6</order>
 </decoder>
 
 <!-- destinationIp -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="DestinationIp"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="DestinationIp"\p(.+)\p/Data\p</regex>
   <order>eventdata.DestinationIp</order>
 </decoder>
 
 <!-- DestinationHostname -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="DestinationHostname"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="DestinationHostname"\p(.+)\p/Data\p</regex>
   <order>eventdata.destinationHostname</order>
 </decoder>
 
 <!-- destinationPort -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="DestinationPort"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="DestinationPort"\p(.+)\p/Data\p</regex>
   <order>eventdata.destinationPort</order>
 </decoder>
 
 <!-- destinationPortName -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="DestinationPortName"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="DestinationPortName"\p(.+)\p/Data\p</regex>
   <order>eventdata.destinationPortName</order>
 </decoder>
 
@@ -339,21 +339,21 @@
 <!-- state -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="State"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="State"\p(.+)\p/Data\p</regex>
   <order>eventdata.state</order>
 </decoder>
 
 <!-- version -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Version"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Version"\p(.+)\p/Data\p</regex>
   <order>eventdata.version</order>
 </decoder>
 
 <!-- schemaVersion -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="SchemaVersion"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="SchemaVersion"\p(.+)\p/Data\p</regex>
   <order>eventdata.schemaVersion</order>
 </decoder>
 
@@ -361,7 +361,7 @@
 <!-- device -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Device"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Device"\p(.+)\p/Data\p</regex>
   <order>eventdata.device</order>
 </decoder>
 
@@ -369,7 +369,7 @@
 <!-- targetFilename -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="TargetFilename"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="TargetFilename"\p(.+)\p/Data\p</regex>
   <order>eventdata.targetFilename</order>
 </decoder>
 
@@ -384,14 +384,14 @@
 <!-- configuration -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Configuration"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Configuration"\p(.+)\p/Data\p</regex>
   <order>eventdata.configuration</order>
 </decoder>
 
 <!-- configurationFileHash -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="ConfigurationFileHash"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="ConfigurationFileHash"\p(.+)\p/Data\p</regex>
   <order>eventdata.configurationFileHash</order>
 </decoder>
 
@@ -400,13 +400,13 @@
 <!-- isExecutable -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="IsExecutable"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="IsExecutable"\p(.+)\p/Data\p</regex>
   <order>eventdata.isExecutable</order>
 </decoder>
 
 <!-- archived -->
 <decoder name="sysmon-linux-child">
   <parent>sysmon-linux</parent>
-  <regex offset="after_parent">\pData Name="Archived"\p(\.+)\p/Data\p</regex>
+  <regex offset="after_parent">\pData Name="Archived"\p(.+)\p/Data\p</regex>
   <order>eventdata.archived</order>
 </decoder>

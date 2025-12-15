@@ -1,4 +1,5 @@
-<group name="windows,security,">
+<group name="windows,sigma_rules,">
+<group name="security,">
 <rule id="300001" level="15">
 <if_sid>60001</if_sid>
 <description>Powerview Add-DomainObjectAcl DCSync AD Extend Right</description>
@@ -49,7 +50,7 @@
 <group>sigma_rules,</group>
 </rule>
 </group>
-<group name="windows,system,">
+<group name="system,">
 <rule id="300005" level="15">
 <if_sid>60002</if_sid>
 <description>Chafer Activity</description>
@@ -73,7 +74,7 @@
 <group>sigma_rules,</group>
 </rule>
 </group>
-<group name="windows,application,">
+<group name="application,">
 <rule id="300007" level="15">
 <if_sid>60003</if_sid>
 <description>Audit CVE Event</description>
@@ -84,4 +85,5 @@
 <field name="win.eventdata.ProviderName">^Microsoft-Windows-Audit-CVE$</field>
 <group>sigma_rules,</group>
 </rule>
+</group>
 </group>

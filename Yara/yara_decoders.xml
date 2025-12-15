@@ -14,7 +14,7 @@ wazuh-yara: info: Hacktool_Strings_p0wnedShell [description="p0wnedShell Runspac
 -->
 <decoder name="yara">
   <parent>yara</parent>
-  <regex offset="after_parent">info: (\S+) [(\.+)] (\.+)</regex>
+  <regex offset="after_parent">info: (\S+) [(.+)] (.+)</regex>
   <order>yara_info,yara_metadata,file</order>
 </decoder>
 <!--

@@ -44,12 +44,12 @@ Cloudfence-WAF: 2023/03/16 11:36:12 [error] 72753#110979: *454250 NAXSI_FMT: ip=
 
 <decoder name="naxsi-opnsense-child">
     <parent>naxsi-opnsense-parent</parent>
-    <regex>request: "(\.+)"</regex>
+    <regex>request: "(.+)"</regex>
     <order>request</order>
 </decoder>
 
 <decoder name="naxsi-opnsense-child">
     <parent>naxsi-opnsense-parent</parent>
-    <regex>referrer: "(\.+)"</regex>
+    <regex>referrer: "(.+)"</regex>
     <order>referrer</order>
 </decoder>
