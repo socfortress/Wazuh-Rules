@@ -1,4 +1,4 @@
-<group name="wazuh_sca,">
+<group name="wazuh_sca">
  <rule id="200910" level="3">
     <location>wazuh_sca</location>
     <description>Wazuh SCA Collection</description>

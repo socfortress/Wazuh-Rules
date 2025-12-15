@@ -1,7 +1,7 @@
 <!--
   -  SNYK Docker Image Scan Rules
 -->
-<group name="vulnerability-detector,snyk,">
+<group name="vulnerability-detector,snyk">
     <rule id="96600" level="10">
         <decoded_as>json</decoded_as>
         <field name="packageName">\.+</field>

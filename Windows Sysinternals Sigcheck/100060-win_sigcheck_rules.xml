@@ -1,4 +1,4 @@
-<group name="windows,">
+<group name="windows">
 <rule id="100060" level="10">
   <decoded_as>json</decoded_as>
   <field name="Path">\.+</field>
@@ -8,7 +8,7 @@
    <id>T1036</id>
   </mitre>
   <options>no_full_log</options>
-  <group>windows_sigcheck,</group>
+  <group>windows_sigcheck</group>
 </rule>
 <rule id="100061" level="12">
   <if_sid>100060</if_sid>
@@ -18,6 +18,6 @@
    <id>T1036</id>
   </mitre>
   <options>no_full_log</options>
-  <group>windows_sigcheck,</group>
+  <group>windows_sigcheck</group>
 </rule>
 </group>

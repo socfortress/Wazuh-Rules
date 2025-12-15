@@ -1,6 +1,6 @@
 <!-- Rules 102101 - 102499: Direct Mapping from Sysmon Config File, Rule Level:3 -->
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
 <rule id="102101" level="3">
 <if_sid>61605</if_sid>
 <field name="win.eventdata.RuleName">^technique_id=T1021,technique_name=Remote Services$</field>
@@ -9,7 +9,7 @@
 <id>T1021</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102102" level="3">
@@ -20,7 +20,7 @@
 <id>T1569</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102103" level="3">
@@ -31,7 +31,7 @@
 <id>T1197</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102104" level="3">
@@ -42,7 +42,7 @@
 <id>T1021</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102105" level="3">
@@ -53,7 +53,7 @@
 <id>T1102</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102106" level="3">
@@ -64,7 +64,7 @@
 <id>T1016</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102107" level="3">
@@ -75,7 +75,7 @@
 <id>T1057</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102108" level="3">
@@ -86,7 +86,7 @@
 <id>T1049</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102109" level="3">
@@ -97,7 +97,7 @@
 <id>T1033</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102110" level="3">
@@ -108,7 +108,7 @@
 <id>T1134</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102111" level="3">
@@ -119,7 +119,7 @@
 <id>T1112</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102112" level="3">
@@ -130,7 +130,7 @@
 <id>T1518</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102113" level="3">
@@ -141,7 +141,7 @@
 <id>T1070</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102114" level="3">
@@ -152,7 +152,7 @@
 <id>T1053</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102115" level="3">
@@ -163,7 +163,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102116" level="3">
@@ -174,7 +174,7 @@
 <id>T1059</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102117" level="3">
@@ -185,7 +185,7 @@
 <id>T1059</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102118" level="3">
@@ -196,7 +196,7 @@
 <id>T1202</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102119" level="3">
@@ -207,7 +207,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102120" level="3">
@@ -218,7 +218,7 @@
 <id>T1069</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102121" level="3">
@@ -229,7 +229,7 @@
 <id>T1018</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102122" level="3">
@@ -240,7 +240,7 @@
 <id>T1543</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102123" level="3">
@@ -251,7 +251,7 @@
 <id>T1127</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102124" level="3">
@@ -262,7 +262,7 @@
 <id>T1096</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102125" level="3">
@@ -273,7 +273,7 @@
 <id>T1105</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102126" level="3">
@@ -284,7 +284,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102127" level="3">
@@ -295,7 +295,7 @@
 <id>T1003</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102128" level="3">
@@ -306,7 +306,7 @@
 <id>T1548</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102129" level="3">
@@ -317,7 +317,7 @@
 <id>T1053</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102130" level="3">
@@ -328,7 +328,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102131" level="3">
@@ -339,7 +339,7 @@
 <id>T1012</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102132" level="3">
@@ -350,7 +350,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102133" level="3">
@@ -361,7 +361,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102134" level="3">
@@ -372,7 +372,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102135" level="3">
@@ -383,7 +383,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102136" level="3">
@@ -394,7 +394,7 @@
 <id>T1089</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102137" level="3">
@@ -405,7 +405,7 @@
 <id>T1043</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102138" level="3">
@@ -416,7 +416,7 @@
 <id>T1036</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Sysmon - Event 3: Network connection by $(win.eventdata.image) -->
 <rule id="102139" level="3">
@@ -427,7 +427,7 @@
 <id>T1021</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event3,</group>
+<group>sysmon_event3</group>
 </rule>
 <!-- Rules 102500 - 102599: Exceptions/Rule Level Mod -->
 <!-- Frequency rule to capture 2 sysmon event 3 alerts within of the same destination ip within 5 seconds -->
@@ -444,7 +444,7 @@
   <list field="win.eventdata.destinationPort" lookup="not_address_match_key">etc/lists/common-ports</list>
   <description>Sysmon - Event 3: Network connection to Uncommon Port by $(win.eventdata.image)</description>
   <options>no_full_log</options>
-  <group>sysmon_event3,</group>
+  <group>sysmon_event3</group>
 </rule>
 <!-- Rules 102600 - 102699: Correlation Rules -->
 </group>

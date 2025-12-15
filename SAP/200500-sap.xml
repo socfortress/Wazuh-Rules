@@ -1,4 +1,4 @@
-<group name="sap_siem,">
+<group name="sap_siem">
  <rule id="200500" level="3">
     <field name="integration">sap_siem</field>
     <description>SAP SIEM Integration</description>

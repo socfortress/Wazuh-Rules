@@ -1,4 +1,4 @@
-<group name="ad_inventory,ad_integration,">
+<group name="ad_inventory,ad_integration">
  <rule id="201010" level="3">
     <field name="collection">ad_inventory</field>
     <description>AD Inventory Collection Results</description>

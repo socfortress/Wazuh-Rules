@@ -1,4 +1,4 @@
-<group name="windows,">
+<group name="windows">
 <rule id="100050" level="10">
   <decoded_as>json</decoded_as>
   <field name="Entry">\.+</field>
@@ -8,7 +8,7 @@
    <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>windows_autoruns,</group>
+  <group>windows_autoruns</group>
 </rule>
 <rule id="100051" level="10">
   <if_sid>100050</if_sid>
@@ -18,7 +18,7 @@
    <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>windows_autoruns,</group>
+  <group>windows_autoruns</group>
 </rule>
 <rule id="100052" level="12">
   <if_sid>100050</if_sid>
@@ -28,6 +28,6 @@
    <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>windows_autoruns,</group>
+  <group>windows_autoruns</group>
 </rule>
 </group>

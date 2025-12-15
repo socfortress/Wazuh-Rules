@@ -1,4 +1,4 @@
-<group name="phishing,">
+<group name="phishing">
  <rule id="200970" level="12">
     <location>sublime</location>
     <description>Phishing Detected</description>

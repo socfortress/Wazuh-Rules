@@ -1,4 +1,4 @@
-<group name="open-audit,">
+<group name="open-audit">
 <rule id="400201" level="5">
     <decoded_as>json</decoded_as>
     <field name="system.sys.script_version">\.+</field>

@@ -1,4 +1,4 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106101" level="3">
 <if_sid>61609</if_sid>
@@ -8,7 +8,7 @@
 <id>T1059</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106102" level="3">
@@ -19,7 +19,7 @@
 <id>T0137</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106103" level="3">
@@ -30,7 +30,7 @@
 <id>T1197</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106104" level="3">
@@ -41,7 +41,7 @@
 <id>T1055</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106105" level="3">
@@ -52,7 +52,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106106" level="3">
@@ -63,7 +63,7 @@
 <id>T1064</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106107" level="3">
@@ -74,7 +74,7 @@
 <id>T1170</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106108" level="3">
@@ -85,7 +85,7 @@
 <id>T1137</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106109" level="3">
@@ -96,7 +96,7 @@
 <id>T1175</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106110" level="3">
@@ -107,7 +107,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106111" level="3">
@@ -118,7 +118,7 @@
 <id>T1059</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106112" level="3">
@@ -129,7 +129,7 @@
 <id>T1210</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106113" level="3">
@@ -140,7 +140,7 @@
 <id>T1112</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106114" level="3">
@@ -151,7 +151,7 @@
 <id>T1003</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106115" level="3">
@@ -162,7 +162,7 @@
 <id>T1053</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106116" level="3">
@@ -173,7 +173,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Image loaded by $(win.eventdata.image) -->
 <rule id="106117" level="3">
@@ -184,7 +184,7 @@
 <id>T1073</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Sysmon - Event 7: Anomalies -->
 <!-- Sysmon - Event 7: Unsigned Image loaded by $(win.eventdata.image) -->
@@ -229,7 +229,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106122" level="10">
@@ -240,7 +240,7 @@
 <id>T1555.004</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106123" level="10">
@@ -251,7 +251,7 @@
 <id>T1071</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106124" level="10">
@@ -262,7 +262,7 @@
 <id>T1547.008</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106125" level="10">
@@ -273,7 +273,7 @@
 <id>T1574.001</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106126" level="10">
@@ -284,7 +284,7 @@
 <id>T1505.004</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106127" level="10">
@@ -295,7 +295,7 @@
 <id>T1574.001</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106128" level="10">
@@ -306,7 +306,7 @@
 <id>T1574.001</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106129" level="10">
@@ -317,7 +317,7 @@
 <id>T1574.001</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106130" level="10">
@@ -328,7 +328,7 @@
 <id>T1574.001</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!--  -->
 <rule id="106131" level="10">
@@ -339,7 +339,7 @@
 <id>T1027.007</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event7,</group>
+<group>sysmon_event7</group>
 </rule>
 <!-- Rules 106600 - 106699: Correlation Rules -->
 </group>

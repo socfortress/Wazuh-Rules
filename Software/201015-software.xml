@@ -1,4 +1,4 @@
-<group name="wazuh_software,">
+<group name="wazuh_software">
  <rule id="201015" level="3">
     <location>wazuh_software</location>
     <description>Wazuh Software Scan Results</description>

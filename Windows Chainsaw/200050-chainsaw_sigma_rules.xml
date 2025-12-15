@@ -1,43 +1,43 @@
-<group name="windows,chainsaw,">
+<group name="windows,chainsaw">
  <rule id="200050" level="3">
     <field name="group">^Sigma$</field>
     <description>Chainsaw Forensics - $(step) - $(status)</description>
-    <group>sigma,</group>
+    <group>sigma</group>
     <options>no_full_log</options>
   </rule>
   <rule id="200051" level="10">
     <if_sid>200050</if_sid>
     <field name="level">high</field>
     <description>$(name)</description>
-    <group>sigma,</group>
+    <group>sigma</group>
     <options>no_full_log</options>
   </rule>
   <rule id="200052" level="1">
     <if_sid>200051</if_sid>
     <field name="logsource.category">^driver_load$</field>
     <description>Exclude high driver loads due to FPs</description>
-    <group>sigma,</group>
+    <group>sigma</group>
     <options>no_full_log</options>
   </rule>
   <rule id="200053" level="14">
     <if_sid>200050</if_sid>
     <field name="level">critical</field>
     <description>$(name)</description>
-    <group>sigma,</group>
+    <group>sigma</group>
     <options>no_full_log</options>
   </rule>
  <rule id="200054" level="3">
     <if_sid>200050</if_sid>
     <field name="result">^success$</field>
     <description>$(message)</description>
-    <group>sigma,</group>
+    <group>sigma</group>
     <options>no_full_log</options>
   </rule>
   <rule id="200055" level="10">
     <if_sid>200050</if_sid>
     <field name="result">^failure$</field>
     <description>$(message)</description>
-    <group>sigma,</group>
+    <group>sigma</group>
     <options>no_full_log</options>
   </rule>
   <!-- Noisy and Poorly Written SIGMA Rule | Skipping over System User https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_regsvr32_network_activity.yml | Regsvr32 Network Activity https://github.com/SigmaHQ/sigma/blob/653d9b87f23d6086b9ddd47a576f062d0f2759d3/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml#L4-->
@@ -46,7 +46,7 @@
     <field name="name">^Regsvr32 Network Activity - DNS$|^Regsvr32 Network Activity$</field>
     <field name="event.User">^NT AUTHORITY\\SYSTEM$</field>
     <description>$(message)</description>
-    <group>sigma,</group>
+    <group>sigma</group>
     <options>no_full_log</options>
   </rule>
  </group>

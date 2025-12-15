@@ -1,4 +1,4 @@
-<group name="rule_exclusion,">
+<group name="rule_exclusion">
 <!-- Logon/Logoff Machine Accounts -->
   <rule id="900001" level="1">
     <if_sid>60106</if_sid>

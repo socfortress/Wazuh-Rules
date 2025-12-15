@@ -1,4 +1,4 @@
-<group name="socfortress,">
+<group name="socfortress">
   <rule id="200980" level="1">
     <field name="integration">custom-socfortress</field>
     <description>SOCFortress IoC</description>

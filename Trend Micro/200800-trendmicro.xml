@@ -1,4 +1,4 @@
-<group name="trendmicro,">
+<group name="trendmicro">
     <rule id="200800" level="3">
         <decoded_as>json</decoded_as>
         <field name="investigationStatus">\.+</field>

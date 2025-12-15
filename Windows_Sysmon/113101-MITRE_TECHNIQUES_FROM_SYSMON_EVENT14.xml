@@ -1,4 +1,4 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113101" level="3">
   <if_sid>61616</if_sid>
@@ -8,7 +8,7 @@
   <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113102" level="3">
@@ -19,7 +19,7 @@
   <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113103" level="3">
@@ -30,7 +30,7 @@
   <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113104" level="3">
@@ -41,7 +41,7 @@
   <id>T1037</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113105" level="3">
@@ -52,7 +52,7 @@
   <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113106" level="3">
@@ -63,7 +63,7 @@
   <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113107" level="3">
@@ -74,7 +74,7 @@
   <id>T1548</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113108" level="3">
@@ -85,7 +85,7 @@
   <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113109" level="3">
@@ -96,7 +96,7 @@
   <id>T1003</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113110" level="3">
@@ -107,7 +107,7 @@
   <id>T1098</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113111" level="3">
@@ -118,7 +118,7 @@
   <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113112" level="3">
@@ -129,7 +129,7 @@
   <id>T1562</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113113" level="3">
@@ -140,7 +140,7 @@
   <id>T1015</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113114" level="3">
@@ -151,7 +151,7 @@
   <id>T1562</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113115" level="3">
@@ -162,7 +162,7 @@
   <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113116" level="3">
@@ -173,7 +173,7 @@
   <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113117" level="3">
@@ -184,7 +184,7 @@
   <id>T1137</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113118" level="3">
@@ -195,7 +195,7 @@
   <id>T1137</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113119" level="3">
@@ -206,7 +206,7 @@
   <id>T1021</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113120" level="3">
@@ -217,7 +217,7 @@
   <id>T1053</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113121" level="3">
@@ -228,7 +228,7 @@
   <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113122" level="3">
@@ -239,7 +239,7 @@
   <id>T1543</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113123" level="3">
@@ -250,7 +250,7 @@
   <id>T1553</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113124" level="3">
@@ -261,7 +261,7 @@
   <id>T1569</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113125" level="3">
@@ -272,7 +272,7 @@
   <id>T1105</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113126" level="3">
@@ -283,7 +283,7 @@
   <id>T1033</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113127" level="3">
@@ -294,7 +294,7 @@
   <id>T1057</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113128" level="3">
@@ -305,7 +305,7 @@
   <id>T1089</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113129" level="3">
@@ -316,7 +316,7 @@
   <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113130" level="3">
@@ -327,7 +327,7 @@
   <id>T1218</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113131" level="3">
@@ -338,7 +338,7 @@
   <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113132" level="3">
@@ -349,7 +349,7 @@
   <id>T1125</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113133" level="3">
@@ -360,7 +360,7 @@
   <id>T1123</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113134" level="3">
@@ -371,7 +371,7 @@
   <id>T1005</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113135" level="3">
@@ -382,7 +382,7 @@
   <id>T1056</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113136" level="3">
@@ -393,7 +393,7 @@
   <id>T1003</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113137" level="3">
@@ -404,7 +404,7 @@
   <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113138" level="3">
@@ -415,7 +415,7 @@
   <id>T1130</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113139" level="3">
@@ -426,7 +426,7 @@
   <id>T1210</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
   <rule id="113140" level="3">
@@ -437,7 +437,7 @@
   <id>T1047</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
   </rule>
   <!-- Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image) -->
 <rule id="113141" level="10">
@@ -448,7 +448,7 @@
     <id>T1113</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_14,</group>
+  <group>sysmon_event_14</group>
 </rule>
 
 </group>

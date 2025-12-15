@@ -1,4 +1,4 @@
-<group name="osquery,">
+<group name="osquery">
  <!--
   <rule id="200220" level="1">
     <if_sid>1002</if_sid>
@@ -11,21 +11,21 @@
     <field name="name">bpf_socket_events</field>
     <description>osquery: $(columns.path) socket started.</description>
     <options>no_full_log</options>
-    <group>bpf_socket_events,</group>
+    <group>bpf_socket_events</group>
   </rule>
   <rule id="200222" level="3">
     <decoded_as>json</decoded_as>
     <field name="name">list_processes_with_hash</field>
     <description>osquery: $(columns.path) process started.</description>
     <options>no_full_log</options>
-    <group>list_processes_with_hash,</group>
+    <group>list_processes_with_hash</group>
   </rule>
   <rule id="200223" level="3">
     <decoded_as>json</decoded_as>
     <field name="name">bpf_process_events|es_process_events</field>
     <description>osquery: $(columns.path) process started.</description>
     <options>no_full_log</options>
-    <group>process_events,</group>
+    <group>process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_alter_bash_profile.yml -->
@@ -37,7 +37,7 @@
   <mitre>
     <id>T1546</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
 
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_audio_capture.yml -->
@@ -49,7 +49,7 @@
   <mitre>
     <id>T1123</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_binary_padding.yml -->
@@ -61,7 +61,7 @@
   <mitre>
     <id>T1027</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200243" level="12">
@@ -72,7 +72,7 @@
   <mitre>
     <id>T1027</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_bpfdoor_file_accessed.yml -->
@@ -85,7 +85,7 @@
     <id>T1059</id>
     <id>T1106</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_bpfdoor_port_redirect.yml -->
@@ -97,7 +97,7 @@
   <mitre>
     <id>T1562</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200246" level="12">
@@ -108,7 +108,7 @@
   <mitre>
     <id>T1562</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_capabilities_discovery.yml -->
@@ -118,10 +118,9 @@
   <description>Detects attempts to discover the files with setuid/setgid capability on them. That would allow adversary to escalate their privileges.</description>
   <options>no_full_log</options>
   <mitre>
-    <id>T1123</id>
     <id>T1548</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_change_file_time_attr.yml -->
@@ -133,7 +132,7 @@
   <mitre>
     <id>T1070</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_chattr_immutable_removal.yml -->
@@ -145,7 +144,7 @@
   <mitre>
     <id>T1222</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_clipboard_collection.yml -->
@@ -157,7 +156,7 @@
   <mitre>
     <id>T1115</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_coinminer.yml -->
@@ -169,7 +168,7 @@
   <mitre>
     <id>T1068</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_cve_2021_3156_sudo_buffer_overflow.yml -->
@@ -181,7 +180,7 @@
   <mitre>
     <id>T1068</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200253" level="12">
@@ -192,7 +191,7 @@
   <mitre>
     <id>T1068</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_data_compressed.yml -->
@@ -204,7 +203,7 @@
   <mitre>
     <id>T1560</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_data_exfil_wget.yml -->
@@ -216,7 +215,7 @@
   <mitre>
     <id>T1048</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_dd_delete_file.yml -->
@@ -228,7 +227,7 @@
   <mitre>
     <id>T1485</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_debugfs_usage.yml -->
@@ -240,7 +239,7 @@
   <mitre>
     <id>T1006</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_disable_system_firewall.yml -->
@@ -252,7 +251,7 @@
   <mitre>
     <id>T1562</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_file_or_folder_permissions.yml -->
@@ -264,7 +263,7 @@
   <mitre>
     <id>T1222</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_find_cred_in_files.yml -->
@@ -276,7 +275,7 @@
   <mitre>
     <id>T1552</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200261" level="9">
@@ -287,7 +286,7 @@
   <mitre>
     <id>T1552</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_hidden_files_directories.yml -->
@@ -299,7 +298,7 @@
   <mitre>
     <id>T1564</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200263" level="8">
@@ -310,7 +309,7 @@
   <mitre>
     <id>T1564</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_hidden_zip_files_steganography.yml -->
@@ -324,7 +323,7 @@
   <mitre>
     <id>T1027</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
 
  <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_ld_so_preload_mod.yml -->
@@ -336,7 +335,7 @@
   <mitre>
     <id>T1574</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_load_module_insmod.yml -->
@@ -349,7 +348,7 @@
   <mitre>
     <id>T1547</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
 <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_logging_config_change.yml -->
@@ -361,7 +360,7 @@
   <mitre>
     <id>T1562</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_masquerading_crond.yml -->
@@ -376,7 +375,7 @@
   <mitre>
     <id>T1036</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_network_service_scanning.yml -->
@@ -388,7 +387,7 @@
   <mitre>
     <id>T1046</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_network_sniffing.yml -->
@@ -402,7 +401,7 @@
   <mitre>
     <id>T1040</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_password_policy_discovery.yml -->
@@ -414,7 +413,7 @@
   <mitre>
     <id>T1201</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200272" level="10">
@@ -422,12 +421,12 @@
   <field name="columns.cmdline">chage|passwd</field>
   <field name="columns.cmdline">--list|-l|-S|--status</field>
   <field name="columns.cmdline">-i</field>
-  <description>Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection.</description>
+  <description>Detects password policy discovery commands used to enumerate password requirements and policies.</description>
   <options>no_full_log</options>
   <mitre>
     <id>T1201</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_pers_systemd_reload.yml -->
@@ -440,7 +439,7 @@
   <mitre>
     <id>T1543</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_screencapture_import.yml -->
@@ -455,7 +454,7 @@
   <mitre>
     <id>T1113</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200275" level="12">
@@ -467,7 +466,7 @@
   <mitre>
     <id>T1113</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_screencaputre_xwd.yml -->
@@ -482,7 +481,7 @@
   <mitre>
     <id>T1113</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200277" level="12">
@@ -495,7 +494,7 @@
   <mitre>
     <id>T1113</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_split_file_into_pieces.yml -->
@@ -507,7 +506,7 @@
   <mitre>
     <id>T1030</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
    <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_steghide_embed_steganography.yml -->
@@ -522,7 +521,7 @@
   <mitre>
     <id>T1027</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_steghide_extract_steganography.yml -->
@@ -537,7 +536,7 @@
   <mitre>
     <id>T1027</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_cmds.yml -->
@@ -550,7 +549,7 @@
   <mitre>
     <id>T1059</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_exe_folders.yml -->
@@ -563,7 +562,7 @@
     <id>T1587</id>
     <id>T1584</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_histfile_operations.yml -->
@@ -575,7 +574,7 @@
   <mitre>
     <id>T1552</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_system_info_discovery.yml -->
@@ -587,7 +586,7 @@
   <mitre>
     <id>T1082</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <rule id="200285" level="10">
@@ -598,7 +597,7 @@
   <mitre>
     <id>T1082</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_unzip_hidden_zip_files_steganography.yml -->
@@ -611,7 +610,7 @@
   <mitre>
     <id>T1027</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
   
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_user_discovery.yml -->
@@ -623,7 +622,7 @@
   <mitre>
     <id>T1033</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
 
   <rule id="200288" level="12">
@@ -634,6 +633,6 @@
   <mitre>
     <id>T1048</id>
   </mitre>
-  <group>bpf_process_events,</group>
+  <group>bpf_process_events</group>
   </rule>
 </group>

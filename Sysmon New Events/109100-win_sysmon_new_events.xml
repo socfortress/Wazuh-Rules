@@ -1,10 +1,10 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
   <rule id="61646" level="3" overwrite="yes">
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^17$</field>
     <description>Sysmon - Event 17: PipeEvent (Pipe Created) by $(win.eventdata.image)</description>
     <options>no_full_log</options>
-    <group>sysmon_event_17,</group>
+    <group>sysmon_event_17</group>
   </rule>
 
   <rule id="61647" level="3" overwrite="yes">
@@ -12,7 +12,7 @@
     <field name="win.system.eventID">^18$</field>
     <description>Sysmon - Event 18: PipeEvent (Pipe Connected) by $(win.eventdata.image)</description>
     <options>no_full_log</options>
-    <group>sysmon_event_18,</group>
+    <group>sysmon_event_18</group>
   </rule>
 
   <rule id="61644" level="3" overwrite="yes">
@@ -23,7 +23,7 @@
     <id>T1071</id>
     </mitre>
     <options>no_full_log</options>
-    <group>sysmon_event_22,</group>
+    <group>sysmon_event_22</group>
   </rule>
 
   <rule id="109203" level="3">
@@ -33,7 +33,7 @@
     <mitre>
       <id>T047</id>
     </mitre>
-    <group>sysmon_event_19,</group>
+    <group>sysmon_event_19</group>
   </rule>
 
   <rule id="109204" level="3">
@@ -43,7 +43,7 @@
     <mitre>
       <id>T047</id>
     </mitre>
-    <group>sysmon_event_20,</group>
+    <group>sysmon_event_20</group>
   </rule>
 
   <rule id="109205" level="3">
@@ -53,7 +53,7 @@
     <mitre>
       <id>T047</id>
     </mitre>
-    <group>sysmon_event_21,</group>
+    <group>sysmon_event_21</group>
   </rule>
 
   <rule id="109206" level="3">
@@ -64,7 +64,7 @@
       <id>T1107</id>
       <id>T1485</id>
     </mitre>
-    <group>sysmon_event_23,</group>
+    <group>sysmon_event_23</group>
   </rule>
 
   <rule id="109207" level="3">
@@ -74,7 +74,7 @@
     <mitre>
       <id>T1115</id>
     </mitre>
-    <group>sysmon_event_24,</group>
+    <group>sysmon_event_24</group>
   </rule>
 
   <rule id="109208" level="3">
@@ -84,7 +84,7 @@
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>sysmon_event_25,</group>
+    <group>sysmon_event_25</group>
   </rule>
   
   <rule id="109209" level="12">
@@ -95,7 +95,7 @@
       <id>T1070</id>
       <id>T1107</id>
     </mitre>
-    <group>logs_cleared,pci_dss_10.6.1,gpg13_10.1,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
+    <group>logs_cleared,pci_dss_10.6.1,gpg13_10.1,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3</group>
   </rule>
   
   <rule id="109210" level="12">
@@ -114,7 +114,7 @@
     <if_sid>61600</if_sid>
     <field name="win.system.eventID">^6$</field>
     <description>Sysmon - Event 6: Driver Loaded by $(win.eventdata.image)</description>
-    <group>sysmon_event_6,</group>
+    <group>sysmon_event_6</group>
     <options>no_full_log</options>
   </rule>
   

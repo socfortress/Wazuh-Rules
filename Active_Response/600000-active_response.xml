@@ -1,9 +1,9 @@
-<group name="active_response,sysmon_config,">
+<group name="active_response,sysmon_config">
  <rule id="600000" level="10">
     <decoded_as>json</decoded_as>
     <field name="active_response">windows_firewall</field>
     <description>Windows Firewall Active Response triggered.</description>
-    <group>socfortress,</group>
+    <group>socfortress</group>
     <options>no_full_log</options>
   </rule>
   <rule id="600001" level="13">
@@ -16,7 +16,7 @@
     <decoded_as>json</decoded_as>
     <field name="group">^SysmonConfigReload$</field>
     <description>Sysmon config $(step).</description>
-    <group>socfortress,</group>
+    <group>socfortress</group>
     <options>no_full_log</options>
   </rule>
 </group>

@@ -1,4 +1,4 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
 <!-- Sysmon - Event 17: PipeEvent (Pipe Created) by $(win.eventdata.image) -->
 <rule id="116101" level="3">
 <if_sid>61646</if_sid>
@@ -8,7 +8,7 @@
 <id>T1021</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_17,</group>
+<group>sysmon_event_17</group>
 </rule>
 <!-- Sysmon - Event 17: PipeEvent (Pipe Created) by $(win.eventdata.image) -->
 <rule id="116102" level="3">
@@ -19,7 +19,7 @@
 <id>T1055</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_17,</group>
+<group>sysmon_event_17</group>
 </rule>
 <!-- Sysmon - Event 17: PipeEvent (Pipe Created) by $(win.eventdata.image) -->
 <rule id="116103" level="3">
@@ -30,7 +30,7 @@
 <id>T1021</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_17,</group>
+<group>sysmon_event_17</group>
 </rule>
 <!-- Sysmon - Event 17: PipeEvent (Pipe Created) by $(win.eventdata.image) -->
 <rule id="116104" level="3">
@@ -41,7 +41,7 @@
 <id>T1059</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_17,</group>
+<group>sysmon_event_17</group>
 </rule>
 <!-- Sysmon - Event 17: PipeEvent (Pipe Created) by $(win.eventdata.image) -->
 <rule id="116105" level="3">
@@ -52,7 +52,7 @@
 <id>T1049</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_17,</group>
+<group>sysmon_event_17</group>
 </rule>
 <!-- Sysmon - Event 17: PipeEvent (Pipe Created) by $(win.eventdata.image) -->
 <rule id="116106" level="3">
@@ -63,6 +63,6 @@
 <id>T1033</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_17,</group>
+<group>sysmon_event_17</group>
 </rule>
 </group>

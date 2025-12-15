@@ -1,4 +1,4 @@
-<group name="mimecast,">
+<group name="mimecast">
  <rule id="200940" level="3">
     <field name="integration">mimecast</field>
     <description>Mimecast Integration Logs</description>

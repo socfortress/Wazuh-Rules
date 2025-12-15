@@ -1,4 +1,4 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109101" level="3">
 <if_sid>61612</if_sid>
@@ -8,7 +8,7 @@
 <id>T1003</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109102" level="3">
@@ -19,7 +19,7 @@
 <id>T1055</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109103" level="3">
@@ -30,7 +30,7 @@
 <id>T1036</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109104" level="3">
@@ -41,7 +41,7 @@
 <id>T1059</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109105" level="3">
@@ -52,7 +52,7 @@
 <id>T1055</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109106" level="3">
@@ -63,7 +63,7 @@
 <id>T1112</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109107" level="3">
@@ -74,7 +74,7 @@
 <id>T1003</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109108" level="3">
@@ -85,7 +85,7 @@
 <id>T1053</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109109" level="3">
@@ -96,7 +96,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109110" level="3">
@@ -107,7 +107,7 @@
 <id>T1073</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109111" level="3">
@@ -118,7 +118,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: ProcessAccess by $(win.eventdata.sourceimage) -->
 <rule id="109112" level="3">
@@ -129,7 +129,7 @@
 <id>T1137</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 <!-- Sysmon - Event 10: Exceptions -->
 <!-- Esclude sourceImage = C:\\Program Files\\Autodesk\\AutoCAD 2018\\acad.exe -->
@@ -141,6 +141,6 @@
 <id>T1055</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_10,</group>
+<group>sysmon_event_10</group>
 </rule>
 </group>

@@ -3,6 +3,6 @@
         <if_matched_sid>30411</if_matched_sid>
         <same_srcip />
         <description>Same IP Triggering Modsecurity Block 5 times within 10 minutes.</description>
-        <group>bruteforce,</group>
+        <group>bruteforce</group>
     </rule>
 </group>

@@ -1,4 +1,4 @@
-<group name="linux,packetbeat,">
+<group name="linux,packetbeat">
     <rule id="200300" level="3">
         <decoded_as>json</decoded_as>
         <field name="method">QUERY</field>
@@ -45,7 +45,7 @@
     </rule>
 
     <!-- Rule to exclude noisy logs -->
-    <group name="exclude,">
+    <group name="exclude">
     <rule id="200310" level="1" frequency="2" timeframe="900">
         <if_matched_sid>200300</if_matched_sid>
         <same_field>dns.question.name</same_field>

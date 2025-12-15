@@ -1,4 +1,4 @@
-<group name="windows,">
+<group name="windows">
 <rule id="100070" level="3">
   <decoded_as>json</decoded_as>
   <field name="LogonSession">\.+</field>
@@ -8,6 +8,6 @@
    <id>T1078</id>
   </mitre>
   <options>no_full_log</options>
-  <group>windows_logonsessions,</group>
+  <group>windows_logonsessions</group>
 </rule>
 </group>

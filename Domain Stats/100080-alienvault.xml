@@ -1,4 +1,4 @@
-<group name="alienvault,">
+<group name="alienvault">
 <rule id="100080" level="12">
   <decoded_as>json</decoded_as>
   <field name="sections">\.+</field>
@@ -8,6 +8,6 @@
    <id>T1036</id>
   </mitre>
   <options>no_full_log</options>
-  <group>otx_ioc,</group>
+  <group>otx_ioc</group>
 </rule>
 </group>

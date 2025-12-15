@@ -1,5 +1,5 @@
 <!-- Suricata Rules -->
-<group name="suricata,">
+<group name="suricata">
     <group name="netflow">
         <rule id="100002" level="3">
                 <if_sid>86600</if_sid>
@@ -52,7 +52,7 @@
                 <description>Suricata TLS Traffic.</description>
         </rule>
     </group>
-    <group name="active_response,">
+    <group name="active_response">
         <rule id="100009" level="3">
             <location>wazuh_suricata</location>
             <description>Wazuh Suricata Blocked IP</description>

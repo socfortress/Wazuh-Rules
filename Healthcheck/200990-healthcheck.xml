@@ -1,4 +1,4 @@
-<group name="socfortress_healthcheck,">
+<group name="socfortress_healthcheck">
  <rule id="200990" level="3">
     <field name="integration">^socfortress_healthcheck$</field>
     <description>SOCFortress Healthcheck</description>

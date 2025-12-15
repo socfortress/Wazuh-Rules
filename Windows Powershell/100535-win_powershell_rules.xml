@@ -1,4 +1,4 @@
-<group name="windows,">
+<group name="windows">
   <var name="MS_FREQ">8</var>
   <rule id="100535" level="1">
     <if_sid>60009</if_sid>
@@ -7,7 +7,7 @@
       <id>T1086</id>
     </mitre>
     <options>no_full_log</options>
-    <group>windows_powershell,</group>
+    <group>windows_powershell</group>
     <description>Powershell Information EventLog</description>
   </rule>
   <rule id="100536" level="5">
@@ -18,7 +18,7 @@
       <id>T1086</id>
     </mitre>
     <options>no_full_log</options>
-    <group>windows_powershell,</group>
+    <group>windows_powershell</group>
     <description>Powershell Warning EventLog</description>
   </rule>
   <rule id="100537" level="7">
@@ -28,7 +28,7 @@
       <id>T1086</id>
     </mitre>
     <options>no_full_log</options>
-    <group>windows_powershell,</group>
+    <group>windows_powershell</group>
     <description>Powershell Error EventLog</description>
   </rule>
   <rule id="100538" level="12">
@@ -38,7 +38,7 @@
       <id>T1086</id>
     </mitre>
     <options>no_full_log</options>
-    <group>windows_powershell,</group>
+    <group>windows_powershell</group>
     <description>Powershell Critical EventLog</description>
   </rule>
   <rule id="100539" level="12" frequency="$MS_FREQ" timeframe="60">
@@ -48,7 +48,7 @@
         <id>T1086</id>
       </mitre>
       <options>no_full_log</options>
-      <group>pci_dss_10.6.1,gpg13_4.12,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
+      <group>pci_dss_10.6.1,gpg13_4.12,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3</group>
   </rule>
   <rule id="100540" level="14" frequency="$MS_FREQ" timeframe="60">
       <if_matched_sid>100538</if_matched_sid>
@@ -57,7 +57,7 @@
         <id>T1086</id>
       </mitre>
       <options>no_full_log</options>
-      <group>pci_dss_10.6.1,gpg13_4.12,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
+      <group>pci_dss_10.6.1,gpg13_4.12,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3</group>
   </rule>
   <rule id="100541" level="3">
     <if_sid>91802</if_sid>
@@ -108,7 +108,7 @@
       <id>T1086</id>
     </mitre>
     <options>no_full_log</options>
-    <group>windows_powershell,</group>
+    <group>windows_powershell</group>
     <description>Powershell Information EventLog</description>
   </rule>
 </group>

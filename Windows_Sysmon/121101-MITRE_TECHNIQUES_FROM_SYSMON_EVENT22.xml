@@ -1,4 +1,4 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
 <!-- Sysmon - Event 22: DNS Request by $(win.eventdata.image) -->
 <rule id="121101" level="3">
 <if_sid>61650</if_sid>
@@ -7,7 +7,7 @@
 <id>T1071</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_22,</group>
+<group>sysmon_event_22</group>
 </rule>
 <!-- Rule ID 121101 Override if Hostname = AlienVault -->
 <rule id="121102" level="1">
@@ -18,7 +18,7 @@
 <id>T1071</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_22,</group>
+<group>sysmon_event_22</group>
 </rule>
 <!-- Rule ID 121101 Override if Hostname = Local Hostnames -->
 <rule id="121103" level="1">
@@ -29,7 +29,7 @@
 <id>T1071</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_22,</group>
+<group>sysmon_event_22</group>
 </rule>
 
 </group>

@@ -1,4 +1,4 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112101" level="3">
 <if_sid>61615</if_sid>
@@ -8,7 +8,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112102" level="3">
@@ -19,7 +19,7 @@
 <id>T1547</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112103" level="3">
@@ -30,7 +30,7 @@
 <id>T1547</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112104" level="3">
@@ -41,7 +41,7 @@
 <id>T1037</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112105" level="3">
@@ -52,7 +52,7 @@
 <id>T1547</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112106" level="3">
@@ -63,7 +63,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112107" level="3">
@@ -74,7 +74,7 @@
 <id>T1548</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112108" level="3">
@@ -85,7 +85,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112109" level="3">
@@ -96,7 +96,7 @@
 <id>T1003</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112110" level="3">
@@ -107,7 +107,7 @@
 <id>T1098</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112111" level="3">
@@ -118,7 +118,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112112" level="3">
@@ -129,7 +129,7 @@
 <id>T1562</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112113" level="3">
@@ -140,7 +140,7 @@
 <id>T1015</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112114" level="3">
@@ -151,7 +151,7 @@
 <id>T1562</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112115" level="3">
@@ -162,7 +162,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112116" level="3">
@@ -173,7 +173,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112117" level="3">
@@ -184,7 +184,7 @@
 <id>T1137</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112118" level="3">
@@ -195,7 +195,7 @@
 <id>T1137</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112119" level="3">
@@ -206,7 +206,7 @@
 <id>T1021</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112120" level="3">
@@ -217,7 +217,7 @@
 <id>T1053</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112121" level="3">
@@ -228,7 +228,7 @@
 <id>T1547</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112122" level="3">
@@ -239,7 +239,7 @@
 <id>T1543</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112123" level="3">
@@ -250,7 +250,7 @@
 <id>T1553</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112124" level="3">
@@ -261,7 +261,7 @@
 <id>T1569</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112125" level="3">
@@ -272,7 +272,7 @@
 <id>T1105</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112126" level="3">
@@ -283,7 +283,7 @@
 <id>T1033</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112127" level="3">
@@ -294,7 +294,7 @@
 <id>T1057</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112128" level="3">
@@ -305,7 +305,7 @@
 <id>T1089</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112129" level="3">
@@ -316,7 +316,7 @@
 <id>T1547</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112130" level="3">
@@ -327,7 +327,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112131" level="3">
@@ -338,7 +338,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112132" level="3">
@@ -349,7 +349,7 @@
 <id>T1125</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112133" level="3">
@@ -360,7 +360,7 @@
 <id>T1123</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112134" level="3">
@@ -371,7 +371,7 @@
 <id>T1005</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112135" level="3">
@@ -382,7 +382,7 @@
 <id>T1056</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112136" level="3">
@@ -393,7 +393,7 @@
 <id>T1003</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112137" level="3">
@@ -404,7 +404,7 @@
 <id>T1547</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112138" level="3">
@@ -415,7 +415,7 @@
 <id>T1130</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112139" level="3">
@@ -426,7 +426,7 @@
 <id>T1210</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112140" level="3">
@@ -437,7 +437,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
   <!-- Sysmon - Event 13: PsExec Detection -->
 <rule id="112141" level="13">
@@ -448,7 +448,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent (Value Set) by $(win.eventdata.image) -->
 <rule id="112142" level="3">
@@ -459,14 +459,14 @@
 <id>T1112</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!-- Sysmon - Event 13: RegistryEvent by $(win.eventdata.image) -->
 <rule id="112143" level="3">
 <if_sid>61615</if_sid>
 <description>Sysmon - Event 13: RegistryEvent by $(win.eventdata.image)</description>
 <options>no_full_log</options>
-<group>sysmon_event_13,</group>
+<group>sysmon_event_13</group>
 </rule>
 <!--T1548.002 added amine-->
 <rule id="112144" level="10">
@@ -507,7 +507,7 @@
       <id>T1564.002</id>
     </mitre>
     <options>no_full_log</options>
-    <group>sysmon_event_13,</group>
+    <group>sysmon_event_13</group>
   </rule>
 <rule id="112149" level="10">
   <if_sid>61615</if_sid>
@@ -518,7 +518,7 @@
     <id>T1562.003</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 <rule id="112150" level="10">
   <if_sid>61615</if_sid>
@@ -529,7 +529,7 @@
     <id>T1574.009</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 <rule id="112151" level="10">
   <if_sid>61615</if_sid> 
@@ -539,7 +539,7 @@
     <id>T1546.010</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 <rule id="112152" level="10">
   <if_sid>61615</if_sid>
@@ -605,7 +605,7 @@
     <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112159" level="10">
@@ -616,7 +616,7 @@
     <id>T1036</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112160" level="10">
@@ -627,7 +627,7 @@
     <id>T1090</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112161" level="10">
@@ -638,7 +638,7 @@
     <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112162" level="10">
@@ -649,7 +649,7 @@
     <id>T1547</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112163" level="10">
@@ -660,7 +660,7 @@
     <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112164" level="10">
@@ -671,7 +671,7 @@
     <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112165" level="10">
@@ -682,7 +682,7 @@
     <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112166" level="10">
@@ -693,7 +693,7 @@
     <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112167" level="10">
@@ -704,7 +704,7 @@
     <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 <rule id="112168" level="10">
@@ -715,7 +715,7 @@
     <id>T1546</id>
   </mitre>
   <options>no_full_log</options>
-  <group>sysmon_event_13,</group>
+  <group>sysmon_event_13</group>
 </rule>
 
 </group>

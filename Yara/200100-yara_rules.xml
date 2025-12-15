@@ -5,7 +5,7 @@
  - info@socfortress.co.
 -->
 
-<group name="yara,">
+<group name="yara">
     <rule id="200100" level="1">
         <decoded_as>yara</decoded_as>
         <description>YARA rules grouped.</description>

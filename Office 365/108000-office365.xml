@@ -1,4 +1,4 @@
-<group name="office365,">
+<group name="office365">
   <rule id="108000" level="3">
     <location>office_365</location>
     <description>$(office_365.Workload) $(office_365.Operation) operation.</description>

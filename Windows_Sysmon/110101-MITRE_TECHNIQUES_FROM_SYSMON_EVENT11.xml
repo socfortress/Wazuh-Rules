@@ -1,4 +1,4 @@
-<group name="windows,sysmon,">
+<group name="windows,sysmon">
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110101" level="3">
 <if_sid>61613</if_sid>
@@ -8,7 +8,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110102" level="3">
@@ -19,7 +19,7 @@
 <id>T1064</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110103" level="3">
@@ -30,7 +30,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110104" level="3">
@@ -41,7 +41,7 @@
 <id>T1218</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110105" level="3">
@@ -52,7 +52,7 @@
 <id>T1187</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110106" level="3">
@@ -63,7 +63,7 @@
 <id>T1127</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110107" level="3">
@@ -74,7 +74,7 @@
 <id>T1059</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110108" level="3">
@@ -85,7 +85,7 @@
 <id>T1044</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110109" level="3">
@@ -96,7 +96,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110110" level="3">
@@ -107,7 +107,7 @@
 <id>T1047</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Sysmon - Event 11: FileCreate by $(win.eventdata.image) -->
 <rule id="110111" level="3">
@@ -118,7 +118,7 @@
 <id>T1546</id>
 </mitre>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 <!-- Lockbit 3.0 Ransomware -->
 <rule id="110118" level="10">
@@ -127,7 +127,7 @@
 <field name="win.eventdata.targetFilename" type="pcre2">(?i)\.+readme\.txt</field>
 <description>The file $(win.eventdata.targetFilename) has been created. Possible ransomware activity.</description>
 <options>no_full_log</options>
-<group>sysmon_event_11,</group>
+<group>sysmon_event_11</group>
 </rule>
 
 
@@ -137,7 +137,7 @@
   <if_group>sysmon_event_11</if_group>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)wpbbin\.exe</field>
   <description>MITRE ATTaCK T1542.001 Pre-OS Boot: System Firmware - wpbbin.exe file created in System32. Possible firmware persistence attempt.</description>
-  <group>sysmon_event_11,</group>
+  <group>sysmon_event_11</group>
   <mitre>
     <id>T1542.001</id>
   </mitre>
@@ -150,7 +150,7 @@
   <if_group>sysmon_event_11</if_group>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)Comms.*Unistore.*data.*copy</field>
   <description>Possible mailbox data manipulation detected (T1070.008 - Email Collection: Mailbox Manipulation)</description>
-  <group>sysmon_event_11,</group>
+  <group>sysmon_event_11</group>
   <mitre>
     <id>T1070.008</id>
   </mitre>
@@ -162,7 +162,7 @@
   <field name="win.eventdata.image" type="pcre2">(?i)powershell\.exe$</field>
   <field name="win.eventdata.targetFilename" type="pcre2">(?i)Microsoft\.PowerShell_profile\.ps1|profile\.ps1</field>
   <description>T1546.013 - PowerShell Profile modified: Potential persistence mechanism detected (Event Triggered Execution)</description>
-  <group>sysmon_event_11,</group>
+  <group>sysmon_event_11</group>
   <mitre>
     <id>T1546.013</id>
   </mitre>
@@ -175,7 +175,7 @@
   <mitre>
     <id>T1137</id>  
   </mitre>
-  <group>sysmon_event_11,</group>
+  <group>sysmon_event_11</group>
 </rule>
 
 
@@ -186,7 +186,7 @@
   <mitre>
     <id>T1547.012</id>
   </mitre>
-  <group>sysmon_event_11,</group>
+  <group>sysmon_event_11</group>
 </rule>
 
 </group>
