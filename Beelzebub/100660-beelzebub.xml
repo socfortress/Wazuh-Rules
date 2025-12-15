@@ -1,7 +1,0 @@
-<group name="beelzebub">
-<rule id="100660" level="12">
-    <field name="event.Msg" type="pcre2">^SSH Terminal Session Interaction$</field>
-    <description>Honeypot SSH Terminal Session Interaction.</description>
-    <group>honeypot,ssh</group>
-  </rule>
-</group>

@@ -1,7 +1,0 @@
-<group name="phishing">
- <rule id="200970" level="12">
-    <location>sublime</location>
-    <description>Phishing Detected</description>
-    <options>no_full_log</options>
-  </rule>
-</group>
