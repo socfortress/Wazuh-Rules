@@ -5236,7 +5236,7 @@
 	</rule>
 	
 	<rule id="100901" level="13">
-		<if_sid>61603</if_sid>
+		<if_sid>92900</if_sid>
 		<field name="win.eventdata.ruleName">^technique_id=T1003.001,technique_name=Dump LSASS using procdump -mm$</field>
 		<description>Dump LSASS using procdump -mm</description>
 		<mitre>
@@ -5269,7 +5269,7 @@
 	</rule>
 	
 	<rule id="100904" level="13">
-		<if_sid>61603</if_sid>
+		<if_sid>92052</if_sid>
 		<field name="win.eventdata.ruleName">^technique_id=T1003.001,technique_name=Analyze LSASS Dump with mimikatz.exe$</field>
 		<description>Analyze LSASS Dump with mimikatz.exe</description>
 		<mitre>
@@ -6654,7 +6654,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	
-	<rule id="101030" level="13">
+	<rule id="101030" level="5">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.ruleName">^technique_id=T1531,technique_name=Change Password with net.exe$</field>
 		<description>Change Password with net.exe</description>
@@ -7898,7 +7898,7 @@
 	</rule>
 	
 	<rule id="101144" level="13">
-		<if_sid>61603</if_sid>
+		<if_sid>92052</if_sid>
 		<field name="win.eventdata.ruleName">^technique_id=T1220,technique_name=MSXSL XSL Script Execution$</field>
 		<description>MSXSL XSL Script Execution</description>
 		<mitre>
@@ -8216,7 +8216,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	
-	<rule id="101173" level="13">
+	<rule id="101173" level="15">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.ruleName">^technique_id=T1055.015,technique_name=ListPlanting Execution$</field>
 		<description>ListPlanting Execution</description>
@@ -8228,7 +8228,7 @@
 	</rule>
 	
 	<rule id="101174" level="13">
-		<if_sid>61603</if_sid>
+		<if_sid>92041</if_sid>
 		<field name="win.eventdata.ruleName">^technique_id=T1037.001,technique_name=Reg.exe setting UserInitMprLogonScript$</field>
 		<description>Reg.exe setting UserInitMprLogonScript</description>
 		<mitre>
@@ -8261,8 +8261,8 @@
 	</rule>
 	
 	<rule id="101177" level="13">
-		<if_sid>61603</if_sid>
-		<field name="win.eventdata.ruleName">^technique_id=T1505.003,technique_name=xcopy Web Shell to IIS Path$</field>
+		<if_sid>92032</if_sid>
+		<field name="win.eventdata.ruleName">^technique_id=T1505.003,technique_name=XCopy Archiving$</field>
 		<description>xcopy Web Shell to IIS Path</description>
 		<mitre>
 			<id>T1505</id>
