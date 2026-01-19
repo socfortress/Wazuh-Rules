@@ -1,6 +1,6 @@
 <var name="MS_FREQ">8</var>
 <group name="windows,">
-  <rule id="100535" level="1">
+  <rule id="101535" level="1">
     <if_sid>60009</if_sid>
     <field name="win.system.providerName">^PowerShell$</field>
     <mitre>
@@ -10,7 +10,7 @@
     <group>windows_powershell,</group>
     <description>Powershell Information EventLog</description>
   </rule>
-  <rule id="100536" level="5">
+  <rule id="101536" level="5">
     <if_sid>60010</if_sid>
     <field name="win.system.providerName">^Microsoft-Windows-PowerShell$</field>
     <field name="win.system.severityValue">^WARNING$</field>
@@ -21,7 +21,7 @@
     <group>windows_powershell,</group>
     <description>Powershell Warning EventLog</description>
   </rule>
-  <rule id="100537" level="7">
+  <rule id="101537" level="7">
     <if_sid>60011</if_sid>
     <field name="win.system.providerName">^Microsoft-Windows-PowerShell$</field>
     <mitre>
@@ -31,7 +31,7 @@
     <group>windows_powershell,</group>
     <description>Powershell Error EventLog</description>
   </rule>
-  <rule id="100538" level="12">
+  <rule id="101538" level="12">
     <if_sid>60012</if_sid>
     <field name="win.system.providerName">^Microsoft-Windows-PowerShell$</field>
     <mitre>
@@ -41,7 +41,7 @@
     <group>windows_powershell,</group>
     <description>Powershell Critical EventLog</description>
   </rule>
-  <rule id="100539" level="12" frequency="$MS_FREQ" timeframe="60">
+  <rule id="101539" level="12" frequency="$MS_FREQ" timeframe="60">
       <if_matched_sid>100537</if_matched_sid>
       <description>Short-time multiple Windows Powershell error events</description>
       <mitre>
@@ -50,7 +50,7 @@
       <options>no_full_log</options>
       <group>pci_dss_10.6.1,gpg13_4.12,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
   </rule>
-  <rule id="100540" level="14" frequency="$MS_FREQ" timeframe="60">
+  <rule id="101540" level="14" frequency="$MS_FREQ" timeframe="60">
       <if_matched_sid>100538</if_matched_sid>
       <description>Short-time multiple Windows Powershell critical events</description>
       <mitre>
@@ -59,7 +59,7 @@
       <options>no_full_log</options>
       <group>pci_dss_10.6.1,gpg13_4.12,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,tsc_CC7.2,tsc_CC7.3,</group>
   </rule>
-  <rule id="100541" level="3">
+  <rule id="101541" level="3">
     <if_sid>91802</if_sid>
     <field name="win.system.severityValue">VERBOSE</field>
     <description>Powershell script $(win.eventdata.scriptBlockText) Executed</description>
@@ -68,16 +68,16 @@
     </mitre>
     <options>no_full_log</options>
   </rule>
-  <rule id="100542" level="1">
-    <if_sid>100541</if_sid>
+  <rule id="101542" level="1">
+    <if_sid>101541</if_sid>
     <field name="win.system.eventID">^4105$|^4106$</field>
     <description>Disregard Powershell Text</description>
     <mitre>
       <id>T1087.002</id>
     </mitre>
   </rule>
-  <rule id="100543" level="12">
-    <if_sid>100541</if_sid>
+  <rule id="101543" level="12">
+    <if_sid>101541</if_sid>
     <list field="win.eventdata.scriptBlockText" lookup="match_key">etc/lists/malicious-powershell</list>
     <description>Malicious Powershell Command $(win.eventdata.scriptBlockText) Executed</description>
     <mitre>
@@ -85,24 +85,24 @@
     </mitre>
     <options>no_full_log</options>
   </rule>
-  <rule id="100544" level="1">
-    <if_sid>100541</if_sid>
+  <rule id="101544" level="1">
+    <if_sid>101541</if_sid>
     <field name="win.eventdata.scriptBlockText">PSMessageDetails|ErrorCategory_Message|OriginInfo</field>
     <description>Disregard Powershell Prompt Text</description>
     <mitre>
       <id>T1087.002</id>
     </mitre>
   </rule>
-  <rule id="100545" level="1">
-    <if_sid>100541</if_sid>
+  <rule id="101545" level="1">
+    <if_sid>101541</if_sid>
     <field name="win.eventdata.scriptBlockText">^prompt$</field>
     <description>Disregard Powershell Prompt Text</description>
     <mitre>
       <id>T1087.002</id>
     </mitre>
   </rule>
-  <rule id="100550" level="3">
-    <if_sid>100535</if_sid>
+  <rule id="101550" level="3">
+    <if_sid>101535</if_sid>
     <field name="win.system.eventID">^400$</field>
     <mitre>
       <id>T1086</id>
