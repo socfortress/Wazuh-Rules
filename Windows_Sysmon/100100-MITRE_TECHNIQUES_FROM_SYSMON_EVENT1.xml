@@ -8095,7 +8095,7 @@
 		<group>sysmon_event1,</group>
 	</rule>
 	
-	<rule id="101162" level="13">
+	<rule id="101162" level="7">
 		<if_sid>61603</if_sid>
 		<field name="win.eventdata.ruleName">^technique_id=T1574.001,technique_name=PowerShell renamed to updater.exe$</field>
 		<description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
