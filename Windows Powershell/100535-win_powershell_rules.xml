@@ -1,5 +1,5 @@
 <group name="windows,">
-  <rule id="100535" level="1">
+  <rule id="100534" level="1">
     <if_sid>60009</if_sid>
     <field name="win.system.providerName">^PowerShell$</field>
     <mitre>
@@ -92,476 +92,477 @@
     <group>windows_powershell,</group>
     <description>Powershell Information EventLog</description>
   </rule>
+
   <rule id="100551" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\bIEX\b</field>
-  <options>no_full_log</options>
-  <description>Powershell script: IEX execution detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\bIEX\b</field>
+    <options>no_full_log</options>
+    <description>Powershell script: IEX execution detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100552" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-Expression</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Invoke-Expression detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="100552" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-Expression</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Invoke-Expression detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100553" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-WebRequest</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Invoke-WebRequest detected</description>
-  <mitre><id>T1105</id></mitre>
-</rule>
+  <rule id="100553" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-WebRequest</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Invoke-WebRequest detected</description>
+    <mitre><id>T1105</id></mitre>
+  </rule>
 
-<rule id="100554" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\biwr\b</field>
-  <options>no_full_log</options>
-  <description>Powershell script: iwr alias detected</description>
-  <mitre><id>T1105</id></mitre>
-</rule>
+  <rule id="100554" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\biwr\b</field>
+    <options>no_full_log</options>
+    <description>Powershell script: iwr alias detected</description>
+    <mitre><id>T1105</id></mitre>
+  </rule>
 
-<rule id="100555" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Start-BitsTransfer</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Start-BitsTransfer detected (BITS job abuse)</description>
-  <mitre><id>T1197</id></mitre>
-</rule>
+  <rule id="100555" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Start-BitsTransfer</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Start-BitsTransfer detected (BITS job abuse)</description>
+    <mitre><id>T1197</id></mitre>
+  </rule>
 
-<rule id="100556" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)New-Object\s+(System\.)?Net\.WebClient</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Net.WebClient object creation detected</description>
-  <mitre><id>T1105</id></mitre>
-</rule>
+  <rule id="100556" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)New-Object\s+(System\.)?Net\.WebClient</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Net.WebClient object creation detected</description>
+    <mitre><id>T1105</id></mitre>
+  </rule>
 
-<rule id="100557" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(DownloadString|DownloadFile|DownloadData)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Download method detected</description>
-  <mitre><id>T1105</id></mitre>
-</rule>
+  <rule id="100557" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(DownloadString|DownloadFile|DownloadData)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Download method detected</description>
+    <mitre><id>T1105</id></mitre>
+  </rule>
 
-<rule id="100558" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)FromBase64String</field>
-  <options>no_full_log</options>
-  <description>Powershell script: FromBase64String detected</description>
-  <mitre><id>T1027</id></mitre>
-</rule>
+  <rule id="100558" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)FromBase64String</field>
+    <options>no_full_log</options>
+    <description>Powershell script: FromBase64String detected</description>
+    <mitre><id>T1027</id></mitre>
+  </rule>
 
-<rule id="100559" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)powershell(\.exe)?\s+-enc</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Encoded command flag detected</description>
-  <mitre><id>T1027</id></mitre>
-</rule>
+  <rule id="100559" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)powershell(\.exe)?\s+-enc</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Encoded command flag detected</description>
+    <mitre><id>T1027</id></mitre>
+  </rule>
 
-<rule id="100560" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)gnirtS46esaBmorF</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Reversed FromBase64String detected (obfuscation)</description>
-  <mitre><id>T1027</id></mitre>
-</rule>
+  <rule id="101300" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)gnirtS46esaBmorF</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Reversed FromBase64String detected (obfuscation)</description>
+    <mitre><id>T1027</id></mitre>
+  </rule>
 
-<rule id="100561" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Set-ExecutionPolicy\s+Bypass|-ExecutionPolicy\s+Bypass)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: ExecutionPolicy Bypass detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101301" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Set-ExecutionPolicy\s+Bypass|-ExecutionPolicy\s+Bypass)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: ExecutionPolicy Bypass detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100562" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)mimikatz</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Mimikatz keyword detected</description>
-  <mitre><id>T1003.001</id></mitre>
-</rule>
+  <rule id="101302" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)mimikatz</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Mimikatz keyword detected</description>
+    <mitre><id>T1003.001</id></mitre>
+  </rule>
 
-<rule id="100563" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)SEKURLSA</field>
-  <options>no_full_log</options>
-  <description>Powershell script: SEKURLSA (Mimikatz module) detected</description>
-  <mitre><id>T1003.001</id></mitre>
-</rule>
+  <rule id="101303" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)SEKURLSA</field>
+    <options>no_full_log</options>
+    <description>Powershell script: SEKURLSA (Mimikatz module) detected</description>
+    <mitre><id>T1003.001</id></mitre>
+  </rule>
 
-<rule id="100564" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)kerberos::(ptt|golden)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Kerberos ticket manipulation detected</description>
-  <mitre><id>T1550.003</id></mitre>
-</rule>
+  <rule id="101304" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)kerberos::(ptt|golden)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Kerberos ticket manipulation detected</description>
+    <mitre><id>T1550.003</id></mitre>
+  </rule>
 
-<rule id="100565" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Get-PassHash|LSASecret|Get-VaultCredential|-dumpcr)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Credential dumping cmdlet detected</description>
-  <mitre><id>T1003</id></mitre>
-</rule>
+  <rule id="101305" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Get-PassHash|LSASecret|Get-VaultCredential|-dumpcr)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Credential dumping cmdlet detected</description>
+    <mitre><id>T1003</id></mitre>
+  </rule>
 
-<rule id="100566" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Get-GPPPassword</field>
-  <options>no_full_log</options>
-  <description>Powershell script: GPP Password extraction detected</description>
-  <mitre><id>T1552.006</id></mitre>
-</rule>
+  <rule id="101306" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Get-GPPPassword</field>
+    <options>no_full_log</options>
+    <description>Powershell script: GPP Password extraction detected</description>
+    <mitre><id>T1552.006</id></mitre>
+  </rule>
 
-<rule id="100567" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(Shellcode|ReflectivePEInjection|DllInjection|PSInject)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Code injection cmdlet detected</description>
-  <mitre><id>T1055</id></mitre>
-</rule>
+  <rule id="101307" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(Shellcode|ReflectivePEInjection|DllInjection|PSInject)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Code injection cmdlet detected</description>
+    <mitre><id>T1055</id></mitre>
+  </rule>
 
-<rule id="100568" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(DCSync|Mimikittenz|PowerDump|NinjaCopy|CredentialInjection)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Credential theft cmdlet detected</description>
-  <mitre><id>T1003</id></mitre>
-</rule>
+  <rule id="101308" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(DCSync|Mimikittenz|PowerDump|NinjaCopy|CredentialInjection)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Credential theft cmdlet detected</description>
+    <mitre><id>T1003</id></mitre>
+  </rule>
 
-<rule id="100569" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(BypassUAC|PsUaCme|WScriptBypassUAC)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: UAC bypass cmdlet detected</description>
-  <mitre><id>T1548.002</id></mitre>
-</rule>
+  <rule id="101309" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(BypassUAC|PsUaCme|WScriptBypassUAC)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: UAC bypass cmdlet detected</description>
+    <mitre><id>T1548.002</id></mitre>
+  </rule>
 
-<rule id="100570" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(PsExec|WinEnum|SMBScanner|ARPScan|PortScan)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Lateral movement/recon cmdlet detected</description>
-  <mitre><id>T1021</id></mitre>
-</rule>
+  <rule id="101310" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(PsExec|WinEnum|SMBScanner|ARPScan|PortScan)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Lateral movement/recon cmdlet detected</description>
+    <mitre><id>T1021</id></mitre>
+  </rule>
 
-<rule id="100571" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(Inveigh|InveighRelay|PowerShellTCP|PoshRat)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Network attack/C2 cmdlet detected</description>
-  <mitre><id>T1557</id></mitre>
-</rule>
+  <rule id="101311" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(Inveigh|InveighRelay|PowerShellTCP|PoshRat)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Network attack/C2 cmdlet detected</description>
+    <mitre><id>T1557</id></mitre>
+  </rule>
 
-<rule id="100572" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(AllChecks|UserHunter|BackdoorLNK|ShellCommand)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Post-exploitation cmdlet detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101312" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-(AllChecks|UserHunter|BackdoorLNK|ShellCommand)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Post-exploitation cmdlet detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100573" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(PowerView|PowerUp|PowerBreach|nishang)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Offensive framework keyword detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101313" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(PowerView|PowerUp|PowerBreach|nishang)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Offensive framework keyword detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100574" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)AmsiBypass</field>
-  <options>no_full_log</options>
-  <description>Powershell script: AMSI bypass attempt detected</description>
-  <mitre><id>T1562.001</id></mitre>
-</rule>
+  <rule id="101314" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)AmsiBypass</field>
+    <options>no_full_log</options>
+    <description>Powershell script: AMSI bypass attempt detected</description>
+    <mitre><id>T1562.001</id></mitre>
+  </rule>
 
-<rule id="100575" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Get-(ChromeDump|FoxDump|ClipboardContents|Keystrokes)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Browser/input data theft cmdlet detected</description>
-  <mitre><id>T1555.003</id></mitre>
-</rule>
+  <rule id="101315" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Get-(ChromeDump|FoxDump|ClipboardContents|Keystrokes)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Browser/input data theft cmdlet detected</description>
+    <mitre><id>T1555.003</id></mitre>
+  </rule>
 
-<rule id="100576" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Get-(Screenshot|TimedScreenshot)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Screen capture cmdlet detected</description>
-  <mitre><id>T1113</id></mitre>
-</rule>
+  <rule id="101316" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Get-(Screenshot|TimedScreenshot)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Screen capture cmdlet detected</description>
+    <mitre><id>T1113</id></mitre>
+  </rule>
 
-<rule id="100577" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(VolumeShadowCopyTools|copy-vss)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Volume Shadow Copy access detected</description>
-  <mitre><id>T1003.003</id></mitre>
-</rule>
+  <rule id="101317" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(VolumeShadowCopyTools|copy-vss)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Volume Shadow Copy access detected</description>
+    <mitre><id>T1003.003</id></mitre>
+  </rule>
 
-<rule id="100578" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(get-netdomaintrust|get-netforesttrust|get-addomain|get-adgroupmember|get-domainuser)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Active Directory enumeration detected</description>
-  <mitre><id>T1087.002</id></mitre>
-</rule>
+  <rule id="101318" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(get-netdomaintrust|get-netforesttrust|get-addomain|get-adgroupmember|get-domainuser)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Active Directory enumeration detected</description>
+    <mitre><id>T1087.002</id></mitre>
+  </rule>
 
-<rule id="100579" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)get-localgroup</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Local group enumeration detected</description>
-  <mitre><id>T1069.001</id></mitre>
-</rule>
+  <rule id="101319" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)get-localgroup</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Local group enumeration detected</description>
+    <mitre><id>T1069.001</id></mitre>
+  </rule>
 
-<rule id="100580" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)CreateInstance\([^)]*GetTypeFromCLSID</field>
-  <options>no_full_log</options>
-  <description>Powershell script: COM CLSID object execution detected</description>
-  <mitre><id>T1546.015</id></mitre>
-</rule>
+  <rule id="101320" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)CreateInstance\([^)]*GetTypeFromCLSID</field>
+    <options>no_full_log</options>
+    <description>Powershell script: COM CLSID object execution detected</description>
+    <mitre><id>T1546.015</id></mitre>
+  </rule>
 
-<rule id="100581" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Software\\Classes\\CLSID\\.*InProcServer32</field>
-  <options>no_full_log</options>
-  <description>Powershell script: COM InProcServer32 hijacking detected</description>
-  <mitre><id>T1546.015</id></mitre>
-</rule>
+  <rule id="101321" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Software\\Classes\\CLSID\\.*InProcServer32</field>
+    <options>no_full_log</options>
+    <description>Powershell script: COM InProcServer32 hijacking detected</description>
+    <mitre><id>T1546.015</id></mitre>
+  </rule>
 
-<rule id="100582" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Add-Persistence|Add-RegBackdoor|Add-ScrnSaveBackdoor|Install-SSP)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Persistence mechanism cmdlet detected</description>
-  <mitre><id>T1547</id></mitre>
-</rule>
+  <rule id="101322" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Add-Persistence|Add-RegBackdoor|Add-ScrnSaveBackdoor|Install-SSP)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Persistence mechanism cmdlet detected</description>
+    <mitre><id>T1547</id></mitre>
+  </rule>
 
-<rule id="100583" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Enable-PSRemoting</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Enable-PSRemoting detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101323" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Enable-PSRemoting</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Enable-PSRemoting detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100584" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-Command</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Invoke-Command (remote execution) detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101324" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-Command</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Invoke-Command (remote execution) detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100585" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(WMIMethod|RemoteWMI|PowerShellWmi|wmicommand)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: WMI-based remote execution detected</description>
-  <mitre><id>T1047</id></mitre>
-</rule>
+  <rule id="101325" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(WMIMethod|RemoteWMI|PowerShellWmi|wmicommand)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: WMI-based remote execution detected</description>
+    <mitre><id>T1047</id></mitre>
+  </rule>
 
-<rule id="100586" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Invoke-CIMMethod|New-CimSession)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: CIM method/session detected (lateral movement)</description>
-  <mitre><id>T1047</id></mitre>
-</rule>
+  <rule id="101326" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Invoke-CIMMethod|New-CimSession)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: CIM method/session detected (lateral movement)</description>
+    <mitre><id>T1047</id></mitre>
+  </rule>
 
-<rule id="100587" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-WmiExec</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Invoke-WmiExec detected (pass-the-hash)</description>
-  <mitre><id>T1047</id></mitre>
-</rule>
+  <rule id="101327" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Invoke-WmiExec</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Invoke-WmiExec detected (pass-the-hash)</description>
+    <mitre><id>T1047</id></mitre>
+  </rule>
 
-<rule id="100588" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)WSMan:\\localhost\\Client\\TrustedHosts</field>
-  <options>no_full_log</options>
-  <description>Powershell script: TrustedHosts modification detected (DarkGate)</description>
-  <mitre><id>T1021.006</id></mitre>
-</rule>
+  <rule id="101328" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)WSMan:\\localhost\\Client\\TrustedHosts</field>
+    <options>no_full_log</options>
+    <description>Powershell script: TrustedHosts modification detected (DarkGate)</description>
+    <mitre><id>T1021.006</id></mitre>
+  </rule>
 
-<rule id="100589" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(GZipStream|::Decompress|IO\.Compression)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Compression/decompression detected (payload staging)</description>
-  <mitre><id>T1027</id></mitre>
-</rule>
+  <rule id="101329" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(GZipStream|::Decompress|IO\.Compression)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Compression/decompression detected (payload staging)</description>
+    <mitre><id>T1027</id></mitre>
+  </rule>
 
-<rule id="100590" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)IO\.StreamReader</field>
-  <options>no_full_log</options>
-  <description>Powershell script: StreamReader usage detected (stream data processing)</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101330" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)IO\.StreamReader</field>
+    <options>no_full_log</options>
+    <description>Powershell script: StreamReader usage detected (stream data processing)</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100591" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)IO\.MemoryStream</field>
-  <options>no_full_log</options>
-  <description>Powershell script: MemoryStream usage detected (in-memory execution)</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101331" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)IO\.MemoryStream</field>
+    <options>no_full_log</options>
+    <description>Powershell script: MemoryStream usage detected (in-memory execution)</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100592" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Reflection\.Assembly\]::Load|Reflection\.Assembly\.Load|UnsafeLoadFrom|\.LoadFrom\(|\.LoadModule\(|\.LoadWithPartialName|ReflectionOnlyLoad)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: .NET Assembly reflection loading detected (Empire/Cobalt Strike)</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101332" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Reflection\.Assembly\]::Load|Reflection\.Assembly\.Load|UnsafeLoadFrom|\.LoadFrom\(|\.LoadModule\(|\.LoadWithPartialName|ReflectionOnlyLoad)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: .NET Assembly reflection loading detected (Empire/Cobalt Strike)</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100593" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)AssemblyBuilderAccess</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Dynamic assembly building detected</description>
-  <mitre><id>T1620</id></mitre>
-</rule>
+  <rule id="101333" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)AssemblyBuilderAccess</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Dynamic assembly building detected</description>
+    <mitre><id>T1620</id></mitre>
+  </rule>
 
-<rule id="100594" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)GetProcAddress</field>
-  <options>no_full_log</options>
-  <description>Powershell script: GetProcAddress API call detected (fileless injection)</description>
-  <mitre><id>T1055</id></mitre>
-</rule>
+  <rule id="101334" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)GetProcAddress</field>
+    <options>no_full_log</options>
+    <description>Powershell script: GetProcAddress API call detected (fileless injection)</description>
+    <mitre><id>T1055</id></mitre>
+  </rule>
 
-<rule id="100595" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)DisableRealtimeMonitoring</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Attempt to disable Defender real-time monitoring</description>
-  <mitre><id>T1562.001</id></mitre>
-</rule>
+  <rule id="101335" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)DisableRealtimeMonitoring</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Attempt to disable Defender real-time monitoring</description>
+    <mitre><id>T1562.001</id></mitre>
+  </rule>
 
-<rule id="100596" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Set-MpPreference.*(Disable|PUAProtection|CloudBlockLevel)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Windows Defender configuration tampering detected</description>
-  <mitre><id>T1562.001</id></mitre>
-</rule>
+  <rule id="101336" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Set-MpPreference.*(Disable|PUAProtection|CloudBlockLevel)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Windows Defender configuration tampering detected</description>
+    <mitre><id>T1562.001</id></mitre>
+  </rule>
 
-<rule id="100597" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Add-MpPreference|Set-MpPreference).*-exclusion</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Windows Defender exclusion being added (AV evasion)</description>
-  <mitre><id>T1562.001</id></mitre>
-</rule>
+  <rule id="101337" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(Add-MpPreference|Set-MpPreference).*-exclusion</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Windows Defender exclusion being added (AV evasion)</description>
+    <mitre><id>T1562.001</id></mitre>
+  </rule>
 
-<rule id="100598" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)rmdir.*Microsoft\\Windows Defender</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Attempt to remove Windows Defender directory (WhisperGate)</description>
-  <mitre><id>T1562.001</id></mitre>
-</rule>
+  <rule id="101338" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)rmdir.*Microsoft\\Windows Defender</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Attempt to remove Windows Defender directory (WhisperGate)</description>
+    <mitre><id>T1562.001</id></mitre>
+  </rule>
 
-<rule id="100599" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(shellcode|injection|backdoor)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Suspicious keyword (shellcode/injection/backdoor)</description>
-  <mitre><id>T1055</id></mitre>
-</rule>
+  <rule id="101339" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(shellcode|injection|backdoor)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Suspicious keyword (shellcode/injection/backdoor)</description>
+    <mitre><id>T1055</id></mitre>
+  </rule>
 
-<rule id="100600" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(comsvcs|lsass|rundll32)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Suspicious process/DLL reference detected</description>
-  <mitre><id>T1003.001</id></mitre>
-</rule>
+  <rule id="101340" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(comsvcs|lsass|rundll32)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Suspicious process/DLL reference detected</description>
+    <mitre><id>T1003.001</id></mitre>
+  </rule>
 
-<rule id="100601" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(ngrok|beacon|Rc4ByteStream|BackupPrivilege)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: C2/exploitation keyword detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101341" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(ngrok|beacon|Rc4ByteStream|BackupPrivilege)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: C2/exploitation keyword detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100602" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(socket|xmlhttp|internetexplorer\.application)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Network object creation detected</description>
-  <mitre><id>T1071.001</id></mitre>
-</rule>
+  <rule id="101342" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(socket|xmlhttp|internetexplorer\.application)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Network object creation detected</description>
+    <mitre><id>T1071.001</id></mitre>
+  </rule>
 
-<rule id="100603" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)syswow64</field>
-  <options>no_full_log</options>
-  <description>Powershell script: SysWOW64 reference detected (32-bit evasion)</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101343" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)syswow64</field>
+    <options>no_full_log</options>
+    <description>Powershell script: SysWOW64 reference detected (32-bit evasion)</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100604" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\$doit</field>
-  <options>no_full_log</options>
-  <description>Powershell script: $doit variable detected (exploit scripts)</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101344" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\$doit</field>
+    <options>no_full_log</options>
+    <description>Powershell script: $doit variable detected (exploit scripts)</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100605" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Enable-WindowsOptionalFeature.*SMB1Protocol</field>
-  <options>no_full_log</options>
-  <description>Powershell script: SMB1Protocol feature being enabled (ransomware lateral movement)</description>
-  <mitre><id>T1027.005</id></mitre>
-</rule>
+  <rule id="101345" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)Enable-WindowsOptionalFeature.*SMB1Protocol</field>
+    <options>no_full_log</options>
+    <description>Powershell script: SMB1Protocol feature being enabled (ransomware lateral movement)</description>
+    <mitre><id>T1027.005</id></mitre>
+  </rule>
 
-<rule id="100606" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)MSF\.Powershell</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Metasploit Meterpreter module detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101346" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)MSF\.Powershell</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Metasploit Meterpreter module detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100607" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(system\.net\.webclient|system\.net\.webrequest).*IO\.MemoryStream</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Web download to memory stream (fileless malware staging)</description>
-  <mitre><id>T1027.011</id></mitre>
-</rule>
+  <rule id="101347" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(system\.net\.webclient|system\.net\.webrequest).*IO\.MemoryStream</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Web download to memory stream (fileless malware staging)</description>
+    <mitre><id>T1027.011</id></mitre>
+  </rule>
 
-<rule id="100608" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(start-service|stop-service)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: Service start/stop command detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101348" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(start-service|stop-service)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: Service start/stop command detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
-<rule id="100609" level="10">
-  <if_sid>91802</if_sid>
-  <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(-version\s+2|powershell\s+-version)</field>
-  <options>no_full_log</options>
-  <description>Powershell script: PowerShell downgrade attack detected</description>
-  <mitre><id>T1059.001</id></mitre>
-</rule>
+  <rule id="101349" level="10">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(-version\s+2|powershell\s+-version)</field>
+    <options>no_full_log</options>
+    <description>Powershell script: PowerShell downgrade attack detected</description>
+    <mitre><id>T1059.001</id></mitre>
+  </rule>
 
 </group>
