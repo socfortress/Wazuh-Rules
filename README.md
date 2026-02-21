@@ -118,7 +118,7 @@ Wazuh-Manager Version 4.x Required.
 
 [Wazuh Install Docs](https://documentation.wazuh.com/current/index.html)
 
-[Need Assitance? - Hire SOCFortress](https://www.socfortress.co/contact_form.html)
+[Need Assistance? - Hire SOCFortress](https://www.socfortress.co/contact_form.html)
 
 ### Installation
 
