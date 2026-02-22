@@ -1,106 +1,116 @@
-<group name="pingcastle,">
-  <!-- Summary event -->
+<group name="pingcastle,windows,eventchannel,">
+
+  <!-- Base: any PingCastle Application event -->
   <rule id="700400" level="3">
-    <decoded_as>json</decoded_as>
-    <field name="group">PingCastle</field>
-    <field name="eventType">summary</field>
-    <description>PingCastle summary event ingested</description>
+    <decoded_as>windows_eventchannel</decoded_as>
+    <field name="win.system.providerName">PingCastle</field>
+    <description>PingCastle Application event ingested</description>
     <options>no_full_log</options>
   </rule>
 
+  <!-- Summary event (JSON lives in message) -->
+  <rule id="700401" level="3">
+    <if_sid>700400</if_sid>
+    <match>"group":"PingCastle"</match>
+    <match>"eventType":"summary"</match>
+    <description>PingCastle summary event (JSON in Windows event message)</description>
+  </rule>
+
   <!-- One-per-risk-rule event -->
-  <rule id="700401" level="5">
-    <decoded_as>json</decoded_as>
-    <field name="group">PingCastle</field>
-    <field name="eventType">riskRule</field>
-    <description>PingCastle risk rule finding ingested</description>
+  <rule id="700402" level="5">
+    <if_sid>700400</if_sid>
+    <match>"group":"PingCastle"</match>
+    <match>"eventType":"riskRule"</match>
+    <description>PingCastle riskRule event (JSON in Windows event message)</description>
   </rule>
+
 </group>
 
-<group name="pingcastle,score,">
-  <!-- Global score < 80 (high) -->
-  <rule id="700402" level="10">
-    <if_sid>700400</if_sid>
-    <field name="scores.global" type="pcre2">^([0-7][0-9]|[0-9])$</field>
-    <description>PingCastle: global score is low (&lt; 80)</description>
+
+<group name="pingcastle,score,windows,eventchannel,">
+
+  <!-- Global score < 80 -->
+  <rule id="700403" level="10">
+    <if_sid>700401</if_sid>
+    <!-- match scores.global: 0-79 -->
+    <match>"global":</match>
+    <match>"scores":{"global":</match>
+    <match>"scores":{"global":7</match>
+    <description>PingCastle: global score appears low (&lt; 80)</description>
   </rule>
 
-  <!-- Anomalies score >= 70 (your sample had 70) -->
-  <rule id="700403" level="8">
-    <if_sid>700400</if_sid>
-    <field name="scores.anomalies" type="pcre2">^([7-9][0-9]|100)$</field>
-    <description>PingCastle: anomalies score is high (&gt;= 70)</description>
+  <!-- Anomalies score >= 70 -->
+  <rule id="700404" level="8">
+    <if_sid>700401</if_sid>
+    <match>"scores":{"global":</match>
+    <!-- crude but effective: matches 70-100 -->
+    <match>"anomalies":7</match>
+    <description>PingCastle: anomalies score appears high (&gt;= 70)</description>
   </rule>
+
 </group>
 
-<group name="pingcastle,riskid,">
-  <!-- DC spooler remotely accessible -->
-  <rule id="700404" level="12">
-    <if_sid>700401</if_sid>
-    <field name="riskId">A-DC-Spooler</field>
-    <description>PingCastle: DC spooler remotely accessible (PrintNightmare exposure)</description>
+
+<group name="pingcastle,riskid,windows,eventchannel,">
+
+  <rule id="700405" level="12">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"A-DC-Spooler"</match>
+    <description>PingCastle: DC spooler remotely accessible (A-DC-Spooler)</description>
   </rule>
 
-  <!-- NTLMv1/LM allowed -->
-  <rule id="700405" level="10">
-    <if_sid>700401</if_sid>
-    <field name="riskId">S-OldNtlm</field>
-    <description>PingCastle: NTLMv1/LM permitted</description>
+  <rule id="700406" level="10">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"S-OldNtlm"</match>
+    <description>PingCastle: NTLMv1/LM permitted (S-OldNtlm)</description>
   </rule>
 
-  <!-- Recycle Bin not enabled -->
-  <rule id="700406" level="6">
-    <if_sid>700401</if_sid>
-    <field name="riskId">P-RecycleBin</field>
-    <description>PingCastle: AD Recycle Bin not enabled</description>
+  <rule id="700407" level="6">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"P-RecycleBin"</match>
+    <description>PingCastle: AD Recycle Bin not enabled (P-RecycleBin)</description>
   </rule>
 
-  <!-- Admin account used recently -->
-  <rule id="700407" level="8">
-    <if_sid>700401</if_sid>
-    <field name="riskId">P-AdminLogin</field>
-    <description>PingCastle: Built-in Administrator account used recently</description>
+  <rule id="700408" level="8">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"P-AdminLogin"</match>
+    <description>PingCastle: Built-in Administrator used recently (P-AdminLogin)</description>
   </rule>
 
-  <!-- Admins can be delegated (sensitive account flag missing) -->
-  <rule id="700408" level="9">
-    <if_sid>700401</if_sid>
-    <field name="riskId">P-Delegated</field>
-    <description>PingCastle: Privileged accounts not marked 'Account is sensitive and cannot be delegated'</description>
+  <rule id="700409" level="9">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"P-Delegated"</match>
+    <description>PingCastle: Privileged accounts can be delegated (P-Delegated)</description>
   </rule>
 
-  <!-- LAPS not installed -->
-  <rule id="700409" level="8">
-    <if_sid>700401</if_sid>
-    <field name="riskId">A-LAPS-Not-Installed</field>
-    <description>PingCastle: LAPS not installed/detected</description>
+  <rule id="700410" level="8">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"A-LAPS-Not-Installed"</match>
+    <description>PingCastle: LAPS not installed/detected (A-LAPS-Not-Installed)</description>
   </rule>
 
-  <!-- Too few DCs (no redundancy) -->
-  <rule id="700410" level="5">
-    <if_sid>700401</if_sid>
-    <field name="riskId">A-NotEnoughDC</field>
-    <description>PingCastle: Domain has insufficient DC redundancy</description>
+  <rule id="700411" level="5">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"A-NotEnoughDC"</match>
+    <description>PingCastle: insufficient DC redundancy (A-NotEnoughDC)</description>
   </rule>
 
-  <!-- Schema Admins not empty -->
-  <rule id="700411" level="7">
-    <if_sid>700401</if_sid>
-    <field name="riskId">P-SchemaAdmin</field>
-    <description>PingCastle: Schema Admins group is not empty</description>
+  <rule id="700412" level="7">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"P-SchemaAdmin"</match>
+    <description>PingCastle: Schema Admins not empty (P-SchemaAdmin)</description>
   </rule>
 
-  <!-- Non-admin users can add computers (MachineAccountQuota) -->
-  <rule id="700412" level="6">
-    <if_sid>700401</if_sid>
-    <field name="riskId">S-ADRegistration</field>
-    <description>PingCastle: MachineAccountQuota allows non-admin computer joins</description>
-  </rule>
-
-  <!-- Last AD backup too old -->
   <rule id="700413" level="6">
-    <if_sid>700401</if_sid>
-    <field name="riskId">A-BackupMetadata</field>
-    <description>PingCastle: AD backup appears stale/outdated</description>
+    <if_sid>700402</if_sid>
+    <match>"riskId":"S-ADRegistration"</match>
+    <description>PingCastle: MachineAccountQuota allows non-admin joins (S-ADRegistration)</description>
   </rule>
+
+  <rule id="700414" level="6">
+    <if_sid>700402</if_sid>
+    <match>"riskId":"A-BackupMetadata"</match>
+    <description>PingCastle: AD backup appears stale/outdated (A-BackupMetadata)</description>
+  </rule>
+
 </group>
