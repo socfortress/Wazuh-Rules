@@ -1,7 +1,7 @@
 <#
 PingCastle XML -> active-responses.log
 - Writes single-line JSON events (one summary + one per risk rule)
-- Follows same logging pattern as Sigma/Chainsaw active-response scripts
+- SOCFortress LLC
 #>
 
 # -------- CONFIG --------
