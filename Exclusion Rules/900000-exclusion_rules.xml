@@ -881,7 +881,7 @@
     <description>Exclude .NET.</description>
   </rule>
   <rule id="900123" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\SDSDefs\\\\\d{8}\.\d{3}\\\\Eraser64\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading SDSDefs\Eraser64.dll (high-volume).</description>
@@ -889,7 +889,7 @@
 </rule>
 
 <rule id="900124" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\SDSDefs\\\\\d{8}\.\d{3}\\\\sds_engine_x64\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading SDSDefs\sds_engine_x64.dll.</description>
@@ -897,7 +897,7 @@
 </rule>
 
 <rule id="900125" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\EDRDefs\\\\\d{8}\.\d{3}\\\\EDRJob\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading EDRDefs\EDRJob.dll.</description>
@@ -905,7 +905,7 @@
 </rule>
 
 <rule id="900126" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\IPSDefs\\\\\d{8}\.\d{3}\\\\IPSEng64\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading IPSDefs\IPSEng64.dll.</description>
@@ -913,7 +913,7 @@
 </rule>
 
 <rule id="900127" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\BASHDefs\\\\\d{8}\.\d{3}\\\\bbRGen64\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading BASHDefs\bbRGen64.dll.</description>
@@ -921,7 +921,7 @@
 </rule>
 
 <rule id="900128" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading Sysfer\sysfer.dll.</description>
@@ -929,7 +929,7 @@
 </rule>
 
 <rule id="900129" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\AsrDefs\\\\\d{8}\.\d{3}\\\\(AppDiscovery|AsrLoader|AppHardening)\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading AsrDefs (AppDiscovery/AsrLoader/AppHardening).</description>
@@ -937,7 +937,7 @@
 </rule>
 
 <rule id="900130" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Bin64\\\\ccSvcHst\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Definitions\\\\PCHDefs\\\\\d{8}\.\d{3}\\\\(PchCmp|csdkPCH)\.dll$</field>
   <description>Exclude SEP: ccSvcHst.exe loading PCHDefs (PchCmp/csdkPCH).</description>
@@ -950,7 +950,7 @@
 
 <!-- Sysmon Event ID 7 — exclude events where imageLoaded == sysfer.dll AND image == listed process -->
 <rule id="900131" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\backgroundTaskHost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when backgroundTaskHost.exe loads SEP sysfer.dll.</description>
@@ -958,7 +958,7 @@
 </rule>
 
 <rule id="900132" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\dllhost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when dllhost.exe loads SEP sysfer.dll.</description>
@@ -966,7 +966,7 @@
 </rule>
 
 <rule id="900133" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\conhost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when conhost.exe loads SEP sysfer.dll.</description>
@@ -974,7 +974,7 @@
 </rule>
 
 <rule id="900134" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when svchost.exe loads SEP sysfer.dll.</description>
@@ -982,7 +982,7 @@
 </rule>
 
 <rule id="900135" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft OneDrive\\\\[^\\\\]+\\\\FileCoAuth\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when FileCoAuth.exe loads SEP sysfer.dll.</description>
@@ -990,7 +990,7 @@
 </rule>
 
 <rule id="900136" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\pacjsworker\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when pacjsworker.exe loads SEP sysfer.dll.</description>
@@ -998,7 +998,7 @@
 </rule>
 
 <rule id="900137" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\ExpressConnect\\\\ExpressConnect\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when ExpressConnect.exe loads SEP sysfer.dll.</description>
@@ -1006,7 +1006,7 @@
 </rule>
 
 <rule id="900138" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\RuntimeBroker\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when RuntimeBroker.exe loads SEP sysfer.dll.</description>
@@ -1014,7 +1014,7 @@
 </rule>
 
 <rule id="900139" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Google\\\\GoogleUpdater\\\\.*\\\\updater\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when Google Updater loads SEP sysfer.dll.</description>
@@ -1022,7 +1022,7 @@
 </rule>
 
 <rule id="900140" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\Edge\\\\Application\\\\.*\\\\msedge\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when msedge.exe loads SEP sysfer.dll.</description>
@@ -1030,7 +1030,7 @@
 </rule>
 
 <rule id="900141" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\taskhostw\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when taskhostw.exe loads SEP sysfer.dll.</description>
@@ -1038,7 +1038,7 @@
 </rule>
 
 <rule id="900142" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when WmiPrvSE.exe loads SEP sysfer.dll.</description>
@@ -1046,7 +1046,7 @@
 </rule>
 
 <rule id="900143" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\cmd\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when cmd.exe loads SEP sysfer.dll.</description>
@@ -1054,7 +1054,7 @@
 </rule>
 
 <rule id="900144" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1\.0\\\\Powershell\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when PowerShell loads SEP sysfer.dll.</description>
@@ -1062,7 +1062,7 @@
 </rule>
 
 <rule id="900145" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\cometouspro\\\\chainsaw\\\\chainsaw\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when chainsaw.exe loads SEP sysfer.dll.</description>
@@ -1166,7 +1166,7 @@
   <!--SOCFORTRESS EXCLUSION RULES 2025-12-04-->
 
 <rule id="900157" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\dllhost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when dllhost.exe loads SEP sysfer.dll.</description>
@@ -1174,7 +1174,7 @@
 </rule>
 
 <rule id="900158" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\conhost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when conhost.exe loads SEP sysfer.dll.</description>
@@ -1182,7 +1182,7 @@
 </rule>
 
 <rule id="900159" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\backgroundTaskHost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when backgroundTaskHost.exe loads SEP sysfer.dll.</description>
@@ -1190,7 +1190,7 @@
 </rule>
 
 <rule id="900160" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when svchost.exe loads SEP sysfer.dll.</description>
@@ -1198,7 +1198,7 @@
 </rule>
 
 <rule id="900161" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\pacjsworker\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when pacjsworker.exe loads SEP sysfer.dll.</description>
@@ -1206,7 +1206,7 @@
 </rule>
 
 <rule id="900162" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\RuntimeBroker\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when RuntimeBroker.exe loads SEP sysfer.dll.</description>
@@ -1214,7 +1214,7 @@
 </rule>
 
 <rule id="900163" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Microsoft OneDrive\\\\[^\\\\]+\\\\FileCoAuth\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when OneDrive FileCoAuth.exe loads SEP sysfer.dll.</description>
@@ -1222,7 +1222,7 @@
 </rule>
 
 <rule id="900164" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\ExpressConnect\\\\ExpressConnect\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when ExpressConnect.exe loads SEP sysfer.dll.</description>
@@ -1230,7 +1230,7 @@
 </rule>
 
 <rule id="900165" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\Edge\\\\Application\\\\.*\\\\msedge\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when msedge.exe loads SEP sysfer.dll.</description>
@@ -1238,7 +1238,7 @@
 </rule>
 
 <rule id="900166" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Google\\\\GoogleUpdater\\\\[\d\.]+\\\\updater\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when Google Updater loads SEP sysfer.dll.</description>
@@ -1246,7 +1246,7 @@
 </rule>
 
 <rule id="900167" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\taskhostw\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when taskhostw.exe loads SEP sysfer.dll.</description>
@@ -1254,7 +1254,7 @@
 </rule>
 
 <rule id="900168" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when WmiPrvSE.exe loads SEP sysfer.dll.</description>
@@ -1262,7 +1262,7 @@
 </rule>
 
 <rule id="900169" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\SearchProtocolHost\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when SearchProtocolHost.exe loads SEP sysfer.dll.</description>
@@ -1270,7 +1270,7 @@
 </rule>
 
 <rule id="900170" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\cmd\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when cmd.exe loads SEP sysfer.dll.</description>
@@ -1278,7 +1278,7 @@
 </rule>
 
 <rule id="900171" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x64\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when chrome.exe loads SEP sysfer.dll.</description>
@@ -1286,7 +1286,7 @@
 </rule>
 
 <rule id="900172" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\auditpol\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when auditpol.exe (SysWOW64) loads SEP x86 sysfer.dll.</description>
@@ -1294,7 +1294,7 @@
 </rule>
 
 <rule id="900173" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AGMService\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when AGMService.exe loads SEP x86 sysfer.dll.</description>
@@ -1302,7 +1302,7 @@
 </rule>
 
 <rule id="900174" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\net1\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when net1.exe loads SEP x86 sysfer.dll.</description>
@@ -1310,7 +1310,7 @@
 </rule>
 
 <rule id="900175" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\net\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when net.exe (SysWOW64) loads SEP x86 sysfer.dll.</description>
@@ -1318,7 +1318,7 @@
 </rule>
 
 <rule id="900176" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^\\\\\\\\kronos\\\\logo\$\\\\Heritage\.scr$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when UNC launcher \\kronos\logo$\\Heritage.scr loads SEP x86 sysfer.dll.</description>
@@ -1326,7 +1326,7 @@
 </rule>
 
 <rule id="900177" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Microsoft\\\\EdgeUpdate\\\\MicrosoftEdgeUpdate\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when MicrosoftEdgeUpdate.exe loads SEP x86 sysfer.dll.</description>
@@ -1334,7 +1334,7 @@
 </rule>
 
 <rule id="900178" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when SysWOW64 PowerShell loads SEP x86 sysfer.dll.</description>
@@ -1342,7 +1342,7 @@
 </rule>
 
 <rule id="900179" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AGSService\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when AGSService.exe loads SEP x86 sysfer.dll.</description>
@@ -1350,7 +1350,7 @@
 </rule>
 
 <rule id="900180" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework\\\\v4\.0\.30319\\\\mscorsvw\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when mscorsvw.exe (NGen service) loads SEP x86 sysfer.dll.</description>
@@ -1358,7 +1358,7 @@
 </rule>
 
 <rule id="900181" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Adobe\\\\Acrobat 2017\\\\Acrobat\\\\AcroCEF\\\\AcroCEF\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when AcroCEF.exe loads SEP x86 sysfer.dll.</description>
@@ -1366,7 +1366,7 @@
 </rule>
 
 <rule id="900182" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\ARM\\\\1\.0\\\\AdobeARM\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when AdobeARM.exe loads SEP x86 sysfer.dll.</description>
@@ -1374,7 +1374,7 @@
 </rule>
 
 <rule id="900183" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Adobe\\\\Acrobat 2017\\\\Acrobat\\\\Acrobat\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when Acrobat.exe loads SEP x86 sysfer.dll.</description>
@@ -1382,7 +1382,7 @@
 </rule>
 
 <rule id="900184" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\Microsoft\.NET\\\\Framework\\\\v4\.0\.30319\\\\ngen\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when ngen.exe loads SEP x86 sysfer.dll.</description>
@@ -1390,7 +1390,7 @@
 </rule>
 
 <rule id="900185" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\AdobeGCClient\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when AdobeGCClient.exe loads SEP x86 sysfer.dll.</description>
@@ -1398,7 +1398,7 @@
 </rule>
 
 <rule id="900186" level="1">
-  <if_group>sysmon_event_7</if_group>
+  <if_group>sysmon_event7</if_group>
   <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Program Files \(x86\)\\\\Common Files\\\\Adobe\\\\AdobeGCClient\\\\Adobe Genuine Launcher\.exe$</field>
   <field name="win.eventdata.imageLoaded" type="pcre2">(?i)^C:\\\\ProgramData\\\\Symantec\\\\Symantec Endpoint Protection\\\\[\d\.]+\\\\Data\\\\Sysfer\\\\x86\\\\sysfer\.dll$</field>
   <description>Exclude EventID 7 when Adobe Genuine Launcher.exe loads SEP x86 sysfer.dll.</description>
