@@ -519,9 +519,9 @@
 
   <rule id="101344" level="10">
     <if_sid>91802</if_sid>
-    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\$doit</field>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)\x24doit</field>
     <options>no_full_log</options>
-    <description>Powershell script: $doit variable detected (exploit scripts)</description>
+    <description>Powershell script: 'doit' variable detected (exploit scripts)</description>
     <mitre><id>T1059.001</id></mitre>
   </rule>
 
