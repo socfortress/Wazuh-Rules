@@ -151,13 +151,8 @@
     <description>Exclude Socfortress</description>
     <options>no_full_log</options>
  </rule>
- <rule id="900025" level="1">
-    <if_group>sysmon_event_11</if_group>
-    <field name="win.eventdata.image">^C:\\\\Windows\\\\SysWOW64\\\WindowsPowerShell\\\\v1.0\\\\Powershell.exe$</field>    
-    <field name="win.eventdata.targetFilename">^C:\\\\Windows\\\\Temp\\\\__PSScriptPolicyTest</field> 
-    <description>Exclude Socfortress</description>
-    <options>no_full_log</options>
- </rule>
+ <!-- 900025 removed: it never matched (level 1 loses to the level-6 siblings 92200/92203, and its image regex had a
+      \\\W typo). Superseded by 200650 in Windows_Sysmon/sysmon_sensor_health_rules.xml. -->
   <rule id="900026" level="1">
     <if_sid>100541</if_sid>
     <field name="win.eventdata.scriptBlockText">^\$global:?$</field>
