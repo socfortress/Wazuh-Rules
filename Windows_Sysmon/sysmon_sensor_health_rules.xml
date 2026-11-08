@@ -1,0 +1,432 @@
+<!--
+  Sysmon sensor health rules (Phase 0).
+  SOCFortress, Windows EDR (Wazuh agent 4.14.x + Sysmon).
+
+  ID block: 200600 - 200699 (this file uses 200600 - 200666).
+  Checked free on 2026-11-07 against the stock Wazuh 4.14.7 ruleset, the public socfortress/Wazuh-Rules
+  repository, and all 71 files in the lab manager's etc/rules. See wazuh/README.md.
+
+  What this file alerts on (each of these was silent, or only a generic level 5, before):
+    200600-200601  Sysmon service crashed / stopped (System channel, Service Control Manager)
+    200610-200612  Sysmon EID 255 errors: fatal error, driver-queue drops
+    200620-200621  Sysmon EID 16 (config changed) and EID 4 (service state "Stopped")
+    200630-200636  sysmon_watchdog.ps1 wodle output (JSON)
+    200640-200641  sysmon_config_reload.ps1 result lines (JSON, children of SOCFortress 200070)
+    200650         PowerShell's __PSScriptPolicyTest probe file (EID 11): level 0, so it no longer alerts
+    200651         a process command line referencing such a probe file (EID 1): level 12 (compensates 200650)
+    200660-200664  watchdog statuses start_pending, heartbeat, recovered, suppressed; recovery-config failure
+    200666         watchdog alive while a failure is suppressed (heartbeat_due)
+    200665         the watchdog's own two sc.exe calls (EID 1), re-labelled from level 13 to level 3
+
+  Precedence. analysisd keeps the children of a rule in this order, and the first child that matches wins:
+  LEVEL-0 rules first (they get internal priority 99 at load time), then every other rule by level, highest
+  first. Load order only breaks ties (src/analysisd/rules.c sets level 0 to 99 and multiplies levels by 100;
+  rules_list.c _OS_AddRule inserts sorted). This file loads after the stock ruleset and after the numbered
+  SOCFortress files, so:
+    * A stock level-0 grouper always beats a sibling from this file. That is why 200620 (EID 16) is also a
+      child of stock 61644, and 200621 (EID 4) is a child of stock 61606, not of 61600.
+    * 200600 (12) is evaluated before stock 61107 (5, "$(param1) terminated unexpectedly", 7031) and 61110
+      (10, "Multiple System error events"). 61102 has no level-0 children, so one rule under 61102 covers
+      both 7031 and 7034.
+    * 200610 (12) is evaluated before stock 61643 (10, "Multiple Sysmon error events"), so the frequency
+      rule can never hide a fatal Sysmon error.
+    * 200611 (10) ties with 61643 (10) and 61643 loaded first. On the one event where 61643's threshold is
+      reached (8 Sysmon errors in 240 s, counted across ALL agents), 61643 wins. 200611 fires on the next
+      drop event.
+  if_matched_sid bookkeeping records only the FINAL rule of an event, so EID 255 events that end in one of
+  our rules stop feeding 61643's counter. The queue-drop rules therefore use ignore="3600". Inside the
+  window, analysisd re-attributes the event to the parent 61602 (level 5, as before this file existed), and
+  that keeps 61643 counting. The result is one specific alert per rule per hour, with stock 61602/61643
+  behaviour unchanged for every other event.
+-->
+
+<group name="windows,sysmon,sysmon_health,">
+
+  <!-- ===================================================================================
+       1. Sysmon service crashed or stopped (System channel).
+       Tree: 60000 -> 60002 (System) -> 61102 (ERROR) for 7031/7034
+                                     -> 61100 (INFORMATION) for 7036.
+       param1 is the service display name: Sysmon64 (also on ARM64: the installer installs Sysmon64a.exe
+       as Sysmon64.exe), Sysmon, or Sysmon64a (a manual ARM64 install).
+       =================================================================================== -->
+
+  <rule id="200600" level="12">
+    <if_sid>61102</if_sid>
+    <field name="win.system.providerName">^Service Control Manager$</field>
+    <field name="win.system.eventID">^7031$|^7034$</field>
+    <field name="win.eventdata.param1">^Sysmon</field>
+    <description>Sysmon service $(win.eventdata.param1) terminated unexpectedly (System event $(win.system.eventID), crash count $(win.eventdata.param2)). Endpoint telemetry is blind until it restarts.</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_service_crash,</group>
+  </rule>
+
+  <!-- 7036 param2 is the localized state name. This matches English Windows only; on other
+       languages the watchdog (200632/200633) and Sysmon EID 4 (200621) still cover a stop.
+       61100's only level-0 child is stock 61113 (providerName ^Browser$), which cannot match. -->
+
+  <rule id="200601" level="10">
+    <if_sid>61100</if_sid>
+    <field name="win.system.providerName">^Service Control Manager$</field>
+    <field name="win.system.eventID">^7036$</field>
+    <field name="win.eventdata.param1">^Sysmon</field>
+    <field name="win.eventdata.param2">^stopped$</field>
+    <description>Sysmon service $(win.eventdata.param1) entered the stopped state</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_service_stopped,</group>
+  </rule>
+
+  <!-- ===================================================================================
+       2. Sysmon EID 255 (Error report: ID + Description).
+       EID 255 is logged at ERROR severity, so it routes 60004 -> 61602, NOT to stock 61655
+       (61655 is a child of the INFORMATION grouper 61600 and is unreachable for these events).
+       =================================================================================== -->
+
+  <!-- Fatal: the sensor process is exiting (e.g. iD QueryThread, "Failed to allocate 40000 bytes.
+       Exit process"). No ignore: these are rare and each one means a crash. -->
+  <rule id="200610" level="12">
+    <if_sid>61602</if_sid>
+    <field name="win.system.eventID">^255$</field>
+    <field name="win.eventdata.description">Exit process|Failed to allocate</field>
+    <description>Sysmon fatal error ($(win.eventdata.iD)): $(win.eventdata.description)</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_error,sysmon_fatal_error,</group>
+  </rule>
+
+  <!-- Driver-queue drops that lose process creation or process access telemetry.
+       ignore="3600": Wazuh has no per-agent, time-based suppression. The ignore attribute is ONE
+       timer per rule, shared by all agents. Inside the window the event is reported as the parent
+       61602 (level 5) rather than dropped. See wazuh/README.md "Rate limiting". -->
+  <rule id="200611" level="10" ignore="3600">
+    <if_sid>61602</if_sid>
+    <field name="win.system.eventID">^255$</field>
+    <field name="win.eventdata.iD">^QUEUE$</field>
+    <field name="win.eventdata.description">ProcessCreate|ProcessAccess</field>
+    <description>Sysmon lost process telemetry (driver queue full). $(win.eventdata.description)</description>
+    <options>no_full_log</options>
+    <group>sysmon_error,sysmon_queue_drop,</group>
+  </rule>
+
+  <!-- All other driver-queue drops (ImageLoad, RegistryEvent, FileCreate, ...). A sibling of 200611
+       (evaluated after it, lower level), not a child, so that inside 200611's ignore window the event
+       falls back to 61602 rather than to this rule. -->
+  <rule id="200612" level="7" ignore="3600">
+    <if_sid>61602</if_sid>
+    <field name="win.system.eventID">^255$</field>
+    <field name="win.eventdata.iD">^QUEUE$</field>
+    <description>Sysmon lost events (driver queue full). $(win.eventdata.description)</description>
+    <options>no_full_log</options>
+    <group>sysmon_error,sysmon_queue_drop,</group>
+  </rule>
+
+  <!-- ===================================================================================
+       3. Sysmon EID 16 (config changed) and EID 4 (service state changed).
+
+       EID 16: the stock grouper is 61644 (child of 61600, level 0, eventID ^16$). Level-0 children are
+       evaluated before every non-zero sibling, so on a stock manager 61644 claims EID 16 and a level-3
+       sibling under 61600 is never reached (verified: with stock 61644, even a level-12 sibling loses).
+       SOCFortress 109100-win_sysmon_new_events.xml overwrites 61644 to match EID 22 at level 3. The
+       overwrite edits 61644 in place, so it keeps its early slot. On SOCFortress managers EID 16 therefore
+       has no grouper and would stop at 61600 (level 0, no alert).
+       200620 has BOTH parents, so it fires in both cases:
+         - stock 61644 (EID 16): 61644 claims the event, and 200620 matches as its child.
+         - SOCFortress 61644 (EID 22): 61644 does not match. 200620 is reached as a child of 61600 (the
+           other level-0 groupers match other EIDs). As a child of the EID 22 version of 61644 it can never
+           match (^16$ vs ^22$), so that parent is harmless there.
+       Level 3: the daily sysmon_config_reload produces one of these per endpoint per day, so this
+       records which config each endpoint loaded. It does not page anyone.
+
+       EID 4: stock 61606 (child of 61600, eventID ^4$, level 0) is not overwritten by SOCFortress and
+       claims every EID 4 first, so 200621 is its child. "Started" stays at 61606 (level 0).
+       =================================================================================== -->
+
+  <rule id="200620" level="3">
+    <if_sid>61600, 61644</if_sid>
+    <field name="win.system.eventID">^16$</field>
+    <description>Sysmon configuration changed: $(win.eventdata.configuration) (hash $(win.eventdata.configurationFileHash))</description>
+    <options>no_full_log</options>
+    <group>sysmon_event_16,sysmon_config_change,</group>
+  </rule>
+
+  <rule id="200621" level="10">
+    <if_sid>61606</if_sid>
+    <field name="win.eventdata.state">^Stopped$</field>
+    <description>Sysmon service state changed to Stopped (Sysmon $(win.eventdata.version))</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+    <group>sysmon_event4,sysmon_service_stopped,</group>
+  </rule>
+
+</group>
+
+<!-- =======================================================================================
+     4. Sysmon watchdog (wazuh/shared/sysmon_watchdog.ps1, wodle "command" tag sysmon-watchdog,
+     location "command_sysmon-watchdog"). One JSON line per run:
+       {"sysmon_watchdog":{"status":"...","service":...,"detail":...}}
+     The built-in "json" decoder flattens nested keys, so the fields are sysmon_watchdog.<key>.
+     The parent catches any status. A status value with no child below alerts at level 3
+     instead of disappearing.
+     ======================================================================================= -->
+
+<group name="windows,sysmon,sysmon_health,sysmon_watchdog,">
+
+  <rule id="200630" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="sysmon_watchdog.status">\.+</field>
+    <description>Sysmon watchdog: status $(sysmon_watchdog.status)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200631" level="0">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^ok$</field>
+    <description>Sysmon watchdog: $(sysmon_watchdog.service) running and logging</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200632" level="12">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^restarted$</field>
+    <description>Sysmon watchdog restarted $(sysmon_watchdog.service): it was $(sysmon_watchdog.prev_state), now $(sysmon_watchdog.state). Telemetry was missing while it was down.</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200633" level="13">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^restart_failed$</field>
+    <description>Sysmon watchdog could not restart $(sysmon_watchdog.service) (state $(sysmon_watchdog.state)): $(sysmon_watchdog.detail)</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200634" level="12">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^missing$</field>
+    <description>Sysmon watchdog: Sysmon is not installed. $(sysmon_watchdog.detail)</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200635" level="7">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^stale$</field>
+    <description>Sysmon watchdog: $(sysmon_watchdog.service) is running but not logging. $(sysmon_watchdog.detail)</description>
+    <mitre>
+      <id>T1562.002</id>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200636" level="5">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^unknown_error$</field>
+    <description>Sysmon watchdog failed to complete its checks: $(sysmon_watchdog.detail)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- Statuses added with the 15-minute watchdog, which keeps de-duplication state per endpoint in the
+       registry. A failing status is reported once and then every 6 h; the runs in between report
+       "suppressed". The first healthy run after a failure reports "recovered", and a healthy endpoint
+       reports "heartbeat" about once an hour. Fields can be JSON null. -->
+
+  <rule id="200660" level="10">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^start_pending$</field>
+    <description>Sysmon watchdog: $(sysmon_watchdog.service) is stuck starting. $(sysmon_watchdog.detail)</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- Stored (level 3) so a downstream check can alert on "agent active, no watchdog heartbeat for 2 h",
+       which catches a watchdog that has been disabled, deleted or tampered with. -->
+  <rule id="200661" level="3">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^heartbeat$</field>
+    <description>Sysmon watchdog heartbeat: $(sysmon_watchdog.service) $(sysmon_watchdog.state), Sysmon $(sysmon_watchdog.version), SCM recovery $(sysmon_watchdog.recovery)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200662" level="3">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^recovered$</field>
+    <description>Sysmon watchdog: $(sysmon_watchdog.service) healthy again. $(sysmon_watchdog.detail)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- A repeat of an already-reported failure inside the watchdog's 6 h window. Not stored. -->
+  <rule id="200663" level="0">
+    <if_sid>200630</if_sid>
+    <field name="sysmon_watchdog.status">^suppressed$</field>
+    <description>Sysmon watchdog: repeat of $(sysmon_watchdog.suppressed_status) (suppressed by the endpoint)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- About once an hour, a suppressed run carries heartbeat_due=true. Storing it (level 3) keeps an
+       endpoint in a lasting failure visible as "watchdog alive", so the downstream "no stored watchdog
+       event in 2 h" check does not misfire on it. The json decoder renders JSON booleans as the strings
+       "true" / "false". -->
+  <rule id="200666" level="3">
+    <if_sid>200663</if_sid>
+    <field name="sysmon_watchdog.heartbeat_due">^true$</field>
+    <description>Sysmon watchdog alive; Sysmon still $(sysmon_watchdog.suppressed_status): $(sysmon_watchdog.detail)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- The watchdog could not configure SCM restart-on-failure ("sc failure"/"failureflag"). It tries at
+       most once a day per endpoint, so this fires at most daily. Only on healthy runs (ok, heartbeat,
+       recovered): on a failing run, the failure itself is the alert. A child of the level-0 "ok" rule too:
+       a level-0 parent still evaluates its children, and a matching child becomes the final rule. -->
+  <rule id="200664" level="10">
+    <if_sid>200631, 200661, 200662</if_sid>
+    <field name="sysmon_watchdog.recovery">^failed</field>
+    <description>Sysmon watchdog could not configure SCM restart-on-failure for $(sysmon_watchdog.service): $(sysmon_watchdog.recovery)</description>
+    <options>no_full_log</options>
+  </rule>
+
+</group>
+
+<!-- =======================================================================================
+     5. Sysmon config reload result (client-installer/source/Files/sysmon_config_reload.ps1).
+     Lines in active-responses.log:
+       {"group":"SysmonConfigReload","step":"...","status":"completed|warning|error","details":"...",...}
+
+     SOCFortress 200070 (200070-sysmon_reload.xml, level 3, top level) matches field group
+     ^SysmonConfigReload for EVERY line, whatever the status. These rules are its children, so 200070 is
+     not shadowed: completed lines still end at 200070, and only warning/error lines move to a child.
+     600002 (600000-active_response.xml, level 3, decoded_as json, same group match) is listed as a second
+     parent in case it is the one that wins on some manager. On the lab manager, 200070 wins the
+     equal-level tie because it loads first. A parent that does not exist only logs a warning
+     (7617) at manager start.
+
+     "status" is one of Wazuh's static fields: the JSON decoder stores a top-level "status" key in the
+     static status field, not as a dynamic field, so a rule must use <status>.
+     <field name="status"> never matches.
+     ======================================================================================= -->
+
+<group name="windows,sysmon,sysmon_health,sysmon_config_reload,">
+
+  <rule id="200640" level="10">
+    <if_sid>200070, 600002</if_sid>
+    <status>^error$</status>
+    <description>Sysmon config reload failed at step '$(step)': $(details)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="200641" level="7">
+    <if_sid>200070, 600002</if_sid>
+    <status>^warning$</status>
+    <description>Sysmon config reload warning at step '$(step)': $(details)</description>
+    <options>no_full_log</options>
+  </rule>
+
+</group>
+
+<!-- =======================================================================================
+     6. Noise created by the watchdog itself. Both rules are tightly scoped, so the same activity done by
+     anyone else still alerts. Escaping: win.eventdata.* values are JSON-escaped in the event, so a
+     path separator is two backslash characters (pcre2 \\\\) and a quote is backslash-quote (pcre2 \\").
+     ======================================================================================= -->
+
+<group name="windows,sysmon,sysmon_health,sysmon_noise_filter,">
+
+  <!-- Every PowerShell start writes, then deletes, an execution-policy probe file
+       __PSScriptPolicyTest_<8>.<3>.ps1 (or .psm1) in its temp folder: C:\Windows\SystemTemp for SYSTEM on
+       current builds, C:\Windows\Temp on older ones, AppData\Local\Temp for users. Sysmon logs it as
+       EID 11, and stock 92205 / 92201 (level 9) or SOCFortress 900030 (level 8) alerted on it. The lab had
+       7,509 x 92205 for these files. Level 0 rules are evaluated before every non-zero sibling, so this
+       if_group rule wins against 92200/92203/92204/92207/92213. (Lab exclusion 900025 does not work: it is
+       level 1, so it loses, its image regex has a typo ("\\\W") and never matches, and it covers
+       Windows\Temp only.)
+       Only matches when ALL of these hold:
+         * the image is the in-box Windows PowerShell (System32 or SysWOW64);
+         * the file sits directly in one of the three temp folders. Under a user's Temp, an RDS/AVD
+           per-session folder (1-4 digits, e.g. Temp\2\) is allowed;
+         * the name is exactly PowerShell's pattern: case-sensitive prefix, then the 8.3 suffix from
+           Path.GetRandomFileName(), whose alphabet is a-z and 0-5, then .ps1/.psm1.
+       Residual risk: a script that PowerShell itself writes into one of those folders under exactly that
+       name IS suppressed here. 200651 compensates (a process command line that references such a file),
+       together with PowerShell script-block logging (4104). Only name, folder and image variants still
+       alert at file-create time. -->
+  <rule id="200650" level="0">
+    <if_group>sysmon_event_11</if_group>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\(System32|SysWOW64)\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$</field>
+    <field name="win.eventdata.targetFilename" type="pcre2">(?i)^C:\\\\(Windows\\\\(Temp|SystemTemp)|Users\\\\[^\\]+\\\\AppData\\\\Local\\\\Temp(\\\\[0-9]{1,4})?)\\\\(?-i)__PSScriptPolicyTest_[a-z0-5]{8}\.[a-z0-5]{3}\.psm?1$</field>
+    <description>PowerShell execution-policy probe file (benign): $(win.eventdata.targetFilename)</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- The watchdog applies SCM restart-on-failure once per endpoint with two sc.exe calls. Sysmon logs
+       both as EID 1, and SOCFortress 100100/100128 (level 13) alerted on them: about 2,000 high alerts for
+       a 1,000-endpoint rollout. if_group (substring match, "|" = or) makes this a child of 61603, of the
+       SOCFortress 100100 catch-all and every RuleName rule (group sysmon_event1), and of the stock EID 1
+       detections (group sysmon_eid1_detections; on a stock manager, 92066 "binary in a suspicious location
+       launched by powershell", level 4, claims the SysWOW64 sc.exe first). So it re-labels the event
+       whichever of them claims it.
+       Only matches when ALL of these hold:
+         * the image is in-box sc.exe;
+         * the command line is exactly one of the watchdog's two calls ("sc failure <svc> reset= 86400
+           actions= restart/60000/restart/60000/restart/300000" or "sc failureflag <svc> 1"; svc =
+           Sysmon, Sysmon64 or Sysmon64a);
+         * the parent is in-box PowerShell, and its command line ends in ossec-agent\shared\sysmon_watchdog.ps1";
+         * the user is NT AUTHORITY\SYSTEM (English name; on a localized OS the event keeps its original
+           level 13).
+       Any other sc.exe use, e.g. removing the recovery actions, still alerts at level 13. -->
+  <rule id="200665" level="3">
+    <if_group>sysmon_event1|sysmon_eid1_detections</if_group>
+    <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\(System32|SysWOW64)\\\\sc\.exe$</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)^\\"C:\\\\Windows\\\\System32\\\\sc\.exe\\" (failure Sysmon(64a?)? reset= 86400 actions= restart/60000/restart/60000/restart/300000|failureflag Sysmon(64a?)? 1)$</field>
+    <field name="win.eventdata.parentImage" type="pcre2">(?i)^C:\\\\Windows\\\\(System32|SysWOW64)\\\\WindowsPowerShell\\\\v1\.0\\\\powershell\.exe$</field>
+    <field name="win.eventdata.parentCommandLine" type="pcre2">(?i)\\\\ossec-agent\\\\shared\\\\sysmon_watchdog\.ps1\\"$</field>
+    <field name="win.eventdata.user" type="pcre2">^NT AUTHORITY\\\\SYSTEM$</field>
+    <description>Sysmon watchdog applied SCM restart-on-failure to Sysmon on $(win.system.computer): $(win.eventdata.commandLine)</description>
+    <options>no_full_log</options>
+    <group>sysmon_watchdog,</group>
+  </rule>
+
+</group>
+
+<!-- =======================================================================================
+     7. Masquerading as the PowerShell probe file (compensating detection for 200650).
+     ======================================================================================= -->
+
+<group name="windows,sysmon,sysmon_health,sysmon_masquerade,">
+
+  <!-- Compensates for 200650. PowerShell only writes and deletes its probe file; it never runs it, and no
+       process command line ever names it. A command line that references __PSScriptPolicyTest_ therefore
+       means someone is running a payload hidden under the probe name.
+       Same hook as 200665 (if_group sysmon_event1|sysmon_eid1_detections). On SOCFortress managers that
+       makes it a child of the 100100 catch-all and every RuleName rule. On stock managers it is a child of
+       the stock EID 1 detections, including level-0 92028 "Powershell executed script", which would
+       otherwise silence "powershell -File ...ps1". Whichever rule claims the event, this one re-labels it.
+       Level 12 sits just below the 100100 catch-all (13). -->
+  <rule id="200651" level="12">
+    <if_group>sysmon_event1|sysmon_eid1_detections</if_group>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)__PSScriptPolicyTest_</field>
+    <description>Process command line references a PowerShell probe-file name (possible payload hidden as __PSScriptPolicyTest_): $(win.eventdata.commandLine)</description>
+    <mitre>
+      <id>T1036.005</id>
+      <id>T1059.001</id>
+    </mitre>
+    <options>no_full_log</options>
+  </rule>
+
+</group>
