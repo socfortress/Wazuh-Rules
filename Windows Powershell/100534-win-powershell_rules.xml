@@ -83,7 +83,7 @@
     </mitre>
   </rule>
   <rule id="100550" level="3">
-    <if_sid>100535</if_sid>
+    <if_sid>100534</if_sid>
     <field name="win.system.eventID">^400$</field>
     <mitre>
       <id>T1086</id>
