@@ -451,4 +451,20 @@
   <group>sysmon_event_14,</group>
 </rule>
 
+<!-- T1562.006: ETW autologger tampering (HKLM\System\CurrentControlSet\Control\WMI\Autologger, read at boot).
+     The SOCFortress Sysmon config names these registry events "technique_id=T1562.006,technique_name=ETW Autologger Tampering":
+     a session's Start value (any data, or deleted) on the EventLog-*, Defender* and Sense* sessions, and a provider's
+     Enabled = 0 and any deleted or renamed key or value under the EventLog-* and Defender* sessions.
+     Rules 111149-111150, 112169-112170 and 113142 key on that exact RuleName. -->
+<rule id="113142" level="12">
+  <if_sid>61616</if_sid>
+  <field name="win.eventdata.ruleName">^technique_id=T1562.006,technique_name=ETW Autologger Tampering$</field>
+  <description>ETW autologger tampering: $(win.eventdata.targetObject) renamed to $(win.eventdata.newName) by $(win.eventdata.image)</description>
+  <mitre>
+    <id>T1562.006</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>sysmon_event_14,etw_autologger_tampering,</group>
+</rule>
+
 </group>

@@ -718,4 +718,29 @@
   <group>sysmon_event_13,</group>
 </rule>
 
+<!-- T1562.006: ETW autologger tampering (HKLM\System\CurrentControlSet\Control\WMI\Autologger, read at boot).
+     The SOCFortress Sysmon config names these registry events "technique_id=T1562.006,technique_name=ETW Autologger Tampering":
+     a session's Start value (any data, or deleted) on the EventLog-*, Defender* and Sense* sessions, and a provider's
+     Enabled = 0 and any deleted or renamed key or value under the EventLog-* and Defender* sessions.
+     Rules 111149-111150, 112169-112170 and 113142 key on that exact RuleName. -->
+<rule id="112169" level="12">
+  <if_sid>61615</if_sid>
+  <field name="win.eventdata.ruleName">^technique_id=T1562.006,technique_name=ETW Autologger Tampering$</field>
+  <description>ETW autologger tampering: $(win.eventdata.targetObject) set to $(win.eventdata.details) by $(win.eventdata.image)</description>
+  <mitre>
+    <id>T1562.006</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>sysmon_event_13,etw_autologger_tampering,</group>
+</rule>
+
+<!-- A session's Start = 1 (re-enabled; svchost writing it is dropped by the Sysmon config) is informational. Any other data stays at 112169. -->
+<rule id="112170" level="3">
+  <if_sid>112169</if_sid>
+  <field name="win.eventdata.details" type="pcre2">^DWORD \(0x00000001\)$</field>
+  <description>ETW autologger session enabled: $(win.eventdata.targetObject) set to $(win.eventdata.details) by $(win.eventdata.image)</description>
+  <options>no_full_log</options>
+  <group>sysmon_event_13,etw_autologger_tampering,</group>
+</rule>
+
 </group>
