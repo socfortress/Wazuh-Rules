@@ -718,4 +718,57 @@
   <group>sysmon_event_13,</group>
 </rule>
 
+<!-- T1562.006: ETW autologger tampering (HKLM\System\CurrentControlSet\Control\WMI\Autologger, read at boot).
+     The SOCFortress Sysmon config names these registry events "technique_id=T1562.006,technique_name=ETW Autologger Tampering",
+     on the EventLog-*, DefenderApiLogger*, DefenderAuditLogger*, SenseAuditLogger* and SenseEventLog* sessions only:
+     a session's Start value (any data, or deleted), a provider's Enabled = 0 or deleted Enabled value, and a deleted
+     or renamed session key. Deleted or renamed provider {GUID} keys and other provider values are not named: event-manifest
+     install and uninstall change those routinely.
+     Level 12, like the other "sensor blinded" rules (Sysmon sensor health 200600/200610). The level-3 children cover
+     the known benign writers: Defender's MsMpEng.exe (its own sessions and event-manifest registration during
+     platform updates), and in-box wevtutil.exe ONLY for a provider's Enabled value (event-manifest install and
+     uninstall, which Defender platform updates run through wevtutil). A session-level change by wevtutil (Start,
+     a deleted or renamed session) stays at 12: no manifest operation does that, and disabling a log with wevtutil
+     is also caught at process creation (101114/101115, T1562.002). Any other path, including a copy of either
+     binary elsewhere, stays at 12.
+     Rules 111149-111152, 112169-112172 and 113142-113143 key on that exact RuleName. -->
+<rule id="112169" level="12">
+  <if_sid>61615</if_sid>
+  <field name="win.eventdata.ruleName">^technique_id=T1562.006,technique_name=ETW Autologger Tampering$</field>
+  <description>ETW autologger tampering: $(win.eventdata.targetObject) set to $(win.eventdata.details) by $(win.eventdata.image)</description>
+  <mitre>
+    <id>T1562.006</id>
+  </mitre>
+  <options>no_full_log</options>
+  <group>sysmon_event_13,etw_autologger_tampering,</group>
+</rule>
+
+<!-- A session's Start = 1 (re-enabled; svchost writing it is dropped by the Sysmon config) is informational. Any other data stays at 112169. -->
+<rule id="112170" level="3">
+  <if_sid>112169</if_sid>
+  <field name="win.eventdata.details" type="pcre2">^DWORD \(0x00000001\)$</field>
+  <description>ETW autologger session enabled: $(win.eventdata.targetObject) set to $(win.eventdata.details) by $(win.eventdata.image)</description>
+  <options>no_full_log</options>
+  <group>sysmon_event_13,etw_autologger_tampering,</group>
+</rule>
+
+<!-- Written by Defender's MsMpEng.exe (its own sessions, event-manifest registration during platform updates): informational. -->
+<rule id="112171" level="3">
+  <if_sid>112169</if_sid>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\(ProgramData\\\\Microsoft\\\\Windows Defender\\\\Platform\\\\[0-9][0-9.-]*\\\\MsMpEng\.exe|Program Files\\\\Windows Defender\\\\MsMpEng\.exe)$</field>
+  <description>ETW autologger change by Defender servicing: $(win.eventdata.targetObject) set to $(win.eventdata.details) by $(win.eventdata.image)</description>
+  <options>no_full_log</options>
+  <group>sysmon_event_13,etw_autologger_tampering,</group>
+</rule>
+
+<!-- A provider's Enabled value written or deleted by in-box wevtutil.exe: event-manifest install/uninstall (Defender platform updates run it): informational.
+     Session-level changes by wevtutil (Start, a deleted or renamed session) are not matched here and stay at 112169. -->
+<rule id="112172" level="3">
+  <if_sid>112169</if_sid>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\Windows\\\\(System32|SysWOW64)\\\\wevtutil\.exe$</field>
+  <field name="win.eventdata.targetObject" type="pcre2">(?i)\\\\\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}\\\\Enabled$</field>
+  <description>ETW autologger provider change by event-manifest registration (wevtutil): $(win.eventdata.targetObject) set to $(win.eventdata.details) by $(win.eventdata.image)</description>
+  <options>no_full_log</options>
+  <group>sysmon_event_13,etw_autologger_tampering,</group>
+</rule>
 </group>
