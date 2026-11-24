@@ -530,10 +530,16 @@
 </rule>
 
 <!-- T1562.006: ETW autologger tampering (HKLM\System\CurrentControlSet\Control\WMI\Autologger, read at boot).
-     The SOCFortress Sysmon config names these registry events "technique_id=T1562.006,technique_name=ETW Autologger Tampering":
-     a session's Start value (any data, or deleted) on the EventLog-*, Defender* and Sense* sessions, and a provider's
-     Enabled = 0 and any deleted or renamed key or value under the EventLog-* and Defender* sessions.
-     Rules 111149-111150, 112169-112170 and 113142 key on that exact RuleName. -->
+     The SOCFortress Sysmon config names these registry events "technique_id=T1562.006,technique_name=ETW Autologger Tampering",
+     on the EventLog-*, DefenderApiLogger*, DefenderAuditLogger*, SenseAuditLogger* and SenseEventLog* sessions only:
+     a session's Start value (any data, or deleted), a provider's Enabled = 0 or deleted Enabled value, and a deleted
+     or renamed session key. Deleted or renamed provider {GUID} keys and other provider values are not named: event-manifest
+     install and uninstall change those routinely.
+     Level 12, like the other "sensor blinded" rules (Sysmon sensor health 200600/200610). The level-3 children cover
+     the known benign writers: in-box wevtutil.exe and Defender's MsMpEng.exe (event-manifest registration, which
+     Defender platform updates run). Their process launches stay visible in Sysmon Event 1. Any other path,
+     including a copy of either binary elsewhere, stays at 12.
+     Rules 111149-111151, 112169-112171 and 113142-113143 key on that exact RuleName. -->
 <rule id="111149" level="12">
   <if_sid>61614</if_sid>
   <field name="win.eventdata.ruleName">^technique_id=T1562.006,technique_name=ETW Autologger Tampering$</field>
@@ -550,6 +556,15 @@
   <if_sid>111149</if_sid>
   <field name="win.eventdata.eventType" type="pcre2">^CreateKey$</field>
   <description>ETW autologger key created: $(win.eventdata.targetObject) by $(win.eventdata.image)</description>
+  <options>no_full_log</options>
+  <group>sysmon_event_12,etw_autologger_tampering,</group>
+</rule>
+
+<!-- Written by in-box wevtutil.exe or Defender's MsMpEng.exe (event-manifest registration, Defender platform updates): informational. -->
+<rule id="111151" level="3">
+  <if_sid>111149</if_sid>
+  <field name="win.eventdata.image" type="pcre2">(?i)^C:\\\\(Windows\\\\(System32|SysWOW64)\\\\wevtutil\.exe|ProgramData\\\\Microsoft\\\\Windows Defender\\\\Platform\\\\[0-9][0-9.-]*\\\\MsMpEng\.exe|Program Files\\\\Windows Defender\\\\MsMpEng\.exe)$</field>
+  <description>ETW autologger change by Windows or Defender servicing: $(win.eventdata.eventType) on $(win.eventdata.targetObject) by $(win.eventdata.image)</description>
   <options>no_full_log</options>
   <group>sysmon_event_12,etw_autologger_tampering,</group>
 </rule>
