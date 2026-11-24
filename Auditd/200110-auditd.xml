@@ -709,7 +709,7 @@
   <!-- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_user_discovery.yml -->
   <rule id="200186" level="12">
   <if_sid>200111</if_sid>
-  <field name="audit.execve.a0">users|w|who</field>
+  <field name="audit.execve.a0">^users$|^w$|^who$|^whoami$|/users$|/w$|/who$|/whoami$</field>
   <description>Adversaries may use the information from System Owner/User Discovery during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.</description>
   <mitre>
     <id>T1033</id>
