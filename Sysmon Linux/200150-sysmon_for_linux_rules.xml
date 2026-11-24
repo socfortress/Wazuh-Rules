@@ -131,11 +131,19 @@
     </rule>
 
 <!-- Frequency rule to capture 2 sysmon event 3 alerts within of the same destination ip within 5 seconds -->
-<rule frequency="2" id="200203" level="1" timeframe="60">
+	<rule frequency="2" id="200203" level="1" timeframe="60">
 		<if_matched_sid>200152</if_matched_sid>
 		<same_field>eventdata.DestinationIp</same_field>
 		<description>Multiple Sysmon Level 3 alerts for same destination IP.</description>
 		<options>no_full_log</options>
+	</rule>
+
+<!-- Abnormal Destination Port Detected -->
+	<rule id="200204" level="10">
+		<if_sid>200152</if_sid>
+		<list field="eventdata.destinationPort" lookup="not_match_key">etc/lists/common-ports</list>
+		<description>Sysmon - Event 3: Network connection to Uncommon Port by $(eventdata.image)</description>
+		<group>sysmon_event3,</group>
 	</rule>
 
 </group>
